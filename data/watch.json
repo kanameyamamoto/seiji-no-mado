@@ -30,6 +30,60 @@
    "自由民主党・無所属の会": 315
   }
  },
+ "links": {
+  "https://digital.hakoshin.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://public-comment.e-gov.go.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://www.at-s.com/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 405: Not Allowed"
+  },
+  "https://www.e-gov.go.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://www.gov-online.go.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://www.hokuu.co.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://www.kanaloco.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 307: Temporary Redirect"
+  },
+  "https://www.kochinews.co.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://www.nikkan.co.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 404: Not Found"
+  },
+  "https://www.tv-asahi.co.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 406: Not Acceptable"
+  },
+  "https://www.tv-wakayama.co.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  "https://www.tvk-yokohama.com/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 307: Temporary Redirect"
+  },
+  "https://yama.minato-yamaguchi.co.jp/": {
+   "fails": 1,
+   "last_error": "HTTPError: HTTP Error 403: Forbidden"
+  }
+ },
  "note": "出典の見張りの記録（pipeline/watch_sources.py）と、見直し待ちのページ（pipeline/recheck.py が使う）。",
  "sources": {
   "https://cdp-japan.jp/": {
@@ -106,23 +160,28 @@
   },
   "https://doi.org/10.1016/j.jbankfin.2007.12.021": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "static"
   },
   "https://doi.org/10.1093/qje/qjw024": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "static"
   },
   "https://doi.org/10.1111/1540-6261.00594": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "static"
   },
   "https://doi.org/10.1111/j.1540-6261.2005.00746.x": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "static"
   },
   "https://doi.org/10.1111/j.1540-6261.2012.01746.x": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "static"
   },
   "https://econpapers.repec.org/RePEc:eee:jbfina:v:24:y:2000:i:10:p:1575-1604": {
    "checked": "2026-11-01",
@@ -234,11 +293,15 @@
   },
   "https://j-ba.or.jp/organization/jba103890.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fp": "a1c5107fe1a06550da5d",
+   "kind": "html",
+   "since": "2026-11-01"
   },
   "https://j-ba.or.jp/organization/jba104001.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fp": "a1c5107fe1a06550da5d",
+   "kind": "html",
+   "since": "2026-11-01"
   },
   "https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%AE%E3%81%A1%E3%81%AE%E5%85%9A_%282026%29": {
    "checked": "2026-11-01",
@@ -392,7 +455,8 @@
   },
   "https://jsite.mhlw.go.jp/chiba-roudoukyoku/hourei_seido_tetsuzuki/koyou_hoken/tetsuzuki/koyouhoken/koyouhoken15.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 1,
+   "last_error": "HTTP 404"
   },
   "https://jsite.mhlw.go.jp/chiba-roudoukyoku/hourei_seido_tetsuzuki/koyou_kintou/freelancegaiyou_00001.html": {
    "checked": "2026-11-01",
@@ -402,7 +466,7 @@
   },
   "https://jsite.mhlw.go.jp/kumamoto-roudoukyoku/content/contents/002019279.pdf": {
    "checked": "2026-11-01",
-   "fp": "1b181f3c577af55593d9",
+   "fp": "666af9e1de4d6b7daf04",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -420,7 +484,7 @@
   },
   "https://kumanichi.com/articles/1950284": {
    "checked": "2026-11-01",
-   "fp": "997ea08803f58ac91fa9",
+   "fp": "9bf5b9ffa8f8ff04ac30",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -432,25 +496,25 @@
   },
   "https://kumanichi.com/articles/2022801": {
    "checked": "2026-11-01",
-   "fp": "523a6cf0bba9e194b3fb",
+   "fp": "ab68b12558d9ee22a781",
    "kind": "html",
    "since": "2026-11-01"
   },
   "https://kumanichi.com/articles/2036690": {
    "checked": "2026-11-01",
-   "fp": "f531f99fe29e37f264f4",
+   "fp": "5cebd08696cf64cf31ff",
    "kind": "html",
    "since": "2026-11-01"
   },
   "https://kumanichi.com/articles/2042589": {
    "checked": "2026-11-01",
-   "fp": "a0c2ed487b9e018b41bd",
+   "fp": "839094180f38e7b1f8a5",
    "kind": "html",
    "since": "2026-11-01"
   },
   "https://kumanichi.com/articles/2044798": {
    "checked": "2026-11-01",
-   "fp": "17622c66a8e3224fbde2",
+   "fp": "07dd0b1f454ef5f0a0e3",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -1578,7 +1642,7 @@
   },
   "https://news.web.nhk/newsweb/na/nd-20261007de55905": {
    "checked": "2026-11-01",
-   "fp": "ad88c0fe8f2112232b2c",
+   "fp": "168bd6129106394ff38f",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -1620,7 +1684,7 @@
   },
   "https://o-ishin.jp/coalition2025/img/index/core_manifesto_2026.pdf": {
    "checked": "2026-11-01",
-   "fp": "d088784b7ecb87f1ea17",
+   "fp": "f3a6178415861b637192",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1632,7 +1696,7 @@
   },
   "https://o-ishin.jp/news/bill/pdf/030_1.pdf": {
    "checked": "2026-11-01",
-   "fp": "f00860e0501f52dda89f",
+   "fp": "ca07eeb8c4515738d84d",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1650,7 +1714,7 @@
   },
   "https://partsa.nikkei.com/parts/ds/shuin2026/pdf/sansei_b.pdf": {
    "checked": "2026-11-01",
-   "fp": "5bc6c1667d3121bcf579",
+   "fp": "e3f251354707e1389094",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1662,11 +1726,12 @@
   },
   "https://public-comment.e-gov.go.jp/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 1,
+   "last_error": "HTTP 403"
   },
   "https://query1.finance.yahoo.com/v8/finance/chart/%5EN225?period1=946684800&period2=1793404800&interval=1d": {
    "checked": "2026-11-01",
-   "fp": "f6e65e2f0de5713007a8",
+   "fp": "b106d4ff982035e5b445",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -1768,7 +1833,7 @@
   },
   "https://sdp.or.jp/wp-content/uploads/2026/01/71f84bd2f061b86553936e7a1a83f376.pdf": {
    "checked": "2026-11-01",
-   "fp": "538d6440534fa5f615e8",
+   "fp": "ee7de98baddad3c49634",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1780,13 +1845,13 @@
   },
   "https://storage.jimin.jp/pdf/aboutus/organization.pdf": {
    "checked": "2026-11-01",
-   "fp": "f931a0d0da224a796c84",
+   "fp": "45ae4bc9364fb10ec574",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://team-mir.ai/": {
    "checked": "2026-11-01",
-   "fp": "cef9c1ca27403f238a2f",
+   "fp": "dd33d7983826346a0469",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -1810,8 +1875,10 @@
   },
   "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx": {
    "checked": "2026-11-01",
+   "fails": 1,
    "fp": "c5454e17051a5dee0fe3",
    "kind": "html",
+   "last_error": "HTTP 404",
    "since": "2026-11-01"
   },
   "https://www.boj.or.jp/about/education/oshiete/intl/g08.htm": {
@@ -1840,25 +1907,25 @@
   },
   "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616a.pdf": {
    "checked": "2026-11-01",
-   "fp": "8d479102b5a02f04296d",
+   "fp": "650152ff0abb3f3d3cbf",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260918a.pdf": {
    "checked": "2026-11-01",
-   "fp": "a8dc534931de57f6d55d",
+   "fp": "4871e9362f9baecc91a4",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf": {
    "checked": "2026-11-01",
-   "fp": "6cb18d72d7c6abcee890",
+   "fp": "0329bc43930c0bd0485c",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030c.pdf": {
    "checked": "2026-11-01",
-   "fp": "67a68cbd6ed93d6c5c95",
+   "fp": "0ad7e5aa4dcbfc7603ab",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1954,7 +2021,7 @@
   },
   "https://www.bpo.gr.jp/wordpress/wp-content/themes/codex/pdf/kensyo/determination/2015/23/dec/0.pdf": {
    "checked": "2026-11-01",
-   "fp": "959f30f43444d16c1de7",
+   "fp": "037c15fa63deac9bfaca",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1972,7 +2039,7 @@
   },
   "https://www.caa.go.jp/policies/policy/food_labeling/food_sanitation/allergy/assets/food_labeling_cms204_260401_02.pdf": {
    "checked": "2026-11-01",
-   "fp": "6e86d22f18c3b4043343",
+   "fp": "813c5563de136eeaac1c",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -1996,7 +2063,7 @@
   },
   "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/doc/houangaiyo.pdf": {
    "checked": "2026-11-01",
-   "fp": "ba073ecc85f5ceb0b2d4",
+   "fp": "f4a4a32091ddd495e941",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2026,19 +2093,19 @@
   },
   "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/files/r08_komuin_shuruikazu.pdf": {
    "checked": "2026-11-01",
-   "fp": "f287ce54a78fd56a0583",
+   "fp": "9a69afc62e959a5845b6",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/kikouzu_202610/300.pdf": {
    "checked": "2026-11-01",
-   "fp": "51acb31a4bd25870cf72",
+   "fp": "3e92b5d201781d325bfc",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/kikouzu_202610/401.pdf": {
    "checked": "2026-11-01",
-   "fp": "6283f40911a13bf770b4",
+   "fp": "0ca75efeee06f4d1e2fc",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2056,7 +2123,7 @@
   },
   "https://www.cas.go.jp/jp/seisaku/nipponseichosenryaku/pdf/jgs2026.pdf": {
    "checked": "2026-11-01",
-   "fp": "a6b87bf578096be534e8",
+   "fp": "5ad5273d36f4e4eb775d",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2068,7 +2135,7 @@
   },
   "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-j.pdf": {
    "checked": "2026-11-01",
-   "fp": "048bc166083288ba23a4",
+   "fp": "bb29d12f79c7207a021c",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2110,7 +2177,7 @@
   },
   "https://www.chisou.go.jp/tiiki/rinjikoufukin/juutenshien/r8hosei_zimurenraku.pdf": {
    "checked": "2026-11-01",
-   "fp": "818cb719fdb788341bef",
+   "fp": "dd4c0ca4e83b62bc2769",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2146,7 +2213,7 @@
   },
   "https://www.city.kawasaki.jp/980/cmsfiles/contents/0000096/96965/310308-ken2(1).pdf": {
    "checked": "2026-11-01",
-   "fp": "83c6182fd8e24d892682",
+   "fp": "72832c01c242b875dec1",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2164,7 +2231,7 @@
   },
   "https://www.city.shizuoka.lg.jp/documents/58237/20260325002.pdf": {
    "checked": "2026-11-01",
-   "fp": "5725f4026380d0dbdc97",
+   "fp": "35a05a99c438f11cfd4d",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2290,7 +2357,8 @@
   },
   "https://www.gov-online.go.jp/article/202511/entry-9983.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 1,
+   "last_error": "HTTP 403"
   },
   "https://www.gpif.go.jp/": {
    "checked": "2026-11-01",
@@ -2306,7 +2374,7 @@
   },
   "https://www.gpif.go.jp/operation/38371785gpif/2026_1Q_0807_jp.pdf": {
    "checked": "2026-11-01",
-   "fp": "3d424dc627d4d99b9ebe",
+   "fp": "eaed712fe685aea4b660",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2318,19 +2386,25 @@
   },
   "https://www.ideco-koushiki.jp/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fp": "400aea0c3dbfac69f04d",
+   "kind": "html",
+   "since": "2026-11-01"
   },
   "https://www.ideco-koushiki.jp/faq/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fp": "6cf495ff68d93da6eeff",
+   "kind": "html",
+   "since": "2026-11-01"
   },
   "https://www.ideco-koushiki.jp/guide/structure.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fp": "b68091f41c7059ea344c",
+   "kind": "html",
+   "since": "2026-11-01"
   },
   "https://www.ipss.go.jp/ss-cost/j/fsss-R06/R06-houdou.pdf": {
    "checked": "2026-11-01",
-   "fp": "3a8b5efa37e2ef598e9a",
+   "fp": "4ad7c622f68842360486",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2342,7 +2416,7 @@
   },
   "https://www.jbaudit.go.jp/pr/print/pdf/panf_r8.pdf": {
    "checked": "2026-11-01",
-   "fp": "3f8507df0d6d891c902d",
+   "fp": "a622909addff0c5efbd4",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2378,7 +2452,7 @@
   },
   "https://www.jcci.or.jp/support/information/labor/20260416_youbou.pdf": {
    "checked": "2026-11-01",
-   "fp": "f8c2e3898971295057d8",
+   "fp": "b52090d37b0134da765d",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2456,15 +2530,18 @@
   },
   "https://www.jftc.go.jp/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.jftc.go.jp/file/toriteki_leaflet.pdf": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.jftc.go.jp/msca/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.jgrants-portal.go.jp/": {
    "checked": "2026-11-01",
@@ -2480,19 +2557,19 @@
   },
   "https://www.jiji.com/jc/article?k=2026090900156": {
    "checked": "2026-11-01",
-   "fp": "a87f4aba7d7bcd05e63c",
+   "fp": "b99eb41d937556708794",
    "kind": "html",
    "since": "2026-11-01"
   },
   "https://www.jiji.com/jc/article?k=2026091600098": {
    "checked": "2026-11-01",
-   "fp": "2fbf1a53865446f9e188",
+   "fp": "1059e6bd65dc2cf21560",
    "kind": "html",
    "since": "2026-11-01"
   },
   "https://www.jiji.com/jc/article?k=2026092400831": {
    "checked": "2026-11-01",
-   "fp": "0a6c34f0e7dc08a8a379",
+   "fp": "19e0779c0f7c2b480c0a",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -2666,7 +2743,7 @@
   },
   "https://www.komei.or.jp/wp-content/uploads/20261003_Constitution.pdf": {
    "checked": "2026-11-01",
-   "fp": "684367815a26b9a78d2f",
+   "fp": "40c9f282962b44749b24",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2684,7 +2761,7 @@
   },
   "https://www.maff.go.jp/j/kanbo/hitokuchi_memo/attach/pdf/index-151.pdf": {
    "checked": "2026-11-01",
-   "fp": "b316e4fde8c2576dc71c",
+   "fp": "bee8028e83c4e71558d0",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2708,19 +2785,23 @@
   },
   "https://www.meti.go.jp/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.meti.go.jp/files/900015353.pdf": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.meti.go.jp/press/2024/02/20250218001/20250218001.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.meti.go.jp/press/2025/12/20251216005/20251216005.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.metro.tokyo.lg.jp/information/press/2026/07/2026072406": {
    "checked": "2026-11-01",
@@ -2754,7 +2835,7 @@
   },
   "https://www.mext.go.jp/content/20260408-mxt_shuukyo03-100002595_1.pdf": {
    "checked": "2026-11-01",
-   "fp": "ffcb300c328c79fe63b8",
+   "fp": "194f951c90882d4a5594",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2766,59 +2847,60 @@
   },
   "https://www.mhlw.go.jp/content/000332869.pdf": {
    "checked": "2026-11-01",
-   "fp": "cc9a139339634051ecec",
+   "fp": "f21bc5a0cbba0c513763",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/001672589.pdf": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 1,
+   "last_error": "HTTP 404"
   },
   "https://www.mhlw.go.jp/content/001692566.pdf": {
    "checked": "2026-11-01",
-   "fp": "b5f7d35ddc2017c3fe9e",
+   "fp": "3ae3ec2337c90c1367a4",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/10200000/001516101.pdf": {
    "checked": "2026-11-01",
-   "fp": "31d048689e1d9c910db7",
+   "fp": "9b279d3cef90eb9e2452",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/11200000/001753404.pdf": {
    "checked": "2026-11-01",
-   "fp": "4d50742ca9e2cc09035d",
+   "fp": "b3dbf2f4f587d3ab8950",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/11600000/001255172.pdf": {
    "checked": "2026-11-01",
-   "fp": "6dbb30adcba4410937c5",
+   "fp": "4c61289de47a2af65d3d",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/11900000/001599643.pdf": {
    "checked": "2026-11-01",
-   "fp": "6692a8564bdecaf9f005",
+   "fp": "a1b33c7c76509799e259",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/12300000/001671185.pdf": {
    "checked": "2026-11-01",
-   "fp": "bdd1e9b7b5d7aa0543c6",
+   "fp": "549c6d06b7479d43e3f3",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/12500000/001714618.pdf": {
    "checked": "2026-11-01",
-   "fp": "e4d311ff0e32eaac7cd2",
+   "fp": "e81f9c65951789b5c615",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/content/12500000/001726957.pdf": {
    "checked": "2026-11-01",
-   "fp": "78ad3953c2fcf1193a81",
+   "fp": "05ba65274c6677f7a302",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2830,7 +2912,7 @@
   },
   "https://www.mhlw.go.jp/stf/newpage_21517.html": {
    "checked": "2026-11-01",
-   "fp": "7c77412337042a5a7d7b",
+   "fp": "501a504e753541e926b7",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -2848,13 +2930,13 @@
   },
   "https://www.mhlw.go.jp/stf/newpage_71570.html": {
    "checked": "2026-11-01",
-   "fp": "aca1f1338f73bff2b174",
+   "fp": "ccadd7210ffd4657c5cf",
    "kind": "html",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/stf/newpage_75950.html": {
    "checked": "2026-11-01",
-   "fp": "fa265050a9cd8ffa08b9",
+   "fp": "4dc485362d35c1dec7a4",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -2866,7 +2948,7 @@
   },
   "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000148322.html": {
    "checked": "2026-11-01",
-   "fp": "15509427fa1d2e2634bc",
+   "fp": "abce76fa332e2dfe1566",
    "kind": "html",
    "since": "2026-11-01"
   },
@@ -2902,13 +2984,13 @@
   },
   "https://www.mhlw.go.jp/toukei/itiran/roudou/roushi/kiso/25/dl/01.pdf": {
    "checked": "2026-11-01",
-   "fp": "3b59900ce4e577d21c54",
+   "fp": "9901d482384ffcc31006",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mhlw.go.jp/toukei/itiran/roudou/roushi/kiso/25/dl/05.pdf": {
    "checked": "2026-11-01",
-   "fp": "a074f932036726ba41d1",
+   "fp": "8bfb6ded8059a8adada6",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2920,7 +3002,7 @@
   },
   "https://www.mhlw.go.jp/toukei/saikin/hw/hihogosya/m2026/dl/07-01.pdf": {
    "checked": "2026-11-01",
-   "fp": "ada07bb2410fec613ff5",
+   "fp": "dd0a40ba4a1aeae67987",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2944,13 +3026,15 @@
   },
   "https://www.mod.go.jp/": {
    "checked": "2026-11-01",
+   "fails": 1,
    "fp": "d618550fe97983ff05eb",
    "kind": "html",
+   "last_error": "HTTP 403",
    "since": "2026-11-01"
   },
   "https://www.mod.go.jp/j/press/wp/wp2026/pdf/R08020102.pdf": {
    "checked": "2026-11-01",
-   "fp": "3c7b2ef4573f8a9f8f1c",
+   "fp": "176bad44bcc87880f9d0",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -2986,37 +3070,37 @@
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/account/fy2025/ke080731.pdf": {
    "checked": "2026-11-01",
-   "fp": "1c76d97ad77d5bf40697",
+   "fp": "973c485576ea86bbbef7",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/R8zantei_01.pdf": {
    "checked": "2026-11-01",
-   "fp": "e4e75c96de5dbaf8ca6c",
+   "fp": "de765062ba858c5be2c8",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/hosei260603a.pdf": {
    "checked": "2026-11-01",
-   "fp": "62737a8766923efc762b",
+   "fp": "1ae596965459f2b65637",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/hosei260603b.pdf": {
    "checked": "2026-11-01",
-   "fp": "672fc358f595df5a22f4",
+   "fp": "c8489314cdfc3d457067",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/hosei260603c.pdf": {
    "checked": "2026-11-01",
-   "fp": "dfdc90c85d17e3784c5c",
+   "fp": "773fbb46cbd78f093227",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/hosei260603d.pdf": {
    "checked": "2026-11-01",
-   "fp": "590c0d74782170007b1e",
+   "fp": "1fa3c949f2c5d5dfaaf6",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3028,61 +3112,61 @@
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/02.pdf": {
    "checked": "2026-11-01",
-   "fp": "174584cac97386aaaf0d",
+   "fp": "8ad3f49bb7bd4ea4966a",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf": {
    "checked": "2026-11-01",
-   "fp": "2488e184d1029053c715",
+   "fp": "e7d172213a044ea52554",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/05.pdf": {
    "checked": "2026-11-01",
-   "fp": "35dbcf3544a9296d4abe",
+   "fp": "f7c9dacc795dc1b711d8",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/13.pdf": {
    "checked": "2026-11-01",
-   "fp": "05fc87575027db6a36d0",
+   "fp": "ce292e3fe428d31e232e",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/19.pdf": {
    "checked": "2026-11-01",
-   "fp": "f968fa56d7385c5ac41d",
+   "fp": "cacb74297138af52b741",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/20.pdf": {
    "checked": "2026-11-01",
-   "fp": "1cb436b36e27e3a719de",
+   "fp": "3caafdc29f4d9ec59bb5",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/24.pdf": {
    "checked": "2026-11-01",
-   "fp": "6b325c8acbd967b5c93e",
+   "fp": "00702b626ce73c18fe98",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/26.pdf": {
    "checked": "2026-11-01",
-   "fp": "92d03dd3f9a57fa4380f",
+   "fp": "c0ff18562b0b6c154d40",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/28.pdf": {
    "checked": "2026-11-01",
-   "fp": "c5842ade3b82f481f9df",
+   "fp": "d6706680fc7e406de2c6",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/sy250808a.pdf": {
    "checked": "2026-11-01",
-   "fp": "956a136d3ef3edf04919",
+   "fp": "5b47cc4f08140b07a2c3",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3124,7 +3208,7 @@
   },
   "https://www.mof.go.jp/public_relations/finance/202604/202604c.pdf": {
    "checked": "2026-11-01",
-   "fp": "0fb0a94e01347c522aac",
+   "fp": "65d650bf396b1872d3d4",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3142,13 +3226,13 @@
   },
   "https://www.mof.go.jp/tax_policy/summary/consumption/keigen_00.pdf": {
    "checked": "2026-11-01",
-   "fp": "285948053dd68be509b6",
+   "fp": "25e838190c3d2384d259",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/tax_policy/summary/income/r7_tokuteifuyou_tokuteishinzoku.pdf": {
    "checked": "2026-11-01",
-   "fp": "08a88345f6587caf0d2c",
+   "fp": "27670b057abd9967c603",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3166,87 +3250,105 @@
   },
   "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.pdf": {
    "checked": "2026-11-01",
-   "fp": "d654b683acc766f2c72f",
+   "fp": "93dc0679c8daba87aed2",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/explanation/PDF/p0003-0010.pdf": {
    "checked": "2026-11-01",
-   "fp": "3e6df80739790c786aca",
+   "fp": "d7712a39c780d71e6b28",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.mofa.go.jp/mofaj/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/area/usa/hosho/jyoyaku.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/area/usa/hosho/jyoyaku_k.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/fp/pc/pageit_000001_03020.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/fp/unp_a/page22_001258.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/apec/soshiki/gaiyo.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/bluebook/2024/html/chapter3_01_05.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/bluebook/2026/html/chapter1_00_02.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/bluebook/2026/html/data04.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/bluebook/2026/html/index.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/bluebook/index.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/fta/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/jido/seka.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/jp_un/index.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/summit/index.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/gaiko/summit/ko_2000/faq/index.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/press/release/pressit_000001_03606.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.mofa.go.jp/mofaj/press/release/pressit_000001_03607.html": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 0,
+   "kind": "blocked"
   },
   "https://www.moj.go.jp/": {
    "checked": "2026-11-01",
@@ -3388,7 +3490,7 @@
   },
   "https://www.nhk.or.jp/info/otherpress/pdf/2025/20260212_1.pdf": {
    "checked": "2026-11-01",
-   "fp": "9603bf64fe3dbffc7c63",
+   "fp": "7489de8e90d157db3c69",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3412,7 +3514,8 @@
   },
   "https://www.nli-research.co.jp/files/topics/80125_ext_18_0.pdf?site=nli": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fails": 1,
+   "last_error": "HTTP 403"
   },
   "https://www.npa.go.jp/": {
    "checked": "2026-11-01",
@@ -3434,13 +3537,13 @@
   },
   "https://www.nta.go.jp/publication/pamph/gensen/2026kaisei.pdf": {
    "checked": "2026-11-01",
-   "fp": "768f3e430530aed806bd",
+   "fp": "d96d7ccb97fa7776194c",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.nta.go.jp/publication/pamph/sozoku/shikata-sozoku2024/pdf/E4.pdf": {
    "checked": "2026-11-01",
-   "fp": "85a39a27903f3c9d9510",
+   "fp": "c33588a61f149eb143a2",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3518,7 +3621,7 @@
   },
   "https://www.pref.aomori.lg.jp/soshiki/senkan/files2/kisei_gaiyo202604.pdf": {
    "checked": "2026-11-01",
-   "fp": "0b26cfac6989bfdfef63",
+   "fp": "33d4883568117247a90f",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3542,7 +3645,7 @@
   },
   "https://www.pref.saitama.lg.jp/documents/18220/h25tyousonnkai.pdf": {
    "checked": "2026-11-01",
-   "fp": "5ae8c701af58c4b1a695",
+   "fp": "8326567660bb5fb425d5",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -3674,7 +3777,9 @@
   },
   "https://www.shugiin.go.jp/": {
    "checked": "2026-11-01",
-   "fails": 0
+   "fp": "91f8850fb277575f7b03",
+   "kind": "html",
+   "since": "2026-11-01"
   },
   "https://www.shugiin.go.jp/Internet/itdb_shitsumon.nsf/html/shitsumon/b190133.htm": {
    "checked": "2026-11-01",
@@ -3894,79 +3999,79 @@
   },
   "https://www.soumu.go.jp/main_content/000255919.pdf": {
    "checked": "2026-11-01",
-   "fp": "f7518aac1e85d2edb040",
+   "fp": "9d8dbd7fd71a3e9cd6e2",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/000601877.pdf": {
    "checked": "2026-11-01",
-   "fp": "1eb5fab52e12000358cf",
+   "fp": "74f1555c03108f28daee",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/000718000.pdf": {
    "checked": "2026-11-01",
-   "fp": "1c127b41a27a8b0b2abe",
+   "fp": "85474756250c230b1a4e",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/000981755.pdf": {
    "checked": "2026-11-01",
-   "fp": "6ee50d0a4afcca1d18e5",
+   "fp": "7531a6951dc559c17ecc",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001042676.pdf": {
    "checked": "2026-11-01",
-   "fp": "a0fa623e21e207b05850",
+   "fp": "f94727d407295567d338",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001046234.pdf": {
    "checked": "2026-11-01",
-   "fp": "735c2e0e101dcf0c0be4",
+   "fp": "624b03f5fe023b19c698",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001046236.pdf": {
    "checked": "2026-11-01",
-   "fp": "2847a2f0132812e8f7fc",
+   "fp": "877317e76d8032d995e0",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001048684.pdf": {
    "checked": "2026-11-01",
-   "fp": "9081577db579ec5d17de",
+   "fp": "70e40ec700d5d4db765c",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001056680.pdf": {
    "checked": "2026-11-01",
-   "fp": "899561251221074192f2",
+   "fp": "5aa19c7295fac193d06b",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001067570.pdf": {
    "checked": "2026-11-01",
-   "fp": "9868834ea9a55d3a0d90",
+   "fp": "a6b8cedcbaff6ef42e8f",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001085011.pdf": {
    "checked": "2026-11-01",
-   "fp": "b3334c27d4eadc42e0e7",
+   "fp": "471534c29e663a2e3358",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001091774.pdf": {
    "checked": "2026-11-01",
-   "fp": "1bdd1447d209078558e2",
+   "fp": "9e3cfb2904ec6d64a4e4",
    "kind": "pdf",
    "since": "2026-11-01"
   },
   "https://www.soumu.go.jp/main_content/001092545.pdf": {
    "checked": "2026-11-01",
-   "fp": "6788806e833aa0c7a8ef",
+   "fp": "136c96dc54ad23aaf244",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -4206,7 +4311,7 @@
   },
   "https://www5.cao.go.jp/kanshi/pdf/katsudo/r7katsudo.pdf": {
    "checked": "2026-11-01",
-   "fp": "18549c6d72582c9de528",
+   "fp": "0c2695509ccabcdb02c3",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -4224,7 +4329,7 @@
   },
   "https://www8.cao.go.jp/kisei-kaikaku/kisei/publication/program/260721/02_point.pdf": {
    "checked": "2026-11-01",
-   "fp": "4ce361f2c6a72f8ff953",
+   "fp": "532d1c8e138b2a1443fa",
    "kind": "pdf",
    "since": "2026-11-01"
   },
@@ -4242,7 +4347,7 @@
   },
   "https://www8.cao.go.jp/shougai/whitepaper/r08hakusho/zenbun/pdf/material.pdf": {
    "checked": "2026-11-01",
-   "fp": "9ceb85a28de3005b0a0b",
+   "fp": "fc182d7171eb90762bbe",
    "kind": "pdf",
    "since": "2026-11-01"
   }
