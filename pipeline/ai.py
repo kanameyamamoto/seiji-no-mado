@@ -6,7 +6,7 @@
     Claude が答えを work/answers/ に置くと、次に動いたときにそれを使って先に進む。
   - WRITER=api：Anthropic の API を直接呼ぶ（ANTHROPIC_API_KEY・WRITER_MODEL）。
 
-確かめる担当：Google Gemini（GEMINI_API_KEY、モデルは CHECKER_MODEL。既定 gemini-flash-latest）。
+確かめる担当：Google Gemini（GEMINI_API_KEY。モデルは GEMINI_MODELS の順に試す。CHECKER_MODEL で1つに決めることもできる）。
   OpenAI に戻すときは CHECKER=openai（OPENAI_API_KEY）。
   回数の上限（無料枠）に当たったら、失敗にはせず、その件を次の回に回す（RetryLater）。
 
@@ -111,7 +111,10 @@ def write_with_search(system, user, max_tokens=4000, max_searches=5):
 
 # ---------- 確かめる担当 ----------
 
-GEMINI_MODELS = ["gemini-flash-latest", "gemini-2.5-flash"]  # 名前が見つからない（404）ときは次を試す
+# 上から順に試す。名前がない（404）・回数の上限（429）・応答しないときは、次のモデルへ。
+# 2026年11月に試した結果：gemini-3.8-flash は約50秒、軽い版（gemini-flash-lite-latest → gemini-3.5-flash-lite）は約1秒で、
+# どちらも見本の記事のまちがい（評価語・施行日の誤り）を見つけた。
+GEMINI_MODELS = ["gemini-3.8-flash", "gemini-flash-lite-latest"]
 
 
 def _gemini(system, user):
@@ -119,31 +122,30 @@ def _gemini(system, user):
     body = {"systemInstruction": {"parts": [{"text": system}]},
             "contents": [{"role": "user", "parts": [{"text": user}]}],
             "generationConfig": {"responseMimeType": "application/json", "temperature": 0}}
-    last = None
+    reasons = []
     for model in models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-        for i in range(3):
+        for i in range(2):
             try:
-                res = _post(url, {"content-type": "application/json", "x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body)
+                res = _post(url, {"content-type": "application/json", "x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body, timeout=150)
                 cands = res.get("candidates") or []
                 text = "".join(p.get("text", "") for p in (cands[0].get("content", {}).get("parts", []) if cands else []))
+                if not text.strip():
+                    reasons.append(f"{model}：空の返事")
+                    break
                 return text, res.get("modelVersion", model)
             except urllib.error.HTTPError as e:
-                last = e
-                if e.code == 404:
-                    break  # このモデル名はない → 次のモデル
-                if e.code == 429:  # 無料枠の回数の上限
-                    if i < 2:
-                        time.sleep(30)
-                        continue
-                    raise RetryLater("Gemini の回数の上限（無料枠）")
-                if e.code in (500, 502, 503, 504):
-                    time.sleep(10 * (i + 1))
+                if e.code in (500, 502, 503, 504) and i == 0:
+                    time.sleep(15)
                     continue
+                reasons.append(f"{model}：HTTP {e.code}")
+                if e.code in (404, 429, 500, 502, 503, 504):
+                    break  # 次のモデルへ
                 raise
-        else:
-            raise RetryLater("Gemini が応答しない")
-    raise last
+            except (TimeoutError, OSError) as e:  # 応答しない・接続が切れた
+                reasons.append(f"{model}：{type(e).__name__}")
+                break
+    raise RetryLater("Gemini で確かめられない（" + "、".join(reasons) + "）")
 
 
 def _openai(system, user):
