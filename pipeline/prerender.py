@@ -109,14 +109,14 @@ def block(b):
 class Site:
     """検索用のページ＝サイト本体（index.html）の写し。
     ・<base> で、データや画像の場所をサイトの一番上にそろえる
-    ・開いたときに、そのページの表示（#learn… など）で始まるようにする
+    ・サイト本体は住所（例：learn/what-is-politics/）からページを決めるので、開くとそのページが表示される
     ・本体が表示されるまでの間（と、検索エンジン）のために、中身の文章を #app に入れておく（本体が表示されると置きかわる）
     ・タイトル・説明・canonical などは、そのページのものにする
     """
     def __init__(self, out, base):
         self.out, self.base, self.urls = out, base.rstrip("/") + "/", []
         self.tpl = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-        for need in ("<head>", "<title>せいじのまど</title>", '<div class="wrap" id="app"></div>', "\n<script>\n"):
+        for need in ('<base href="./">', "<title>せいじのまど</title>", '<div class="wrap" id="app"></div>'):
             assert need in self.tpl, f"index.html に {need!r} がありません"
 
     def page(self, path, title, desc, body, app_route, lastmod=""):
@@ -125,7 +125,7 @@ class Site:
         desc = re.sub(r"\s+", " ", t(desc))[:120]
         full = f"{title}｜せいじのまど"
         h = self.tpl
-        h = h.replace("<head>", f'<head>\n<base href="{up}">', 1)
+        h = h.replace('<base href="./">', f'<base href="{up}">', 1)
         h = h.replace("<title>せいじのまど</title>", f"<title>{html.escape(full)}</title>", 1)
         h = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{html.escape(desc)}">', h, count=1)
         h = re.sub(r'<meta property="og:description" content="[^"]*">', lambda m: f'<meta property="og:description" content="{html.escape(desc)}">', h, count=1)
@@ -134,7 +134,6 @@ class Site:
         h = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', h, count=1)
         h = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{url}">', h, count=1)
         h = h.replace('<div class="wrap" id="app"></div>', f'<div class="wrap" id="app"><article class="seo-static">{body}</article></div>', 1)
-        h = h.replace("\n<script>\n", f"\n<script>if (!location.hash) history.replaceState(null, '', '#{app_route}');</script>\n<script>\n", 1)
         d = os.path.join(self.out, path)
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(h)
@@ -232,25 +231,46 @@ def main():
     body += hist_html(E)
     site.page("elections/", "選挙の結果", "最近の衆議院選挙・参議院選挙の結果（政党ごとの議席数・投票率）。", body, "elections", E.get("checked") or parties.get("checked"))
 
-    # メディア
-    for s in media["sections"]:
-        body = f"<div class=\"meta\"><span>メディア</span></div><h1>{e(s['name'])}</h1>"
-        if s.get("lead"):
-            body += f"<p class=\"lead\">{e(s['lead'])}</p>"
-        if s.get("directory"):
-            body += "<ul>" + "".join(f"<li>{link(x.get('url', ''), x.get('name'))}{(' — ' + e(x['sub'])) if x.get('sub') else ''}</li>" for x in s["directory"]) + "</ul>"
-        for p in s.get("pages", []):
-            body += f"<h2>{e(p['title'])}</h2>" + (f"<p>{e(p['summary'])}</p>" if p.get("summary") else "") + "".join(block(b) for b in p.get("blocks", [])) + sources_html(p.get("sources"))
-        site.page(f"media/{s['id']}/", s["name"], s.get("lead") or s["name"], body, "media", s.get("checked") or media.get("checked"))
+    # メディア（一覧はタブのページに、解説ページは media/<id>/ に）
+    body = "<h1>メディアの一覧</h1>"
+    for sec in media["sections"]:
+        body += f"<h2>{e(sec['name'])}</h2>" + (f"<p>{e(sec['lead'])}</p>" if sec.get("lead") else "")
+        if sec.get("directory"):
+            body += "<ul>" + "".join(f"<li>{link(x.get('url', ''), x.get('name'))}{(' — ' + e(x['sub'])) if x.get('sub') else ''}</li>" for x in sec["directory"]) + "</ul>"
+        for p in sec.get("pages", []):
+            body += f'<p><a href="media/{p["id"]}/">{e(p["title"])}</a></p>'
+            pb = (f"<div class=\"meta\"><span>メディア・{html.escape(sec['name'])}</span></div><h1>{e(p['title'])}</h1>"
+                  + (f"<p class=\"lead\">{e(p['summary'])}</p>" if p.get("summary") else "") + "".join(block(b) for b in p.get("blocks", []))
+                  + sources_html(p.get("sources")) + hist_html(p))
+            site.page(f"media/{p['id']}/", p["title"], p.get("summary") or p["title"], pb, f"pg-media-{p['id']}", p.get("checked") or media.get("checked"))
+    tabs = []
+    tabs.append(("media/", "メディアの一覧", "新聞・テレビ・ラジオ・ネットメディアなど、日本の主なメディアの一覧。", body, "media", media.get("checked")))
 
-    # ページの一覧（検索エンジンが全ページをたどれるように）
-    groups = {"a": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党", "elections": "選挙", "media": "メディア"}
-    body = "<h1>ページの一覧</h1><p>このサイトのすべてのページです。</p>"
-    for g, label in groups.items():
-        items = [(u, ti, pth) for u, _, ti, pth in site.urls if pth.split("/")[0] == g]
-        body += f"<h2>{label}（{len(items)}）</h2><ul>" + "".join(f'<li><a href="{pth}">{html.escape(ti)}</a></li>' for _, ti, pth in items) + "</ul>"
-    site.page("pages/", "ページの一覧", "せいじのまどの全ページの一覧。国会で決まったこと・学ぶ・つながり・政党・選挙・メディア。", body, "home",
-              datetime.datetime.now(JST).strftime("%Y-%m-%d"))
+    def lst(items):
+        return "<ul>" + "".join(f'<li><a href="{u}">{html.escape(ti)}</a></li>' for u, ti in items) + "</ul>"
+
+    # タブのページ（それぞれの一覧。検索エンジンがすべてのページをたどれるように）
+    body = f"<h1>国会で決まったこと</h1><p>{e(feed.get('criteria'))}</p>" + lst([(f"a/{it['id']}/", f"{it['title']}（{jdate(it['date'])} {it['kind']}）") for it in feed["items"]])
+    tabs.append(("laws/", "国会で決まったこと", feed.get("criteria", ""), body, "laws", feed.get("checked")))
+    body = "<h1>学ぶ</h1>" + "".join(f"<h2>{e(sec['name'])}</h2>" + lst([(f"learn/{p['id']}/", p["title"]) for p in sec["pages"]]) for sec in learn["sections"])
+    tabs.append(("learn/", "学ぶ", "政治のしくみを、コースで順番に学べるページの一覧。", body, "learn", learn.get("checked")))
+    body = "<h1>つながり</h1>" + "".join(f"<h2>{e(sec['name'])}</h2>" + lst([(f"links/{p['id']}/", p["title"]) for p in sec["pages"]]) for sec in links["sections"])
+    tabs.append(("links/", "つながり", "予算・省庁・政治資金など、政治と暮らしのつながりを数字とグラフで見るページの一覧。", body, "links", links.get("checked")))
+    body = ("<h1>政党</h1><h2>国政政党</h2>" + lst([(f"party/{p['id']}/", p["name"]) for p in parties["national"]])
+            + "<h2>そのほかの政党・政治団体</h2>" + lst([(f"party/o{i}/", p["name"]) for i, p in enumerate(parties["others"])])
+            + '<p><a href="elections/">選挙の結果</a>・<a href="laws/">国会で決まったこと</a></p>')
+    tabs.append(("parties/", "政党・選挙", "国政政党の成り立ち・考え方・主な政策・国会での賛否を、すべての党で同じ項目で紹介。", body, "parties", parties.get("checked")))
+    rules = load("rules")
+    body = "<h1>このサイトについて</h1><p>どの党にもメディアにも偏らないよう、事実と意見を分け、結論は書きません。書き方のルールは、すべて公開しています。</p>"
+    for g in rules.get("groups", []):
+        body += f"<h2>{e(g['name'])}</h2><ul>" + "".join(f"<li><b>{e(r['id'])}</b> {e(r['text'])}</li>" for r in g["rules"]) + "</ul>"
+    tabs.append(("about/", "このサイトについて", "せいじのまどの書き方のルール（事実と意見を分ける・結論は書かない など）の一覧。", body, "about", rules.get("updated")))
+    gl = load("glossary")
+    body = "<h1>ことばの一覧</h1><dl>" + "".join(f"<dt>{html.escape(k)}</dt><dd>{e(v.get('text') if isinstance(v, dict) and 'text' in v else v)}</dd>" for k, v in sorted(gl.items())) + "</dl>"
+    tabs.append(("terms/", "ことばの一覧", "政治のニュースに出てくることばと、過去の政党の説明の一覧。", body, "terms", ""))
+    tabs.append(("search/", "検索", "せいじのまどの中を検索する。", "<h1>検索</h1>", "search", ""))
+    for args in tabs:
+        site.page(*args)
 
     # サイトマップと robots.txt
     today = datetime.datetime.now(JST).strftime("%Y-%m-%d")
@@ -261,6 +281,10 @@ def main():
     xml.append("</urlset>")
     open(os.path.join(out, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(xml) + "\n")
     open(os.path.join(out, "robots.txt"), "w", encoding="utf-8").write(f"User-agent: *\nAllow: /\nSitemap: {site.base}sitemap.xml\n")
+    # どの住所にもないとき（GitHub Pages が 404.html を返す）：本体の写しで、住所からページを決めて表示する
+    root = re.sub(r"^https?://[^/]+", "", site.base)
+    nf = site.tpl.replace('<base href="./">', f'<base href="{root}">', 1).replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
+    open(os.path.join(out, "404.html"), "w", encoding="utf-8").write(nf)
     print(f"検索用のページ {len(site.urls)} 件と sitemap.xml を書き出しました")
 
 

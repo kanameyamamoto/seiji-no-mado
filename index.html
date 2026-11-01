@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<base href="./">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="google-site-verification" content="cEKRbG7-VUNKB1BaoeahH-8lBdpyYHdoscfzKYmwZFg">
 <meta name="description" content="政治の情報を、どの党にもメディアにも偏らずに届けるサイト。事実と意見を分け、結論は書きません。書き方のルールはすべて公開しています。">
@@ -649,7 +650,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home" aria-label="せいじのまど ホーム">
+    <a class="brand" href="./" data-go="home" aria-label="せいじのまど ホーム">
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 5v22M5 16h22" stroke="currentColor" stroke-width="2"/><rect x="7.5" y="7.5" width="6.5" height="6.5" rx="1.2" fill="var(--nav-muted)" opacity=".55"/></svg>
       せいじのまど
     </a>
@@ -669,6 +670,32 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 <script>
 (function () {
   'use strict';
+  // ---- 住所（URL）とページの対応。例：学ぶの「政治とは」＝ learn/what-is-politics/ ----
+  var BASE = new URL('.', document.baseURI).pathname;
+  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'laws', 'elections', 'about', 'search', 'terms'];
+  function routeToPath(r) {
+    if (!r || r === 'home') return '';
+    if (TAB_ROUTES.indexOf(r) >= 0) return r + '/';
+    if (r.indexOf('a-') === 0) return 'a/' + r.slice(2) + '/';
+    if (r.indexOf('pg-') === 0) { var rest = r.slice(3), i = rest.indexOf('-'); return rest.slice(0, i) + '/' + rest.slice(i + 1) + '/'; }
+    if (r.indexOf('p-') === 0) return 'party/' + r.slice(2) + '/';
+    return '';
+  }
+  function pathToRoute(path) {
+    var rel = path.indexOf(BASE) === 0 ? path.slice(BASE.length) : path.replace(/^\//, '');
+    var parts = rel.replace(/index\.html$/, '').split('/').filter(Boolean).map(decodeURIComponent);
+    if (!parts.length) return 'home';
+    if (parts.length === 1 && TAB_ROUTES.indexOf(parts[0]) >= 0) return parts[0];
+    if (parts.length === 2) {
+      if (parts[0] === 'a') return 'a-' + parts[1];
+      if (parts[0] === 'party') return 'p-' + parts[1];
+      if (parts[0] === 'learn' || parts[0] === 'links' || parts[0] === 'media') return 'pg-' + parts[0] + '-' + parts[1];
+    }
+    return 'home';
+  }
+  function curR() { return pathToRoute(location.pathname); }
+  // 前の形（#pg-learn-… など）の住所で開かれたら、新しい形に直す
+  if (location.hash.length > 1 && /^[a-z]/.test(location.hash.slice(1))) history.replaceState(null, '', BASE + routeToPath(location.hash.slice(1)));
   var ICON = {
     home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20H14.5v-5.5h-5V20H4z"/></svg>',
     learn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5M12 6.5C14 5 17 4.5 20 5v13c-3-.5-6 0-8 1.5M12 6.5v13"/></svg>',
@@ -772,7 +799,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     }).join('');
   }
   function currentTab() {
-    var h = location.hash.slice(1) || 'home';
+    var h = curR();
     if (h === 'laws') return 'parties';
     if (h.indexOf('a-') === 0) return 'home';
     if (h.indexOf('pg-') === 0) return h.slice(3).split('-')[0];
@@ -1559,7 +1586,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 
   /* ---------- router ---------- */
   function render() {
-    var h = location.hash.slice(1) || 'home';
+    var h = curR();
     var html;
     seenTerms = {}; hidePop();
     // タブの名前：どのURLから開いても、表示しているページの名前にそろえる
@@ -1619,7 +1646,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     var secs = [].slice.call(app.querySelectorAll('.panel[id]')).filter(function (s) { return s.querySelector('h2'); });
     sheet('目次', '<div class="toc-list">' + secs.map(function (s) { return '<button data-toc="' + s.id + '">' + esc(s.querySelector('h2').childNodes[0].textContent) + ICON.chev + '</button>'; }).join('') + '</div>');
   }
-  function go(v) { closeSheet(); if (location.hash.slice(1) === v) { render(); } else { location.hash = v; } window.scrollTo(0, 0); }
+  function go(v) { closeSheet(); if (curR() === v) { render(); } else { nav(v); } window.scrollTo(0, 0); }
 
   document.addEventListener('click', function (e) {
     var t = e.target.closest('button, a');
@@ -1632,13 +1659,13 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (t.dataset.rule) return ruleSheet(t.dataset.rule);
     if (t.dataset.term || t.dataset.explain) { e.preventDefault(); return showPop(t, false); }
     if (t.hasAttribute('data-ask')) return aiSheet();
-    if (t.dataset.course !== undefined) { var y7 = window.scrollY, fromGrid = t.classList.contains('course-card'); state.courseIdx = Number(t.dataset.course); store('sh-course', String(state.courseIdx)); if (location.hash.slice(1) !== 'learn') { location.hash = 'learn'; return; } render(); if (fromGrid) { var cp = document.querySelector('.course'); if (cp) cp.scrollIntoView({ block: 'start' }); } else window.scrollTo(0, y7); return; }
+    if (t.dataset.course !== undefined) { var y7 = window.scrollY, fromGrid = t.classList.contains('course-card'); state.courseIdx = Number(t.dataset.course); store('sh-course', String(state.courseIdx)); if (curR() !== 'learn') { nav('learn'); return; } render(); if (fromGrid) { var cp = document.querySelector('.course'); if (cp) cp.scrollIntoView({ block: 'start' }); } else window.scrollTo(0, y7); return; }
     if (t.dataset.lcat) { state.learnCat = t.dataset.lcat; return render(); }
     if (t.hasAttribute('data-shuffle')) { state.order = null; state.homeShown = 12; return render(); }
     if (t.hasAttribute('data-hmore')) { var y4 = window.scrollY; state.homeShown += 12; render(); window.scrollTo(0, y4); return; }
     if (t.dataset.level) { var y = window.scrollY; state.level = t.dataset.level; store('sh-level', state.level); render(); window.scrollTo(0, y); return; }
     if (t.dataset.mseg) { state.mediaSeg = t.dataset.mseg; return render(); }
-    if (t.dataset.pseg) { state.partiesSeg = t.dataset.pseg; var cur0 = location.hash.slice(1); if ((cur0 === 'elections' || cur0 === 'laws') && cur0 !== t.dataset.pseg) { history.replaceState(null, '', '#parties'); curRoute = 'parties'; } return render(); }
+    if (t.dataset.pseg) { state.partiesSeg = t.dataset.pseg; var cur0 = curR(); if ((cur0 === 'elections' || cur0 === 'laws') && cur0 !== t.dataset.pseg) { history.replaceState(null, '', BASE + 'parties/'); curRoute = 'parties'; } return render(); }
     if (t.dataset.fsort) { state.feedSort = t.dataset.fsort; state.feedShown = PAGE_SIZE; store('sh-sort', state.feedSort); return render(); }
     if (t.dataset.fkind !== undefined) { state.feedKind = t.dataset.fkind; state.feedShown = PAGE_SIZE; return render(); }
     if (t.hasAttribute('data-more')) { var y2 = window.scrollY; state.feedShown += PAGE_SIZE; render(); window.scrollTo(0, y2); return; }
@@ -1668,12 +1695,14 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSheet(); hidePop(); } });
   window.addEventListener('scroll', function () { if (!document.querySelector('#pop:hover')) hidePop(); }, { passive: true });
-  var curRoute = location.hash.slice(1) || 'home', navStack = [], popping = false;
-  window.addEventListener('hashchange', function () {
-    var nr = location.hash.slice(1) || 'home';
+  var curRoute = curR(), navStack = [], popping = false;
+  function onRoute() {
+    var nr = curR();
     if (popping) { popping = false; navStack.pop(); } else if (nr !== curRoute) navStack.push(curRoute);
     curRoute = nr; render(); window.scrollTo(0, 0);
-  });
+  }
+  function nav(r) { history.pushState(null, '', BASE + routeToPath(r)); onRoute(); }
+  window.addEventListener('popstate', function () { if (navStack.length) navStack.pop(); popping = false; curRoute = curR(); render(); window.scrollTo(0, 0); });
 
   var files = ['rules', 'feed', 'parties', 'media', 'learn', 'links', 'glossary'];
   app.innerHTML = '<p class="meta" style="padding:40px 0"><span>読み込み中</span></p>';
