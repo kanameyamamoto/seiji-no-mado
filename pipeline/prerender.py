@@ -115,11 +115,51 @@ class Site:
     """
     def __init__(self, out, base):
         self.out, self.base, self.urls = out, base.rstrip("/") + "/", []
-        self.tpl = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        tpl = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        # 見た目（CSS）とプログラム（JS）は別のファイルにして、全ページで共有する（各ページは中身だけになり、軽くなる）
+        import hashlib
+        css = re.search(r"<style>\n?(.*?)</style>", tpl, flags=re.S)
+        js = re.search(r"\n<script>\n(.*?)\n</script>\n", tpl, flags=re.S)
+        assert css and js, "index.html の <style> と <script> が見つかりません"
+        ver = hashlib.sha1((css.group(1) + js.group(1)).encode("utf-8")).hexdigest()[:10]
+        os.makedirs(out, exist_ok=True)
+        open(os.path.join(out, "app.css"), "w", encoding="utf-8").write(css.group(1))
+        open(os.path.join(out, "app.js"), "w", encoding="utf-8").write(js.group(1))
+        tpl = tpl.replace(css.group(0), f'<link rel="stylesheet" href="app.css?v={ver}">', 1)
+        tpl = tpl.replace(js.group(0), f'\n<script src="app.js?v={ver}"></script>\n', 1)
+        self.tpl = tpl
+        open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(tpl)  # サイトの一番上のページも同じ形に
         for need in ('<base href="./">', "<title>せいじのまど</title>", '<div class="wrap" id="app"></div>'):
             assert need in self.tpl, f"index.html に {need!r} がありません"
 
-    def page(self, path, title, desc, body, app_route, lastmod=""):
+    SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
+               "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
+               "about": "このサイトについて", "terms": "ことばの一覧", "search": "検索", "api": "データを使う（公開API）"}
+    SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
+
+    def ld(self, path, title, desc, lastmod, extra):
+        """構造化データ（schema.org の JSON-LD）。どのページかを、検索エンジンや AI が読める形で書く。"""
+        org = {"@type": "Organization", "name": "せいじのまど", "url": self.base}
+        first = path.split("/")[0]
+        crumbs = [{"@type": "ListItem", "position": 1, "name": "せいじのまど", "item": self.base}]
+        sec_path = self.SECTION_PATH.get(first, first + "/")
+        if sec_path != path:
+            crumbs.append({"@type": "ListItem", "position": 2, "name": self.SECTION.get(first, first), "item": self.base + sec_path})
+        crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": title, "item": self.base + path})
+        main = {"@type": "WebPage", "name": title, "description": desc, "url": self.base + path, "inLanguage": "ja", "publisher": org}
+        if lastmod and re.match(r"\d{4}-\d{2}-\d{2}", lastmod):
+            main["dateModified"] = lastmod[:10]
+        if extra:
+            main.update(extra)
+            if extra.get("@type") in ("Article", "LearningResource"):
+                main.setdefault("headline", title)
+                main["publisher"] = org
+                main["author"] = org
+        main["isAccessibleForFree"] = True
+        main["license"] = "https://creativecommons.org/licenses/by/4.0/"
+        return {"@context": "https://schema.org", "@graph": [main, {"@type": "BreadcrumbList", "itemListElement": crumbs}]}
+
+    def page(self, path, title, desc, body, app_route, lastmod="", ld=None):
         up = "../" * path.count("/")
         url = self.base + path
         desc = re.sub(r"\s+", " ", t(desc))[:120]
@@ -134,6 +174,8 @@ class Site:
         h = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', h, count=1)
         h = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{url}">', h, count=1)
         h = h.replace('<div class="wrap" id="app"></div>', f'<div class="wrap" id="app"><article class="seo-static">{body}</article></div>', 1)
+        jl = json.dumps(self.ld(path, title, desc, lastmod or "", ld), ensure_ascii=False).replace("</", "<\\/")
+        h = h.replace("</head>", f'<script type="application/ld+json">{jl}</script>\n</head>', 1)
         d = os.path.join(self.out, path)
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(h)
@@ -170,7 +212,13 @@ def main():
                 seen.add(s.get("url"))
                 uniq.append(s)
         body += sources_html(uniq) + hist_html(it)
-        site.page(f"a/{it['id']}/", it["title"], it.get("lead"), body, "a-" + it["id"], it.get("checked") or it.get("date"))
+        site.page(f"a/{it['id']}/", it["title"], it.get("lead"), body, "a-" + it["id"], it.get("checked") or it.get("date"),
+                  {"@type": "Article", "datePublished": it.get("date"), "articleSection": it.get("kind"),
+                   "about": {"@type": "Legislation", "name": it.get("formal") or it.get("title"),
+                             **({"legislationIdentifier": it["law_no"]} if it.get("law_no") else {}),
+                             **({"legislationDate": it["promulgated"]} if it.get("promulgated") else {}),
+                             "legislationJurisdiction": "日本", "legislationPassedBy": {"@type": "Organization", "name": "国会"}},
+                   "isBasedOn": [s["url"] for s in uniq]})
 
     # 学ぶ・つながり
     for name, d in (("learn", learn), ("links", links)):
@@ -185,7 +233,9 @@ def main():
                     body += f"<p class=\"lead\">{e(p['summary'])}</p>"
                 body += "".join(block(b) for b in p.get("blocks", []) if b.get("type") != "hook")
                 body += sources_html(p.get("sources")) + hist_html(p)
-                site.page(f"{name}/{p['id']}/", p["title"], p.get("summary") or p["title"], body, f"pg-{name}-{p['id']}", p.get("checked"))
+                site.page(f"{name}/{p['id']}/", p["title"], p.get("summary") or p["title"], body, f"pg-{name}-{p['id']}", p.get("checked"),
+                          {"@type": "LearningResource" if name == "learn" else "Article", "articleSection": s["name"],
+                           "isBasedOn": [x["url"] for x in (p.get("sources") or []) if x.get("url")][:30]})
 
     # 政党
     def party_page(p, key, route):
@@ -214,11 +264,38 @@ def main():
         if pr.get("near"):
             body += f"<h2>あなたの暮らしでは</h2><p>{e(pr['near'])}</p>"
         body += sources_html(pr.get("sources")) + hist_html(p)
-        site.page(f"party/{key}/", p["name"], pr.get("catch") or p.get("summary") or p.get("detail") or p["name"], body, route, p.get("checked") or parties.get("checked"))
+        site.page(f"party/{key}/", p["name"], pr.get("catch") or p.get("summary") or p.get("detail") or p["name"], body, route, p.get("checked") or parties.get("checked"),
+                  {"@type": "ProfilePage", "mainEntity": {"@type": "PoliticalParty", "name": p["name"], **({"url": p["url"]} if p.get("url") else {}),
+                                                         **({"foundingDate": p["founded"]} if p.get("founded") else {})}})
     for p in parties["national"]:
         party_page(p, p["id"], "p-" + p["id"])
     for i, p in enumerate(parties["others"]):
         party_page(p, f"o{i}", f"p-o{i}")
+
+    # 国会議員・知事
+    M, G, MV = load("members"), load("governors"), load("member_votes")
+    pname = {p["id"]: p["name"] for p in parties["national"]}
+    fe = {it["id"]: it for it in feed["items"]}
+    for m in M["members"]:
+        meta = [m["yomi"], m["house"] + "議員", f"会派 {m['kaiha']}", m["district"], (f"当選{m['terms']}回" if m.get("terms") else ""),
+                (f"任期 {jdate(m['term_end'])}まで" if m.get("term_end") else "")]
+        body = f"<h1>{html.escape(m['name'])}</h1><div class=\"meta\">" + "".join(f"<span>{html.escape(x)}</span>" for x in meta if x) + "</div>"
+        if m.get("parties"):
+            body += "<p>" + ("この会派を組む党：" if len(m["parties"]) > 1 else "政党：") + "・".join(f'<a href="party/{pid}/">{html.escape(pname.get(pid, pid))}</a>' for pid in m["parties"]) + "</p>"
+        if m["house"] == "参議院":
+            sv = MV.get("votes", {}).get(m["id"], "")
+            rows = [(fe[i], sv[k] if k < len(sv) else "-") for k, i in enumerate(MV.get("items", [])) if i in fe]
+            lab = {"Y": "賛成", "N": "反対", "-": "記録なし"}
+            if any(v != "-" for _, v in rows):
+                body += ("<h2>国会での賛否（参議院の本会議）</h2><ul>" +
+                         "".join(f'<li>{lab[v]}：<a href="a/{it["id"]}/">{html.escape(it["title"])}</a>（{jdate(it["date"])}）</li>' for it, v in rows) + "</ul>")
+        srcs = ([{"label": "参議院 議員のページ", "url": m["url"]}] if m.get("url") else []) + [(M["shu"] if m["house"] == "衆議院" else M["san"])["source"]]
+        body += sources_html(srcs)
+        site.page(f"member/{m['id']}/", m["name"], f"{m['house']}議員（{m['kaiha']}・{m['district']}）。会派・選挙区・当選回数" + ("と、参議院の本会議での賛否。" if m["house"] == "参議院" else "。"),
+                  body, "m-" + m["id"], M.get("checked"),
+                  {"@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": m["name"], "alternateName": m["yomi"], "jobTitle": m["house"] + "議員",
+                                                         "memberOf": [{"@type": "Organization", "name": m["kaiha"]}] + [{"@type": "PoliticalParty", "name": pname.get(x, x)} for x in m.get("parties", [])],
+                                                         **({"sameAs": [m["url"]]} if m.get("url") else {})}})
 
     # 選挙の結果
     E = parties["elections"]
@@ -269,6 +346,16 @@ def main():
     body = "<h1>ことばの一覧</h1><dl>" + "".join(f"<dt>{html.escape(k)}</dt><dd>{e(v.get('text') if isinstance(v, dict) and 'text' in v else v)}</dd>" for k, v in sorted(gl.items())) + "</dl>"
     tabs.append(("terms/", "ことばの一覧", "政治のニュースに出てくることばと、過去の政党の説明の一覧。", body, "terms", ""))
     tabs.append(("search/", "検索", "せいじのまどの中を検索する。", "<h1>検索</h1>", "search", ""))
+    tabs.append(("api/", "データを使う（公開API）", "せいじのまどのデータ（国会で成立した法律・政党・国会議員・知事・政治のしくみの解説）を、登録なし・無料で使える公開API（JSON）。CC BY 4.0。",
+                 "<h1>データを使う（公開API）</h1><p>このサイトのデータは、登録やキーなしで、無料で使えます。一覧は <a href=\"api/v1/index.json\">api/v1/index.json</a>。ライセンスは CC BY 4.0。</p>", "api", ""))
+    body = "<h1>国会議員</h1>" + "".join(
+        f"<h2>{hs}（{sum(1 for m in M['members'] if m['house'] == hs)}人）</h2>" +
+        lst([(f"member/{m['id']}/", f"{m['name']}（{m['kaiha']}・{m['district']}）") for m in M["members"] if m["house"] == hs]) for hs in ("衆議院", "参議院"))
+    tabs.append(("members/", "国会議員", "衆議院・参議院のすべての国会議員の一覧（会派・選挙区・当選回数）。参議院議員は本会議での賛否も。", body, "members", M.get("checked")))
+    body = (f"<h1>知事</h1><p>{jdate(G.get('as_of'))}現在。</p><ul>" +
+            "".join(f"<li>{g['pref']}：{html.escape(g['name'])}（{g['yomi']}）・{g['terms']}期目・任期 {jdate(g['term_end'])}まで</li>" for g in G["governors"]) +
+            "</ul>" + sources_html([G["source"]]))
+    tabs.append(("governors/", "知事", "47都道府県の知事の一覧（期数・初めての就任日・任期）。", body, "governors", G.get("checked")))
     for args in tabs:
         site.page(*args)
 

@@ -647,6 +647,16 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 .hist li { display: flex; gap: 12px; }
 .hist li .d { flex: none; min-width: 7.5em; font-variant-numeric: tabular-nums; }
 .hist .rules-line { margin-bottom: 14px; }
+
+/* 議員 */
+.big.sm { font-size: 18px; line-height: 1.4; word-break: keep-all; overflow-wrap: anywhere; }
+.nw { white-space: nowrap; }
+.vote-tag { flex: none; min-width: 4.5em; text-align: center; font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: var(--panel); color: var(--muted); }
+.vote-tag.yes { background: var(--accent-weak); color: var(--accent); }
+.vote-tag.no { background: var(--fg); color: var(--surface); }
+#mq { margin: 4px 0 2px; }
+
+pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px; font-size: 13px; overflow-x: auto; white-space: pre; }
 </style>
 </head>
 <body>
@@ -674,13 +684,14 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   'use strict';
   // ---- 住所（URL）とページの対応。例：学ぶの「政治とは」＝ learn/what-is-politics/ ----
   var BASE = new URL('.', document.baseURI).pathname;
-  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'laws', 'elections', 'about', 'search', 'terms'];
+  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'members', 'governors', 'laws', 'elections', 'about', 'search', 'terms', 'api'];
   function routeToPath(r) {
     if (!r || r === 'home') return '';
     if (TAB_ROUTES.indexOf(r) >= 0) return r + '/';
     if (r.indexOf('a-') === 0) return 'a/' + r.slice(2) + '/';
     if (r.indexOf('pg-') === 0) { var rest = r.slice(3), i = rest.indexOf('-'); return rest.slice(0, i) + '/' + rest.slice(i + 1) + '/'; }
     if (r.indexOf('p-') === 0) return 'party/' + r.slice(2) + '/';
+    if (r.indexOf('m-') === 0) return 'member/' + r.slice(2) + '/';
     return '';
   }
   function pathToRoute(path) {
@@ -691,6 +702,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (parts.length === 2) {
       if (parts[0] === 'a') return 'a-' + parts[1];
       if (parts[0] === 'party') return 'p-' + parts[1];
+      if (parts[0] === 'member') return 'm-' + parts[1];
       if (parts[0] === 'learn' || parts[0] === 'links' || parts[0] === 'media') return 'pg-' + parts[0] + '-' + parts[1];
     }
     return 'home';
@@ -725,7 +737,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   function personaName(k) { var p = PERSONAS.filter(function (x) { return x[0] === k; })[0]; return p ? p[1] : '会社員'; }
   var D = {};
   var app = document.getElementById('app');
-  var state = { level: 'std', party: '', partiesSeg: 'parties', feedKind: '', feedTopic: '', feedSort: 'new', feedShown: PAGE_SIZE, q: '', openDir: {}, learnCat: '', homeShown: 12, order: null, ctx: 'all' };
+  var state = { level: 'std', party: '', partiesSeg: 'parties', feedKind: '', feedTopic: '', feedSort: 'new', feedShown: PAGE_SIZE, q: '', mq: '', openDir: {}, learnCat: '', homeShown: 12, order: null, ctx: 'all' };
 
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   var savedLevel = store('sh-level');
@@ -805,8 +817,8 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (h === 'laws') return 'parties';
     if (h.indexOf('a-') === 0) return 'home';
     if (h.indexOf('pg-') === 0) return h.slice(3).split('-')[0];
-    if (h.indexOf('p-') === 0 || h === 'elections') return 'parties';
-    if (h === 'about' || h === 'search' || h === 'terms') return '';
+    if (h.indexOf('p-') === 0 || h.indexOf('m-') === 0 || h === 'elections' || h === 'members' || h === 'governors') return 'parties';
+    if (h === 'about' || h === 'search' || h === 'terms' || h === 'api') return '';
     return h;
   }
 
@@ -1143,7 +1155,8 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
-    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'search') return '検索'; if (r === 'about') return 'このサイトについて';
+    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
+    if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'about') return 'このサイトについて';
     if (TAB_TITLE[r]) return TAB_TITLE[r];
     if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
     if (r.indexOf('p-') === 0) { var id = r.slice(2); var p = /^o\d+$/.test(id) ? D.parties.others[Number(id.slice(1))] : D.parties.national.filter(function (x) { return x.id === id; })[0]; return p ? p.name : '政党'; }
@@ -1314,7 +1327,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 
   /* ---------- parties ---------- */
   function partiesSeg() {
-    var o = [['parties', '政党'], ['elections', '選挙結果'], ['laws', '<span class="lab-l">国会で決まったこと</span><span class="lab-s">国会の決定</span>']];
+    var o = [['parties', '政党'], ['members', '議員'], ['elections', '選挙結果'], ['laws', '<span class="lab-l">国会で決まったこと</span><span class="lab-s">国会の決定</span>']];
     return '<div class="seg" role="group" aria-label="表示の切り替え">' + o.map(function (x) { return '<button data-pseg="' + x[0] + '" aria-pressed="' + (state.partiesSeg === x[0]) + '">' + x[1] + '</button>'; }).join('') + '</div>';
   }
   function vParties() {
@@ -1322,6 +1335,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     var h = '<div class="view">' + partiesSeg();
     if (state.partiesSeg === 'elections') return h + elections() + '</div>';
     if (state.partiesSeg === 'laws') return h + lawsBody() + '</div>';
+    if (state.partiesSeg === 'members' || state.partiesSeg === 'governors') return h + membersBody() + '</div>';
     h += '<section class="panel"><div class="panel-head"><h2>国政政党</h2><span class="count">' + P.national.length + '党</span></div><div class="meta">' + ruleChips(['D-1', 'D-7']) + '<span>' + esc(P.order || '') + '</span></div>' +
       '<div class="tiles party">' + P.national.map(function (p) {
         var m = p.members || {}, pr = p.profile || {};
@@ -1333,6 +1347,83 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
       return '<button class="tile" data-go="p-o' + i + '"><span class="tt">' + esc(o.name) + '</span><span class="ts">' + esc(pr.catch ? plain(lv(pr.catch)) : [o.kind, o.detail].filter(Boolean).join('。')) + '</span><span class="ti">' + ICON.chev + '</span></button>';
     }).join('') + '</div></section>';
     return h + src(P.sources) + '</div>';
+  }
+  // ---- 国会議員・知事（ルールD-8：全員を同じ項目で。公式の一覧の順。評価や写真は載せない） ----
+  function memberById(id) { return ((D.members || {}).members || []).filter(function (m) { return m.id === id; })[0]; }
+  function partyName(id) { var p = (D.parties.national || []).filter(function (x) { return x.id === id; })[0]; return p ? p.name : id; }
+  function memberRow(m) {
+    var sub = [esc(m.kaiha), esc(m.district), m.terms ? '<span class="nw">当選' + esc(m.terms) + '回</span>' : (m.term_end ? '<span class="nw">任期 ' + date(m.term_end) + 'まで</span>' : '')].filter(Boolean).join('・');
+    return '<button class="row-item" data-go="m-' + esc(m.id) + '"><span class="grow"><span class="t">' + esc(m.name) + ' <small class="muted">' + esc(m.yomi) + '</small></span><span class="s">' + sub + '</span></span>' + ICON.chev + '</button>';
+  }
+  function govRow(g) {
+    return '<div class="row-item"><span class="grow"><span class="t">' + esc(g.pref) + '　' + esc(g.name) + ' <small class="muted">' + esc(g.yomi) + '</small></span><span class="s">' +
+      [g.terms ? g.terms + '期目' : '', g.first_took_office ? '初めての就任 ' + date(g.first_took_office) : '', g.term_end ? '任期 ' + date(g.term_end) + 'まで' : ''].filter(Boolean).map(function (x) { return '<span class="nw">' + x + '</span>'; }).join('・') + '</span></span></div>';
+  }
+  function memberMatch(m, q) { return !q || [m.name, m.yomi, m.kaiha, m.kaiha_abbr, m.district, m.name_registered || '', m.pref || ''].join(' ').indexOf(q) >= 0; }
+  function membersList() {
+    var q = state.mq.trim();
+    if (state.partiesSeg === 'governors') {
+      var gs = ((D.governors || {}).governors || []).filter(function (g) { return !q || [g.pref, g.name, g.yomi].join(' ').indexOf(q) >= 0; });
+      return '<p class="tb-count">' + gs.length + '人</p>' + gs.map(govRow).join('');
+    }
+    var house = state.mHouse || '衆議院';
+    var ms = ((D.members || {}).members || []).filter(function (m) { return m.house === house && memberMatch(m, q); });
+    return '<p class="tb-count">' + ms.length + '人</p>' + ms.map(memberRow).join('');
+  }
+  function membersBody() {
+    var M = D.members || {}, G = D.governors || {};
+    var gov = state.partiesSeg === 'governors', house = state.mHouse || '衆議院';
+    var cnt = function (hs) { return ((M.members || []).filter(function (m) { return m.house === hs; })).length; };
+    var tb = '<div class="seg" role="group" aria-label="院"><button data-mhouse="衆議院" aria-pressed="' + (!gov && house === '衆議院') + '">衆議院 ' + cnt('衆議院') + '</button><button data-mhouse="参議院" aria-pressed="' + (!gov && house === '参議院') + '">参議院 ' + cnt('参議院') + '</button><button data-mhouse="知事" aria-pressed="' + gov + '">知事 ' + ((G.governors || []).length) + '</button></div>';
+    var info = gov ? G : (house === '衆議院' ? M.shu : M.san) || {};
+    var h = '<div class="toolbar">' + tb + '</div>' +
+      '<input class="search" id="mq" type="search" placeholder="' + (gov ? '都道府県・名前で絞り込む' : '名前・よみ・会派・選挙区で絞り込む') + '" value="' + esc(state.mq) + '" aria-label="絞り込み">' +
+      '<div class="meta">' + ruleChips(['D-8', 'C-6']) + '<span>' + (gov ? '都道府県の順' : '五十音順（公式の一覧の順）') + '</span>' + (info.as_of ? '<span>' + date(info.as_of) + '現在</span>' : '') + '</div>' +
+      '<div id="mlist">' + membersList() + '</div>' + src(info.source ? [info.source] : []);
+    return h;
+  }
+  function vMember(id) {
+    var m = memberById(id);
+    if (!m) return vParties();
+    var h = '<div class="view">' + backBtn('members', '議員') + '<div class="page-head"><h1>' + esc(m.name) + '</h1><div class="meta"><span>' + esc(m.yomi) + '</span>' +
+      (m.name_registered ? '<span>本名 ' + esc(m.name_registered) + '</span>' : '') + '<span>' + esc(m.house) + '議員</span>' + checked(D.members.checked) + ruleChips(['D-8', 'C-6']) + '</div></div>';
+    h += '<div class="stats"><div class="box stat"><span class="k">会派</span><span class="big sm">' + esc(m.kaiha) + '</span></div>' +
+      '<div class="box stat"><span class="k">' + esc(m.elected_by) + '</span><span class="big sm">' + esc(m.district) + '</span></div>' +
+      (m.terms ? '<div class="box stat"><span class="k">当選回数</span><span class="big">' + esc(m.terms) + '<small>回</small></span></div>' : '') +
+      (m.term_end ? '<div class="box stat"><span class="k">任期満了</span><span class="big sm">' + date(m.term_end) + '</span></div>' : '') + '</div>';
+    if (m.parties && m.parties.length) h += '<section class="sec"><h2>' + (m.parties.length > 1 ? 'この会派を組む党' : '政党') + '</h2><div class="tiles">' + m.parties.map(function (pid) { return '<button class="tile sm" data-go="p-' + esc(pid) + '"><span class="tt">' + esc(partyName(pid)) + '</span><span class="ti">' + ICON.chev + '</span></button>'; }).join('') + '</div>' +
+      (m.parties.length > 1 ? '<p class="meta"><span>会派「' + esc(m.kaiha) + '」は複数の党が組む会派（統一会派）です。公式の議員一覧には会派だけが載っているため、どの党の議員かはここでは分けていません。</span></p>' : '') + '</section>';
+    if (m.house === '参議院') {
+      var MV = D.member_votes || {}, s = (MV.votes || {})[m.id] || '', items = MV.items || [];
+      var byId = {}; feedItems().forEach(function (it) { byId[it.id] = it; });
+      var y = 0, n = 0, x = 0, rows = '';
+      items.forEach(function (iid, i) {
+        var v = s.charAt(i) || '-', it = byId[iid]; if (!it) return;
+        if (v === 'Y') y++; else if (v === 'N') n++; else x++;
+        rows += '<button class="row-item" data-go="a-' + esc(iid) + '"><span class="vote-tag ' + (v === 'Y' ? 'yes' : v === 'N' ? 'no' : 'none') + '">' + (v === 'Y' ? '賛成' : v === 'N' ? '反対' : '記録なし') + '</span><span class="grow"><span class="t">' + esc(it.title) + '</span><span class="s">' + date(it.date) + '・' + esc(it.kind) + '</span></span>' + ICON.chev + '</button>';
+      });
+      h += '<section class="sec"><h2>国会での賛否（参議院の本会議）</h2>' +
+        (y + n ? '<div class="stats"><div class="box stat"><span class="k">賛成</span><span class="big">' + y + '<small>件</small></span></div><div class="box stat"><span class="k">反対</span><span class="big">' + n + '<small>件</small></span></div><div class="box stat"><span class="k">記録なし</span><span class="big">' + x + '<small>件</small></span></div></div>' +
+          '<p class="meta"><span>このサイトに載せている法律・予算・条約のうち、参議院の本会議で押しボタン式で投票したもの。「記録なし」は欠席や、その時点で議員でなかったものなど。</span></p>' + rows
+          : '<p class="muted">押しボタン式の投票の記録がありません（参議院の議長は、本会議の採決で投票しません）。</p>') +
+        src([{ label: '参議院 本会議投票結果', url: 'https://www.sangiin.go.jp/japanese/touhyoulist/touhyulist.html' }]) + '</section>';
+    } else {
+      h += '<section class="sec"><h2>国会での賛否</h2><p class="muted">衆議院の本会議では、多くの採決が起立や異議の有無で行われ、議員一人ひとりの賛否の記録は公開されていません。会派ごとの賛否は、参議院の記録を「国会で決まったこと」の各記事に載せています。</p></section>';
+    }
+    h += src([].concat(m.url ? [{ label: '参議院 議員のページ（' + m.name + '）', url: m.url }] : [], [(m.house === '衆議院' ? D.members.shu : D.members.san).source])) + '</div>';
+    return h;
+  }
+  function partyMembers(p) {
+    var M = (D.members || {}).members || [], m = p.members || {}, out = '';
+    [['衆議院', m.kaiha_shu], ['参議院', m.kaiha_san]].forEach(function (x) {
+      var k = (x[1] || '').replace(/（.*?）|\(.*?\)/g, '').trim();
+      if (!k || k.charAt(0) === '—') return;
+      var list = M.filter(function (mm) { return mm.house === x[0] && mm.kaiha === k; });
+      if (!list.length) return;
+      out += '<h3>' + x[0] + '：会派「' + esc(k) + '」' + (/統一会派/.test(x[1]) ? '（統一会派）' : '') + ' ' + list.length + '人</h3><div class="term-list">' +
+        list.map(function (mm) { return '<button class="term-chip" data-go="m-' + esc(mm.id) + '">' + esc(mm.name) + '</button>'; }).join('') + '</div>';
+    });
+    return out ? '<section class="sec" id="members"><h2>所属議員</h2>' + out + '<p class="meta">' + ruleChips(['D-8']) + '<span>両院の公式の議員一覧の会派で分けています（五十音順）。</span></p></section>' : '';
   }
   function num(v) { return v == null || v === '' ? '—' : esc(v); }
   function kaihaStats(k) {
@@ -1389,6 +1480,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     h += '<section class="sec"><h2>基本情報</h2><div class="list">' + rows.map(function (r) { return '<div class="row-item"><span class="grow"><span class="s">' + esc(r[0]) + '</span><span class="t">' + rich(r[1]) + '</span></span></div>'; }).join('') +
       (p.url ? extRow('公式サイト', p.url, p.url) : '') + (p.platform_url ? extRow('綱領・基本政策', p.platform_url, '') : '') + '</div></section>';
     if (pr.near) h += block({ type: 'near', text: pr.near });
+    if (!isOther) h += partyMembers(p);
     h += src([].concat(pr.sources || [], m.source ? [m.source] : [], isOther ? (D.parties.others_sources || []) : (D.parties.sources || []))) + hist(p) + askBox('AIに質問する') + '</div>';
     return h;
   }
@@ -1499,6 +1591,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
       });
     });
     feedItems().forEach(function (it) { INDEX.push({ go: 'a-' + it.id, title: it.title, where: 'ホーム・' + it.kind, text: [it.title, it.formal, it.topic, JSON.stringify(it.facts || [])].join(' ') }); });
+    ((D.members || {}).members || []).forEach(function (m) { INDEX.push({ go: 'm-' + m.id, title: m.name, where: '議員・' + m.house + '・' + m.kaiha, text: [m.name, m.yomi, m.kaiha, m.district, m.name_registered || ''].join(' ') }); });
     (D.parties.national || []).forEach(function (p) { INDEX.push({ go: 'p-' + p.id, title: p.name, where: '政党・選挙・政党', text: p.name + ' ' + (p.short || '') + ' ' + JSON.stringify(p.profile || {}) }); });
     (D.parties.others || []).forEach(function (o, i) { INDEX.push({ go: 'p-o' + i, title: o.name, where: '政党・選挙・そのほかの政党', text: o.name + ' ' + JSON.stringify(o.profile || {}) }); });
     Object.keys(D.glossary || {}).forEach(function (k) { INDEX.push({ term: k, title: k, where: 'ことば', text: k + ' ' + D.glossary[k] }); });
@@ -1522,7 +1615,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
       grp('学ぶ', cats) +
       grp('つながり', themes) +
       grp('メディア', btn('メディアと政治の関わり', 'media', '') + media) +
-      grp('そのほか', btn('ことばの一覧', 'terms', Object.keys(D.glossary).length + '語') + btn('書き方のルール', 'about', 'このサイトのルールと方針')) + '</div>';
+      grp('そのほか', btn('データを使う（公開API）', 'api', '無料・登録なし') + btn('ことばの一覧', 'terms', Object.keys(D.glossary).length + '語') + btn('書き方のルール', 'about', 'このサイトのルールと方針')) + '</div>';
   }
   function vTerms() {
     var keys = Object.keys(D.glossary).sort(function (a, b) { return a.localeCompare(b, 'ja'); });
@@ -1540,13 +1633,30 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   }
 
   /* ---------- about ---------- */
+  function vApi() {
+    var base = new URL('api/v1/', document.baseURI).href;
+    var eps = [['index.json', '一覧（ここから全部たどれる）'], ['laws.json', '国会で決まったこと（一覧）'], ['laws/<id>.json', '1件（事実・審議の経過・会派ごとの賛否・出典・更新の記録）'],
+      ['parties.json', '政党（一覧）'], ['parties/<id>.json', '1党（成り立ち・考え方・政策・所属議員）'], ['members.json', '国会議員（一覧）'],
+      ['members/<id>.json', '1人（参議院議員は法律ごとの賛否つき）'], ['governors.json', '知事（47都道府県）'], ['learn.json・learn/<id>.json', '学ぶのページ'],
+      ['links.json・links/<id>.json', 'つながりのページ'], ['glossary.json', 'ことばの説明'], ['rules.json', '書き方のルール']];
+    return '<div class="view">' + backBtn('about', 'このサイトについて') + '<div class="page-head"><h1>データを使う（公開API）</h1><div class="meta">' + ruleChips(['P-3', 'C-4']) + '</div></div>' +
+      '<section class="sec learn-body"><p>このサイトのデータは、登録やキーなしで、無料で使えます。研究・授業・記事・アプリなどに自由に使ってください。毎日自動で更新されます。</p>' +
+      '<p>文章は4つの読むレベル（es＝かんたん・hs＝やさしい・std＝ふつう・univ＝くわしく）をすべて含みます。すべての事実に出典がついています。</p></section>' +
+      '<section class="sec"><h2>どこにあるか</h2><p class="meta"><span>はじまりの住所：' + esc(base) + '</span></p><div class="table-wrap"><table><thead><tr><th>ファイル</th><th>中身</th></tr></thead><tbody>' +
+      eps.map(function (x) { return '<tr><th>' + (x[0].indexOf('<') < 0 && x[0].indexOf('・') < 0 ? a(base + x[0], x[0]) : esc(x[0])) + '</th><td>' + esc(x[1]) + '</td></tr>'; }).join('') + '</tbody></table></div></section>' +
+      '<section class="sec learn-body"><h2>使うときの決まり</h2><p>ライセンスは CC BY 4.0 です。使うときは、出典として「せいじのまど」の名前と、使ったページか API の住所を示してください。</p>' +
+      '<p>出典の官公庁などの資料は、それぞれの出典の利用条件に従います。間違いを見つけたら、GitHub の「訂正の依頼」から知らせてください。</p></section>' +
+      '<section class="sec"><h2>例</h2><pre class="code">fetch(\'' + esc(base) + 'laws.json\')\n  .then(r =&gt; r.json())\n  .then(j =&gt; console.log(j.data[0].title));</pre></section>' +
+      src([{ label: 'AI 向けの案内（llms.txt）', url: new URL('llms.txt', document.baseURI).href }, { label: 'GitHub（プログラムとデータ）', url: 'https://github.com/kanameyamamoto/seiji-no-mado' }]) + '</div>';
+  }
   function vAbout() {
     var R = D.rules;
     return '<div class="view">' + backBtn('home', 'ホーム') + '<div class="page-head"><h1>このサイトについて</h1></div>' +
       '<section class="sec learn-body"><h2>方針</h2><p>政治の情報を、どの党にもメディアにも偏らずに届けるためのサイトです。事実と意見を分け、結論は書きません。書き方のルールはすべて公開し、記事やページごとに、どのルールに沿って書いたかを表示します。</p>' +
-      '<p>載せる話題は人が選ばず、決めた範囲をすべて載せます。読むレベルは小中学生・高校生・標準・大学生の4つから選べます。</p>' +
+      '<p>載せる話題は人が選ばず、決めた範囲をすべて載せます。読むレベルは「かんたん・やさしい・ふつう・くわしく」の4つから選べます。</p>' +
       '<p>読むレベルや支持政党の設定は、この端末の中だけに保存し、外には送りません。</p></section>' +
       '<button class="row-item" data-tour-open><span class="grow"><span class="t">使い方をもう一度見る</span></span>' + ICON.chev + '</button>' +
+      '<button class="row-item" data-go="api"><span class="grow"><span class="t">データを使う（公開API）</span><span class="s">このサイトのデータを、登録なし・無料で使えます</span></span>' + ICON.chev + '</button>' +
       '<section class="sec learn-body"><h2>ホームの並べ方</h2><p>「今日のトピック」は、日本時間の日付と分類名（国会で決まったこと・学ぶ・政党・つながり）をつなげた文字列から、FNV-1aハッシュで番号を計算し、その分類の中から1つずつ選びます。同じ日なら、だれが見ても同じものが出ます。</p><p>「フィード」は、全コンテンツを、開くたびにブラウザの乱数でランダムに並べます。閲覧履歴や支持政党の設定は使いません。</p></section>' +
       '<section class="sec"><h2>書き方のルール v' + esc(R.version) + '</h2><div class="meta"><span>更新日 ' + date(R.updated) + '</span>' + ruleChips(['T-1']) + '</div>' +
       R.groups.map(function (g) {
@@ -1598,11 +1708,14 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     else if (h === 'laws') { state.partiesSeg = 'laws'; html = vParties(); }
     else if (h.indexOf('a-') === 0) html = vArticle(h.slice(2));
     else if (h.indexOf('pg-') === 0) { var rest = h.slice(3), i = rest.indexOf('-'); html = vPage(rest.slice(0, i), rest.slice(i + 1)); }
-    else if (h === 'parties') html = vParties();
+    else if (h === 'parties') { state.partiesSeg = 'parties'; html = vParties(); }
+    else if (h === 'members' || h === 'governors') { state.partiesSeg = h; html = vParties(); }
+    else if (h.indexOf('m-') === 0) html = vMember(h.slice(2));
     else if (h === 'elections') { state.partiesSeg = 'elections'; html = vParties(); }
     else if (h.indexOf('p-') === 0) html = vParty(h.slice(2));
     else if (h === 'learn' || h === 'media' || h === 'links') html = vTab(h);
     else if (h === 'about') html = vAbout();
+    else if (h === 'api') html = vApi();
     else if (h === 'search') html = vSearch();
     else if (h === 'terms') html = vTerms();
     else html = vHome();
@@ -1667,7 +1780,8 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (t.hasAttribute('data-hmore')) { var y4 = window.scrollY; state.homeShown += 12; render(); window.scrollTo(0, y4); return; }
     if (t.dataset.level) { var y = window.scrollY; state.level = t.dataset.level; store('sh-level', state.level); render(); window.scrollTo(0, y); return; }
     if (t.dataset.mseg) { state.mediaSeg = t.dataset.mseg; return render(); }
-    if (t.dataset.pseg) { state.partiesSeg = t.dataset.pseg; var cur0 = curR(); if ((cur0 === 'elections' || cur0 === 'laws') && cur0 !== t.dataset.pseg) { history.replaceState(null, '', BASE + 'parties/'); curRoute = 'parties'; } return render(); }
+    if (t.dataset.mhouse) { var hv = t.dataset.mhouse; if (hv === '知事') { state.partiesSeg = 'governors'; history.replaceState(null, '', BASE + 'governors/'); curRoute = 'governors'; } else { state.mHouse = hv; state.partiesSeg = 'members'; history.replaceState(null, '', BASE + 'members/'); curRoute = 'members'; } return render(); }
+    if (t.dataset.pseg) { state.partiesSeg = t.dataset.pseg; history.replaceState(null, '', BASE + routeToPath(t.dataset.pseg)); curRoute = t.dataset.pseg; return render(); }
     if (t.dataset.fsort) { state.feedSort = t.dataset.fsort; state.feedShown = PAGE_SIZE; store('sh-sort', state.feedSort); return render(); }
     if (t.dataset.fkind !== undefined) { state.feedKind = t.dataset.fkind; state.feedShown = PAGE_SIZE; return render(); }
     if (t.hasAttribute('data-more')) { var y2 = window.scrollY; state.feedShown += PAGE_SIZE; render(); window.scrollTo(0, y2); return; }
@@ -1687,6 +1801,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (e.target.id === 'ftopic') { state.feedTopic = e.target.value; state.feedShown = PAGE_SIZE; render(); }
   });
   document.addEventListener('input', function (e) {
+    if (e.target.id === 'mq') { state.mq = e.target.value; var ml = document.getElementById('mlist'); if (ml) ml.innerHTML = membersList(); return; }
     if (e.target.id !== 'q') return;
     state.q = e.target.value;
     var q = state.q.trim();
@@ -1706,7 +1821,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   function nav(r) { history.pushState(null, '', BASE + routeToPath(r)); onRoute(); }
   window.addEventListener('popstate', function () { if (navStack.length) navStack.pop(); popping = false; curRoute = curR(); render(); window.scrollTo(0, 0); });
 
-  var files = ['rules', 'feed', 'parties', 'media', 'learn', 'links', 'glossary'];
+  var files = ['rules', 'feed', 'parties', 'media', 'learn', 'links', 'glossary', 'members', 'governors', 'member_votes'];
   app.innerHTML = '<p class="meta" style="padding:40px 0"><span>読み込み中</span></p>';
   Promise.all(files.map(function (f) { return fetch('data/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }))
     .then(function (res) { files.forEach(function (f, i) { D[f] = res[i]; }); buildTerms(); render(); if (!store('sm-tour')) showTour(0); })

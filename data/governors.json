@@ -1,0 +1,434 @@
+{
+ "note": "都道府県知事の一覧。全国知事会「現職知事一覧」から機械で作る（pipeline/people.py）。",
+ "checked": "2026-11-01",
+ "as_of": "2026-09-30",
+ "source": {
+  "label": "全国知事会「現職知事一覧」",
+  "url": "https://www.nga.gr.jp/outline/item/cfff8bd44793661c59c081d2215503f8.pdf"
+ },
+ "governors": [
+  {
+   "pref": "北海道",
+   "name": "鈴木 直道",
+   "yomi": "すずき なおみち",
+   "terms": 2,
+   "election": "2023-04-09",
+   "term_end": "2027-04-22",
+   "first_took_office": "2019-04-23"
+  },
+  {
+   "pref": "青森県",
+   "name": "宮下 宗一郎",
+   "yomi": "みやした そういちろう",
+   "terms": 1,
+   "election": "2023-06-04",
+   "term_end": "2027-06-28",
+   "first_took_office": "2023-06-29"
+  },
+  {
+   "pref": "岩手県",
+   "name": "達増 拓也",
+   "yomi": "たっそ たくや",
+   "terms": 5,
+   "election": "2023-09-03",
+   "term_end": "2027-09-10",
+   "first_took_office": "2007-04-30"
+  },
+  {
+   "pref": "宮城県",
+   "name": "村井 嘉浩",
+   "yomi": "むらい よしひろ",
+   "terms": 6,
+   "election": "2025-10-26",
+   "term_end": "2029-11-20",
+   "first_took_office": "2005-11-21"
+  },
+  {
+   "pref": "秋田県",
+   "name": "鈴木 健太",
+   "yomi": "すずき けんた",
+   "terms": 1,
+   "election": "2025-04-06",
+   "term_end": "2029-04-19",
+   "first_took_office": "2025-04-20"
+  },
+  {
+   "pref": "山形県",
+   "name": "吉村 美栄子",
+   "yomi": "よしむら みえこ",
+   "terms": 5,
+   "election": "2025-01-26",
+   "term_end": "2029-02-13",
+   "first_took_office": "2009-02-14"
+  },
+  {
+   "pref": "福島県",
+   "name": "内堀 雅雄",
+   "yomi": "うちぼり まさお",
+   "terms": 3,
+   "election": "2022-10-30",
+   "term_end": "2026-11-11",
+   "first_took_office": "2014-11-12"
+  },
+  {
+   "pref": "茨城県",
+   "name": "大井川 和彦",
+   "yomi": "おおいがわ かずひこ",
+   "terms": 3,
+   "election": "2025-09-07",
+   "term_end": "2029-09-25",
+   "first_took_office": "2017-09-26"
+  },
+  {
+   "pref": "栃木県",
+   "name": "福田 富一",
+   "yomi": "ふくだ とみかず",
+   "terms": 6,
+   "election": "2024-11-17",
+   "term_end": "2028-12-08",
+   "first_took_office": "2004-12-09"
+  },
+  {
+   "pref": "群馬県",
+   "name": "山本 一太",
+   "yomi": "やまもと いちた",
+   "terms": 2,
+   "election": "2023-07-23",
+   "term_end": "2027-07-27",
+   "first_took_office": "2019-07-28"
+  },
+  {
+   "pref": "埼玉県",
+   "name": "大野 元裕",
+   "yomi": "おおの もとひろ",
+   "terms": 2,
+   "election": "2023-08-06",
+   "term_end": "2027-08-30",
+   "first_took_office": "2019-08-31"
+  },
+  {
+   "pref": "千葉県",
+   "name": "熊谷 俊人",
+   "yomi": "くまがい としひと",
+   "terms": 2,
+   "election": "2025-03-16",
+   "term_end": "2029-04-04",
+   "first_took_office": "2021-04-05"
+  },
+  {
+   "pref": "東京都",
+   "name": "小池 百合子",
+   "yomi": "こいけ ゆりこ",
+   "terms": 3,
+   "election": "2024-07-07",
+   "term_end": "2028-07-30",
+   "first_took_office": "2016-08-02"
+  },
+  {
+   "pref": "神奈川県",
+   "name": "黒岩 祐治",
+   "yomi": "くろいわ ゆうじ",
+   "terms": 4,
+   "election": "2023-04-09",
+   "term_end": "2027-04-22",
+   "first_took_office": "2011-04-23"
+  },
+  {
+   "pref": "新潟県",
+   "name": "花角 英世",
+   "yomi": "はなずみ ひでよ",
+   "terms": 3,
+   "election": "2026-05-31",
+   "term_end": "2030-06-09",
+   "first_took_office": "2018-06-12"
+  },
+  {
+   "pref": "富山県",
+   "name": "新田 八朗",
+   "yomi": "にった はちろう",
+   "terms": 2,
+   "election": "2024-10-27",
+   "term_end": "2028-11-08",
+   "first_took_office": "2020-11-09"
+  },
+  {
+   "pref": "石川県",
+   "name": "山野 之義",
+   "yomi": "やまの ゆきよし",
+   "terms": 1,
+   "election": "2026-03-08",
+   "term_end": "2030-03-26",
+   "first_took_office": "2026-03-27"
+  },
+  {
+   "pref": "福井県",
+   "name": "石田 嵩人",
+   "yomi": "いしだ たかと",
+   "terms": 1,
+   "election": "2026-01-25",
+   "term_end": "2030-01-27",
+   "first_took_office": "2026-01-28"
+  },
+  {
+   "pref": "山梨県",
+   "name": "長崎 幸太郎",
+   "yomi": "ながさき こうたろう",
+   "terms": 2,
+   "election": "2023-01-22",
+   "term_end": "2027-02-16",
+   "first_took_office": "2019-02-17"
+  },
+  {
+   "pref": "長野県",
+   "name": "阿部 守一",
+   "yomi": "あべ しゅいち",
+   "terms": 5,
+   "election": "2026-08-09",
+   "term_end": "2030-08-31",
+   "first_took_office": "2010-09-01"
+  },
+  {
+   "pref": "岐阜県",
+   "name": "江崎 禎英",
+   "yomi": "えさき よしひで",
+   "terms": 1,
+   "election": "2025-01-26",
+   "term_end": "2029-02-05",
+   "first_took_office": "2025-02-06"
+  },
+  {
+   "pref": "静岡県",
+   "name": "鈴木 康友",
+   "yomi": "すずき やすとも",
+   "terms": 1,
+   "election": "2024-05-26",
+   "term_end": "2028-05-25",
+   "first_took_office": "2024-05-28"
+  },
+  {
+   "pref": "愛知県",
+   "name": "大村 秀章",
+   "yomi": "おおむら ひであき",
+   "terms": 4,
+   "election": "2023-02-05",
+   "term_end": "2027-02-14",
+   "first_took_office": "2011-02-15"
+  },
+  {
+   "pref": "三重県",
+   "name": "一見 勝之",
+   "yomi": "いちみ かつゆき",
+   "terms": 2,
+   "election": "2025-09-07",
+   "term_end": "2029-09-12",
+   "first_took_office": "2021-09-14"
+  },
+  {
+   "pref": "滋賀県",
+   "name": "三日月 大造",
+   "yomi": "みかづき たいぞう",
+   "terms": 4,
+   "election": "2026-07-05",
+   "term_end": "2030-07-19",
+   "first_took_office": "2014-07-20"
+  },
+  {
+   "pref": "京都府",
+   "name": "西脇 隆俊",
+   "yomi": "にしわき たかとし",
+   "terms": 3,
+   "election": "2026-04-05",
+   "term_end": "2030-04-15",
+   "first_took_office": "2018-04-16"
+  },
+  {
+   "pref": "大阪府",
+   "name": "吉村 洋文",
+   "yomi": "よしむら ひろふみ",
+   "terms": 2,
+   "election": "2023-04-09",
+   "term_end": "2027-04-08",
+   "first_took_office": "2019-04-07"
+  },
+  {
+   "pref": "兵庫県",
+   "name": "齋藤 元彦",
+   "yomi": "さいとう もとひこ",
+   "terms": 2,
+   "election": "2024-11-17",
+   "term_end": "2028-11-16",
+   "first_took_office": "2024-11-19"
+  },
+  {
+   "pref": "奈良県",
+   "name": "山下 真",
+   "yomi": "やました まこと",
+   "terms": 1,
+   "election": "2023-04-09",
+   "term_end": "2027-05-02",
+   "first_took_office": "2023-05-03"
+  },
+  {
+   "pref": "和歌山県",
+   "name": "宮﨑 泉",
+   "yomi": "みやざき いずみ",
+   "terms": 1,
+   "election": "2025-06-01",
+   "term_end": "2029-05-31",
+   "first_took_office": "2025-06-03"
+  },
+  {
+   "pref": "鳥取県",
+   "name": "平井 伸治",
+   "yomi": "ひらい しんじ",
+   "terms": 5,
+   "election": "2023-04-09",
+   "term_end": "2027-04-12",
+   "first_took_office": "2007-04-13"
+  },
+  {
+   "pref": "島根県",
+   "name": "丸山 達也",
+   "yomi": "まるやま たつや",
+   "terms": 2,
+   "election": "2023-04-09",
+   "term_end": "2027-04-29",
+   "first_took_office": "2019-04-30"
+  },
+  {
+   "pref": "岡山県",
+   "name": "伊原木 隆太",
+   "yomi": "いばらぎ りゅうた",
+   "terms": 4,
+   "election": "2024-10-27",
+   "term_end": "2028-11-11",
+   "first_took_office": "2012-11-12"
+  },
+  {
+   "pref": "広島県",
+   "name": "横田 美香",
+   "yomi": "よこた みか",
+   "terms": 1,
+   "election": "2025-11-09",
+   "term_end": "2029-11-28",
+   "first_took_office": "2025-11-29"
+  },
+  {
+   "pref": "山口県",
+   "name": "村岡 嗣政",
+   "yomi": "むらおか つぐまさ",
+   "terms": 4,
+   "election": "2026-02-08",
+   "term_end": "2030-02-22",
+   "first_took_office": "2014-02-25"
+  },
+  {
+   "pref": "徳島県",
+   "name": "後藤田 正純",
+   "yomi": "ごとうだ まさずみ",
+   "terms": 1,
+   "election": "2023-04-09",
+   "term_end": "2027-05-17",
+   "first_took_office": "2023-05-18"
+  },
+  {
+   "pref": "香川県",
+   "name": "池田 豊人",
+   "yomi": "いけだ とよひと",
+   "terms": 2,
+   "election": "2026-08-30",
+   "term_end": "2030-09-04",
+   "first_took_office": "2022-09-05"
+  },
+  {
+   "pref": "愛媛県",
+   "name": "中村 時広",
+   "yomi": "なかむら ときひろ",
+   "terms": 4,
+   "election": "2022-11-20",
+   "term_end": "2026-11-30",
+   "first_took_office": "2010-12-01"
+  },
+  {
+   "pref": "高知県",
+   "name": "濵田 省司",
+   "yomi": "はまだ せいじ",
+   "terms": 2,
+   "election": "2023-11-26",
+   "term_end": "2027-12-06",
+   "first_took_office": "2019-12-07"
+  },
+  {
+   "pref": "福岡県",
+   "name": "服部 誠太郎",
+   "yomi": "はっとり せいたろう",
+   "terms": 2,
+   "election": "2025-03-23",
+   "term_end": "2029-04-10",
+   "first_took_office": "2021-04-14"
+  },
+  {
+   "pref": "佐賀県",
+   "name": "山口 祥義",
+   "yomi": "やまぐち よしのり",
+   "terms": 3,
+   "election": "2022-12-18",
+   "term_end": "2027-01-10",
+   "first_took_office": "2015-01-11"
+  },
+  {
+   "pref": "長崎県",
+   "name": "平田 研",
+   "yomi": "ひらた けん",
+   "terms": 1,
+   "election": "2026-02-08",
+   "term_end": "2030-03-01",
+   "first_took_office": "2026-03-02"
+  },
+  {
+   "pref": "熊本県",
+   "name": "木村 敬",
+   "yomi": "きむら たかし",
+   "terms": 1,
+   "election": "2024-03-24",
+   "term_end": "2028-04-15",
+   "first_took_office": "2024-04-16"
+  },
+  {
+   "pref": "大分県",
+   "name": "佐藤 樹一郎",
+   "yomi": "さとう きいちろう",
+   "terms": 1,
+   "election": "2023-04-09",
+   "term_end": "2027-04-27",
+   "first_took_office": "2023-04-28"
+  },
+  {
+   "pref": "宮崎県",
+   "name": "河野 俊嗣",
+   "yomi": "こうの しゅんじ",
+   "terms": 4,
+   "election": "2022-12-25",
+   "term_end": "2027-01-20",
+   "first_took_office": "2011-01-21"
+  },
+  {
+   "pref": "鹿児島県",
+   "name": "塩田 康一",
+   "yomi": "しおた こういち",
+   "terms": 2,
+   "election": "2024-07-07",
+   "term_end": "2028-07-27",
+   "first_took_office": "2020-07-28"
+  },
+  {
+   "pref": "沖縄県",
+   "name": "古謝 玄太",
+   "yomi": "こじゃ げんた",
+   "terms": 1,
+   "election": "2026-09-13",
+   "term_end": "2030-09-29",
+   "first_took_office": "2026-09-30"
+  }
+ ]
+}

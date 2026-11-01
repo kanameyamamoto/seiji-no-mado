@@ -1,0 +1,127 @@
+"""公開API（無料）を書き出す。サーバーは使わず、GitHub Pages に置く JSON のファイル。
+
+  {サイト}/api/v1/index.json        … 一覧（ここから全部たどれる）
+  {サイト}/api/v1/laws.json         … 国会で決まったこと（一覧）
+  {サイト}/api/v1/laws/<id>.json    … 1件（事実・審議の経過・会派ごとの賛否・出典・作成と更新の記録）
+  {サイト}/api/v1/parties.json, parties/<id>.json
+  {サイト}/api/v1/members.json, members/<id>.json（参議院議員は1件ずつの賛否つき）
+  {サイト}/api/v1/governors.json
+  {サイト}/api/v1/learn.json, learn/<id>.json、links.json, links/<id>.json
+  {サイト}/api/v1/glossary.json, rules.json
+
+文章は4つの読むレベル（es・hs・std・univ）をそのまま入れる。ライセンスは CC BY 4.0。
+あわせて、AI 向けの案内 llms.txt をサイトの一番上に書き出す。
+
+使い方：python pipeline/api.py _site
+"""
+import datetime
+import json
+import os
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA = os.path.join(ROOT, "data")
+JST = datetime.timezone(datetime.timedelta(hours=9))
+LICENSE = {"name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+           "attribution": "出典として「せいじのまど」の名前と、使ったページか API の URL を示してください。"}
+
+
+def load(name):
+    return json.load(open(os.path.join(DATA, name + ".json"), encoding="utf-8"))
+
+
+def main():
+    out = sys.argv[1] if len(sys.argv) > 1 else "_site"
+    cfg = load("config")
+    base = cfg.get("site_url", "https://kanameyamamoto.github.io/seiji-no-mado/").rstrip("/") + "/"
+    api = os.path.join(out, "api", "v1")
+    now = datetime.datetime.now(JST).strftime("%Y-%m-%d")
+    n = 0
+
+    def put(rel, obj):
+        nonlocal n
+        p = os.path.join(api, rel)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        json.dump(obj, open(p, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        n += 1
+
+    def wrap(data, **kw):
+        return {"site": "せいじのまど", "generated": now, "license": LICENSE, **kw, "data": data}
+
+    feed, parties, M, MV, G = load("feed"), load("parties"), load("members"), load("member_votes"), load("governors")
+    learn, links, gl, rules = load("learn"), load("links"), load("glossary"), load("rules")
+
+    put("laws.json", wrap([{"id": it["id"], "title": it["title"], "kind": it["kind"], "date": it["date"], "session": it.get("session"),
+                            "number": it.get("number"), "law_no": it.get("law_no"), "topic": it.get("topic"),
+                            "page": f"{base}a/{it['id']}/", "api": f"{base}api/v1/laws/{it['id']}.json"} for it in feed["items"]],
+                          criteria=feed.get("criteria"), criteria_detail=feed.get("criteria_detail"), sessions=feed.get("sessions")))
+    for it in feed["items"]:
+        put(f"laws/{it['id']}.json", wrap(it, page=f"{base}a/{it['id']}/"))
+
+    pl = []
+    for p in parties["national"]:
+        pl.append({"id": p["id"], "name": p["name"], "short": p.get("short"), "page": f"{base}party/{p['id']}/", "api": f"{base}api/v1/parties/{p['id']}.json"})
+        put(f"parties/{p['id']}.json", wrap(p, page=f"{base}party/{p['id']}/",
+                                            members=[m["id"] for m in M["members"] if p["id"] in (m.get("parties") or [])]))
+    for i, p in enumerate(parties["others"]):
+        pl.append({"id": f"o{i}", "name": p["name"], "page": f"{base}party/o{i}/", "api": f"{base}api/v1/parties/o{i}.json"})
+        put(f"parties/o{i}.json", wrap(p, page=f"{base}party/o{i}/"))
+    put("parties.json", wrap(pl, order=parties.get("order"), elections=parties.get("elections"), field_notes=parties.get("field_notes")))
+
+    titles = {it["id"]: it["title"] for it in feed["items"]}
+    lab = {"Y": "賛成", "N": "反対", "-": "記録なし"}
+    ml = []
+    for m in M["members"]:
+        ml.append({k: m.get(k) for k in ("id", "house", "name", "yomi", "kaiha", "parties", "district", "elected_by", "terms", "term_end")}
+                  | {"page": f"{base}member/{m['id']}/", "api": f"{base}api/v1/members/{m['id']}.json"})
+        d = dict(m)
+        if m["house"] == "参議院":
+            sv = MV.get("votes", {}).get(m["id"], "")
+            d["votes"] = [{"law": i, "title": titles.get(i), "vote": lab.get(sv[k] if k < len(sv) else "-")} for k, i in enumerate(MV.get("items", []))]
+        put(f"members/{m['id']}.json", wrap(d, page=f"{base}member/{m['id']}/"))
+    put("members.json", wrap(ml, shu=M.get("shu"), san=M.get("san"), votes_note=MV.get("note")))
+    put("governors.json", wrap(G["governors"], as_of=G.get("as_of"), source=G.get("source")))
+
+    for name, d, path in (("learn", learn, "learn"), ("links", links, "links")):
+        lst = []
+        for sec in d["sections"]:
+            for p in sec["pages"]:
+                lst.append({"id": p["id"], "title": p["title"], "section": sec["name"], "page": f"{base}{path}/{p['id']}/", "api": f"{base}api/v1/{name}/{p['id']}.json"})
+                put(f"{name}/{p['id']}.json", wrap(p, section=sec["name"], page=f"{base}{path}/{p['id']}/"))
+        put(f"{name}.json", wrap(lst))
+    put("glossary.json", wrap(gl))
+    put("rules.json", wrap(rules))
+    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "parties", "members", "governors", "learn", "links", "glossary", "rules")}
+    put("index.json", wrap(eps, about="せいじのまど（政治の情報を、どの党にもメディアにも偏らずに届けるサイト）の公開データ。サーバーを使わない静的な JSON で、登録やキーは不要。毎日自動で更新される。",
+                           levels={"es": "かんたん", "hs": "やさしい", "std": "ふつう", "univ": "くわしく"}, docs=f"{base}api/"))
+
+    # AI 向けの案内（llms.txt）
+    lines = [
+        "# せいじのまど",
+        "",
+        "> 日本の政治の情報を、どの党にもメディアにも偏らずに届けるサイト。事実と意見を分け、結論は書かない。書き方のルールはすべて公開している。",
+        "",
+        "- 中身：国会で成立した法律・予算・条約（すべて）、政治のしくみの解説、政党（全党を同じ項目で）、国会議員と知事（全員を同じ項目で）、予算・省庁などのデータ、メディアの一覧。",
+        "- 出典：すべての事実に一次情報（条文・国会の議案情報と投票結果・官公庁の資料）の出典をつけている。各ページに確認日と、更新・訂正の記録がある。",
+        "- 文章は4つの読むレベル（かんたん・やさしい・ふつう・くわしく）で書いている。ページ（HTML）は「ふつう」、API はすべてのレベルを含む。",
+        "- 書くのは AI（Claude）、確かめるのは別の会社の AI（Gemini）と、AI を使わないプログラム。AI への指示文とチェックの結果も公開している。",
+        f"- ライセンス：CC BY 4.0（出典として「せいじのまど」とURLを示せば自由に使える）。",
+        "",
+        "## 主なページ",
+        f"- [国会で決まったこと]({base}laws/)：成立した法律・予算・条約の一覧と、1件ずつの事実・会派ごとの賛否",
+        f"- [学ぶ]({base}learn/)：政治のしくみの解説",
+        f"- [政党・選挙]({base}parties/)：政党の成り立ち・考え方・政策・国会での賛否",
+        f"- [国会議員]({base}members/)・[知事]({base}governors/)",
+        f"- [つながり]({base}links/)：予算・省庁・政治資金などの数字",
+        f"- [書き方のルール]({base}about/)",
+        f"- [サイトマップ]({base}sitemap.xml)",
+        "",
+        "## データ（公開API・JSON・キー不要）",
+        f"- [API の一覧]({base}api/v1/index.json)・[使い方]({base}api/)",
+    ] + [f"- [{k}]({v})" for k, v in eps.items()]
+    open(os.path.join(out, "llms.txt"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
+    print(f"公開API {n} ファイルと llms.txt を書き出しました")
+
+
+if __name__ == "__main__":
+    main()
