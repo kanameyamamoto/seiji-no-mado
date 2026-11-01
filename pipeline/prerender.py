@@ -364,14 +364,14 @@ def main():
             "".join(f"<li>{g['pref']}：{html.escape(g['name'])}（{g['yomi']}）・{g['terms']}期目・任期 {jdate(g['term_end'])}まで</li>" for g in G["governors"]) +
             "</ul>" + sources_html([G["source"]]))
     tabs.append(("governors/", "知事", "47都道府県の知事の一覧（期数・初めての就任日・任期）。", body, "governors", G.get("checked")))
-    rj_ok = lambda it: (it.get("votes") or {}).get("chamber") == "参議院" and any(g != "各派に属しない議員" for g in it["votes"].get("for", [])) and any(g != "各派に属しない議員" for g in it["votes"].get("against", []))
+    rj_ok = lambda it: (it.get("votes") or {}).get("chamber") == "参議院" and any(g != "各派に属しない議員" for g in it["votes"].get("for", []) + it["votes"].get("against", []))
     mitems = [it for it in feed["items"] if rj_ok(it)]
-    body = ("<h1>投票記録とくらべる</h1><p>参議院の本会議で会派の賛否が分かれた法律・予算・条約と、否決された法律案のすべてについて、あなたなら賛成か反対かを答えると、"
+    body = ("<h1>投票記録とくらべる</h1><p>参議院の本会議で押しボタン式で採決された法律・予算・条約と、否決された法律案のすべてについて、あなたなら賛成か反対かを答えると、"
             "各会派が実際にどちらに投票したかとくらべて、同じ側だった本数を数えます。公約や発言から賛否を推し量ることはせず、近い党を判定したり、投票先をすすめたりはしません。"
             "答えは使う人の端末の中だけに保存します。</p>"
             f"<h2>くらべる法律など（{len(mitems)}本）</h2><ul>" +
             "".join(f'<li><a href="a/{it["id"]}/">{html.escape(it["title"])}</a>（{jdate(it["date"])} {html.escape(it["kind"])}）</li>' for it in mitems) + "</ul>")
-    tabs.append(("match/", "投票記録とくらべる", "参議院で賛否が分かれた法律に、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる。人が法律を選ばず、判定もしない。", body, "match", feed.get("checked")))
+    tabs.append(("match/", "投票記録とくらべる", "参議院で採決された法律などに、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる。人が法律を選ばず、判定もしない。", body, "match", feed.get("checked")))
     bl = load("bills")
     body = f"<h1>成立しなかった法律案</h1><p>{e(bl.get('criteria'))}</p><p>{e(bl.get('status_rule'))}</p>"
     by = {}

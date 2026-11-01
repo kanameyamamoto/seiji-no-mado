@@ -1345,7 +1345,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     tb += '<span class="tb-count">' + list.length + '件' + xp('laws') + '</span>';
     var BN = (D.bills && D.bills.items || []).length;
     h += '<button class="row-item shortcut" data-go="bills"><span class="grow"><span class="t">成立しなかった法律案</span><span class="s">審議未了・継続審査・撤回・否決・審議中の法律案' + BN + '件の一覧</span></span>' + ICON.chev + '</button>';
-    h += '<button class="row-item shortcut" data-go="match"><span class="grow"><span class="t">投票記録とくらべる</span><span class="s">賛否が分かれた法律に、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる</span></span>' + ICON.chev + '</button>';
+    h += '<button class="row-item shortcut" data-go="match"><span class="grow"><span class="t">投票記録とくらべる</span><span class="s">参議院で採決された法律などに、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる</span></span>' + ICON.chev + '</button>';
     h += '<div class="toolbar">' + tb + '</div>';
     var shown = list.slice(0, state.feedShown);
     h += '<div class="cards">' + shown.map(card).join('') + '</div>';
@@ -1455,7 +1455,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   var NOT_GROUP = '各派に属しない議員';
   function isGroup(g) { return g && g !== NOT_GROUP; }
   function matchItems() {
-    return feedItems().filter(function (i) { var v = i.votes || {}; return v.chamber === '参議院' && (v['for'] || []).some(isGroup) && (v.against || []).some(isGroup); })
+    return feedItems().filter(function (i) { var v = i.votes || {}; return v.chamber === '参議院' && ((v['for'] || []).some(isGroup) || (v.against || []).some(isGroup)); })
       .sort(function (x, y) { return y.date > x.date ? 1 : y.date < x.date ? -1 : 0; });
   }
   function matchGroups(items) {
@@ -1514,7 +1514,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var tab = state.matchTab || 'ask';
     var h = '<div class="view">' + backBtn('laws', '国会で決まったこと') + '<div class="page-head"><h1>投票記録とくらべる</h1><div class="meta">' + ruleChips(['D-9', 'Q-3', 'C-6']) + '</div></div>' +
       '<section class="sec m-intro"><p>国会で採決された法律などに、あなたなら賛成か反対かを答えると、参議院の各会派が本会議で実際にどちらに投票したかとくらべて、同じ側だった本数を数えます。</p>' +
-      '<ul class="m-limits"><li>載せるのは、参議院の本会議で会派の賛否が分かれたもの（賛成した会派と反対した会派の両方があるもの）すべてです。成立したもの' + (items.length - rejN) + '本と、否決された法律案' + rejN + '本。人が選んではいません。</li>' +
+      '<ul class="m-limits"><li>載せるのは、参議院の本会議で押しボタン式で採決されたものすべてです（全部の会派が同じ側に投票したものも含みます）。成立したもの' + (items.length - rejN) + '本と、否決された法律案' + rejN + '本。人が選んではいません。</li>' +
       '<li>くらべる相手は、実際の投票だけです。公約や発言から賛否を推し量ることはしません。</li>' +
       '<li>採決されなかったテーマ（審議されずに終わった法案など）や、衆議院で否決された法案は入りません。参議院の投票記録がないためです。</li>' +
       '<li>答えはこの端末の中だけに保存し、どこにも送りません。</li></ul></section>' +
