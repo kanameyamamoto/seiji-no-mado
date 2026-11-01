@@ -578,8 +578,9 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 .tour-dots i.on { background: var(--accent); width: 20px; }
 .tour-nav { display: flex; align-items: center; gap: 10px; }
 .tour-nav .skip { color: var(--muted); font-size: 14px; margin-right: auto; }
+.tour-nav button { display: inline-flex; align-items: center; justify-content: center; }
 .tour-nav button.pri { height: 42px; width: 112px; padding: 0; border-radius: 10px; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; }
-.tour-nav button.sec { height: 42px; width: 80px; padding: 0; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; }
+.tour-nav button.tback { height: 42px; width: 80px; padding: 0; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; }
 .tour-demo { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
 /* v36: settings spacing */
@@ -619,9 +620,23 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
   .tour-card h2 { font-size: 26px; }
   .tour-card p { font-size: 16.5px; }
   .tour-nav { gap: 10px; }
-  .tour-nav button.sec { width: 96px; height: 50px; }
+  .tour-nav button.tback { width: 96px; height: 50px; }
   .tour-nav button.pri { flex: 1; width: auto; height: 50px; font-size: 16px; }
 }
+
+/* 作成と更新の記録 */
+.hist { border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); font-size: 14px; color: var(--muted); }
+.hist summary { display: flex; align-items: center; gap: 8px; padding: 14px 18px; cursor: pointer; list-style: none; font-weight: 700; color: var(--fg); }
+.hist summary::-webkit-details-marker { display: none; }
+.hist summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); margin: -4px 4px 0; transition: transform .15s; }
+.hist[open] summary::after { transform: rotate(225deg); margin-top: 4px; }
+.hist summary .grow { flex: 1; }
+.hist summary .n { font-weight: 400; color: var(--muted); }
+.hist > p, .hist > ul { margin: 0 18px 12px; }
+.hist ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.hist li { display: flex; gap: 12px; }
+.hist li .d { flex: none; min-width: 7.5em; font-variant-numeric: tabular-nums; }
+.hist .rules-line { margin-bottom: 14px; }
 </style>
 </head>
 <body>
@@ -1088,7 +1103,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
       '<div class="page-head"><h1>' + esc(p.title) + '</h1><div class="meta">' + checked(p.checked) + ruleChips(pageRules(p)) + '</div></div>' + 
       (p.blocks || []).filter(function (b) { return b.type === 'hook'; }).map(block).join('') +
       (p.summary ? '<p class="lead-l">' + rich(lv(p.summary)) + '</p>' : '') +
-      '<div class="learn-body">' + bodyBlocks(p.blocks).map(block).join('') + src(p.sources) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
+      '<div class="learn-body">' + bodyBlocks(p.blocks).map(block).join('') + src(p.sources) + hist(p) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
@@ -1113,6 +1128,18 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     return '<div class="course-bar"><div class="meta"><span><b>' + esc(c.name) + '</b>　ステップ ' + (i + 1) + ' / ' + c.steps.length + '</span><span>読んだ ' + done + '</span></div><div class="progress"><i style="width:' + (done / c.steps.length * 100).toFixed(1) + '%"></i></div>' +
       '<div class="pager">' + (pp ? '<button data-go="pg-learn-' + prev + '" data-ctx="' + c.id + '"><small>← 前のステップ</small><b>' + esc(pp.title) + '</b></button>' : '') +
       (np ? '<button class="nx" data-go="pg-learn-' + next + '" data-ctx="' + c.id + '"><small>次のステップ →</small><b>' + esc(np.title) + '</b></button>' : '<button class="nx" data-go="learn"><small>コースの最後です</small><b>学ぶに戻る</b></button>') + '</div></div>';
+  }
+  var REPO = 'https://github.com/kanameyamamoto/seiji-no-mado/blob/main/';
+  function hist(o, intro) {
+    o = o || {};
+    var rows = [].concat((o.corrections || []).map(function (x) { return { d: x.date, k: '訂正', t: x.text, l: x.log }; }),
+      (o.updates || []).map(function (x) { return { d: x.date, k: '更新', t: x.text, l: x.log }; }))
+      .sort(function (a2, b2) { return a2.d < b2.d ? 1 : -1; });
+    if (!rows.length && !intro) return '';
+    return '<details class="hist"><summary><span class="grow">作成と更新の記録</span><span class="n">' + (rows.length ? rows.length + '件' : '') + '</span></summary>' +
+      (intro ? '<p>' + intro + '</p>' : '') +
+      (rows.length ? '<ul>' + rows.map(function (r) { return '<li><span class="d">' + sdate(r.d) + ' ' + r.k + '</span><span>' + esc(r.t) + (r.l ? ' ' + a(REPO + r.l, 'チェックの記録') : '') + '</span></li>'; }).join('') + '</ul>' : '') +
+      '<p class="rules-line">' + ruleChips(['C-5', 'C-4', 'T-2']) + '</p></details>';
   }
   function askBox(label) { return '<button class="ask" data-ask>' + ICON.spark + '<span class="grow">' + label + '</span><span class="soon-pill">Coming soon</span></button>'; }
   function aiSheet() {
@@ -1244,7 +1271,8 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (it.views) h += block({ type: 'views', items: it.views });
     if (it.sources) h += src(it.sources);
     h += askBox('AIに質問する');
-    h += '<div class="log"><strong>作成とチェックの記録</strong><br>この記事は、公開資料をもとに作成し、出典と照らし合わせて確認しました。自動化後は、AIへの指示文・モデル名・チェック結果をここに表示します。' + ruleChips(['C-4']) + '</div></div>';
+    h += hist(it, it.ai_log ? 'この記事は、参議院の議案情報をもとにAIが書き、AIを使わないプログラムと別の会社のAIで確かめてから公開しました。' + a(REPO + it.ai_log, 'AIへの指示文・モデル名・チェックの結果') :
+      'この記事は、公開資料をもとに作成し、出典と照らし合わせて確認しました。自動の更新を始める前に作った記事のため、AIのチェックの記録はありません。') + '</div>';
     return h;
   }
 
@@ -1290,7 +1318,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     if (!p) return vParties();
     var m = p.members || {}, pr = p.profile || {};
     seenTerms[p.name] = 1;
-    var h = '<div class="view">' + backBtn('parties', '政党・選挙') + '<div class="page-head"><h1>' + esc(p.name) + '</h1><div class="meta">' + checked(D.parties.checked) + ruleChips(['D-7', 'V-4']) + '</div></div>' + '';
+    var h = '<div class="view">' + backBtn('parties', '政党・選挙') + '<div class="page-head"><h1>' + esc(p.name) + '</h1><div class="meta">' + checked(p.checked || D.parties.checked) + ruleChips(['D-7', 'V-4']) + '</div></div>' + '';
     if (pr.hook) h += block({ type: 'hook', text: pr.hook });
     if (pr.catch || p.summary) h += '<p class="lead-l">' + rich(lv(pr.catch || p.summary)) + '</p>';
     if (!isOther) {
@@ -1325,7 +1353,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     h += '<section class="sec"><h2>基本情報</h2><div class="list">' + rows.map(function (r) { return '<div class="row-item"><span class="grow"><span class="s">' + esc(r[0]) + '</span><span class="t">' + rich(r[1]) + '</span></span></div>'; }).join('') +
       (p.url ? extRow('公式サイト', p.url, p.url) : '') + (p.platform_url ? extRow('綱領・基本政策', p.platform_url, '') : '') + '</div></section>';
     if (pr.near) h += block({ type: 'near', text: pr.near });
-    h += src([].concat(pr.sources || [], m.source ? [m.source] : [], isOther ? (D.parties.others_sources || []) : (D.parties.sources || []))) + askBox('AIに質問する') + '</div>';
+    h += src([].concat(pr.sources || [], m.source ? [m.source] : [], isOther ? (D.parties.others_sources || []) : (D.parties.sources || []))) + hist(p) + askBox('AIに質問する') + '</div>';
     return h;
   }
   function elections() {
@@ -1349,6 +1377,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
         }).join('') + '</tbody></table></div><p class="meta"><span>参議院の定数は、その回に改選された議席数。</span></p></section>';
     });
     if (H.source) h += src([].concat(H.source));
+    h += hist(D.parties.elections);
     return h;
   }
   function turnoutChart(rows) {
@@ -1564,7 +1593,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     var s = TOUR[i], last = i === TOUR.length - 1;
     el.innerHTML = '<div class="tour-card" role="dialog" aria-modal="true" aria-label="使い方"><button class="skip" data-tour="end"' + (last ? ' style="visibility:hidden"' : '') + '>スキップ</button><div class="tour-body"><span class="tour-ic">' + (TOUR_IC[s.ic] || ICON[s.ic]) + '</span><h2>' + s.t + '</h2>' + s.b + '</div>' +
       '<div class="tour-dots">' + TOUR.map(function (_, k) { return '<i class="' + (k === i ? 'on' : '') + '"></i>'; }).join('') + '</div>' +
-      '<div class="tour-nav"><button class="sec" data-tour="prev"' + (i ? '' : ' style="visibility:hidden" tabindex="-1"') + '>戻る</button><button class="pri" data-tour="' + (last ? 'end' : 'next') + '">' + (last ? 'はじめる' : '次へ') + '</button></div></div>';
+      '<div class="tour-nav"><button class="tback" data-tour="prev"' + (i ? '' : ' style="visibility:hidden" tabindex="-1"') + '>戻る</button><button class="pri" data-tour="' + (last ? 'end' : 'next') + '">' + (last ? 'はじめる' : '次へ') + '</button></div></div>';
   }
   function endTour() { var el = document.getElementById('tour'); if (el) el.remove(); store('sm-tour', '1'); }
   function tocSetup() {

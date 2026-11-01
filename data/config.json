@@ -2,5 +2,16 @@
  "sessions": [
   222
  ],
- "note": "確認する国会の回次。新しい国会が召集されたら番号を足す（第221回は全件載せ済み）。"
+ "note": "確かめる国会の回次。新しい国会が召集されると、mechanical.py が自動で足す（載せる範囲の年の国会だけ）。",
+ "recheck": {
+  "note": "公開中のページの見直し（pipeline/recheck.py）。max_age_days＝確認日からこの日数がたったら、出典に変化がなくても見直す。daily_limit＝1日に見直すページ数の上限（費用の上限にもなる）。",
+  "daily_limit": 8,
+  "max_age_days": {
+   "party": 30,
+   "elections": 90,
+   "links": 90,
+   "learn": 180,
+   "media": 365
+  }
+ }
 }

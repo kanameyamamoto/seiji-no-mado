@@ -5,6 +5,7 @@ rm -rf _site
 mkdir -p _site/data/logs _site/prompts
 cp index.html .nojekyll _site/
 cp data/*.json _site/data/
-cp data/logs/*.json _site/data/logs/ 2>/dev/null || true
+rm -f _site/data/watch.json  # 見張りの記録はサイトでは使わない（リポジトリでは公開している）
+cp -r data/logs/. _site/data/logs/ 2>/dev/null || true
 cp prompts/*.md _site/prompts/
 echo "公開するファイル: $(find _site -type f | wc -l) 件"

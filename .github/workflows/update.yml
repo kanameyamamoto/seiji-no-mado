@@ -1,4 +1,8 @@
-# 毎日、国会で新しく成立した法律・予算・条約を調べて、記事を作り、確かめて、公開する。
+# 毎日の更新。何がどう更新されるかは docs/運用.md の「1. 何が、どう更新されるか」。
+#   1. 機械で更新（会派別の議員数・国会の会期・公布日と法律番号）
+#   2. 新しく成立した法律・予算・条約の記事（AIが書き、機械と別の会社のAIで確かめる）
+#   3. 公開中のページの見直し（出典が変わったページ・確認日から日数がたったページ）
+#   4. チェックして公開、人が見る必要があるものは Issue で知らせる
 name: 毎日の更新
 
 on:
@@ -34,6 +38,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - run: pip install -r requirements.txt && (command -v pdftotext || sudo apt-get install -y -q poppler-utils)
+
+      - name: 機械で更新する（会派別の議員数・国会の会期・公布日と法律番号）
+        run: python pipeline/mechanical.py
+
       - name: 新しく成立したものを探す（参議院 議案情報）
         run: python pipeline/update_laws.py ${{ github.event.inputs.sessions && format('--sessions {0}', github.event.inputs.sessions) || '' }}
 
@@ -47,6 +56,14 @@ jobs:
 
       - name: チェックに通った記事を載せる
         run: python pipeline/publish.py
+
+      - name: 公開中のページを見直す（出典が変わった・日数がたったページ。1日の上限は data/config.json）
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'claude-sonnet-5-5' }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gpt-5' }}
+        run: python pipeline/recheck.py
 
       - name: 公開前の機械チェック
         run: python pipeline/validate.py
@@ -63,6 +80,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data
           if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          elif git diff --cached --quiet -- . ':!data/watch.json'; then
+            # 見張りの記録だけが変わったときは、保存だけして公開はしない
+            git commit -m "見張りの記録 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+            git push
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "自動更新 $(TZ=Asia/Tokyo date +%Y-%m-%d)"

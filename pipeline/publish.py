@@ -61,6 +61,44 @@ def main():
     for it in added:
         print(f"[publish] {it['id']} {it['title']}")
     print(f"載せた件数: {len(added)}")
+    mark_amended(added)
+
+
+def amended_laws(formal):
+    """「AとBの一部を改正する法律」→ [A, B]。新しい法律は []。"""
+    m = re.match(r"(.+?)(の一部を改正する法律|を改正する法律|の一部を改正する等の法律)$", formal or "")
+    if not m:
+        return []
+    whole = m.group(1)
+    # 「及び」でつながった複数の法律に分ける。「廃棄物の処理及び清掃に関する法律」のように
+    # 名前の中に「及び」がある法律は、「法」で終わるまでつなげ直す
+    out, buf = [], ""
+    for tok in re.split(r"(及び|並びに|、)", whole):
+        buf += tok
+        if re.search(r"(法|法律)$", buf):
+            out.append(re.sub(r"^(及び|並びに|、)", "", buf))
+            buf = ""
+    return out if not buf else [whole]
+
+
+def mark_amended(added):
+    """成立した法律が改正する法律を出典にしているページを、見直し待ちにする。"""
+    import sys
+    sys.path.insert(0, os.path.dirname(__file__))
+    import units as U
+    import watch_sources as W
+    us = U.units(U.load())
+    watch = W.load_watch()
+    n = 0
+    for it in added:
+        for law in amended_laws(it.get("formal", "")):
+            for u in us:
+                if any(s["label"].startswith(law) or f"「{law}」" in s["label"] for s in u.sources):
+                    W.add_due(watch, u.id, f"出典の「{law}」を改正する法律が成立した（{it['title']}、{it['date']}）", W.today())
+                    n += 1
+    if n:
+        W.save_watch(watch)
+        print(f"改正された法律を出典にしているページ {n} 件を、見直し待ちにしました")
 
 
 if __name__ == "__main__":
