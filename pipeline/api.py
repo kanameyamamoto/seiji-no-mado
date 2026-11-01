@@ -6,6 +6,7 @@
   {サイト}/api/v1/parties.json, parties/<id>.json
   {サイト}/api/v1/members.json, members/<id>.json（参議院議員は1件ずつの賛否つき）
   {サイト}/api/v1/governors.json
+  {サイト}/api/v1/rejected.json     … 参議院の本会議で否決された法律案（議案要旨・会派ごとの賛否）
   {サイト}/api/v1/learn.json, learn/<id>.json、links.json, links/<id>.json
   {サイト}/api/v1/glossary.json, rules.json
 
@@ -91,7 +92,9 @@ def main():
         put(f"{name}.json", wrap(lst))
     put("glossary.json", wrap(gl))
     put("rules.json", wrap(rules))
-    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "parties", "members", "governors", "learn", "links", "glossary", "rules")}
+    rj = load("rejected")
+    put("rejected.json", wrap(rj.get("items", []), criteria=rj.get("criteria")))
+    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "rejected", "parties", "members", "governors", "learn", "links", "glossary", "rules")}
     put("index.json", wrap(eps, about="せいじのまど（政治の情報を、どの党にもメディアにも偏らずに届けるサイト）の公開データ。サーバーを使わない静的な JSON で、登録やキーは不要。毎日自動で更新される。",
                            levels={"es": "かんたん", "hs": "やさしい", "std": "ふつう", "univ": "くわしく"}, docs=f"{base}api/"))
 
@@ -112,6 +115,7 @@ def main():
         f"- [学ぶ]({base}learn/)：政治のしくみの解説",
         f"- [政党・選挙]({base}parties/)：政党の成り立ち・考え方・政策・国会での賛否",
         f"- [国会議員]({base}members/)・[知事]({base}governors/)",
+        f"- [投票記録とくらべる]({base}match/)：賛否が分かれた法律に自分の賛否を答え、参議院の各会派の実際の投票とくらべる（判定や推薦はしない）",
         f"- [つながり]({base}links/)：予算・省庁・政治資金などの数字",
         f"- [書き方のルール]({base}about/)",
         f"- [サイトマップ]({base}sitemap.xml)",
