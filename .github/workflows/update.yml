@@ -1,0 +1,88 @@
+# 毎日、国会で新しく成立した法律・予算・条約を調べて、記事を作り、確かめて、公開する。
+name: 毎日の更新
+
+on:
+  schedule:
+    - cron: "43 21 * * *"   # 毎日 日本時間 6:43（UTC 21:43）
+  workflow_dispatch:
+    inputs:
+      sessions:
+        description: "確かめる国会の回次（空なら data/config.json のとおり。例：222 223）"
+        required: false
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: 新しく成立したものを探す（参議院 議案情報）
+        run: python pipeline/update_laws.py ${{ github.event.inputs.sessions && format('--sessions {0}', github.event.inputs.sessions) || '' }}
+
+      - name: 記事を書いて確かめる（書く担当と確かめる担当は別の会社のAI：C-1〜C-4）
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'claude-sonnet-5-5' }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gpt-5' }}
+        run: python pipeline/ai_draft.py
+
+      - name: チェックに通った記事を載せる
+        run: python pipeline/publish.py
+
+      - name: 公開前の機械チェック
+        run: python pipeline/validate.py
+
+      - name: 公開しなかった下書きを知らせる
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python pipeline/report.py
+
+      - name: 変更を保存する
+        id: commit
+        run: |
+          git config user.name "seiji-no-mado-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "自動更新 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # GITHUB_TOKEN での push では別のワークフローが動かないので、ここで公開まで行う
+      - name: 公開するファイルをまとめる
+        if: steps.commit.outputs.changed == 'true'
+        run: bash pipeline/build_site.sh
+
+      - uses: actions/configure-pages@v5
+        if: steps.commit.outputs.changed == 'true'
+
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.commit.outputs.changed == 'true'
+        with:
+          path: _site
+
+      - id: deploy
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/deploy-pages@v4

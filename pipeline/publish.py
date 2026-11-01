@@ -1,0 +1,67 @@
+"""チェックに通った下書き（status=passed）を feed.json に入れる。
+
+並び順は feed.json の criteria_detail.order のとおり：
+成立日の新しい順。同じ日の中は 法律→予算→条約、閣法→衆法→参法、提出番号の小さい順。
+"""
+import datetime
+import json
+import os
+import re
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA = os.path.join(ROOT, "data")
+PENDING = os.path.join(DATA, "pending")
+JST = datetime.timezone(datetime.timedelta(hours=9))
+KIND_ORDER = {"法律が成立": 0, "予算が成立": 1, "条約を承認": 2}
+CAT_ORDER = {"閣法": 0, "衆法": 1, "参法": 2}
+
+
+def sort_key(it):
+    m = re.match(r"(閣法|衆法|参法)第(\d+)号", it.get("number", ""))
+    n = re.search(r"(\d+)", it.get("number", ""))
+    return (
+        "".join(chr(0x10FFFF - ord(c)) for c in it.get("date", "")),  # 新しい順
+        KIND_ORDER.get(it.get("kind"), 9),
+        CAT_ORDER.get(m.group(1), 9) if m else 9,
+        int(n.group(1)) if n else 0,
+    )
+
+
+def main():
+    feed_path = os.path.join(DATA, "feed.json")
+    feed = json.load(open(feed_path, encoding="utf-8"))
+    ids = {it["id"] for it in feed["items"]}
+    added = []
+    for fn in sorted(os.listdir(PENDING)):
+        if not fn.endswith(".json"):
+            continue
+        p = os.path.join(PENDING, fn)
+        raw = json.load(open(p, encoding="utf-8"))
+        if raw.get("status") != "passed":
+            continue
+        item = raw["item"]
+        if item["id"] in ids:
+            print(f"[skip] {item['id']} はもう載っています")
+        else:
+            feed["items"].append(item)
+            ids.add(item["id"])
+            added.append(item)
+        os.remove(p)
+    if not added:
+        print("載せる記事はありません")
+        return
+    feed["items"].sort(key=sort_key)
+    feed["count"] = len(feed["items"])
+    by = {}
+    for it in feed["items"]:
+        by[it["kind"]] = by.get(it["kind"], 0) + 1
+    feed["count_by_kind"] = by
+    feed["checked"] = datetime.datetime.now(JST).strftime("%Y-%m-%d")
+    json.dump(feed, open(feed_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    for it in added:
+        print(f"[publish] {it['id']} {it['title']}")
+    print(f"載せた件数: {len(added)}")
+
+
+if __name__ == "__main__":
+    main()

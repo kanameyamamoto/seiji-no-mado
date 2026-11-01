@@ -1,0 +1,1648 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="政治の情報を、どの党にもメディアにも偏らずに届けるサイト。事実と意見を分け、結論は書きません。書き方のルールはすべて公開しています。">
+<meta name="theme-color" content="#14264A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="せいじのまど">
+<meta property="og:description" content="政治の情報を、どの党にもメディアにも偏らずに届けるサイト。事実と意見を分け、結論は書きません。書き方のルールはすべて公開しています。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%2314264A%22/%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%2220%22%20height%3D%2220%22%20rx%3D%223.5%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22/%3E%3Cpath%20d%3D%22M16%206v20M6%2016h20%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22/%3E%3Crect%20x%3D%228.3%22%20y%3D%228.3%22%20width%3D%225.9%22%20height%3D%225.9%22%20rx%3D%221%22%20fill%3D%22%23A9B6CF%22/%3E%3C/svg%3E">
+<title>せいじのまど</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
+<style>
+/* Layout: fixed navy header + content column (max 1040px) + fixed navy bottom tabs on phones / tabs in header on desktop. Institutional navy (紺) with white cards; party colors never used (rule D-2). */
+:root {
+  --bg: #EEF1F6;
+  --surface: #FFFFFF;
+  --panel: #E3E8F0;
+  --line: #D3DAE5;
+  --fg: #13213A;
+  --muted: #4A5872;
+  --accent: #1F3F7A;
+  --accent-weak: #DCE4F2;
+  --bar: #6D82A8;
+  --nav-bg: #14264A;
+  --nav-fg: #FFFFFF;
+  --nav-muted: #A9B6CF;
+  --nav-weak: #26396A;
+  --font-ui: 'BIZ UDPGothic', 'Hiragino Sans', 'Yu Gothic', system-ui, sans-serif;
+  --font-head: 'Zen Kaku Gothic New', 'BIZ UDPGothic', 'Hiragino Sans', sans-serif;
+  --r: 14px;
+  --gap: 16px;
+  --header-h: 60px;
+  --tabs-h: 64px;
+}
+:root, :root[data-theme="dark"] { color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+html { background: var(--bg); }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--nav-bg); }
+a { color: var(--accent); }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.4; text-wrap: balance; margin: 0; }
+p, ul, ol { margin: 0; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--nav-bg); }
+.top .wrap { height: var(--header-h); display: flex; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 700; font-size: 19px; color: var(--nav-fg); text-decoration: none; }
+.brand svg { width: 28px; height: 28px; }
+.nav-desk { display: none; gap: 4px; margin-left: 8px; }
+.nav-desk button { padding: 8px 14px; border-radius: 999px; color: var(--nav-muted); font-size: 15px; }
+.nav-desk button[aria-current="page"] { color: var(--nav-fg); background: var(--nav-weak); font-weight: 700; }
+.top-actions { margin-left: auto; display: flex; gap: 4px; }
+.icon-btn { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 999px; color: var(--nav-muted); }
+.icon-btn:hover { background: var(--nav-weak); color: var(--nav-fg); }
+.sheet .icon-btn { color: var(--muted); }
+.sheet .icon-btn:hover { background: var(--panel); color: var(--fg); }
+.icon-btn svg { width: 22px; height: 22px; }
+
+/* bottom tabs */
+nav.tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--nav-bg);
+  padding-bottom: env(safe-area-inset-bottom, 0px); padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
+nav.tabs .row { display: grid; grid-template-columns: repeat(5, 1fr); height: var(--tabs-h); }
+nav.tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; color: var(--nav-muted); }
+nav.tabs button svg { width: 24px; height: 24px; }
+nav.tabs button[aria-current="page"] { color: var(--nav-fg); font-weight: 700; }
+main { padding-block: 24px calc(var(--tabs-h) + 40px + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 900px) {
+  .nav-desk { display: flex; }
+  nav.tabs { display: none; }
+  main { padding-block: 32px 80px; }
+}
+
+/* common blocks */
+.view { display: flex; flex-direction: column; gap: 32px; }
+.page-head { display: flex; flex-direction: column; gap: 8px; }
+.page-head h1 { font-size: 28px; }
+.meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.sec { display: flex; flex-direction: column; gap: 14px; }
+.sec > h2 { font-size: 20px; }
+.chip { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--panel); color: var(--muted); white-space: nowrap; }
+.chip.accent { background: var(--accent-weak); color: var(--accent); }
+.rule { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 6px; border: 1px solid var(--line); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rule:hover { border-color: var(--accent); color: var(--accent); }
+.term { color: inherit; border-bottom: 1.5px dotted var(--accent); padding: 0; line-height: 1.4; }
+.seg { align-self: flex-start; display: inline-flex; padding: 3px; border-radius: 999px; background: var(--panel); gap: 2px; }
+.seg button { padding: 6px 13px; border-radius: 999px; font-size: 14px; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--fg); font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.row-item { display: flex; align-items: center; gap: 16px; padding: 16px 4px; border-bottom: 1px solid var(--line); text-align: left; width: 100%; }
+.row-item .grow { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.row-item .t { font-weight: 700; }
+.row-item .s { color: var(--muted); font-size: 14px; }
+.chev { width: 18px; height: 18px; color: var(--muted); flex: none; }
+.sources { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.sources a { text-decoration: none; }
+.soon-pill { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+.back { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: 14px; align-self: flex-start; }
+.back svg { width: 18px; height: 18px; }
+
+/* feed */
+.ask { background: var(--surface); display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.ask svg { width: 20px; height: 20px; flex: none; }
+.ask span.grow { flex: 1; }
+.cards { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+@media (min-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card { text-align: left; display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); width: 100%; }
+.card:hover { border-color: var(--accent); }
+.card h3 { font-size: 20px; }
+.card .lead { color: var(--muted); font-size: 15px; }
+.card .head { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* article */
+.facts { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.fact { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.fact .foot { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 13px; color: var(--muted); }
+.fact .note { font-size: 14px; color: var(--muted); }
+.votes { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+@media (min-width: 720px) { .votes, .views { grid-template-columns: 1fr 1fr; } }
+.vote-col { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.vote-col h3 { font-size: 16px; display: flex; justify-content: space-between; }
+.vote-col ul { padding-left: 1.2em; color: var(--fg); font-size: 15px; }
+.views { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+.view-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.view-card h3 { font-size: 17px; }
+.view-card .origin { font-size: 13px; color: var(--muted); }
+.view-card .foot { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.think { padding: 24px; border-radius: var(--r); background: var(--accent-weak); display: flex; flex-direction: column; gap: 6px; }
+.think h2 { font-size: 22px; color: var(--accent); }
+.log { font-size: 14px; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--r); padding: 16px 20px; }
+
+/* learn */
+.learn-body { display: flex; flex-direction: column; gap: 20px; max-width: 860px; }
+.learn-body ul { padding-left: 1.3em; display: flex; flex-direction: column; gap: 4px; }
+.learn-body .lt { font-weight: 700; margin-bottom: 6px; }
+.table-wrap { background: var(--surface); overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; font-variant-numeric: tabular-nums; }
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+th { background: var(--panel); font-weight: 700; }
+td.num, th.num { text-align: right; }
+.steps { display: flex; flex-direction: column; gap: 0; }
+.step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; }
+.step .dot { display: flex; flex-direction: column; align-items: center; }
+.step .dot b { width: 32px; height: 32px; border-radius: 999px; background: var(--accent); color: var(--surface); display: grid; place-items: center; font-size: 14px; }
+.step .dot i { flex: 1; width: 2px; background: var(--line); margin: 4px 0; }
+.step:last-child .dot i { display: none; }
+.step .c { padding-bottom: 20px; display: flex; flex-direction: column; gap: 2px; }
+.step .c strong { font-size: 16px; }
+
+/* charts */
+.bars { display: flex; flex-direction: column; gap: 10px; }
+.bar { display: grid; grid-template-columns: minmax(0, 11em) 1fr 8.5em; gap: 12px; align-items: center; font-size: 14px; }
+.bar .label { overflow-wrap: anywhere; }
+.bar .track { height: 14px; background: var(--panel); border-radius: 999px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--bar); border-radius: 999px; }
+.bar .v { min-width: 2.5em; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+@media (max-width: 480px) { .bar { grid-template-columns: minmax(0, 6.5em) 1fr 7em; font-size: 13px; } }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.box h3 { font-size: 18px; }
+.gap-viz { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+.big { font-family: var(--font-head); font-size: 44px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.big small { font-size: 18px; margin-left: 2px; }
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat .k { color: var(--muted); font-size: 14px; }
+.grid-fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+@media (min-width: 720px) { .grid-fields { grid-template-columns: repeat(3, 1fr); } }
+.field { background: var(--surface); padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; display: flex; gap: 10px; }
+.field b { color: var(--accent); font-variant-numeric: tabular-nums; }
+.two { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+@media (min-width: 720px) { .two { grid-template-columns: 1fr 1fr; } }
+
+/* sheet */
+.scrim { position: fixed; inset: 0; background: rgba(10, 14, 16, .45); z-index: 40; display: flex; align-items: flex-end; justify-content: center; }
+.sheet { background: var(--surface); width: 100%; max-width: 560px; max-height: 85%; overflow: auto; border-radius: 20px 20px 0 0;
+  padding: 20px max(20px, env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+  display: flex; flex-direction: column; gap: 16px; }
+@media (min-width: 900px) { .scrim { align-items: center; } .sheet { border-radius: 20px; } }
+.sheet .sh { display: flex; align-items: flex-start; gap: 12px; }
+.sheet .sh h2 { font-size: 20px; flex: 1; }
+.opt-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; }
+.opt[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--accent-weak); font-weight: 700; }
+.rules-group { display: flex; flex-direction: column; gap: 10px; }
+.rules-group h3 { font-size: 17px; }
+.rule-row { display: grid; grid-template-columns: 3.6em 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.rule-row b { font-variant-numeric: tabular-nums; color: var(--accent); }
+.rule-row .rt { font-weight: 700; }
+.rule-row .rx { color: var(--muted); font-size: 14px; }
+@media (prefers-reduced-motion: no-preference) { .sheet { animation: up .18s ease-out; } @keyframes up { from { transform: translateY(16px); opacity: .6; } } }
+
+/* v5 additions */
+th, td { white-space: normal; min-width: 8.5em; vertical-align: top; }
+@media (max-width: 480px) { th, td { padding: 10px 12px; } }
+th:first-child { min-width: 9.5em; }
+td.num, th.num { white-space: nowrap; min-width: 0; }
+.seg { flex-wrap: wrap; }
+.muted { color: var(--muted); }
+.lead-l { font-size: 17px; }
+.learn-body .tb { display: flex; flex-direction: column; gap: 8px; }
+.learn-body .pb { display: flex; flex-direction: column; gap: 6px; }
+.note-b { font-size: 14px; color: var(--muted); padding: 12px 16px; border-left: 3px solid var(--line); background: var(--surface); border-radius: 0 10px 10px 0; }
+.cert { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 700; background: var(--panel); color: var(--muted); }
+.cert-debated { background: var(--accent-weak); color: var(--accent); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 10px; }
+@media (min-width: 720px) { .stats { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
+.stats .big small.long { display: block; font-family: var(--font-ui); font-weight: 400; font-size: 13px; line-height: 1.5; margin: 6px 0 0; color: var(--muted); }
+.stats .big { font-size: 30px; overflow-wrap: anywhere; }
+.stats .big small { font-size: 14px; }
+.stats .box { padding: 16px; gap: 4px; }
+.bar .v small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.jump { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; margin: -8px 0; }
+.jump::-webkit-scrollbar { display: none; }
+.jump button { flex: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; color: var(--fg); }
+.jump button:hover { border-color: var(--accent); color: var(--accent); }
+.sec { scroll-margin-top: calc(var(--header-h) + 16px); }
+a.row-item { color: inherit; text-decoration: none; }
+a.row-item:hover .t, button.row-item:hover .t { color: var(--accent); }
+.tlink { font-weight: 700; color: var(--accent); text-align: left; white-space: nowrap; }
+.card .lead { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.more { align-self: center; padding: 10px 24px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-weight: 700; color: var(--accent); }
+input.search { width: 100%; height: 52px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font: inherit; color: var(--fg); }
+input.search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+svg.chart { width: 100%; height: auto; display: block; }
+svg.chart text { font-size: 12px; fill: var(--muted); font-family: var(--font-ui); }
+a.small { font-size: 13px; }
+.table-wrap.tall { max-height: 460px; overflow: auto; }
+.table-wrap.tall thead th { position: sticky; top: 0; z-index: 1; }
+.table-wrap.tall thead tr:nth-child(2) th { top: 37px; }
+th.grp { padding-top: 8px; padding-bottom: 8px; }
+th.grp { text-align: center; font-size: 12px; color: var(--muted); }
+.mock-chart { border-style: dashed; }
+.mock-row { text-align: center; color: var(--muted); white-space: normal; padding: 18px; }
+.bars.div .track { position: relative; }
+.bars.div .fill { position: absolute; top: 0; bottom: 0; border-radius: 0; }
+.bars.div .fill.pos { border-radius: 0 999px 999px 0; }
+.bars.div .fill.neg { border-radius: 999px 0 0 999px; opacity: .6; }
+.bars.div .mid { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 2px; background: var(--muted); }
+.show { display: flex; flex-direction: column; gap: 14px; }
+.show ul { padding-left: 1.3em; display: grid; grid-template-columns: 1fr; gap: 4px 24px; }
+@media (min-width: 720px) { .show ul { grid-template-columns: repeat(3, 1fr); } }
+.show .lt { font-weight: 700; margin-bottom: 6px; }
+.course-nav { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); align-self: center; }
+.course-nav button { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 20px; line-height: 1; color: var(--accent); display: grid; place-items: center; }
+.course-nav button:hover { border-color: var(--accent); }
+.course .panel-head { flex-wrap: wrap; row-gap: 6px; }
+.panel-head .count, .course-nav span { white-space: nowrap; }
+.course-nav { flex: none; }
+.course-done { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.tb-count { flex: none; display: inline-flex; align-items: center; font-size: 14px; color: var(--muted); white-space: nowrap; padding-right: 4px; }
+.opt { border-radius: 12px; background: var(--surface); font-weight: 700; }
+.opt[aria-pressed="true"] { background: var(--nav-bg); color: var(--nav-fg); border-color: var(--nav-bg); }
+.opt.lvl[aria-pressed="true"] small { color: var(--nav-muted); }
+.opt.lvl { display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 10px 14px; }
+.opt.lvl small { font-size: 11px; color: var(--muted); font-weight: 400; }
+.opt-group .opt.lvl { flex: 1 1 calc(25% - 8px); min-width: 0; }
+@media (max-width: 520px) { .opt-group .opt.lvl { flex-basis: calc(50% - 8px); } }
+.who-btn { font-size: 12px; color: var(--accent); border: 1px solid var(--accent-weak); border-radius: 8px; padding: 1px 8px; font-weight: 700; }
+.who-btn:hover { background: var(--accent-weak); }
+.term-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.term-chip { padding: 6px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; }
+.term-chip:hover { border-color: var(--accent); color: var(--accent); }
+.quick { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-top: -12px; }
+.quick::-webkit-scrollbar { display: none; }
+.quick button { flex: none; display: inline-flex; align-items: baseline; gap: 6px; padding: 8px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); font-weight: 700; font-size: 14px; color: var(--accent); }
+.quick button:hover { border-color: var(--accent); }
+.quick small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: -16px; }
+.filters:empty { display: none; }
+.scope summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.scope .meta { flex-direction: column; align-items: flex-start; gap: 2px; margin-top: 6px; }
+.sec > h2 .count { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 10px; }
+.sel { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
+.sel select { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; max-width: 100%; }
+
+
+/* v6 UI: panels + tiles */
+.small { font-size: 14px; }
+.panels { display: flex; flex-direction: column; gap: 20px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: calc(var(--header-h) + 16px); }
+@media (min-width: 720px) { .panel { padding: 24px 28px; } }
+.panel-head { display: flex; align-items: baseline; gap: 10px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+.panel-head h2 { font-size: 21px; }
+.panel-head .count, .count { font-size: 13px; color: var(--muted); font-weight: 400; }
+.tiles { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 720px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .tiles { grid-template-columns: repeat(3, 1fr); } .tiles.party { grid-template-columns: repeat(2, 1fr); } }
+.tile { position: relative; text-align: left; display: flex; flex-direction: column; gap: 4px; padding: 14px 40px 14px 16px; border-radius: 12px; background: var(--bg); border: 1px solid transparent; color: inherit; text-decoration: none; width: 100%; min-height: 64px; justify-content: center; }
+button.tile:hover, a.tile:hover { border-color: var(--accent); background: var(--accent-weak); }
+.tile .tt { font-weight: 700; line-height: 1.5; }
+.tile .ts { font-size: 13px; color: var(--muted); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.tile .ts.full { display: block; -webkit-line-clamp: unset; font-size: 14px; color: var(--fg); }
+.tile .ti { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--accent); }
+.tile .ti .chev { color: var(--accent); }
+.tiles.dir .tile { min-height: 56px; padding-top: 10px; padding-bottom: 10px; }
+.tiles.plain .tile { padding-right: 16px; padding-left: 48px; background: var(--surface); border: 1px solid var(--line); justify-content: flex-start; }
+.tile .tn { position: absolute; left: 14px; top: 14px; width: 24px; height: 24px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 13px; display: grid; place-items: center; font-weight: 700; }
+.tiles.party .tile { padding: 16px 44px 16px 18px; gap: 6px; background: var(--surface); border: 1px solid var(--line); }
+.tiles.party .tt { font-size: 18px; }
+.pnums { display: flex; gap: 18px; margin-top: 4px; }
+.pnums span { display: flex; flex-direction: column; }
+.pnums small { font-size: 11px; color: var(--muted); }
+.pnums b { font-size: 18px; font-variant-numeric: tabular-nums; font-family: var(--font-head); }
+.panel .more { margin-top: 2px; }
+.toolbar-wrap { display: flex; flex-direction: column; gap: 6px; }
+.toolbar { display: flex; gap: 10px; align-items: center; overflow-x: auto; scrollbar-width: none; padding: 2px 0 4px; }
+.toolbar::-webkit-scrollbar { display: none; }
+.toolbar .seg { flex: none; flex-wrap: nowrap; }
+.toolbar .seg button { white-space: nowrap; }
+.pill-select { flex: none; font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 0; border-radius: 999px; padding: 9px 14px; max-width: 16em; }
+.hook { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: var(--r); background: var(--accent-weak); }
+.hook .q { flex: none; width: 32px; height: 32px; border-radius: 999px; background: var(--accent); color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 18px; }
+.hook p { font-family: var(--font-head); font-weight: 700; font-size: 18px; line-height: 1.6; color: var(--accent); }
+.near { padding: 18px 20px; border-radius: var(--r); background: var(--surface); border: 2px solid var(--accent-weak); display: flex; flex-direction: column; gap: 8px; }
+.near .lt { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0; }
+.near .who { font-size: 12px; font-weight: 400; color: var(--muted); }
+.timeline { display: flex; flex-direction: column; border-left: 2px solid var(--line); margin-left: 6px; }
+.tl { position: relative; padding: 0 0 18px 20px; display: flex; flex-direction: column; gap: 2px; }
+.tl::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 999px; background: var(--surface); border: 2px solid var(--accent); }
+.tl .tld { font-size: 13px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.quote { margin: 0; padding: 14px 18px; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; font-size: 15px; }
+.fold summary { cursor: pointer; color: var(--accent); font-weight: 700; font-size: 14px; padding: 6px 0; }
+
+/* v10 */
+button.ask { width: 100%; text-align: left; }
+button.ask:hover { border-color: var(--accent); }
+.term { cursor: help; }
+.xp { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); font-size: 11px; font-weight: 700; margin-left: 6px; vertical-align: 2px; line-height: 1; }
+.xp:hover { background: var(--accent); color: #fff; }
+.pop { position: absolute; z-index: 60; width: min(340px, calc(100vw - 16px)); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 28px rgba(19,33,58,.18); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.7; }
+.pop .pt { font-weight: 700; font-family: var(--font-head); font-size: 16px; color: var(--accent); }
+.pop-link { display: flex; align-items: center; justify-content: space-between; gap: 6px; text-align: left; font-weight: 700; color: var(--accent); font-size: 14px; padding: 8px 10px; border-radius: 8px; background: var(--accent-weak); width: 100%; }
+.pop-link .chev { width: 16px; height: 16px; color: var(--accent); }
+.sheet .pop-link { font-size: 15px; padding: 12px 14px; }
+.today-cards .card.feat { border: 2px solid var(--accent); }
+@media (min-width: 900px) { .today-cards .card.feat { grid-column: span 2; } .today-cards .card.feat h3 { font-size: 24px; } .today-cards .card.feat .lead { font-size: 16px; color: var(--fg); } }
+.card .cq { font-family: var(--font-head); font-weight: 700; color: var(--accent); font-size: 15px; line-height: 1.6; }
+.term-card { background: var(--accent-weak); }
+.laws-link { display: flex; align-items: center; gap: 12px; text-align: left; padding: 18px 20px; border-radius: var(--r); background: var(--nav-bg); color: var(--nav-fg); width: 100%; }
+.laws-link .grow { display: flex; flex-direction: column; gap: 4px; }
+.laws-link .t { font-family: var(--font-head); font-weight: 700; font-size: 20px; }
+.laws-link .s { color: var(--nav-muted); font-size: 14px; }
+.laws-link .chip { align-self: flex-start; background: var(--nav-weak); color: var(--nav-fg); }
+.laws-link .chev { color: var(--nav-fg); }
+.feed-head { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
+.feed-head h2 { font-size: 22px; }
+.shuffle { margin-left: auto; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; color: var(--accent); font-weight: 700; }
+.shortcut { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px; }
+.today { display: flex; flex-direction: column; gap: 6px; text-align: left; padding: 20px; border-radius: var(--r); background: var(--surface); border: 2px solid var(--accent); width: 100%; }
+.today .chip { align-self: flex-start; }
+.today .tq { font-family: var(--font-head); font-weight: 700; font-size: 19px; color: var(--accent); line-height: 1.6; }
+.today .tt2 { color: var(--muted); font-size: 14px; }
+.cat-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.cat-tabs button { padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); font-weight: 700; font-size: 15px; display: inline-flex; gap: 8px; align-items: baseline; }
+.cat-tabs button small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.cat-tabs button[aria-selected="true"] { background: var(--nav-bg); color: var(--nav-fg); border-color: var(--nav-bg); }
+.cat-tabs button[aria-selected="true"] small { color: var(--nav-muted); }
+@media (max-width: 719px) { .cat-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .cat-tabs button { flex: none; } }
+.sub-h { font-weight: 700; font-size: 15px; display: flex; gap: 8px; align-items: baseline; margin-top: 4px; }
+.tile.sm { min-height: 48px; padding-top: 10px; padding-bottom: 10px; background: var(--surface); border: 1px solid var(--line); }
+.tile.soon { background: var(--surface); border: 1px dashed var(--line); padding-right: 16px; }
+.tile.soon .tt { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.scope-note { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.scope-note b { color: var(--fg); font-size: 12px; background: var(--panel); border-radius: 6px; padding: 1px 8px; }
+.table-wrap.mock td { color: var(--muted); }
+.tlink.inline { display: inline; white-space: nowrap; border-bottom: 1.5px solid var(--accent); padding: 0 2px; }
+
+/* v13: boxed segments like category tabs */
+.seg { background: none; padding: 0; gap: 8px; border-radius: 0; }
+.seg button { padding: 9px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font-weight: 700; font-size: 15px; box-shadow: none; }
+.seg button[aria-pressed="true"] { background: var(--nav-bg); color: var(--nav-fg); border-color: var(--nav-bg); box-shadow: none; }
+.seg button:hover { border-color: var(--accent); }
+.seg button[aria-pressed="true"]:hover { border-color: var(--nav-bg); }
+.toolbar .seg button { font-size: 14px; padding: 8px 14px; }
+.pill-select { border-radius: 12px; border: 1px solid var(--line); background: var(--surface); font-weight: 700; padding: 8px 14px; }
+/* courses & progress */
+.course { display: flex; flex-direction: column; gap: 12px; }
+.course-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.progress { height: 8px; border-radius: 999px; background: var(--panel); overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.steps-list { display: grid; grid-template-columns: 1fr; gap: 8px; counter-reset: st; }
+@media (min-width: 720px) { .steps-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .steps-list { grid-template-columns: repeat(4, 1fr); } }
+.step-btn { display: flex; align-items: center; gap: 10px; text-align: left; padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1px solid transparent; }
+.step-btn:hover { border-color: var(--accent); }
+.step-btn .no { flex: none; width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; font-size: 13px; font-weight: 700; background: var(--surface); border: 1.5px solid var(--accent); color: var(--accent); }
+.step-btn.done .no { background: var(--accent); color: #fff; }
+.step-btn.next { border-color: var(--accent); background: var(--accent-weak); }
+.step-btn .nm { font-weight: 700; font-size: 14px; line-height: 1.5; }
+.continue { align-self: flex-start; padding: 10px 18px; border-radius: 12px; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; }
+.tile .done-mark { position: absolute; top: 8px; right: 10px; font-size: 11px; color: var(--accent); font-weight: 700; }
+.tile .stepno { font-size: 11px; color: var(--muted); font-weight: 700; }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pager button { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
+.pager button:hover { border-color: var(--accent); }
+.pager .nx { text-align: right; align-items: flex-end; grid-column: 2; }
+.pager small { color: var(--muted); font-size: 12px; }
+.pager b { font-size: 15px; line-height: 1.5; }
+.course-bar { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+.course-bar .meta b { color: var(--accent); }
+/* diagrams */
+.org { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.org .root { padding: 12px 28px; border-radius: 12px; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; font-family: var(--font-head); text-align: center; }
+.org .root small { display: block; font-weight: 400; font-size: 12px; color: var(--nav-muted); }
+.org .vline { width: 2px; height: 18px; background: var(--accent); }
+.org .side { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 10px; border: 1px dashed var(--line); border-radius: 12px; background: var(--surface); }
+.org .side span, .org .side button { font-size: 13px; padding: 4px 10px; border-radius: 8px; background: var(--panel); }
+.org .side button { background: var(--accent-weak); color: var(--accent); font-weight: 700; }
+.org .grid { width: 100%; display: grid; grid-template-columns: 1fr; gap: 10px; padding-top: 14px; border-top: 2px solid var(--accent); }
+@media (min-width: 600px) { .org .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .org .grid { grid-template-columns: repeat(3, 1fr); } }
+.org .unit { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); text-align: left; }
+.org button.unit:hover { border-color: var(--accent); }
+.org .unit .un { font-weight: 700; color: var(--accent); }
+.org .unit .subs { display: flex; flex-wrap: wrap; gap: 4px; }
+.org .unit .subs span { font-size: 12px; padding: 2px 8px; border-radius: 6px; background: var(--panel); color: var(--fg); }
+.org .unit.wide { grid-column: 1 / -1; }
+.diagram-wrap { display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); }
+.diagram-wrap .lt { margin: 0; }
+svg.powers { width: 100%; min-width: 600px; max-width: 720px; height: auto; display: block; margin: 0 auto; }
+.svg-scroll { overflow-x: auto; }
+.mob-only { display: none; }
+@media (max-width: 640px) { .mob-only { display: inline; } }
+svg.powers text { font-family: var(--font-ui); fill: var(--fg); }
+svg.powers .nb { font-family: var(--font-head); font-weight: 700; font-size: 17px; fill: #fff; }
+svg.powers .lb { font-size: 13px; fill: var(--accent); font-weight: 700; }
+svg.powers .ns { font-size: 12px; fill: #DCE4F2; }
+
+/* v14 diagrams */
+.chain { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+@media (min-width: 900px) { .chain { flex-direction: row; align-items: stretch; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; } }
+.fbox { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); font-size: 13px; line-height: 1.6; }
+@media (min-width: 900px) { .fbox { min-width: 104px; } }
+.fbox b { font-size: 15px; color: var(--fg); }
+.fbox span { color: var(--muted); }
+.fbox.em { background: var(--nav-bg); border-color: var(--nav-bg); }
+.fbox.em b { color: var(--nav-fg); } .fbox.em span { color: var(--nav-muted); }
+.ftag { align-self: flex-start; font-size: 11px !important; font-weight: 700; color: var(--accent) !important; background: var(--accent-weak); border-radius: 6px; padding: 0 6px; }
+.fbox.em .ftag { background: var(--nav-weak); color: var(--nav-fg) !important; }
+.farrow { flex: none; align-self: center; width: 2px; height: 20px; background: var(--accent); position: relative; margin: 2px 0 6px; }
+.farrow::after { content: ""; position: absolute; left: -4px; bottom: -6px; border: 5px solid transparent; border-top-color: var(--accent); }
+@media (min-width: 900px) { .farrow { width: 16px; height: 2px; margin: 0 8px 0 2px; } .farrow::after { left: auto; right: -8px; bottom: -4px; border-top-color: transparent; border-left-color: var(--accent); } }
+.fpath { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px dashed var(--line); border-radius: 12px; }
+.fpl { font-weight: 700; font-size: 14px; color: var(--accent); }
+.seat-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 720px) { .seat-grid { grid-template-columns: 1fr 1fr; } }
+.house .hn { display: flex; align-items: baseline; gap: 10px; font-weight: 700; font-size: 17px; }
+.house .hn .big { font-size: 28px; }
+.dots { display: flex; flex-wrap: wrap; gap: 2px; margin: 8px 0; }
+.dots i, .lg i { width: 8px; height: 8px; border-radius: 2px; background: var(--bar); display: inline-block; }
+.dots i.hl, .lg i.hl { background: var(--nav-bg); }
+.dots i:not(.hl) { opacity: .55; }
+.lg { display: inline-flex; align-items: center; gap: 6px; }
+table.dh td.win { background: var(--accent-weak); color: var(--accent); font-weight: 700; }
+table.dh sup { font-size: 10px; margin-left: 2px; }
+.courts { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.courts .lvl { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.courts .ct { flex: 1 1 140px; max-width: 260px; display: flex; flex-direction: column; align-items: center; padding: 10px 12px; border-radius: 12px; background: var(--nav-bg); color: var(--nav-fg); text-align: center; }
+.courts .ct span { font-size: 12px; color: var(--nav-muted); }
+.courts .up { display: flex; justify-content: center; padding: 6px 0; }
+.courts .up span { font-size: 12px; font-weight: 700; color: var(--accent); padding-left: 14px; position: relative; }
+.courts .up span::before { content: "↑"; position: absolute; left: 0; }
+.cal { display: flex; flex-direction: column; gap: 8px; }
+.cal-row { display: grid; grid-template-columns: 9.5em 1fr; gap: 10px; align-items: center; }
+@media (max-width: 520px) { .cal-row { grid-template-columns: 7em 1fr; } }
+.cal-name { font-size: 13px; font-weight: 700; display: flex; flex-direction: column; line-height: 1.4; }
+.cal-name small { font-weight: 400; color: var(--muted); font-size: 11px; }
+.cal-track { position: relative; height: 22px; background: var(--panel); border-radius: 6px; }
+.cal-track i { position: absolute; top: 3px; bottom: 3px; border-radius: 4px; background: var(--nav-bg); }
+.cal-track i.ongoing { background: repeating-linear-gradient(45deg, var(--accent), var(--accent) 4px, var(--bar) 4px, var(--bar) 8px); }
+.cal-track.months { background: none; height: 18px; }
+.cal-track.months span { position: absolute; font-size: 11px; color: var(--muted); transform: translateX(2px); }
+@media (max-width: 520px) { .cal-track.months span:nth-child(even) { display: none; } }
+
+.page-head.inline { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 2px 16px; }
+.page-head.inline > p.muted, .page-head.inline > .meta { margin: 0; }
+.set-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; }
+.set-h h3 { font-size: 16px; }
+.set-h .meta { gap: 4px 8px; }
+.lawhead { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
+
+.sub-h2 { font-size: 20px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.course-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 720px) { .course-grid { grid-template-columns: repeat(2, 1fr); } }
+.course-card { display: flex; gap: 14px; align-items: center; text-align: left; padding: 14px 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.course-card:hover { border-color: var(--accent); }
+.course-card.cur { border: 2px solid var(--accent); }
+.course-card .cn { flex: none; width: 34px; height: 34px; border-radius: 10px; background: var(--nav-bg); color: var(--nav-fg); display: grid; place-items: center; font-weight: 700; }
+.course-card .ct { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.course-card small { color: var(--muted); font-size: 12px; }
+.course-card .progress { height: 6px; }
+
+/* v25: control hierarchy */
+.tab-lead { font-size: 14px; color: var(--muted); margin-bottom: -12px; }
+/* level-2 controls: filters, jump chips, selects, small buttons share one look */
+.toolbar .seg { gap: 6px; }
+.toolbar .seg button, .jump button, .pill-select, .shuffle, .course-nav button, .more, .who-btn {
+  height: 36px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface);
+  font-size: 14px; font-weight: 700; color: var(--fg); box-shadow: none; display: inline-flex; align-items: center; justify-content: center; }
+.toolbar .seg button[aria-pressed="true"] { background: var(--accent-weak); color: var(--accent); border-color: var(--accent); }
+.toolbar .seg button:hover, .jump button:hover, .pill-select:hover, .shuffle:hover, .more:hover { border-color: var(--accent); }
+.course-nav button { width: 36px; padding: 0; font-size: 18px; color: var(--accent); }
+.who-btn { height: 26px; padding: 0 10px; font-size: 12px; color: var(--accent); }
+.more { align-self: center; color: var(--accent); }
+.shuffle { color: var(--accent); }
+.pill-select { padding-right: 10px; }
+.toolbar { gap: 12px; }
+/* primary action */
+.continue { height: 40px; padding: 0 18px; border-radius: 10px; font-size: 14px; display: inline-flex; align-items: center; }
+
+/* v30: three distinct control types */
+/* 1) view switch = underline tabs */
+.view > .seg { display: flex; flex-wrap: nowrap; gap: 0; background: none; padding: 0; border-radius: 0; border-bottom: 1px solid var(--line); align-self: stretch; overflow-x: auto; scrollbar-width: none; }
+.view > .seg::-webkit-scrollbar { display: none; }
+.view > .seg button { flex: none; height: auto; padding: 12px 18px 10px; border: 0; border-radius: 0; background: none; color: var(--muted); font-size: 16px; font-weight: 700; border-bottom: 3px solid transparent; margin-bottom: -1px; box-shadow: none; }
+.view > .seg button:hover { color: var(--fg); border-color: transparent; border-bottom-color: var(--line); }
+.view > .seg button[aria-pressed="true"] { background: none; color: var(--accent); border-bottom-color: var(--accent); }
+.view > .seg button[aria-pressed="true"]:hover { border-bottom-color: var(--accent); }
+@media (max-width: 520px) { .view > .seg button { padding: 10px 12px 8px; font-size: 15px; } }
+/* 2) filters & sort = segmented control */
+.toolbar .seg { background: var(--panel); padding: 3px; border-radius: 10px; gap: 2px; }
+.toolbar .seg button { height: 32px; border: 0; background: none; color: var(--muted); border-radius: 8px; padding: 0 12px; font-size: 13.5px; }
+.toolbar .seg button:hover { color: var(--fg); border: 0; }
+.toolbar .seg button[aria-pressed="true"] { background: var(--surface); color: var(--fg); border: 0; box-shadow: 0 1px 3px rgba(19,33,58,.15); }
+.pill-select { height: 38px; background: var(--panel); border: 0; border-radius: 10px; color: var(--fg); font-size: 13.5px; }
+/* 3) in-page jumps = plain text links */
+.jump { gap: 4px 18px; flex-wrap: wrap; overflow: visible; margin: -6px 0; align-items: baseline; }
+.jump .jl { font-size: 12px; color: var(--muted); font-weight: 700; margin-right: -6px; }
+.jump button { height: auto; padding: 2px 0; border: 0; background: none; border-radius: 0; font-size: 14px; font-weight: 700; color: var(--accent); }
+.jump button::before { content: "↓ "; font-weight: 400; }
+.jump button:hover { text-decoration: underline; border: 0; }
+
+/* v31: no inline jump rows; floating table of contents */
+.jump { display: none !important; }
+.toc-btn { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(var(--tabs-h) + 16px + env(safe-area-inset-bottom, 0px)); z-index: 25; height: 44px; padding: 0 16px; border-radius: 999px; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(19,33,58,.25); }
+.toc-btn svg { width: 18px; height: 18px; }
+@media (min-width: 900px) { .toc-btn { bottom: 24px; } }
+.toc-list { display: flex; flex-direction: column; }
+.toc-list button { text-align: left; padding: 14px 4px; border-bottom: 1px solid var(--line); font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+.toc-list button:hover { color: var(--accent); }
+
+/* v32: equal-width view tabs */
+.lab-s { display: none; }
+@media (max-width: 420px) { .lab-l { display: none; } .lab-s { display: inline; } }
+.view > .seg { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(170px, 1fr); width: max-content; max-width: 100%; border-bottom: 0; box-shadow: inset 0 -1px 0 var(--line); }
+.view > .seg button { text-align: center; white-space: nowrap; padding-left: 12px; padding-right: 12px; }
+@media (max-width: 720px) { .view > .seg { width: 100%; grid-auto-columns: minmax(0, 1fr); } .view > .seg button { font-size: 14px; padding: 10px 4px 8px; } }
+
+/* v33: header nav as equal-width tabs */
+.nav-desk { gap: 0; margin-left: 16px; align-self: stretch; }
+.nav-desk button { width: 104px; height: 100%; padding: 0; border-radius: 0; text-align: center; font-size: 15px; font-weight: 700; color: var(--nav-muted); background: none; position: relative; }
+.nav-desk button:hover { color: var(--nav-fg); }
+.nav-desk button[aria-current="page"] { color: var(--nav-fg); background: none; }
+.nav-desk button[aria-current="page"]::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--nav-fg); }
+/* tour */
+.scrim { z-index: 80; }
+.pop { z-index: 85; }
+.tour { position: fixed; inset: 0; z-index: 70; background: rgba(10,14,16,.5); display: grid; place-items: center; padding: 16px; }
+.tour-card { width: min(520px, 100%); height: min(600px, calc(100vh - 32px)); background: var(--surface); border-radius: 20px; padding: 28px 24px 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 16px 48px rgba(0,0,0,.25); }
+.tour-body { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+.tour-ic { width: 56px; height: 56px; border-radius: 16px; background: var(--accent-weak); color: var(--accent); display: grid; place-items: center; }
+.tour-ic svg { width: 30px; height: 30px; }
+.tour-card h2 { font-size: 22px; }
+.tour-card p { color: var(--fg); line-height: 1.8; }
+.tour-card ul { padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; }
+.tour-dots { display: flex; gap: 6px; justify-content: center; }
+.tour-dots i { width: 8px; height: 8px; border-radius: 999px; background: var(--line); }
+.tour-dots i.on { background: var(--accent); width: 20px; }
+.tour-nav { display: flex; align-items: center; gap: 10px; }
+.tour-nav .skip { color: var(--muted); font-size: 14px; margin-right: auto; }
+.tour-nav button.pri { height: 42px; width: 112px; padding: 0; border-radius: 10px; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; }
+.tour-nav button.sec { height: 42px; width: 80px; padding: 0; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; }
+.tour-demo { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* v36: settings spacing */
+.sh-sub { font-family: var(--font-ui); font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 12px; white-space: nowrap; }
+.sheet .sec { gap: 12px; }
+.sheet .sec + .sec { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; }
+.sheet > p.meta { margin-top: 8px; }
+
+/* v40: tutorial redesign */
+.tour-card { position: relative; }
+.tour-card .skip { position: absolute; top: 18px; right: 20px; color: var(--muted); font-size: 14px; font-weight: 700; padding: 6px 4px; }
+.tour-body { justify-content: flex-start; }
+@media (max-width: 720px) { .tour-body { padding-top: 6vh; } }
+.tour-ic { width: 72px; height: 72px; border-radius: 20px; }
+.tour-ic svg { width: 38px; height: 38px; }
+.tour-card h2 { font-size: 24px; }
+.tour-pts { list-style: none; padding: 0 !important; display: flex; flex-direction: column; gap: 8px; }
+.tour-pts li { display: flex; gap: 10px; align-items: center; font-weight: 700; padding: 10px 14px; border-radius: 12px; background: var(--bg); }
+.tour-pts li::before { content: "✓"; color: var(--accent); }
+.tour-tabs { display: flex; flex-direction: column; gap: 6px; }
+.tt-row { display: flex; gap: 12px; align-items: center; padding: 8px 12px; border-radius: 12px; background: var(--bg); }
+.tt-ic { flex: none; width: 36px; height: 36px; border-radius: 10px; background: var(--nav-bg); color: var(--nav-fg); display: grid; place-items: center; }
+.tt-ic svg { width: 20px; height: 20px; }
+.tt-row span:last-child { display: flex; flex-direction: column; line-height: 1.4; }
+.tt-row small { color: var(--muted); font-size: 12.5px; }
+.tour-demo-box { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 16px; border-radius: 14px; background: var(--bg); border: 1px dashed var(--line); }
+.tour-demo-box small { color: var(--muted); font-size: 12px; }
+.tour-demo-box.col { flex-direction: column; align-items: flex-start; }
+.mini-opts { display: flex; gap: 6px; flex-wrap: wrap; }
+.mini-opts i { font-style: normal; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+.mini-opts i.on { background: var(--nav-bg); color: var(--nav-fg); border-color: var(--nav-bg); }
+.tour-nav { justify-content: flex-end; }
+@media (max-width: 720px) {
+  .tour { padding: 0; place-items: stretch; }
+  .tour-card { width: 100%; height: 100%; height: 100dvh; border-radius: 0; padding: calc(56px + env(safe-area-inset-top, 0px)) 24px calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .tour-card .skip { top: calc(14px + env(safe-area-inset-top, 0px)); }
+  .tour-card h2 { font-size: 26px; }
+  .tour-card p { font-size: 16.5px; }
+  .tour-nav { gap: 10px; }
+  .tour-nav button.sec { width: 96px; height: 50px; }
+  .tour-nav button.pri { flex: 1; width: auto; height: 50px; font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="せいじのまど ホーム">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 5v22M5 16h22" stroke="currentColor" stroke-width="2"/><rect x="7.5" y="7.5" width="6.5" height="6.5" rx="1.2" fill="var(--nav-muted)" opacity=".55"/></svg>
+      せいじのまど
+    </a>
+    <div class="nav-desk" id="navDesk"></div>
+    <div class="top-actions">
+      <button class="icon-btn" id="btnSearch" aria-label="検索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+      <button class="icon-btn" id="btnSettings" aria-label="個人設定"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M4.2 6.2l1.7 1.7M18.1 16.1l1.7 1.7M2.8 12h2.4M18.8 12h2.4M4.2 17.8l1.7-1.7M18.1 7.9l1.7-1.7"/></svg></button>
+      <button class="icon-btn" id="btnAbout" aria-label="このサイトについて"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main><div class="wrap" id="app"></div></main>
+
+<nav class="tabs" aria-label="メインメニュー"><div class="row" id="navTabs"></div></nav>
+
+<script>
+(function () {
+  'use strict';
+  var ICON = {
+    home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20H14.5v-5.5h-5V20H4z"/></svg>',
+    learn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5M12 6.5C14 5 17 4.5 20 5v13c-3-.5-6 0-8 1.5M12 6.5v13"/></svg>',
+    parties: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 11h16v9H4zM9 11V5.5h6V11M10.5 8h3"/></svg>',
+    media: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M5 5h11v14H6.5A1.5 1.5 0 0 1 5 17.5zM16 9h3v8.5a1.5 1.5 0 0 1-3 0M8 9h5M8 12h5M8 15h3"/></svg>',
+    links: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="7" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="17.5" r="2.5"/><path d="M8.3 8.2 10.8 15.4M15.7 8.2 13.2 15.4M8.5 7h7"/></svg>',
+    chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg>',
+    ext: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h5v5M19 5l-8 8M17 14v5H5V7h5"/></svg>',
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m15 6-6 6 6 6"/></svg>',
+    close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+    spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 4l1.8 4.6L18.5 10l-4.7 1.6L12 16l-1.8-4.4L5.5 10l4.7-1.4z"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>'
+  };
+  var TABS = [
+    { id: 'home', label: 'ホーム' },
+    { id: 'learn', label: '学ぶ' },
+    { id: 'parties', label: '政党・選挙' },
+    { id: 'media', label: 'メディア' },
+    { id: 'links', label: 'つながり' }
+  ];
+  var LEVELS = [['es', 'かんたん'], ['hs', 'やさしい'], ['std', 'ふつう'], ['univ', 'くわしく']];
+  var PERSONAS = [['es', '小中学生'], ['hs', '高校生'], ['univ', '大学生・専門学校生'], ['std', '会社員'], ['self', '自営業・フリーランス'], ['parent', '子育て中'], ['home', '専業主婦・主夫'], ['senior', '定年後・シニア']];
+  var CERT = { data: 'データ', consensus: '多くの研究で分かっていること', debated: '意見が分かれていること' };
+  var PAGE_SIZE = 18;
+  function personaName(k) { var p = PERSONAS.filter(function (x) { return x[0] === k; })[0]; return p ? p[1] : '会社員'; }
+  var D = {};
+  var app = document.getElementById('app');
+  var state = { level: 'std', party: '', partiesSeg: 'parties', feedKind: '', feedTopic: '', feedSort: 'new', feedShown: PAGE_SIZE, q: '', openDir: {}, learnCat: '', homeShown: 12, order: null, ctx: 'all' };
+
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  var savedLevel = store('sh-level');
+  if (savedLevel === 'standard') savedLevel = 'std';
+  if (LEVELS.some(function (l) { return l[0] === savedLevel; })) state.level = savedLevel;
+  state.party = store('sh-party') || '';
+  state.persona = store('sh-persona') || '';
+  state.courseIdx = Number(store('sh-course') || 0) || 0;
+  var READ = {}; try { READ = JSON.parse(store('sm-read') || '{}') || {}; } catch (e) { READ = {}; }
+  function markRead(id) { if (READ[id]) return; READ[id] = 1; store('sm-read', JSON.stringify(READ)); }
+  if (['new', 'split'].indexOf(store('sh-sort')) >= 0) state.feedSort = store('sh-sort');
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function lv(o) {
+    if (o == null) return '';
+    if (typeof o === 'string' || typeof o === 'number') return String(o);
+    return o[state.level] || o.std || o.standard || o.hs || o.univ || o.es || '';
+  }
+  function lvStd(o) { if (o == null) return ''; if (typeof o !== 'object') return String(o); return o.std || o.standard || o.hs || ''; }
+  var TERM_RE = null, PARTY_BY_NAME = {}, seenTerms = {};
+  function buildTerms() {
+    D.parties.national.forEach(function (p) { PARTY_BY_NAME[p.name] = p.id; });
+    (D.parties.others || []).forEach(function (o, i) { PARTY_BY_NAME[o.name] = 'o' + i; });
+    var keys = Object.keys(D.glossary || {}).concat(Object.keys(PARTY_BY_NAME)).filter(function (k) { return k.length >= 2 && !/[<>&"]/.test(k); });
+    keys.sort(function (a, b) { return b.length - a.length; });
+    TERM_RE = new RegExp(keys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|'), 'g');
+  }
+  function termBtn(t) { return '<button class="term" data-term="' + esc(t) + '">' + esc(t) + '</button>'; }
+  function rich(s) {
+    return String(s == null ? '' : s).split(/(\{\{[^}]+\}\})/).map(function (part) {
+      var m = part.match(/^\{\{([^}]+)\}\}$/);
+      if (m) { var t = m[1]; if ((D.glossary && D.glossary[t]) || PARTY_BY_NAME[t]) { seenTerms[t] = 1; return termBtn(t); } return esc(t); }
+      var e = esc(part);
+      if (!TERM_RE) return e;
+      return e.replace(TERM_RE, function (w) { if (seenTerms[w]) return w; seenTerms[w] = 1; return termBtn(w); });
+    }).join('');
+  }
+  function plain(s) { return String(s || '').replace(/\{\{([^}]+)\}\}/g, '$1'); }
+  function date(s) { if (!s) return ''; var p = String(s).split('-'); if (p.length < 3) return s; return p[0] + '年' + Number(p[1]) + '月' + Number(p[2]) + '日'; }
+  function sdate(s) { if (!s) return '—'; var p = String(s).split('-'); return p[0] + '/' + Number(p[1]) + '/' + Number(p[2]); }
+  function a(url, label, cls) { return url ? '<a' + (cls ? ' class="' + cls + '"' : '') + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : '<span>' + esc(label) + '</span>'; }
+  function src(list) {
+    if (!list || !list.length) return '';
+    var seen = {}, u = list.filter(function (s) { var k = (s.label || '') + '|' + (s.url || ''); if (seen[k]) return false; seen[k] = 1; return true; });
+    var items = u.map(function (s) { return a(s.url, s.label); }).join('');
+    if (u.length > 4) return '<details class="sources fold"><summary>出典（' + u.length + '件）</summary><div class="sources">' + items + '</div></details>';
+    return '<div class="sources"><span>出典</span>' + items + '</div>';
+  }
+  function ruleChips(ids) { return (ids || []).map(function (r) { return '<button class="rule" data-rule="' + r + '">' + r + '</button>'; }).join(''); }
+  function checked(s) { return s ? '<span>確認日 ' + date(s) + '</span>' : ''; }
+  function orderNote(o) { return o ? '<p class="meta"><span>並び順：' + esc(o) + '</span></p>' : ''; }
+
+  /* ---------- content index ---------- */
+  var TAB_FILES = { learn: ['learn'], parties: ['parties'], media: ['media'], links: ['links'] };
+  function tabSections(tab) {
+    var out = [];
+    (TAB_FILES[tab] || []).forEach(function (f) { if (D[f] && D[f].sections) out = out.concat(D[f].sections); });
+    return out;
+  }
+  function findPage(tab, id) {
+    var hit = null;
+    tabSections(tab).forEach(function (s) { (s.pages || []).forEach(function (p) { if (p.id === id) hit = { page: p, section: s, tab: tab }; }); });
+    if (!hit) ['learn', 'links', 'media'].forEach(function (t2) { if (hit || t2 === tab) return; tabSections(t2).forEach(function (s) { (s.pages || []).forEach(function (p) { if (p.id === id) hit = { page: p, section: s, tab: t2 }; }); }); });
+    return hit;
+  }
+  function navs() {
+    var cur = currentTab();
+    document.getElementById('navTabs').innerHTML = TABS.map(function (t) {
+      return '<button data-go="' + t.id + '"' + (t.id === cur ? ' aria-current="page"' : '') + '>' + ICON[t.id] + '<span>' + t.label + '</span></button>';
+    }).join('');
+    document.getElementById('navDesk').innerHTML = TABS.map(function (t) {
+      return '<button data-go="' + t.id + '"' + (t.id === cur ? ' aria-current="page"' : '') + '>' + t.label + '</button>';
+    }).join('');
+  }
+  function currentTab() {
+    var h = location.hash.slice(1) || 'home';
+    if (h === 'laws') return 'parties';
+    if (h.indexOf('a-') === 0) return 'home';
+    if (h.indexOf('pg-') === 0) return h.slice(3).split('-')[0];
+    if (h.indexOf('p-') === 0 || h === 'elections') return 'parties';
+    if (h === 'about' || h === 'search' || h === 'terms') return '';
+    return h;
+  }
+
+  function levelSegUnused() {
+    return '<div class="seg" role="group" aria-label="読むレベル">' + LEVELS.map(function (l) {
+      return '<button data-level="' + l[0] + '" aria-pressed="' + (state.level === l[0]) + '">' + l[1] + '</button>';
+    }).join('') + '</div>';
+  }
+
+  /* ---------- blocks ---------- */
+  function block(bl) {
+    var t = bl.type;
+    if (t === 'p') {
+      var c = bl.certainty && CERT[bl.certainty] ? '<span class="cert cert-' + bl.certainty + '">' + CERT[bl.certainty] + '</span>' + ruleChips(['A-1']) : '';
+      return '<div class="pb">' + (c ? '<div class="meta">' + c + '</div>' : '') + '<p>' + rich(lv(bl.text)) + '</p></div>';
+    }
+    if (t === 'hook') return '<div class="hook"><span class="q" aria-hidden="true">?</span><p>' + rich(lv(bl.text)) + '</p></div>';
+    if (t === 'near') {
+      var nt = bl.text || {}, pk = state.persona || 'std';
+      var txt = typeof nt === 'string' ? nt : (nt[pk] || nt.std || lv(nt));
+      return '<div class="near"><p class="lt">' + esc(bl.title || 'あなたの暮らしでは') + '<span class="who">' + esc(personaName(nt[pk] ? pk : 'std')) + 'の場合</span><button class="who-btn" data-persona-open>立場を変える</button>' + ruleChips(['L-4']) + '</p><p>' + rich(txt) + '</p></div>';
+    }
+    if (t === 'diagram') return diagram(bl);
+    if (t === 'note') return '<p class="note-b">' + rich(lv(bl.text)) + '</p>';
+    if (t === 'list') return '<div>' + (bl.title ? '<p class="lt">' + rich(lv(bl.title)) + '</p>' : '') + '<ul>' + (bl.items || []).map(function (x) { return '<li>' + rich(lv(x)) + '</li>'; }).join('') + '</ul>' + orderNote(bl.order) + '</div>';
+    if (t === 'table') {
+      var wide = (bl.head || []).map(function (_, ci) {
+        var m = 0; [bl.head].concat(bl.rows || []).forEach(function (r) { var c = r && r[ci] != null ? plain(lv(r[ci])) : ''; m = Math.max(m, c.length); });
+        return m > 60 ? ' style="min-width:18em"' : m > 24 ? ' style="min-width:12em"' : '';
+      });
+      return '<div class="tb">' + (bl.title ? '<p class="lt">' + esc(lv(bl.title)) + '</p>' : '') + '<div class="table-wrap"><table><thead><tr>' + (bl.head || []).map(function (x, ci) { return '<th' + wide[ci] + '>' + esc(lv(x)) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+        (bl.rows || []).map(function (r) { return '<tr>' + r.map(function (c, i) { var v = lv(c); var isNum = /^[−\-+＋]?[\d,.]+(%|％)?$/.test(String(v).trim()); return i === 0 ? '<th>' + rich(v) + '</th>' : '<td' + (isNum ? ' class="num"' : '') + '>' + rich(v) + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>' +
+        (bl.note ? '<p class="meta"><span>' + esc(lv(bl.note)) + '</span></p>' : '') + orderNote(bl.order) + '</div>';
+    }
+    if (t === 'steps') return '<div class="steps">' + (bl.items || []).map(function (st, i) {
+      return '<div class="step"><div class="dot"><b>' + (i + 1) + '</b><i></i></div><div class="c"><strong>' + esc(lv(st.title)) + '</strong><p>' + rich(lv(st.text)) + '</p></div></div>';
+    }).join('') + '</div>';
+    if (t === 'stats') return '<div class="stats">' + (bl.items || []).map(function (s) {
+      return '<div class="box stat"><span class="k">' + esc(lv(s.label)) + '</span><span class="big">' + esc(s.value) + (s.unit ? '<small' + (String(s.unit).length > 4 ? ' class="long"' : '') + '>' + esc(s.unit) + '</small>' : '') + '</span></div>';
+    }).join('') + '</div>';
+    if (t === 'bars' && (bl.items || []).some(function (x) { return Number(x.value) < 0; })) {
+      var its = bl.items, mx = Math.max.apply(null, its.map(function (x) { return Math.abs(Number(x.value) || 0); })) || 1;
+      return '<div class="box">' + (bl.title ? '<h3>' + esc(lv(bl.title)) + '</h3>' : '') + '<div class="bars div">' + its.map(function (r) {
+        var v = Number(r.value) || 0, w = (Math.abs(v) / mx * 50).toFixed(1);
+        return '<div class="bar"><span class="label">' + esc(lv(r.label)) + '</span><span class="track"><span class="mid"></span><span class="fill ' + (v < 0 ? 'neg' : 'pos') + '" style="width:' + w + '%;' + (v < 0 ? 'right:50%' : 'left:50%') + '"></span></span><span class="v">' + (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(2) + (bl.unit ? '<small> ' + esc(bl.unit) + '</small>' : '') + '</span></div>';
+      }).join('') + '</div><div class="meta">' + ruleChips(['D-2']) + '<span>中央の線より右がプラス、左がマイナス</span>' + (bl.order ? '<span>並び順：' + esc(bl.order) + '</span>' : '') + '</div></div>';
+    }
+    if (t === 'bars') {
+      var items = bl.items || [];
+      var max = Math.max.apply(null, items.map(function (x) { return Number(x.value) || 0; })) || 1;
+      return '<div class="box">' + (bl.title ? '<h3>' + esc(lv(bl.title)) + '</h3>' : '') + '<div class="bars">' + items.map(function (r) {
+        return '<div class="bar"><span class="label">' + esc(lv(r.label)) + '</span><span class="track"><span class="fill" style="display:block;width:' + ((Number(r.value) || 0) / max * 100).toFixed(1) + '%"></span></span><span class="v">' + esc(typeof r.value === 'number' ? r.value.toLocaleString('ja-JP') : r.value) + (bl.unit ? '<small> ' + esc(bl.unit) + '</small>' : '') + '</span></div>';
+      }).join('') + '</div><div class="meta">' + ruleChips(['D-2']) + (bl.order ? '<span>並び順：' + esc(bl.order) + '</span>' : '') + '</div></div>';
+    }
+    if (t === 'links') return '<div>' + (bl.title ? '<p class="lt">' + esc(lv(bl.title)) + '</p>' : '') + '<div class="list">' + (bl.items || []).map(function (x) {
+      return extRow(x.label || x.name, x.url, x.note || x.sub);
+    }).join('') + '</div></div>';
+    if (t === 'views') return '<div class="sec">' + (bl.title ? '<p class="lt">' + esc(lv(bl.title)) + '</p>' : '') + '<div class="meta">' + ruleChips(['V-1', 'V-2']) + '<span>並び順は視点の名前の五十音順</span></div><div class="views">' +
+      (bl.items || []).map(function (v) {
+        return '<div class="view-card"><h3>' + esc(lv(v.label)) + '</h3><p>' + rich(lv(v.text)) + '</p>' + (v.origin ? '<p class="origin">' + esc(lv(v.origin)) + '</p>' : '') +
+          '<div class="foot">' + ruleChips(['V-3']) + (v.source ? a(v.source.url, v.source.label, 'small') : '') + '</div></div>';
+      }).join('') + '</div><div class="think"><h2>あなたはどう思う？</h2><p>このサイトは結論を書きません。' + ruleChips(['P-2']) + '</p></div></div>';
+    return '';
+  }
+  function diagram(bl) {
+    if (bl.kind === 'ministries') {
+      var d = bl.data;
+      var side = '<div class="side">' + d.side.map(function (s) { return s.go ? '<button data-go="' + s.go + '">' + esc(s.name) + '</button>' : '<span>' + esc(s.name) + '</span>'; }).join('') + '</div>';
+      var units = d.units.map(function (u) {
+        var inner = '<span class="un">' + esc(u.name) + '</span>' + (u.sub.length ? '<span class="subs">' + u.sub.map(function (s) { return '<span>' + esc(s) + '</span>'; }).join('') + '</span>' : '<span class="subs"><span>外局なし</span></span>');
+        return u.go ? '<button class="unit' + (u.wide ? ' wide' : '') + '" data-go="' + u.go + '">' + inner + '</button>' : '<div class="unit">' + inner + '</div>';
+      }).join('');
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title || '構成図') + '</p><div class="org"><div class="root">内閣<small>内閣総理大臣と国務大臣</small></div><div class="vline"></div>' + side + '<div class="vline"></div><div class="grid">' + units + '</div></div>' +
+        '<p class="meta"><span>小さな札は外局（委員会・庁）。</span></p>' + (bl.source ? '<div class="sources"><span>出典</span>' + a(bl.source.url, bl.source.label) + '</div>' : '') + '</div>';
+    }
+    if (bl.kind === 'flow') {
+      function chain(steps) {
+        return '<div class="chain">' + steps.map(function (s, i) {
+          return (i ? '<span class="farrow" aria-hidden="true"></span>' : '') + '<div class="fbox' + (s.em ? ' em' : '') + '">' + (s.tag ? '<span class="ftag">' + esc(s.tag) + '</span>' : '') + '<b>' + esc(s.t) + '</b>' + (s.s ? '<span>' + rich(s.s) + '</span>' : '') + '</div>';
+        }).join('') + '</div>';
+      }
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title) + '</p>' + chain(bl.steps) +
+        (bl.paths || []).map(function (p) { return '<div class="fpath"><p class="fpl">' + esc(p.label) + '</p>' + chain(p.steps) + '</div>'; }).join('') +
+        (bl.note ? '<p class="meta"><span>' + esc(bl.note) + '</span></p>' : '') + '</div>';
+    }
+    if (bl.kind === 'seats') {
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title) + '</p><div class="seat-grid">' + bl.houses.map(function (hs) {
+        var dots = ''; for (var i = 0; i < hs.total; i++) dots += '<i' + (i < (hs.highlight || 0) ? ' class="hl"' : '') + '></i>';
+        return '<div class="house"><p class="hn">' + esc(hs.name) + '<span class="big">' + hs.total + '<small>人</small></span></p><div class="dots">' + dots + '</div>' +
+          '<p class="meta"><span>' + esc(hs.note) + '</span></p></div>';
+      }).join('') + '</div><p class="meta"><span>点1つが議員1人。</span>' + (bl.legend ? '<span class="lg"><i class="hl"></i>' + esc(bl.legend) + '</span>' : '') + '</p></div>';
+    }
+    if (bl.kind === 'dhondt') {
+      var rows = [], k = bl.divisors || 6;
+      bl.parties.forEach(function (p) { for (var d = 1; d <= k; d++) rows.push({ p: p.n, d: d, q: p.v / d }); });
+      var sorted = rows.slice().sort(function (a, b) { return b.q - a.q; });
+      var win = {}; sorted.slice(0, bl.seats).forEach(function (r, i) { win[r.p + '|' + r.d] = i + 1; });
+      var won = {}; bl.parties.forEach(function (p) { won[p.n] = 0; }); sorted.slice(0, bl.seats).forEach(function (r) { won[r.p]++; });
+      var t = '<div class="table-wrap"><table class="dh"><thead><tr><th>政党（得票数）</th>' + Array.apply(null, Array(k)).map(function (_, i) { return '<th class="num">÷' + (i + 1) + '</th>'; }).join('') + '<th class="num">議席</th></tr></thead><tbody>' +
+        bl.parties.map(function (p) {
+          var cells = ''; for (var d = 1; d <= k; d++) { var w = win[p.n + '|' + d]; cells += '<td class="num' + (w ? ' win' : '') + '">' + Math.round(p.v / d).toLocaleString('ja-JP') + (w ? '<sup>' + w + '</sup>' : '') + '</td>'; }
+          return '<tr><th>' + esc(p.n) + '（' + p.v.toLocaleString('ja-JP') + '票）</th>' + cells + '<td class="num"><b>' + won[p.n] + '</b></td></tr>';
+        }).join('') + '</tbody></table></div>';
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title) + '</p><p class="small">' + esc(bl.lead) + '</p>' + t + '<p class="meta"><span>色の付いたマスが当選。右上の数字は、商の大きい順の順位。政党名と票数は説明のための架空の例。</span></p></div>';
+    }
+    if (bl.kind === 'courts') {
+      var c = bl.data;
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title) + '</p><div class="courts">' +
+        c.levels.map(function (lvl, i) {
+          return (i ? '<div class="up"><span>' + esc(c.ups[i - 1]) + '</span></div>' : '') + '<div class="lvl">' + lvl.map(function (x) { return '<div class="ct"><b>' + esc(x.n) + '</b><span>' + esc(x.c) + '</span></div>'; }).join('') + '</div>';
+        }).join('') + '</div><p class="meta"><span>' + esc(bl.note) + '</span></p></div>';
+    }
+    if (bl.kind === 'local') {
+      var svg2 = '<svg class="powers" viewBox="0 70 640 320" role="img" aria-label="二元代表制の図"><defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker></defs>';
+      function bx(x, y, t1, t2, fill) { return '<rect x="' + (x - 80) + '" y="' + (y - 30) + '" width="160" height="60" rx="12" fill="' + fill + '"/><text class="nb" x="' + x + '" y="' + (y + (t2 ? -3 : 6)) + '" text-anchor="middle">' + t1 + '</text>' + (t2 ? '<text class="ns" x="' + x + '" y="' + (y + 17) + '" text-anchor="middle">' + t2 + '</text>' : ''); }
+      function ar(x1, y1, x2, y2) { return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="var(--accent)" stroke-width="2" marker-end="url(#ah2)"/>'; }
+      function lb(x, y, ls, an) { return ls.map(function (l, i) { return '<text class="lb" x="' + x + '" y="' + (y + i * 17) + '" text-anchor="' + an + '">' + l + '</text>'; }).join(''); }
+      svg2 += ar(260, 322, 150, 222) + lb(150, 290, ['選挙'], 'end') + ar(380, 322, 490, 222) + lb(490, 290, ['選挙'], 'start') +
+        ar(212, 172, 428, 172) + lb(320, 160, ['予算案・条例案などを出す'], 'middle') +
+        ar(428, 192, 212, 192) + lb(320, 214, ['（議決に異議があれば）再議（176条）'], 'middle') +
+        ar(428, 132, 212, 132) + lb(320, 92, ['不信任の議決（178条）'], 'middle') + lb(320, 110, ['→ 首長は10日以内に議会を解散できる'], 'middle') +
+        bx(130, 170, '首長', '知事・市区町村長', 'var(--nav-bg)') + bx(510, 170, '議会', '住民が選んだ議員', 'var(--nav-bg)') + bx(320, 350, '住民', '', 'var(--accent)') + '</svg>';
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title) + '</p><div class="svg-scroll">' + svg2 + '</div><p class="meta"><span class="mob-only">横にスクロールできます。</span><span>' + esc(bl.note) + '</span></p></div>';
+    }
+    if (bl.kind === 'calendar') {
+      var y0 = new Date(bl.year + '-01-01').getTime(), y1 = new Date((bl.year + 1) + '-01-01').getTime();
+      function pos(d) { return Math.max(0, Math.min(100, (new Date(d).getTime() - y0) / (y1 - y0) * 100)); }
+      var months = ''; for (var m = 1; m <= 12; m++) months += '<span style="left:' + pos(bl.year + '-' + (m < 10 ? '0' : '') + m + '-01') + '%">' + m + '月</span>';
+      var bars = bl.sessions.map(function (s) {
+        var l = pos(s.start), r = pos(s.end || bl.today), w = Math.max(r - l, 0.8);
+        return '<div class="cal-row"><span class="cal-name">' + esc(s.name) + '<small>' + esc(s.sub) + '</small></span><div class="cal-track"><i class="' + (s.end ? '' : 'ongoing') + '" style="left:' + l + '%;width:' + w + '%"></i></div></div>';
+      }).join('');
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title) + '</p><div class="cal"><div class="cal-row cal-axis"><span class="cal-name"></span><div class="cal-track months">' + months + '</div></div>' + bars + '</div><p class="meta"><span>' + esc(bl.note) + '</span></p></div>';
+    }
+    if (bl.kind === 'powers') {
+      var N = { k: [320, 60, '国会', '立法権'], c: [110, 390, '内閣', '行政権'], s: [530, 390, '裁判所', '司法権'], p: [320, 245, '国民', ''] };
+      function node(n, fill) { var v = N[n]; return '<rect x="' + (v[0] - 62) + '" y="' + (v[1] - 28) + '" width="124" height="56" rx="12" fill="' + fill + '"/><text class="nb" x="' + v[0] + '" y="' + (v[1] + (v[3] ? -2 : 6)) + '" text-anchor="middle">' + v[2] + '</text>' + (v[3] ? '<text class="ns" x="' + v[0] + '" y="' + (v[1] + 17) + '" text-anchor="middle">' + v[3] + '</text>' : ''); }
+      function ln(x1, y1, x2, y2) { return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="var(--accent)" stroke-width="2" marker-end="url(#ah)"/>'; }
+      function tx(x, y, lines, anchor) { return lines.map(function (l, i) { return '<text class="lb" x="' + x + '" y="' + (y + i * 17) + '" text-anchor="' + anchor + '">' + l + '</text>'; }).join(''); }
+      var svg = '<svg class="powers" viewBox="-70 0 780 500" role="img" aria-label="三権分立の図"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker></defs>' +
+        ln(262, 88, 112, 360) + ln(132, 362, 282, 90) + tx(150, 190, ['↙ 首相の指名（67条）', '↙ 内閣不信任決議（69条）', '↗ 衆議院の解散（7条・69条）'], 'end') +
+        ln(378, 88, 528, 360) + ln(508, 362, 358, 90) + tx(490, 200, ['↘ 弾劾裁判所（64条）', '↖ 違憲審査（81条）'], 'start') +
+        ln(174, 380, 466, 380) + ln(466, 402, 174, 402) + tx(320, 450, ['→ 最高裁長官の指名・裁判官の任命（6条・79条・80条）', '← 命令・処分の違憲審査（81条）'], 'middle') +
+        ln(320, 217, 320, 92) + tx(330, 160, ['選挙（15条）'], 'start') +
+        ln(382, 262, 482, 360) + tx(412, 334, ['国民審査（79条）'], 'end') +
+        node('k', 'var(--nav-bg)') + node('c', 'var(--nav-bg)') + node('s', 'var(--nav-bg)') + node('p', 'var(--accent)') + '</svg>';
+      return '<div class="diagram-wrap"><p class="lt">' + esc(bl.title || '図') + '</p><div class="svg-scroll">' + svg + '</div><p class="meta"><span class="mob-only">横にスクロールできます。</span><span>矢印は「どこが、どこをチェックするか」。かっこの中は日本国憲法の条文。</span></p></div>';
+    }
+    return '';
+  }
+  function extRow(name, url, sub) {
+    var inner = '<span class="grow"><span class="t">' + esc(lv(name)) + '</span>' + (sub ? '<span class="s">' + esc(lv(sub)) + '</span>' : '') + '</span>';
+    return url ? '<a class="row-item" href="' + esc(url) + '" target="_blank" rel="noopener">' + inner + ICON.ext + '</a>' : '<div class="row-item">' + inner + '</div>';
+  }
+  function bodyBlocks(bl) {
+    var rest = (bl || []).filter(function (b) { return b.type !== 'hook'; });
+    var near = rest.filter(function (b) { return b.type === 'near'; });
+    rest = rest.filter(function (b) { return b.type !== 'near'; });
+    var vi = -1; rest.forEach(function (b, i) { if (b.type === 'views' && vi < 0) vi = i; });
+    if (vi < 0) return rest.concat(near);
+    return rest.slice(0, vi).concat(near, rest.slice(vi));
+  }
+  function pageRules(p) {
+    var r = ['P-1', 'F-1', 'L-1'];
+    var bl = p.blocks || [];
+    if (bl.some(function (b) { return b.order; })) r.push('D-5');
+    if (bl.some(function (b) { return b.type === 'views'; })) r.push('V-1');
+    if (bl.some(function (b) { return b.certainty; })) r.push('A-1');
+    return r;
+  }
+
+  /* ---------- generic tab and page ---------- */
+  var TAB_TITLE = { learn: '学ぶ', parties: '政党・選挙', media: 'メディア', links: 'つながり' };
+  var TAB_LEAD = {
+    learn: '政治のしくみを、基本から順に。',
+    media: '新聞・テレビ・ラジオ・ネットの一覧と、メディアのしくみ。',
+    links: '政治が、企業・お金・暮らし・世界とどうつながっているか。'
+  };
+  function sectionsHtml(tab, sections) {
+    var jump = sections.length > 2 ? '<div class="jump" role="navigation" aria-label="セクション"><span class="jl">このページ内</span>' + sections.map(function (s) { return '<button data-jump="sec-' + esc(s.id) + '">' + esc(s.name) + '</button>'; }).join('') + '</div>' : '';
+    return jump + '<div class="panels">' + sections.map(function (s, si) {
+      var body, n;
+      if (s.directory) {
+        n = s.directory.length;
+        var open = state.openDir[s.id];
+        var LIM = 12;
+        var list = open ? s.directory : s.directory.slice(0, LIM);
+        body = '<div class="tiles dir">' + list.map(function (d) {
+          var inner = '<span class="tt">' + esc(lv(d.name)) + '</span>' + (d.sub ? '<span class="ts">' + esc(lv(d.sub)) + '</span>' : '');
+          return d.url ? '<a class="tile" href="' + esc(d.url) + '" target="_blank" rel="noopener">' + inner + '<span class="ti">' + ICON.ext + '</span></a>' : '<div class="tile">' + inner + '</div>';
+        }).join('') + '</div>' + (n > LIM ? '<button class="more" data-dir="' + esc(s.id) + '">' + (open ? '閉じる' : 'すべて表示（' + n + '件）') + '</button>' : '') + orderNote(s.order);
+      } else {
+        n = (s.pages || []).length;
+        body = '<div class="tiles">' + (s.pages || []).map(function (p) {
+          return '<button class="tile" data-go="pg-' + tab + '-' + esc(p.id) + '"><span class="tt">' + esc(p.title) + '</span>' + (p.summary ? '<span class="ts">' + esc(plain(lv(p.summary))) + '</span>' : '') + '<span class="ti">' + ICON.chev + '</span></button>';
+        }).join('') + '</div>';
+      }
+      return '<section class="panel" id="sec-' + esc(s.id) + '"><div class="panel-head"><h2>' + esc(s.name) + '</h2><span class="count">' + n + '件</span></div>' + (s.lead ? '<p class="muted small">' + rich(lv(s.lead)) + '</p>' : '') + body + '</section>';
+    }).join('') + '</div>';
+  }
+  function vTab(tab) {
+    if (tab === 'learn') return vLearn();
+    if (tab === 'links') return vLinks();
+    if (tab === 'media') return vMedia();
+    return '';
+  }
+  function tileFor(go, title, sub, small) {
+    return '<button class="tile' + (small ? ' sm' : '') + '" data-go="' + esc(go) + '"><span class="tt">' + esc(title) + '</span>' + (sub ? '<span class="ts">' + esc(plain(sub)) + '</span>' : '') + '<span class="ti">' + ICON.chev + '</span></button>';
+  }
+  function learnTile(p) {
+    var idx = allLearnIds().indexOf(p.id) + 1;
+    return '<button class="tile" data-go="pg-learn-' + esc(p.id) + '" data-ctx="all"><span class="stepno">ステップ ' + idx + '</span><span class="tt">' + esc(p.title) + '</span>' + (p.summary ? '<span class="ts">' + esc(plain(lv(p.summary))) + '</span>' : '') + (READ[p.id] ? '<span class="done-mark">✓ 読んだ</span>' : '') + '<span class="ti">' + ICON.chev + '</span></button>';
+  }
+  function learnPage(id) { var hit = null; (D.learn.sections || []).forEach(function (s) { (s.pages || []).forEach(function (p) { if (p.id === id) hit = p; }); }); return hit; }
+  function hookOf(p) { var b = (p.blocks || []).filter(function (x) { return x.type === 'hook'; })[0]; return b ? lv(b.text) : ''; }
+  function allLearnIds() { var o = []; D.learn.sections.forEach(function (s) { s.pages.forEach(function (p) { o.push(p.id); }); }); return o; }
+  function courseOf(ctx) {
+    if (ctx && ctx !== 'all') { var c = (D.learn.courses || []).filter(function (x) { return x.id === ctx; })[0]; if (c) return { id: c.id, name: c.name, steps: c.steps }; }
+    return { id: 'all', name: 'ぜんぶを順番に', steps: allLearnIds() };
+  }
+  function courseBlock(c) {
+    var done = c.steps.filter(function (id) { return READ[id]; }).length;
+    var next = c.steps.filter(function (id) { return !READ[id]; })[0];
+    var CS = D.learn.courses || [], ci = CS.indexOf(c), nav = CS.length > 1 ? '<span class="course-nav"><button data-course="' + ((ci - 1 + CS.length) % CS.length) + '" aria-label="前のコース">‹</button><span>' + (ci + 1) + ' / ' + CS.length + '</span><button data-course="' + ((ci + 1) % CS.length) + '" aria-label="次のコース">›</button></span>' : '';
+    return '<section class="panel course"><div class="panel-head"><h2>' + esc(c.name) + '</h2><span class="count">' + c.steps.length + 'ステップ</span>' + nav + '</div>' + (c.lead ? '<p class="muted small">' + esc(c.lead) + '</p>' : '') +
+      '<div class="meta"><span>読んだ ' + done + ' / ' + c.steps.length + '</span></div><div class="progress"><i style="width:' + (done / c.steps.length * 100).toFixed(1) + '%"></i></div>' +
+      '<div class="steps-list">' + c.steps.map(function (id, i) {
+        var p = learnPage(id); if (!p) return '';
+        return '<button class="step-btn' + (READ[id] ? ' done' : '') + (id === next ? ' next' : '') + '" data-go="pg-learn-' + id + '" data-ctx="' + c.id + '"><span class="no">' + (READ[id] ? '✓' : i + 1) + '</span><span class="nm">' + esc(p.title) + '</span></button>';
+      }).join('') + '</div>' + (next ? '<button class="continue" data-go="pg-learn-' + next + '" data-ctx="' + c.id + '">' + (done ? '続きから読む' : 'ステップ1から読む') + '</button>' : '<div class="course-done"><span class="meta"><span>このコースはすべて読みました。</span></span>' + (ci < CS.length - 1 ? '<button class="continue" data-course="' + (ci + 1) + '">次のコース「' + esc(CS[ci + 1].name) + '」へ</button>' : '') + '</div>') + '</section>';
+  }
+  function vLearn() {
+    var L = D.learn, cats = L.cats || [];
+    var cur = state.learnCat || cats[0][0];
+    var all = []; L.sections.forEach(function (s) { all = all.concat(s.pages); });
+    var h = '<div class="view">';
+    var CS0 = D.learn.courses || [];
+    if (CS0.length) h += courseBlock(CS0[Math.min(state.courseIdx || 0, CS0.length - 1)]);
+    h += '<section class="sec"><h2 class="sub-h2">すべてのコース<span class="count">' + CS0.length + 'コース・' + all.length + 'ページ。上から順に読むと、全部ひと通り読めます</span></h2><div class="course-grid">' + CS0.map(function (c, i) {
+      var done = c.steps.filter(function (id) { return READ[id]; }).length;
+      return '<button class="course-card' + (i === (state.courseIdx || 0) ? ' cur' : '') + '" data-course="' + i + '"><span class="cn">' + (i + 1) + '</span><span class="ct"><b>' + esc(c.name) + '</b><small>' + c.steps.length + 'ステップ・読んだ ' + done + '</small><span class="progress"><i style="width:' + (done / c.steps.length * 100).toFixed(1) + '%"></i></span></span></button>';
+    }).join('') + '</div></section></div>';
+    return h;
+  }
+  function vLinks() {
+    var T = D.links.sections;
+    var h = '<div class="view">';
+    h += '<div class="jump" role="navigation" aria-label="テーマ"><span class="jl">このページ内</span>' + T.map(function (t) { return '<button data-jump="sec-' + esc(t.id) + '">' + esc(t.name) + '</button>'; }).join('') + '</div><div class="panels">';
+    h += T.map(function (t) {
+      var x = '<section class="panel" id="sec-' + esc(t.id) + '"><div class="panel-head"><h2>' + esc(t.name) + '</h2></div><p class="muted small">' + esc(t.lead || '') + '</p>';
+      if (t.diagram) x += diagram(t.diagram);
+      if (t.show && t.show.length) x += '<div class="show">' + t.show.map(block).join('') + '</div>';
+      if (t.pages.length) x += '<p class="sub-h">くわしいデータ<span class="count">' + t.pages.length + '件</span></p><div class="tiles">' + t.pages.map(function (p) { return tileFor('pg-links-' + p.id, p.title, lv(p.summary)); }).join('') + '</div>';
+      if (t.soon && t.soon.length) x += '<div class="tiles">' + t.soon.map(function (s) { return '<div class="tile soon"><span class="tt">' + esc(s.title) + '<span class="soon-pill">Coming soon</span></span><span class="ts">' + esc(s.text) + '</span></div>'; }).join('') + '</div>';
+      return x + '</section>';
+    }).join('');
+    return h + '</div></div>';
+  }
+  var MEDIA_LEARN = ['broadcast-law-article4', 'broadcast-license', 'nhk-and-fee', 'cross-ownership', 'kisha-club', 'bpo', 'press-freedom-index', 'how-to-read-news'];
+  function mediaSeg() {
+    var o = [['list', 'メディアの一覧'], ['coverage', '報道の見える化']];
+    return '<div class="seg" role="group" aria-label="表示の切り替え">' + o.map(function (x) { return '<button data-mseg="' + x[0] + '" aria-pressed="' + ((state.mediaSeg || 'list') === x[0]) + '">' + x[1] + '</button>'; }).join('') + '</div>';
+  }
+  var OUTLETS = [['全国紙', ['朝日新聞', '産経新聞', '毎日新聞', '読売新聞']], ['通信社', ['共同通信', '時事通信']], ['公共放送', ['NHK']], ['民放キー局', ['日本テレビ', 'テレビ朝日', 'TBSテレビ', 'フジテレビ', 'テレビ東京']], ['地方紙', ['地方紙72紙（合計）']]];
+  var TARGETS = ['こども・子育て世帯', '学生・若者', '働く人', '事業者・企業', '高齢者', '障害のある人', '地域・自治体', '特定の対象なし'];
+  function mockTable(rowHead, rows, cols, groups) {
+    var head2 = groups ? '<tr><th></th>' + groups.map(function (g) { return '<th class="grp" colspan="' + g[1].length + '">' + esc(g[0]) + '</th>'; }).join('') + '</tr>' : '';
+    return '<div class="table-wrap mock tall"><table><thead>' + head2 + '<tr><th>' + esc(rowHead) + '</th>' + cols.map(function (o) { return '<th class="num">' + esc(o) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr><th>' + esc(r) + '</th>' + cols.map(function () { return '<td class="num">—</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+  }
+  function coverageView() {
+    var cols = []; OUTLETS.forEach(function (g) { cols = cols.concat(g[1]); });
+    var laws = feedItems().map(function (i) { return i.title; });
+    var parties = D.parties.national.map(function (p) { return p.name; });
+    function panel(id, title, lead, rules, body, foot) {
+      return '<section class="panel" id="' + id + '"><div class="panel-head"><h2>' + title + '</h2><span class="soon-pill">Coming soon</span></div><div class="set-h"><p class="muted small">' + lead + '</p><span class="meta">' + ruleChips(rules) + '</span></div>' + body + (foot ? '<p class="meta"><span>' + foot + '</span></p>' : '') + '</section>';
+    }
+    var h = '<div class="jump" role="navigation" aria-label="見える化"><span class="jl">このページ内</span>' + [['cv-laws', '国会で決まったことの報道'], ['cv-parties', '政党の報道'], ['cv-target', '法律の対象'], ['cv-ptarget', '政党の政策の対象'], ['cv-how', 'しくみ']].map(function (x) { return '<button data-jump="' + x[0] + '">' + x[1] + '</button>'; }).join('') + '</div><div class="panels">';
+    h += panel('cv-laws', '国会で決まったことの報道', '成立した法律・予算・条約' + laws.length + '件それぞれを、各社が何回取り上げたか。取り上げなかったものは0回と表示。', ['M-1', 'M-2', 'M-3'],
+      mockTable('国会で決まったこと（' + laws.length + '件）', laws, cols, OUTLETS), '新聞は記事の数（見出しか本文に法律名が出たもの）、テレビはニュース番組で取り上げた回数。期間は、国会に出された日から成立の30日後まで。');
+    h += panel('cv-parties', '政党の報道', '各党の名前が、各社の記事・番組に何回出たか。好意的か批判的かは判定しない。', ['M-1', 'M-5'],
+      mockTable('政党（' + parties.length + '党）', parties, cols, OUTLETS) + '<div class="box mock-chart"><p class="lt">月ごとの推移（グラフ）</p><p class="muted small">党ごと・社ごとに、1か月あたりの回数を折れ線で表示（すべて同じ色・線の形で区別）。</p></div>', '党の並び順はルールD-1と同じ。');
+    h += panel('cv-target', '法律の対象', '国会で決まったことが、どの立場の人を対象にしているか。条文に書かれた対象者だけで分ける。', ['M-6', 'C-1'],
+      '<div class="tiles">' + TARGETS.map(function (t) { return '<div class="tile soon"><span class="tt">' + esc(t) + '</span><span class="ts">— 件</span></div>'; }).join('') + '</div>', '1つの法律が複数の対象にあてはまるときは、それぞれに数える。分け方の一覧と、法律ごとの分け方の根拠（条文）を公開する。');
+    h += panel('cv-ptarget', '政党の政策の対象', '各党が掲げる政策（公約）が、どの立場の人を対象にしているか。全党を同じ分け方で数える。', ['M-6', 'D-7'],
+      mockTable('政党', parties, TARGETS), '政策の文に書かれた対象者だけで分ける。「どの層に向けた党か」という評価はしない。');
+    h += '<section class="panel" id="cv-how"><div class="panel-head"><h2>しくみ</h2></div><div class="steps">' + [
+      ['集める', '新聞・通信社は記事データベース、テレビは番組の放送記録から、対象期間の記事・番組をすべて集める。'],
+      ['数える', '法律名・党名が出た回数を、プログラムで数える（AIは使わない）。'],
+      ['分ける', '法律・政策の対象は、条文や公約の文に書かれた対象者で分ける。AIで分ける場合は、別の会社のAIで確かめる。'],
+      ['公開する', '集め方・数え方・分け方と、元のデータの一覧をすべて公開する。数え間違いは訂正の記録を残す。']
+    ].map(function (s, i) { return '<div class="step"><div class="dot"><b>' + (i + 1) + '</b><i></i></div><div class="c"><strong>' + s[0] + '</strong><p>' + s[1] + '</p></div></div>'; }).join('') + '</div><div class="meta">' + ruleChips(['M-1', 'M-2', 'M-3', 'M-4', 'M-5', 'M-6', 'C-2']) + '</div></section>';
+    return h + '</div>';
+  }
+  function vMedia() {
+    var M = D.media, secs = M.sections;
+    var h = '<div class="view">' + mediaSeg();
+    if (state.mediaSeg === 'coverage') return h + coverageView() + '</div>';
+    h += '<div class="panels">';
+    h += '<section class="panel"><div class="panel-head"><h2>メディアと政治の関わり</h2></div><p class="muted small">テレビは国（総務省）の免許を受けて放送し、放送法で「政治的に公平であること」が求められています。新聞にはその決まりはありません。国会や省庁の取材には、記者クラブという仕組みがあります。</p><div class="tiles">' +
+      MEDIA_LEARN.map(learnPage).filter(Boolean).map(function (p) { return tileFor('pg-learn-' + p.id, p.title, lv(p.summary)); }).join('') + '</div></section>';
+    h += '</div><div class="jump" role="navigation" aria-label="一覧"><span class="jl">このページ内</span>' + secs.map(function (s) { return '<button data-jump="sec-' + esc(s.id) + '">' + esc(s.name) + '</button>'; }).join('') + '</div>';
+    h += '<div class="panels">' + secs.map(function (s) {
+      var body, n;
+      if (s.directory) {
+        n = s.directory.length;
+        var open = state.openDir[s.id], LIM = 12;
+        var list = open ? s.directory : s.directory.slice(0, LIM);
+        body = '<div class="tiles dir">' + list.map(function (d) {
+          var inner = '<span class="tt">' + esc(lv(d.name)) + '</span>' + (d.sub ? '<span class="ts">' + esc(lv(d.sub)) + '</span>' : '');
+          return d.url ? '<a class="tile" href="' + esc(d.url) + '" target="_blank" rel="noopener">' + inner + '<span class="ti">' + ICON.ext + '</span></a>' : '<div class="tile">' + inner + '</div>';
+        }).join('') + '</div>' + (n > LIM ? '<button class="more" data-dir="' + esc(s.id) + '">' + (open ? '閉じる' : 'すべて表示（' + n + '件）') + '</button>' : '') + orderNote(s.order);
+      } else {
+        n = (s.pages || []).length;
+        body = '<div class="tiles">' + s.pages.map(function (p) { return tileFor('pg-media-' + p.id, p.title, lv(p.summary)); }).join('') + '</div>';
+      }
+      return '<section class="panel" id="sec-' + esc(s.id) + '"><div class="panel-head"><h2>' + esc(s.name) + '</h2><span class="count">' + n + '件</span></div>' +
+        (s.lead ? '<p class="scope-note"><b>この一覧に載せる範囲</b>' + esc(plain(lv(s.lead))) + ruleChips(['D-5']) + '</p>' : '') + body + '</section>';
+    }).join('') + '</div></div>';
+    return h;
+  }
+  function countPages(secs) { return secs.reduce(function (n, s) { return n + (s.pages ? s.pages.length : 0) + (s.directory ? s.directory.length : 0); }, 0); }
+  function vPage(tab, id) {
+    var hit = findPage(tab, id);
+    if (!hit) return tab === 'parties' ? vParties() : vTab(tab);
+    var p = hit.page; tab = hit.tab;
+    if (tab === 'learn') markRead(p.id);
+    var back = tab;
+    return '<div class="view">' + backBtn(back, TAB_TITLE[tab] + '・' + hit.section.name) +
+      '<div class="page-head"><h1>' + esc(p.title) + '</h1><div class="meta">' + checked(p.checked) + ruleChips(pageRules(p)) + '</div></div>' + 
+      (p.blocks || []).filter(function (b) { return b.type === 'hook'; }).map(block).join('') +
+      (p.summary ? '<p class="lead-l">' + rich(lv(p.summary)) + '</p>' : '') +
+      '<div class="learn-body">' + bodyBlocks(p.blocks).map(block).join('') + src(p.sources) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
+  }
+  function routeLabel(r) {
+    if (r === 'terms') return 'ことばの一覧';
+    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'search') return '検索'; if (r === 'about') return 'このサイトについて';
+    if (TAB_TITLE[r]) return TAB_TITLE[r];
+    if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
+    if (r.indexOf('p-') === 0) { var id = r.slice(2); var p = /^o\d+$/.test(id) ? D.parties.others[Number(id.slice(1))] : D.parties.national.filter(function (x) { return x.id === id; })[0]; return p ? p.name : '政党'; }
+    if (r.indexOf('pg-') === 0) { var rest = r.slice(3), i = rest.indexOf('-'); var hit = findPage(rest.slice(0, i), rest.slice(i + 1)); return hit ? hit.page.title : '前のページ'; }
+    return '前のページ';
+  }
+  function backBtn(fb, fbLabel) {
+    var prev = navStack[navStack.length - 1];
+    var label = prev ? routeLabel(prev) : fbLabel;
+    return '<button class="back" data-back="' + esc(fb) + '">' + ICON.back + esc(label) + '</button>';
+  }
+  function pager(id) {
+    var c = courseOf(state.ctx);
+    if (c.steps.indexOf(id) < 0) { var hc = (D.learn.courses || []).filter(function (x) { return x.steps.indexOf(id) >= 0; })[0]; c = hc ? courseOf(hc.id) : courseOf('all'); }
+    var i = c.steps.indexOf(id), prev = c.steps[i - 1], next = c.steps[i + 1];
+    var done = c.steps.filter(function (x) { return READ[x]; }).length;
+    var pp = prev && learnPage(prev), np = next && learnPage(next);
+    return '<div class="course-bar"><div class="meta"><span><b>' + esc(c.name) + '</b>　ステップ ' + (i + 1) + ' / ' + c.steps.length + '</span><span>読んだ ' + done + '</span></div><div class="progress"><i style="width:' + (done / c.steps.length * 100).toFixed(1) + '%"></i></div>' +
+      '<div class="pager">' + (pp ? '<button data-go="pg-learn-' + prev + '" data-ctx="' + c.id + '"><small>← 前のステップ</small><b>' + esc(pp.title) + '</b></button>' : '') +
+      (np ? '<button class="nx" data-go="pg-learn-' + next + '" data-ctx="' + c.id + '"><small>次のステップ →</small><b>' + esc(np.title) + '</b></button>' : '<button class="nx" data-go="learn"><small>コースの最後です</small><b>学ぶに戻る</b></button>') + '</div></div>';
+  }
+  function askBox(label) { return '<button class="ask" data-ask>' + ICON.spark + '<span class="grow">' + label + '</span><span class="soon-pill">Coming soon</span></button>'; }
+  function aiSheet() {
+    var g = D.rules.groups.filter(function (x) { return x.id === 'Q'; })[0];
+    sheet('AIに質問する（Coming soon）', '<p>まずはページの中の説明で分かるようにしています。それでも分からないことや、自分の考えを整理したいときに、AIに質問できるようにする予定です。AIの答えも偏らないよう、次のルールで答えます。</p>' +
+      (g ? '<div>' + g.rules.map(function (r) { return '<div class="rule-row"><b>' + r.id + '</b><div><div class="rt">' + esc(r.title) + '</div><div class="rx">' + esc(r.text) + '</div></div></div>'; }).join('') + '</div>' : '') +
+      '<button class="row-item" data-go="about"><span class="grow"><span class="t">ルールをすべて見る</span></span>' + ICON.chev + '</button>');
+  }
+
+  /* ---------- home feed ---------- */
+  function feedItems() { return (D.feed && D.feed.items) || []; }
+  var SORTS = [
+    ['new', '新しい順', '成立日の新しい順。'],
+    ['split', '賛否が分かれた順', '反対票の割合（参議院の本会議の投票）が多い順。同じ割合なら新しい順。']
+  ];
+  function againstRate(i) { var t = i.votes && i.votes.totals; return t && t.votes ? t.against / t.votes : -1; }
+  function card(it) {
+    var t = it.votes && it.votes.totals;
+    return '<button class="card" data-go="a-' + esc(it.id) + '"><div class="head"><span class="chip accent">' + esc(it.kind) + '</span>' + (it.topic ? '<span class="chip">' + esc(it.topic) + '</span>' : '') + '</div>' +
+      '<h3>' + esc(it.title) + '</h3><p class="lead">' + esc(plain(lv(it.lead))) + '</p><div class="meta"><span>' + date(it.date) + '</span>' +
+      (t ? '<span>賛成 ' + t['for'] + '・反対 ' + t.against + '</span>' : '') + '</div></button>';
+  }
+  function todayStr() { return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); }
+  function hashStr(s) { var x = 2166136261; for (var i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619) >>> 0; } return x >>> 0; }
+  var POOL = null;
+  function pool() {
+    if (POOL) return POOL;
+    POOL = [];
+    feedItems().forEach(function (it) { POOL.push({ cat: '国会で決まったこと', go: 'a-' + it.id, title: it.title, lead: it.lead, more: it.facts && it.facts[0] ? it.facts[0].text : '', meta: date(it.date) + ' ' + (it.kind || '') }); });
+    (D.learn.sections || []).forEach(function (s) { s.pages.forEach(function (p) { POOL.push({ cat: '学ぶ', go: 'pg-learn-' + p.id, title: p.title, lead: p.summary, hook: p, meta: s.name }); }); });
+    D.parties.national.forEach(function (p) { POOL.push({ cat: '政党', go: 'p-' + p.id, title: p.name, lead: (p.profile || {}).catch || p.summary, hookText: (p.profile || {}).hook, meta: '国政政党' }); });
+    (D.parties.others || []).forEach(function (o, i) { POOL.push({ cat: '政党', go: 'p-o' + i, title: o.name, lead: (o.profile || {}).catch || o.detail, hookText: (o.profile || {}).hook, meta: o.kind || '' }); });
+    (D.links.sections || []).forEach(function (t) { t.pages.forEach(function (p) { POOL.push({ cat: 'つながり', go: 'pg-links-' + p.id, title: p.title, lead: p.summary, hook: p, meta: t.name }); }); });
+    return POOL;
+  }
+  function poolCard(x, big) {
+    var q = x.hookText ? lv(x.hookText) : x.hook ? hookOf(x.hook) : '';
+    return '<button class="card' + (big ? ' feat' : '') + '" data-go="' + esc(x.go) + '"><div class="head"><span class="chip accent">' + esc(x.cat) + '</span>' + (x.meta ? '<span class="chip">' + esc(x.meta) + '</span>' : '') + '</div>' +
+      (q ? '<p class="cq">' + esc(plain(q)) + '</p>' : '') + '<h3>' + esc(x.title) + '</h3>' + (x.lead ? '<p class="lead">' + esc(plain(lv(x.lead))) + '</p>' : '') + (big && x.more ? '<p class="lead">' + esc(plain(lv(x.more))) + '</p>' : '') + '</button>';
+  }
+  var TODAY_CATS = ['国会で決まったこと', '学ぶ', '政党', 'つながり', '学ぶ'];
+  function todayPicks() {
+    var P = pool(), day = todayStr(), used = {};
+    return TODAY_CATS.map(function (c, k) {
+      var list = P.filter(function (x) { return x.cat === c && !used[x.go]; });
+      var pick = list[hashStr(day + '|' + c + '|' + k) % list.length];
+      used[pick.go] = 1; return pick;
+    });
+  }
+  function randomOrder() {
+    if (state.order) return state.order;
+    var n = pool().length, a = [];
+    for (var i = 0; i < n; i++) a.push(i);
+    for (var j = n - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)); var tmp = a[j]; a[j] = a[r]; a[r] = tmp; }
+    state.order = a; return a;
+  }
+  function vHome() {
+    var P = pool(), picks = todayPicks(), day = todayStr();
+    var terms = Object.keys(D.glossary || {}).sort();
+    var term = terms[hashStr(day + '|term') % terms.length];
+    var h = '<div class="view"><div class="page-head inline"><h1>今日のトピック</h1><div class="meta"><span>' + date(day) + '</span><button class="xp" data-explain="lottery" aria-label="選び方">?</button></div></div>';
+    if (state.party) {
+      var pid = PARTY_BY_NAME[state.party];
+      if (pid) h += '<button class="row-item shortcut" data-go="p-' + pid + '"><span class="grow"><span class="s">設定した政党</span><span class="t">' + esc(state.party) + '</span></span>' + ICON.chev + '</button>';
+    }
+    h += '<div class="cards today-cards">' + picks.map(function (x, i) { return poolCard(x, i === 0); }).join('') +
+      '<button class="card term-card" data-term="' + esc(term) + '"><div class="head"><span class="chip accent">今日のことば</span></div><h3>' + esc(term) + '</h3><p class="lead">' + esc(String(D.glossary[term]).slice(0, 80)) + (String(D.glossary[term]).length > 80 ? '…' : '') + '</p></button></div>';
+    h += askBox('AIに質問する');
+    var order = randomOrder(), shown = order.slice(0, state.homeShown);
+    h += '<section class="sec"><div class="feed-head"><h2>フィード</h2><button class="shuffle" data-shuffle>並べ直す</button></div>' +
+      '<div class="cards">' + shown.map(function (i) { return poolCard(P[i]); }).join('') + '</div>' +
+      (order.length > shown.length ? '<button class="more" data-hmore>もっと見る</button>' : '') + '</section>';
+    return h + '</div>';
+  }
+  function lawsBody() {
+    var F = D.feed || {};
+    var items = feedItems();
+    var kinds = [];
+    items.forEach(function (i) { if (kinds.indexOf(i.kind) < 0) kinds.push(i.kind); });
+    var topics = []; items.forEach(function (i) { if (i.topic && topics.indexOf(i.topic) < 0) topics.push(i.topic); }); topics.sort(function (a, b) { return a.localeCompare(b, 'ja'); });
+    var list = items.filter(function (i) { return (!state.feedKind || i.kind === state.feedKind) && (!state.feedTopic || i.topic === state.feedTopic); });
+    if (state.feedSort === 'split') list = list.slice().sort(function (a, b) { return (againstRate(b) - againstRate(a)) || (b.date > a.date ? 1 : b.date < a.date ? -1 : 0); });
+    var cur = SORTS.filter(function (s) { return s[0] === state.feedSort; })[0] || SORTS[0];
+    var sess = (F.sessions || []).map(function (s) { return s.name + (s.kind ? '（' + s.kind + '）' : '') + (s.start ? ' ' + date(s.start) + '〜' + (s.end ? date(s.end) : '開会中') : ''); }).join('、');
+    EXPLAIN.laws = { t: 'この一覧について', x: (F.criteria || '') + '（ルールD-4）対象の国会：' + sess + '。並び順は「' + cur[1] + '」：' + cur[2] + '（ルールD-6）', go: 'about', gl: 'ルールを見る' };
+    var h = '';
+    var tb = '<div class="seg" role="group" aria-label="並び順">' + SORTS.map(function (s) { return '<button data-fsort="' + s[0] + '" aria-pressed="' + (cur[0] === s[0]) + '">' + s[1] + '</button>'; }).join('') + '</div>';
+    tb += '<div class="seg" role="group" aria-label="種類"><button data-fkind="" aria-pressed="' + (!state.feedKind) + '">すべて</button>' + kinds.map(function (k) { return '<button data-fkind="' + esc(k) + '" aria-pressed="' + (state.feedKind === k) + '">' + esc(k.replace(/が成立|を承認/, '')) + '</button>'; }).join('') + '</div>';
+    tb += '<select id="ftopic" class="pill-select" aria-label="分野（所管）"><option value="">分野：すべて</option>' + topics.map(function (t) { return '<option value="' + esc(t) + '"' + (state.feedTopic === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select>';
+    tb += '<span class="tb-count">' + list.length + '件' + xp('laws') + '</span>';
+    h += '<div class="toolbar">' + tb + '</div>';
+    var shown = list.slice(0, state.feedShown);
+    h += '<div class="cards">' + shown.map(card).join('') + '</div>';
+    if (list.length > shown.length) h += '<button class="more" data-more>もっと見る（残り' + (list.length - shown.length) + '件）</button>';
+    return h;
+  }
+  function vArticle(id) {
+    var it = feedItems().filter(function (x) { return x.id === id; })[0];
+    if (!it) return vHome();
+    var h = '<div class="view">' + backBtn('laws', '国会で決まったこと') +
+      '<div class="page-head"><div class="meta"><span class="chip accent">' + esc(it.kind) + '</span>' + (it.topic ? '<span class="chip">' + esc(it.topic) + '</span>' : '') + checked(it.checked) + '</div>' +
+      '<h1>' + esc(it.title) + '</h1><div class="meta">' + (it.formal && it.formal !== it.title ? '<span>正式名 ' + esc(it.formal) + '</span>' : '') + '</div>' +
+      '<div class="meta"><span>' + date(it.date) + (it.kind === '条約を承認' ? ' 承認' : ' 成立') + '</span>' + (it.session ? '<span>' + esc(it.session) + '</span>' : '') + (it.number ? '<span>' + esc(it.number) + '</span>' : '') + (it.submitter ? '<span>提出 ' + esc(it.submitter) + '</span>' : '') + '</div></div>' +
+       (it.lead ? '<p class="lead-l">' + rich(lv(it.lead)) + '</p>' : '');
+    if (it.facts && it.facts.length) {
+      h += '<section class="sec"><h2>事実</h2><div class="facts">' + it.facts.map(function (f) {
+        return '<div class="fact"><p>' + rich(lv(f.text)) + '</p><div class="foot">' + ruleChips(f.rules || ['F-1']) + (f.sources || []).map(function (s) { return a(s.url, s.label); }).join('') + '</div></div>';
+      }).join('') + '</div></section>';
+    }
+    if (it.process) {
+      var pr = it.process, rowsP = [['衆議院', pr.shugiin], ['参議院', pr.sangiin]].filter(function (x) { return x[1]; });
+      h += '<section class="sec"><h2>国会での流れ</h2><div class="table-wrap"><table><thead><tr><th>院</th><th class="num">議決日</th><th>結果</th><th>採決の方法</th></tr></thead><tbody>' +
+        rowsP.map(function (x) { return '<tr><th>' + x[0] + (pr.first_chamber === x[0] ? '（先議）' : '') + '</th><td class="num">' + sdate(x[1].date) + '</td><td>' + esc(x[1].result || '') + '</td><td>' + esc([x[1].method, x[1].mode].filter(Boolean).join('・')) + '</td></tr>'; }).join('') +
+        '</tbody></table></div>' + (it.law_no ? '<p class="meta"><span>' + esc(it.law_no) + '</span>' + (it.promulgated ? '<span>' + date(it.promulgated) + ' 公布</span>' : '') + '</p>' : '') + src(pr.source ? [pr.source] : []) + '</section>';
+    }
+    if (it.votes && (it.votes.detail || it.votes.for)) {
+      var v = it.votes;
+      h += '<section class="sec"><h2>会派ごとの賛否（' + esc(v.chamber) + (v.date ? ' ' + sdate(v.date) : '') + '）</h2>';
+      if (v.totals) h += '<div class="stats"><div class="box stat"><span class="k">賛成</span><span class="big">' + v.totals['for'] + '<small>票</small></span></div><div class="box stat"><span class="k">反対</span><span class="big">' + v.totals.against + '<small>票</small></span></div></div>';
+      if (v.detail) {
+        h += '<div class="table-wrap"><table><thead><tr><th>会派</th><th class="num">所属</th><th class="num">賛成</th><th class="num">反対</th></tr></thead><tbody>' +
+          v.detail.map(function (d) { return '<tr><th>' + esc(d.group) + '</th><td class="num">' + num(d.seats) + '</td><td class="num">' + num(d['for']) + '</td><td class="num">' + num(d.against) + '</td></tr>'; }).join('') + '</tbody></table></div>';
+      } else {
+        h += '<div class="votes"><div class="vote-col"><h3><span>賛成</span><span>' + v['for'].length + '会派</span></h3><ul>' + v['for'].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+          '<div class="vote-col"><h3><span>反対</span><span>' + (v.against || []).length + '会派</span></h3><ul>' + (v.against || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div></div>';
+      }
+      h += '<div class="meta">' + ruleChips(['F-1', 'F-3']) + '<span>' + rich('{{会派}}は国会の中の議員のグループ。並びは投票結果ページの順') + '</span></div>' + src(v.source ? [v.source] : []) + '</section>';
+    }
+    if (it.views) h += block({ type: 'views', items: it.views });
+    if (it.sources) h += src(it.sources);
+    h += askBox('AIに質問する');
+    h += '<div class="log"><strong>作成とチェックの記録</strong><br>この記事は、公開資料をもとに作成し、出典と照らし合わせて確認しました。自動化後は、AIへの指示文・モデル名・チェック結果をここに表示します。' + ruleChips(['C-4']) + '</div></div>';
+    return h;
+  }
+
+  /* ---------- parties ---------- */
+  function partiesSeg() {
+    var o = [['parties', '政党'], ['elections', '選挙結果'], ['laws', '<span class="lab-l">国会で決まったこと</span><span class="lab-s">国会の決定</span>']];
+    return '<div class="seg" role="group" aria-label="表示の切り替え">' + o.map(function (x) { return '<button data-pseg="' + x[0] + '" aria-pressed="' + (state.partiesSeg === x[0]) + '">' + x[1] + '</button>'; }).join('') + '</div>';
+  }
+  function vParties() {
+    var P = D.parties;
+    var h = '<div class="view">' + partiesSeg();
+    if (state.partiesSeg === 'elections') return h + elections() + '</div>';
+    if (state.partiesSeg === 'laws') return h + lawsBody() + '</div>';
+    h += '<section class="panel"><div class="panel-head"><h2>国政政党</h2><span class="count">' + P.national.length + '党</span></div><div class="meta">' + ruleChips(['D-1', 'D-7']) + '<span>' + esc(P.order || '') + '</span></div>' +
+      '<div class="tiles party">' + P.national.map(function (p) {
+        var m = p.members || {}, pr = p.profile || {};
+        return '<button class="tile" data-go="p-' + p.id + '"><span class="tt">' + esc(p.name) + '</span>' + (pr.catch ? '<span class="ts">' + esc(plain(lv(pr.catch))) + '</span>' : '') +
+          '<span class="pnums"><span><small>衆院選2026</small><b>' + num(p.shu2026) + '</b></span><span><small>参院選2025</small><b>' + num(p.san2025) + '</b></span><span><small>所属 衆/参</small><b>' + num(m.shu) + '/' + num(m.san) + '</b></span></span><span class="ti">' + ICON.chev + '</span></button>';
+      }).join('') + '</div><p class="meta"><span>数字は議席数・人数。衆院選2026は獲得議席、参院選2025は改選での獲得議席。</span></p></section>';
+    if (P.others && P.others.length) h += '<section class="panel"><div class="panel-head"><h2>そのほかの政党・地域政党</h2><span class="count">' + P.others.length + '党</span></div><div class="tiles">' + P.others.map(function (o, i) {
+      var pr = o.profile || {};
+      return '<button class="tile" data-go="p-o' + i + '"><span class="tt">' + esc(o.name) + '</span><span class="ts">' + esc(pr.catch ? plain(lv(pr.catch)) : [o.kind, o.detail].filter(Boolean).join('。')) + '</span><span class="ti">' + ICON.chev + '</span></button>';
+    }).join('') + '</div></section>';
+    return h + src(P.sources) + '</div>';
+  }
+  function num(v) { return v == null || v === '' ? '—' : esc(v); }
+  function kaihaStats(k) {
+    if (!k) return null;
+    var r = { yes: 0, no: 0, split: 0, total: 0, noList: [], splitList: [] };
+    feedItems().forEach(function (it) {
+      var d = ((it.votes || {}).detail || []).filter(function (x) { return x.group === k; })[0];
+      if (!d) return;
+      r.total++;
+      if (d['for'] > 0 && !d.against) r.yes++;
+      else if (d.against > 0 && !d['for']) { r.no++; r.noList.push(it); }
+      else if (d.against > 0 && d['for'] > 0) { r.split++; r.splitList.push(it); }
+    });
+    return r.total ? r : null;
+  }
+  function vParty(id) {
+    var isOther = id.charAt(0) === 'o' && /^o\d+$/.test(id);
+    var p = isOther ? D.parties.others[Number(id.slice(1))] : D.parties.national.filter(function (x) { return x.id === id; })[0];
+    if (!p) return vParties();
+    var m = p.members || {}, pr = p.profile || {};
+    seenTerms[p.name] = 1;
+    var h = '<div class="view">' + backBtn('parties', '政党・選挙') + '<div class="page-head"><h1>' + esc(p.name) + '</h1><div class="meta">' + checked(D.parties.checked) + ruleChips(['D-7', 'V-4']) + '</div></div>' + '';
+    if (pr.hook) h += block({ type: 'hook', text: pr.hook });
+    if (pr.catch || p.summary) h += '<p class="lead-l">' + rich(lv(pr.catch || p.summary)) + '</p>';
+    if (!isOther) {
+      h += '<div class="stats"><div class="box stat"><span class="k">衆院選2026 獲得' + xp('shu') + '</span><span class="big">' + num(p.shu2026) + '<small>議席</small></span></div>' +
+        '<div class="box stat"><span class="k">参院選2025 改選で獲得' + xp('san') + '</span><span class="big">' + num(p.san2025) + '<small>議席</small></span></div>' +
+        '<div class="box stat"><span class="k">所属議員 衆議院' + xp('members') + '</span><span class="big">' + num(m.shu) + '<small>人</small></span></div>' +
+        '<div class="box stat"><span class="k">所属議員 参議院</span><span class="big">' + num(m.san) + '<small>人</small></span></div></div>';
+    }
+    if (pr.history && pr.history.length) {
+      h += '<section class="sec"><h2>歩み' + xp('history') + '</h2><div class="timeline">' + pr.history.map(function (x) {
+        return '<div class="tl"><span class="tld">' + esc(String(x.date).replace(/^(\d{4})-(\d{2}).*$/, function (_, y, mo) { return y + '年' + Number(mo) + '月'; })) + '</span><p>' + rich(lv(x.text)) + '</p></div>';
+      }).join('') + '</div></section>';
+    }
+    if (pr.ideas) {
+      h += '<section class="sec"><h2>掲げている考え方</h2>' + (pr.ideas.quote ? '<blockquote class="quote">「' + esc(pr.ideas.quote) + '」</blockquote>' : '') + (pr.ideas.summary ? '<p>' + rich(lv(pr.ideas.summary)) + '</p>' : '') +
+        (pr.ideas.source ? '<div class="meta">' + ruleChips(['P-3']) + a(pr.ideas.source.url, pr.ideas.source.label, 'small') + '</div>' : '') + '</section>';
+    }
+    if (pr.policies && pr.policies.length) {
+      h += '<section class="sec"><h2>主な政策</h2><div class="tiles plain">' + pr.policies.map(function (x, i) {
+        return '<div class="tile"><span class="tn">' + (i + 1) + '</span><span class="tt">' + esc(lv(x.title)) + '</span><span class="ts full">' + rich(lv(x.text)) + '</span></div>';
+      }).join('') + '</div><p class="meta"><span>党の公約・政策集に出てくる順。</span></p></section>';
+    }
+    var ks = kaihaStats(pr.sangiin_kaiha);
+    if (ks) {
+      h += '<section class="sec"><h2>国会での賛否' + xp('votes') + '</h2><p class="muted small">2026年に成立した法律・予算・条約' + ks.total + '件の参議院本会議の投票で、会派「' + esc(pr.sangiin_kaiha) + '」の票。</p>' +
+        '<div class="stats"><div class="box stat"><span class="k">賛成</span><span class="big">' + ks.yes + '<small>件</small></span></div><div class="box stat"><span class="k">反対</span><span class="big">' + ks.no + '<small>件</small></span></div>' + (ks.split ? '<div class="box stat"><span class="k">会派内で分かれた</span><span class="big">' + ks.split + '<small>件</small></span></div>' : '') + '</div>';
+      if (ks.noList.length) h += '<details class="fold"><summary>反対した' + ks.noList.length + '件を見る</summary><div class="list">' + ks.noList.map(function (it) { return '<button class="row-item" data-go="a-' + esc(it.id) + '"><span class="grow"><span class="t">' + esc(it.title) + '</span><span class="s">' + date(it.date) + '</span></span>' + ICON.chev + '</button>'; }).join('') + '</div></details>';
+      h += '<div class="meta">' + ruleChips(['C-2', 'F-1']) + '</div></section>';
+    }
+    var rows = [['設立', p.founded], ['代表', p.leader], ['政党交付金（2026年）', p.subsidy2026], ['種類', isOther ? [p.kind, p.detail].filter(Boolean).join('。') : '']].filter(function (r) { return r[1]; });
+    if (pr.leader_rule) rows.push(['代表の決め方', lv(pr.leader_rule)]);
+    h += '<section class="sec"><h2>基本情報</h2><div class="list">' + rows.map(function (r) { return '<div class="row-item"><span class="grow"><span class="s">' + esc(r[0]) + '</span><span class="t">' + rich(r[1]) + '</span></span></div>'; }).join('') +
+      (p.url ? extRow('公式サイト', p.url, p.url) : '') + (p.platform_url ? extRow('綱領・基本政策', p.platform_url, '') : '') + '</div></section>';
+    if (pr.near) h += block({ type: 'near', text: pr.near });
+    h += src([].concat(pr.sources || [], m.source ? [m.source] : [], isOther ? (D.parties.others_sources || []) : (D.parties.sources || []))) + askBox('AIに質問する') + '</div>';
+    return h;
+  }
+  function elections() {
+    var E = D.parties.elections || {};
+    var h = (E.recent || []).map(function (e) {
+      var max = e.results[0].seats;
+      var bars = '<div class="bars">' + e.results.map(function (r) {
+        return '<div class="bar"><span class="label">' + esc(r.party) + '</span><span class="track"><span class="fill" style="display:block;width:' + (r.seats / max * 100).toFixed(1) + '%"></span></span><span class="v">' + r.seats + '</span></div>';
+      }).join('') + '</div>';
+      return '<section class="box"><div class="page-head"><h3>' + esc(e.name) + '</h3><div class="meta"><span>' + date(e.date) + '</span><span>' + esc(e.seats_label || '') + ' ' + esc(e.seats_total) + '</span>' +
+        (e.turnout ? '<span>投票率 ' + e.turnout + '%</span>' : '') + '</div></div>' + bars + '<div class="meta">' + ruleChips(['D-2']) + '</div>' + src(e.sources) + '</section>';
+    }).join('');
+    var H = E.history || {};
+    [['shu', '衆議院議員総選挙'], ['san', '参議院議員通常選挙']].forEach(function (k) {
+      var rows = H[k[0]] || [];
+      if (!rows.length) return;
+      h += '<section class="sec"><h2>戦後の' + k[1] + '（' + rows.length + '回）</h2>' + turnoutChart(rows) +
+        '<div class="table-wrap"><table><thead><tr><th>回</th><th class="num">投票日</th><th class="num">投票率</th><th class="num">定数</th><th>第1党</th><th class="num">議席</th></tr></thead><tbody>' +
+        rows.slice().reverse().map(function (r) {
+          return '<tr><th>第' + r.no + '回</th><td class="num">' + sdate(r.date) + '</td><td class="num">' + (r.turnout == null ? '—' : r.turnout + '%') + '</td><td class="num">' + num(r.seats_total) + '</td><td>' + num(r.first) + '</td><td class="num">' + num(r.first_seats) + '</td></tr>';
+        }).join('') + '</tbody></table></div><p class="meta"><span>参議院の定数は、その回に改選された議席数。</span></p></section>';
+    });
+    if (H.source) h += src([].concat(H.source));
+    return h;
+  }
+  function turnoutChart(rows) {
+    var pts = rows.filter(function (r) { return r.turnout != null; });
+    if (pts.length < 2) return '';
+    var W = 640, Hh = 180, pl = 36, pr = 12, pt = 12, pb = 26;
+    var tv = pts.map(function (r) { return r.turnout; }); var y0 = Math.floor((Math.min.apply(null, tv) - 2) / 10) * 10, y1 = Math.ceil((Math.max.apply(null, tv) + 2) / 10) * 10;
+    var t0 = new Date(pts[0].date).getTime(), t1 = new Date(pts[pts.length - 1].date).getTime();
+    function x(d) { return pl + (new Date(d).getTime() - t0) / (t1 - t0) * (W - pl - pr); }
+    function y(v) { return pt + (y1 - v) / (y1 - y0) * (Hh - pt - pb); }
+    var gl = []; for (var g = y0; g <= y1; g += 10) gl.push(g); var grid = gl.map(function (g) { return '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y(g) + '" y2="' + y(g) + '" stroke="var(--line)"/><text x="' + (pl - 6) + '" y="' + (y(g) + 4) + '" text-anchor="end">' + g + '</text>'; }).join('');
+    var line = pts.map(function (r) { return x(r.date).toFixed(1) + ',' + y(r.turnout).toFixed(1); }).join(' ');
+    var dots = pts.map(function (r) { return '<circle cx="' + x(r.date).toFixed(1) + '" cy="' + y(r.turnout).toFixed(1) + '" r="3" fill="var(--bar)"><title>第' + r.no + '回 ' + r.turnout + '%</title></circle>'; }).join('');
+    var yrs = [pts[0], pts[Math.floor(pts.length / 2)], pts[pts.length - 1]].map(function (r) { return '<text x="' + x(r.date) + '" y="' + (Hh - 6) + '" text-anchor="middle">' + r.date.slice(0, 4) + '</text>'; }).join('');
+    return '<div class="box"><p class="lt">投票率の推移（%）</p><svg class="chart" viewBox="0 0 ' + W + ' ' + Hh + '" role="img" aria-label="投票率の推移">' + grid + '<polyline fill="none" stroke="var(--bar)" stroke-width="2" points="' + line + '"/>' + dots + yrs + '</svg></div>';
+  }
+
+
+  var EXPLAIN = {
+    shu: { t: '衆院選の議席', x: '衆議院は465議席を、1回の選挙（総選挙）ですべて選びます。2026年2月の選挙で、この党が得た議席の数です。', go: 'pg-learn-two-houses', gl: '衆議院と参議院の違い' },
+    san: { t: '参院選の議席', x: '参議院は248議席ありますが、3年ごとに半分ずつ選びます（改選）。2025年7月の選挙で選んだのは125議席だけなので、各党の獲得議席も衆院選より小さくなります。', go: 'pg-learn-upper-house-election', gl: '参議院の選挙制度' },
+    members: { t: '所属議員の数', x: '選挙のあとに入党・離党・会派の移動があるため、選挙で得た議席の数と、いま所属している議員の数は一致しないことがあります。', go: 'pg-learn-parties-and-kaiha', gl: '会派と政党' },
+    votes: { t: '国会での賛否の数え方', x: 'ホームの「国会で決まったこと」98件について、参議院の本会議の投票で、この党の議員が入る会派の全員が賛成なら「賛成」、全員が反対なら「反対」、両方いれば「会派内で分かれた」と、プログラムで数えています。', go: 'pg-learn-committees', gl: '委員会と本会議' },
+    history: { t: '歩みの読み方', x: '政党は、合流・分裂・名前の変更をくり返してきました。年表の中の昔の党の名前に触れると、その党の説明が出ます。', go: 'pg-learn-sengo-seito', gl: '戦後の主な政党の流れ' },
+    lottery: { t: '今日のトピックの選び方', x: '日本時間の日付（例：2026-11-01）と分類名をつなげた文字列から、決まった計算（FNV-1aハッシュ）で番号を出し、その分類の中から1つ選びます。人は選びません。同じ日なら、だれが見ても同じものが出ます。下のフィードは、全コンテンツを開くたびにランダムに並べ直します。', go: 'about', gl: 'ルールを見る' }
+  };
+  function xp(k) { return '<button class="xp" data-explain="' + k + '" aria-label="説明">?</button>'; }
+  function relatedPages(t) {
+    if (!INDEX) buildIndex();
+    return INDEX.filter(function (x) { return x.go && x.go.indexOf('pg-learn-') === 0 && x.title.indexOf(t) >= 0; }).slice(0, 3);
+  }
+  function popContent(el) {
+    if (el.dataset.explain) {
+      var e = EXPLAIN[el.dataset.explain]; if (!e) return null;
+      return { title: e.t, body: '<p>' + esc(e.x) + '</p>' + (e.go ? '<button class="pop-link" data-go="' + e.go + '">' + esc(e.gl) + ICON.chev + '</button>' : '') };
+    }
+    var t = el.dataset.term;
+    var pid = PARTY_BY_NAME[t];
+    if (pid) {
+      var p = pid.charAt(0) === 'o' && /^o\d+$/.test(pid) ? D.parties.others[Number(pid.slice(1))] : D.parties.national.filter(function (x) { return x.id === pid; })[0];
+      var c = p && p.profile && p.profile.catch ? lv(p.profile.catch) : (p && p.detail) || '';
+      return { title: t, body: '<p>' + esc(plain(c)) + '</p><button class="pop-link" data-go="p-' + pid + '">政党のページを見る' + ICON.chev + '</button>' };
+    }
+    var d = D.glossary[t]; if (!d) return null;
+    var rel = relatedPages(t);
+    return { title: t, body: '<p>' + esc(d) + '</p>' + rel.map(function (r) { return '<button class="pop-link" data-go="' + r.go + '">' + esc(r.title) + ICON.chev + '</button>'; }).join('') };
+  }
+  var popTimer = null;
+  function hidePop() { var p = document.getElementById('pop'); if (p) p.remove(); }
+  function showPop(el, fromHover) {
+    var c = popContent(el); if (!c) return;
+    if (!fromHover && !window.matchMedia('(hover: hover) and (min-width: 900px)').matches) { hidePop(); return sheet(c.title, c.body); }
+    hidePop();
+    var d = document.createElement('div');
+    d.className = 'pop'; d.id = 'pop'; d.setAttribute('role', 'tooltip');
+    d.innerHTML = '<p class="pt">' + esc(c.title) + '</p>' + c.body;
+    document.body.appendChild(d);
+    var r = el.getBoundingClientRect(), w = d.offsetWidth, ph = d.offsetHeight;
+    var x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+    var y = r.bottom + 8;
+    if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 8);
+    d.style.left = x + 'px'; d.style.top = (y + window.scrollY) + 'px';
+  }
+  document.addEventListener('mouseover', function (e) {
+    if (!window.matchMedia('(hover: hover) and (min-width: 900px)').matches) return;
+    var t = e.target.closest('.term, .xp');
+    if (t) { clearTimeout(popTimer); popTimer = setTimeout(function () { showPop(t, true); }, 220); return; }
+    if (e.target.closest('#pop')) { clearTimeout(popTimer); return; }
+    clearTimeout(popTimer); popTimer = setTimeout(hidePop, 280);
+  });
+
+  /* ---------- search ---------- */
+  var INDEX = null;
+  function buildIndex() {
+    INDEX = [];
+    ['learn', 'parties', 'media', 'links'].forEach(function (tab) {
+      tabSections(tab).forEach(function (s) {
+        (s.pages || []).forEach(function (p) {
+          var txt = [p.title, lvStd(p.summary)].concat((p.blocks || []).map(function (b) { return JSON.stringify(b); })).join(' ');
+          INDEX.push({ go: 'pg-' + tab + '-' + p.id, title: p.title, where: TAB_TITLE[tab] + '・' + s.name, text: txt });
+        });
+        (s.directory || []).forEach(function (d) { INDEX.push({ url: d.url, title: d.name, where: TAB_TITLE[tab] + '・' + s.name, text: d.name + ' ' + (d.sub || '') }); });
+      });
+    });
+    feedItems().forEach(function (it) { INDEX.push({ go: 'a-' + it.id, title: it.title, where: 'ホーム・' + it.kind, text: [it.title, it.formal, it.topic, JSON.stringify(it.facts || [])].join(' ') }); });
+    (D.parties.national || []).forEach(function (p) { INDEX.push({ go: 'p-' + p.id, title: p.name, where: '政党・選挙・政党', text: p.name + ' ' + (p.short || '') + ' ' + JSON.stringify(p.profile || {}) }); });
+    (D.parties.others || []).forEach(function (o, i) { INDEX.push({ go: 'p-o' + i, title: o.name, where: '政党・選挙・そのほかの政党', text: o.name + ' ' + JSON.stringify(o.profile || {}) }); });
+    Object.keys(D.glossary || {}).forEach(function (k) { INDEX.push({ term: k, title: k, where: 'ことば', text: k + ' ' + D.glossary[k] }); });
+  }
+  function vSearch() {
+    if (!INDEX) buildIndex();
+    var q = state.q.trim();
+    var res = q ? INDEX.filter(function (x) { return x.text.indexOf(q) >= 0; }) : [];
+    res.sort(function (a, b) { return (b.title.indexOf(q) >= 0) - (a.title.indexOf(q) >= 0); });
+    return '<div class="view"><div class="page-head inline"><h1>検索</h1></div><input class="search" id="q" type="search" placeholder="ことばを入れる（例：予算、選挙、放送法）" value="' + esc(q) + '" autocomplete="off">' +
+      '<div id="results">' + resultsHtml(q, res) + '</div></div>';
+  }
+  function entrances() {
+    function btn(label, go, sub, extra) { return '<button class="tile sm" data-go="' + go + '"' + (extra || '') + '><span class="tt">' + esc(label) + '</span>' + (sub ? '<span class="ts">' + esc(sub) + '</span>' : '') + '<span class="ti">' + ICON.chev + '</span></button>'; }
+    var cats = (D.learn.courses || []).map(function (c, i) { return btn(c.name, 'learn', c.steps.length + 'ステップ', ' data-course-go="' + i + '"'); }).join('');
+    var themes = D.links.sections.map(function (t) { return btn(t.name, 'links', '', ' data-after="sec-' + t.id + '"'); }).join('');
+    var media = D.media.sections.filter(function (s) { return s.directory; }).slice(0, 6).map(function (s) { return btn(s.name, 'media', s.directory.length + '件', ' data-after="sec-' + s.id + '"'); }).join('');
+    function grp(title, inner) { return '<section class="panel"><div class="panel-head"><h2>' + title + '</h2></div><div class="tiles">' + inner + '</div></section>'; }
+    return '<div class="panels">' +
+      grp('国会と政党', btn('国会で決まったこと', 'laws', feedItems().length + '件') + btn('政党の一覧', 'parties', D.parties.national.length + '党') + btn('選挙結果', 'elections', '戦後の衆院選・参院選')) +
+      grp('学ぶ', cats) +
+      grp('つながり', themes) +
+      grp('メディア', btn('メディアと政治の関わり', 'media', '') + media) +
+      grp('そのほか', btn('ことばの一覧', 'terms', Object.keys(D.glossary).length + '語') + btn('書き方のルール', 'about', 'このサイトのルールと方針')) + '</div>';
+  }
+  function vTerms() {
+    var keys = Object.keys(D.glossary).sort(function (a, b) { return a.localeCompare(b, 'ja'); });
+    return '<div class="view">' + backBtn('search', '検索') + '<div class="page-head inline"><h1>ことばの一覧</h1><p class="muted">押すと説明が出ます。</p></div><div class="term-list">' +
+      keys.map(function (k) { return '<button class="term-chip" data-term="' + esc(k) + '">' + esc(k) + '</button>'; }).join('') + '</div></div>';
+  }
+  function resultsHtml(q, res) {
+    if (!q) return entrances();
+    if (!res.length) return '<p class="meta"><span>見つかりませんでした</span></p>';
+    return '<p class="meta"><span>' + res.length + '件</span></p><div class="list">' + res.slice(0, 80).map(function (r) {
+      var inner = '<span class="grow"><span class="t">' + esc(r.title) + '</span><span class="s">' + esc(r.where) + '</span></span>';
+      if (r.term) return '<button class="row-item" data-term="' + esc(r.term) + '">' + inner + ICON.chev + '</button>';
+      return r.go ? '<button class="row-item" data-go="' + esc(r.go) + '">' + inner + ICON.chev + '</button>' : '<a class="row-item" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + inner + ICON.ext + '</a>';
+    }).join('') + '</div>';
+  }
+
+  /* ---------- about ---------- */
+  function vAbout() {
+    var R = D.rules;
+    return '<div class="view">' + backBtn('home', 'ホーム') + '<div class="page-head"><h1>このサイトについて</h1></div>' +
+      '<section class="sec learn-body"><h2>方針</h2><p>政治の情報を、どの党にもメディアにも偏らずに届けるためのサイトです。事実と意見を分け、結論は書きません。書き方のルールはすべて公開し、記事やページごとに、どのルールに沿って書いたかを表示します。</p>' +
+      '<p>載せる話題は人が選ばず、決めた範囲をすべて載せます。読むレベルは小中学生・高校生・標準・大学生の4つから選べます。</p>' +
+      '<p>読むレベルや支持政党の設定は、この端末の中だけに保存し、外には送りません。</p></section>' +
+      '<button class="row-item" data-tour-open><span class="grow"><span class="t">使い方をもう一度見る</span></span>' + ICON.chev + '</button>' +
+      '<section class="sec learn-body"><h2>ホームの並べ方</h2><p>「今日のトピック」は、日本時間の日付と分類名（国会で決まったこと・学ぶ・政党・つながり）をつなげた文字列から、FNV-1aハッシュで番号を計算し、その分類の中から1つずつ選びます。同じ日なら、だれが見ても同じものが出ます。</p><p>「フィード」は、全コンテンツを、開くたびにブラウザの乱数でランダムに並べます。閲覧履歴や支持政党の設定は使いません。</p></section>' +
+      '<section class="sec"><h2>書き方のルール v' + esc(R.version) + '</h2><div class="meta"><span>更新日 ' + date(R.updated) + '</span>' + ruleChips(['T-1']) + '</div>' +
+      R.groups.map(function (g) {
+        return '<div class="rules-group"><h3>' + esc(g.name) + '</h3><div>' + g.rules.map(function (r) {
+          return '<div class="rule-row" id="rule-' + r.id + '"><b>' + r.id + '</b><div><div class="rt">' + esc(r.title) + '</div><div class="rx">' + esc(r.text) + '</div></div></div>';
+        }).join('') + '</div></div>';
+      }).join('') + '</section>' +
+      (R.history ? '<section class="sec"><h2>ルールの変更履歴</h2><div class="list">' + R.history.map(function (x) {
+        return '<div class="row-item"><span class="grow"><span class="t">v' + esc(x.version) + '（' + date(x.date) + '）</span><span class="s">' + esc(x.changes) + '</span></span></div>';
+      }).join('') + '</div></section>' : '') + '</div>';
+  }
+
+  /* ---------- sheet ---------- */
+  function sheet(title, body, sub) {
+    closeSheet();
+    var el = document.createElement('div');
+    el.className = 'scrim'; el.id = 'scrim';
+    el.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="' + esc(title) + '"><div class="sh"><h2>' + esc(title) + (sub ? '<small class="sh-sub">' + esc(sub) + '</small>' : '') + '</h2><button class="icon-btn" data-close aria-label="閉じる">' + ICON.close + '</button></div>' + body + '</div>';
+    document.body.appendChild(el);
+    el.querySelector('[data-close]').focus();
+  }
+  function closeSheet() { var s = document.getElementById('scrim'); if (s) s.remove(); }
+  function ruleSheet(id) {
+    var r = null, g0 = null;
+    D.rules.groups.forEach(function (g) { g.rules.forEach(function (x) { if (x.id === id) { r = x; g0 = g; } }); });
+    if (!r) return;
+    sheet(r.id + ' ' + r.title, '<p class="meta"><span>' + esc(g0.name) + '・ルール v' + esc(D.rules.version) + '</span></p><p>' + esc(r.text) + '</p><button class="row-item" data-go="about"><span class="grow"><span class="t">ルールをすべて見る</span></span>' + ICON.chev + '</button>');
+  }
+  function settingsSheet() {
+    var parties = D.parties.national.map(function (p) { return p.name; });
+    sheet('個人設定', '<div class="sec"><div class="set-h"><h3>読むレベル</h3><p class="meta"><span>どのレベルでも、事実の数と中身は同じです。</span>' + ruleChips(['L-1']) + '</p></div><div class="opt-group">' +
+      LEVELS.map(function (o) { return '<button class="opt lvl" data-set-level="' + o[0] + '" aria-pressed="' + (state.level === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div></div>' +
+      '<div class="sec" id="persona-sec"><div class="set-h"><h3>あなたの立場</h3><p class="meta"><span>各ページの「あなたの暮らしでは」に、この立場の例が出ます。</span>' + ruleChips(['L-4']) + '</p></div><div class="opt-group">' +
+      PERSONAS.map(function (o) { return '<button class="opt" data-set-persona="' + o[0] + '" aria-pressed="' + ((state.persona || 'std') === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div></div>' +
+      '<div class="sec"><div class="set-h"><h3>支持政党</h3><p class="meta"><span>ホームに近道が出るだけで、中身や並び順は変わりません。</span>' + ruleChips(['D-3']) + '</p></div><div class="opt-group">' +
+      [''].concat(parties).map(function (n) { return '<button class="opt" data-set-party="' + esc(n) + '" aria-pressed="' + (state.party === n) + '">' + (n || '設定しない') + '</button>'; }).join('') + '</div></div><button class="row-item" data-tour-open><span class="grow"><span class="t">使い方を見る</span></span>' + ICON.chev + '</button><p class="meta"><span>個人設定はこの端末の中だけに保存します。</span></p>');
+  }
+
+
+  /* ---------- router ---------- */
+  function render() {
+    var h = location.hash.slice(1) || 'home';
+    var html;
+    seenTerms = {}; hidePop();
+    if (h === 'home') html = vHome();
+    else if (h === 'laws') { state.partiesSeg = 'laws'; html = vParties(); }
+    else if (h.indexOf('a-') === 0) html = vArticle(h.slice(2));
+    else if (h.indexOf('pg-') === 0) { var rest = h.slice(3), i = rest.indexOf('-'); html = vPage(rest.slice(0, i), rest.slice(i + 1)); }
+    else if (h === 'parties') html = vParties();
+    else if (h === 'elections') { state.partiesSeg = 'elections'; html = vParties(); }
+    else if (h.indexOf('p-') === 0) html = vParty(h.slice(2));
+    else if (h === 'learn' || h === 'media' || h === 'links') html = vTab(h);
+    else if (h === 'about') html = vAbout();
+    else if (h === 'search') html = vSearch();
+    else if (h === 'terms') html = vTerms();
+    else html = vHome();
+    app.innerHTML = html;
+    tocSetup();
+    navs();
+    if (state.afterJump) { var aj = document.getElementById(state.afterJump); state.afterJump = ''; if (aj) setTimeout(function () { aj.scrollIntoView({ block: 'start' }); }, 30); }
+    if (h === 'search') { var q = document.getElementById('q'); if (q) { q.focus(); q.setSelectionRange(q.value.length, q.value.length); } }
+  }
+  var TOUR = [
+    { ic: 'logo', t: 'せいじのまどへ、ようこそ', b: '<p>政治の情報を、どの党にもメディアにも偏らずに届けるサイトです。</p><ul class="tour-pts"><li>事実と意見を分けて書く</li><li>結論は書かない</li><li>書き方のルールは、すべて公開</li></ul>' },
+    { ic: 'home', t: '5つのタブ', b: '<div class="tour-tabs">' + [['home', 'ホーム', '今日のトピックとフィード'], ['learn', '学ぶ', 'しくみをコースで順番に'], ['parties', '政党・選挙', '政党・選挙結果・国会で決まったこと'], ['media', 'メディア', '新聞・テレビの一覧と報道の見える化'], ['links', 'つながり', '予算や政治資金を数字で']].map(function (x) { return '<div class="tt-row"><span class="tt-ic">' + ICON[x[0]] + '</span><span><b>' + x[1] + '</b><small>' + x[2] + '</small></span></div>'; }).join('') + '</div>' },
+    { ic: 'learn', t: '分からない言葉は、押すだけ', b: '<p>点線の下線がある言葉や「?」を押すと、その場で説明が出ます。</p><div class="tour-demo-box">例：<button class="term" data-term="会派">会派</button><button class="xp" data-explain="san">?</button><small>← 押してみてください</small></div>' },
+    { ic: 'gear', t: '自分に合わせて読む', b: '<p>右上の歯車（個人設定）で選べます。</p><div class="tour-demo-box col"><b>読むレベル</b><span class="mini-opts"><i>かんたん</i><i>やさしい</i><i class="on">ふつう</i><i>くわしく</i></span><b>あなたの立場</b><span class="mini-opts"><i>高校生</i><i class="on">会社員</i><i>子育て中</i><i>定年後</i><i>…</i></span></div>' },
+    { ic: 'rule', t: '札は、ルールの印', b: '<p>記事やグラフについている「D-4」などの札は、そこで使った書き方のルールです。押すと中身が見られます。</p><div class="tour-demo-box">例：<button class="rule" data-rule="D-4">D-4</button><button class="rule" data-rule="V-1">V-1</button></div><p class="muted">まずは「学ぶ」の「はじめてのコース」からどうぞ。</p>' }
+  ];
+  var TOUR_IC = {
+    logo: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 5v22M5 16h22" stroke="currentColor" stroke-width="2"/><rect x="7.5" y="7.5" width="6.5" height="6.5" rx="1.2" fill="currentColor" opacity=".35"/></svg>',
+    gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M4.2 6.2l1.7 1.7M18.1 16.1l1.7 1.7M2.8 12h2.4M18.8 12h2.4M4.2 17.8l1.7-1.7M18.1 7.9l1.7-1.7"/></svg>',
+    rule: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 7h16v10H4z"/><path d="M8 11h8M8 14h5"/></svg>'
+  };
+  var tourStep = 0;
+  function showTour(i) {
+    tourStep = i;
+    var el = document.getElementById('tour');
+    if (!el) { el = document.createElement('div'); el.id = 'tour'; el.className = 'tour'; document.body.appendChild(el); }
+    var s = TOUR[i], last = i === TOUR.length - 1;
+    el.innerHTML = '<div class="tour-card" role="dialog" aria-modal="true" aria-label="使い方"><button class="skip" data-tour="end"' + (last ? ' style="visibility:hidden"' : '') + '>スキップ</button><div class="tour-body"><span class="tour-ic">' + (TOUR_IC[s.ic] || ICON[s.ic]) + '</span><h2>' + s.t + '</h2>' + s.b + '</div>' +
+      '<div class="tour-dots">' + TOUR.map(function (_, k) { return '<i class="' + (k === i ? 'on' : '') + '"></i>'; }).join('') + '</div>' +
+      '<div class="tour-nav"><button class="sec" data-tour="prev"' + (i ? '' : ' style="visibility:hidden" tabindex="-1"') + '>戻る</button><button class="pri" data-tour="' + (last ? 'end' : 'next') + '">' + (last ? 'はじめる' : '次へ') + '</button></div></div>';
+  }
+  function endTour() { var el = document.getElementById('tour'); if (el) el.remove(); store('sm-tour', '1'); }
+  function tocSetup() {
+    var old = document.getElementById('tocBtn'); if (old) old.remove();
+    var secs = [].slice.call(app.querySelectorAll('.panel[id]')).filter(function (s) { return s.querySelector('h2'); });
+    if (secs.length < 3) return;
+    var b = document.createElement('button');
+    b.id = 'tocBtn'; b.className = 'toc-btn';
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7h14M5 12h14M5 17h10"/></svg>目次';
+    document.body.appendChild(b);
+  }
+  function tocSheet() {
+    var secs = [].slice.call(app.querySelectorAll('.panel[id]')).filter(function (s) { return s.querySelector('h2'); });
+    sheet('目次', '<div class="toc-list">' + secs.map(function (s) { return '<button data-toc="' + s.id + '">' + esc(s.querySelector('h2').childNodes[0].textContent) + ICON.chev + '</button>'; }).join('') + '</div>');
+  }
+  function go(v) { closeSheet(); if (location.hash.slice(1) === v) { render(); } else { location.hash = v; } window.scrollTo(0, 0); }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('button, a');
+    if (!t) { if (e.target.id === 'scrim') closeSheet(); if (!e.target.closest('#pop')) hidePop(); return; }
+    if (t.hasAttribute('data-close')) return closeSheet();
+    if (t.dataset.back !== undefined) { e.preventDefault(); hidePop(); if (navStack.length) { popping = true; history.back(); } else go(t.dataset.back); return; }
+    if (t.dataset.go) { e.preventDefault(); hidePop(); if (t.dataset.ctx) state.ctx = t.dataset.ctx; if (t.dataset.lcatGo) state.learnCat = t.dataset.lcatGo; if (t.dataset.courseGo) { state.courseIdx = Number(t.dataset.courseGo); store('sh-course', t.dataset.courseGo); } if (t.dataset.after) state.afterJump = t.dataset.after; if (t.dataset.go === 'parties') state.partiesSeg = 'parties'; return go(t.dataset.go); }
+    if (t.dataset.jump) { var el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    if (t.dataset.dir) { var y3 = window.scrollY; state.openDir[t.dataset.dir] = !state.openDir[t.dataset.dir]; render(); window.scrollTo(0, y3); return; }
+    if (t.dataset.rule) return ruleSheet(t.dataset.rule);
+    if (t.dataset.term || t.dataset.explain) { e.preventDefault(); return showPop(t, false); }
+    if (t.hasAttribute('data-ask')) return aiSheet();
+    if (t.dataset.course !== undefined) { var y7 = window.scrollY, fromGrid = t.classList.contains('course-card'); state.courseIdx = Number(t.dataset.course); store('sh-course', String(state.courseIdx)); if (location.hash.slice(1) !== 'learn') { location.hash = 'learn'; return; } render(); if (fromGrid) { var cp = document.querySelector('.course'); if (cp) cp.scrollIntoView({ block: 'start' }); } else window.scrollTo(0, y7); return; }
+    if (t.dataset.lcat) { state.learnCat = t.dataset.lcat; return render(); }
+    if (t.hasAttribute('data-shuffle')) { state.order = null; state.homeShown = 12; return render(); }
+    if (t.hasAttribute('data-hmore')) { var y4 = window.scrollY; state.homeShown += 12; render(); window.scrollTo(0, y4); return; }
+    if (t.dataset.level) { var y = window.scrollY; state.level = t.dataset.level; store('sh-level', state.level); render(); window.scrollTo(0, y); return; }
+    if (t.dataset.mseg) { state.mediaSeg = t.dataset.mseg; return render(); }
+    if (t.dataset.pseg) { state.partiesSeg = t.dataset.pseg; var cur0 = location.hash.slice(1); if ((cur0 === 'elections' || cur0 === 'laws') && cur0 !== t.dataset.pseg) { history.replaceState(null, '', '#parties'); curRoute = 'parties'; } return render(); }
+    if (t.dataset.fsort) { state.feedSort = t.dataset.fsort; state.feedShown = PAGE_SIZE; store('sh-sort', state.feedSort); return render(); }
+    if (t.dataset.fkind !== undefined) { state.feedKind = t.dataset.fkind; state.feedShown = PAGE_SIZE; return render(); }
+    if (t.hasAttribute('data-more')) { var y2 = window.scrollY; state.feedShown += PAGE_SIZE; render(); window.scrollTo(0, y2); return; }
+    if (t.dataset.setLevel) { var y6 = window.scrollY; state.level = t.dataset.setLevel; store('sh-level', state.level); settingsSheet(); render(); window.scrollTo(0, y6); return; }
+    if (t.dataset.setPersona) { var y5 = window.scrollY; state.persona = t.dataset.setPersona; store('sh-persona', state.persona); settingsSheet(); var ps = document.getElementById('persona-sec'); render(); window.scrollTo(0, y5); return; }
+    if (t.hasAttribute('data-persona-open')) { settingsSheet(); var sec = document.getElementById('persona-sec'); if (sec) sec.scrollIntoView({ block: 'start' }); return; }
+    if (t.dataset.setParty !== undefined) { state.party = t.dataset.setParty; store('sh-party', state.party); return settingsSheet(); }
+    if (t.dataset.tour) { var a2 = t.dataset.tour; if (a2 === 'next') return showTour(tourStep + 1); if (a2 === 'prev') return showTour(tourStep - 1); return endTour(); }
+    if (t.hasAttribute('data-tour-open')) { closeSheet(); return showTour(0); }
+    if (t.id === 'tocBtn') return tocSheet();
+    if (t.dataset.toc) { var tg = document.getElementById(t.dataset.toc); closeSheet(); if (tg) tg.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    if (t.id === 'btnSettings') return settingsSheet();
+    if (t.id === 'btnAbout') return go('about');
+    if (t.id === 'btnSearch') return go('search');
+  });
+  document.addEventListener('change', function (e) {
+    if (e.target.id === 'ftopic') { state.feedTopic = e.target.value; state.feedShown = PAGE_SIZE; render(); }
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target.id !== 'q') return;
+    state.q = e.target.value;
+    var q = state.q.trim();
+    if (!INDEX) buildIndex();
+    var res = q ? INDEX.filter(function (x) { return x.text.indexOf(q) >= 0; }) : [];
+    res.sort(function (a, b) { return (b.title.indexOf(q) >= 0) - (a.title.indexOf(q) >= 0); });
+    document.getElementById('results').innerHTML = resultsHtml(q, res);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSheet(); hidePop(); } });
+  window.addEventListener('scroll', function () { if (!document.querySelector('#pop:hover')) hidePop(); }, { passive: true });
+  var curRoute = location.hash.slice(1) || 'home', navStack = [], popping = false;
+  window.addEventListener('hashchange', function () {
+    var nr = location.hash.slice(1) || 'home';
+    if (popping) { popping = false; navStack.pop(); } else if (nr !== curRoute) navStack.push(curRoute);
+    curRoute = nr; render(); window.scrollTo(0, 0);
+  });
+
+  var files = ['rules', 'feed', 'parties', 'media', 'learn', 'links', 'glossary'];
+  app.innerHTML = '<p class="meta" style="padding:40px 0"><span>読み込み中</span></p>';
+  Promise.all(files.map(function (f) { return fetch('data/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }))
+    .then(function (res) { files.forEach(function (f, i) { D[f] = res[i]; }); buildTerms(); render(); if (!store('sm-tour')) showTour(0); })
+    .catch(function (err) { app.innerHTML = '<p style="padding:40px 0">データを読み込めませんでした（' + esc(err.message) + '）。ページを再読み込みしてください。</p>'; });
+})();
+</script>
+
+</body>
+</html>

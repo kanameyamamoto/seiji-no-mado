@@ -1,0 +1,21 @@
+# プルリクエスト（ルールの変更案・訂正など）が来たら、公開前と同じチェックをする。
+name: チェック
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: プログラムが読めるか
+        run: python -m py_compile pipeline/*.py
+      - name: 公開前の機械チェック
+        run: python pipeline/validate.py

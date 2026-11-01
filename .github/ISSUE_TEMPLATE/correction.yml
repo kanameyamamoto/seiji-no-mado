@@ -1,0 +1,26 @@
+name: 訂正の依頼
+description: 記事やデータの間違いを知らせる（ルールT-2）
+title: "訂正：<ページや記事の名前>"
+labels: ["訂正"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: どこ
+      description: ページのURL（# から後ろも）か、記事の名前
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 何が違うか
+      description: 今の書き方と、正しいと思う書き方
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 根拠の出典
+      description: 条文・議事録・官公庁の発表など、確かめられる資料のURL
+    validations:
+      required: true
