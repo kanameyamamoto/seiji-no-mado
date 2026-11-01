@@ -1495,7 +1495,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var stars = answered.filter(function (i) { return MATCH[i.id].s; }).length;
     if (!answered.length) return '<p class="muted">まだ答えていません。「答える」で、賛成か反対かを選んでください。</p>';
     var groups = matchGroups(items).filter(function (g) { return g.n; });
-    var h = '<p class="m-progress">答えた ' + answered.length + '本' + (stars ? '（うち「大事」' + stars + '本）' : '') + '</p>' +
+    var h = '<p class="m-progress"><b>答えた' + answered.length + '本のうち、それぞれの会派があなたと同じ側に投票した本数</b>' + (stars ? '（「大事」の印は' + stars + '本）' : '') + '</p>' +
       '<p class="meta">' + ruleChips(['D-9', 'Q-3']) + '<span>数は、あなたが答えたもののうち、その会派があなたと同じ側に投票した本数です。近い・遠いを判定したり、投票先をすすめたりするものではありません。並びは参議院の投票結果ページの順（所属議員の多い順）です。</span></p>';
     h += '<div class="m-res">' + groups.map(function (g) {
       var pct = Math.round(g.same / g.n * 100);
@@ -1503,6 +1503,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
         (g.sn ? '<span class="sub">「大事」のうち同じ側 ' + g.ssame + ' / ' + g.sn + '本</span>' : '') + '</summary>' +
         '<ul>' + g.list.map(function (x) { return '<li><span class="mk' + (x[2] ? '' : ' no') + '">' + (x[2] ? '同じ' : 'ちがう') + '</span><span>' + esc(x[0].title) + '（会派は' + (x[1] === 'y' ? '賛成' : '反対') + '）' + (MATCH[x[0].id].s ? ' ★' : '') + '</span></li>'; }).join('') + '</ul></details>';
     }).join('') + '</div>';
+    h += '<p class="rej-note">採決されていないテーマ（審議されずに終わった法案など）は、ここではわかりません。</p>';
     h += '<p class="meta"><span>行を押すと、1本ずつの内訳が出ます。比べた本数が会派ごとにちがうのは、欠席・会派の中で賛否が分かれた・その時はまだなかった会派を、その1本では数えないためです。</span></p>';
     h += '<button class="m-star" data-mclear>' + (state.mClearArm ? 'もう一度押すと、答えをすべて消します' : '答えをすべて消す') + '</button>';
     return h;
