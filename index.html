@@ -1349,7 +1349,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     }
     var ks = kaihaStats(pr.sangiin_kaiha);
     if (ks) {
-      h += '<section class="sec"><h2>国会での賛否' + xp('votes') + '</h2><p class="muted small">2026年に成立した法律・予算・条約' + ks.total + '件の参議院本会議の投票で、会派「' + esc(pr.sangiin_kaiha) + '」の票。</p>' +
+      h += '<section class="sec"><h2>国会での賛否' + xp('votes') + '</h2><p class="muted small">このサイトに載せている法律・予算・条約' + ks.total + '件の参議院本会議の投票で、会派「' + esc(pr.sangiin_kaiha) + '」の票。</p>' +
         '<div class="stats"><div class="box stat"><span class="k">賛成</span><span class="big">' + ks.yes + '<small>件</small></span></div><div class="box stat"><span class="k">反対</span><span class="big">' + ks.no + '<small>件</small></span></div>' + (ks.split ? '<div class="box stat"><span class="k">会派内で分かれた</span><span class="big">' + ks.split + '<small>件</small></span></div>' : '') + '</div>';
       if (ks.noList.length) h += '<details class="fold"><summary>反対した' + ks.noList.length + '件を見る</summary><div class="list">' + ks.noList.map(function (it) { return '<button class="row-item" data-go="a-' + esc(it.id) + '"><span class="grow"><span class="t">' + esc(it.title) + '</span><span class="s">' + date(it.date) + '</span></span>' + ICON.chev + '</button>'; }).join('') + '</div></details>';
       h += '<div class="meta">' + ruleChips(['C-2', 'F-1']) + '</div></section>';

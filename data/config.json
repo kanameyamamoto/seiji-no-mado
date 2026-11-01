@@ -2,7 +2,7 @@
  "sessions": [
   222
  ],
- "note": "確かめる国会の回次。新しい国会が召集されると、mechanical.py が自動で足す（載せる範囲の年の国会だけ）。",
+ "note": "毎日確かめる国会の回次。新しい国会が召集されると mechanical.py が自動で足し、閉会から60日たつと外す。",
  "recheck": {
   "note": "公開中のページの見直し（pipeline/recheck.py）。max_age_days＝確認日からこの日数がたったら、出典に変化がなくても見直す。daily_limit＝1日に見直すページ数の上限（費用の上限にもなる）。",
   "daily_limit": 8,

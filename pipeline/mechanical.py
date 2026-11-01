@@ -4,7 +4,7 @@
 2. 国会の会期一覧（衆議院）→ feed.json の sessions、data/config.json の sessions（新しい国会）
 3. 成立した法律の公布日・法律番号（参議院 議案情報）→ feed.json の各記事
 
-機械で決められないこと（会派の組み替え、載せる範囲の外の国会など）は、
+機械で決められないこと（どの党か決められない会派の組み替えなど）は、
 data/watch.json の due（見直し待ち）か、alerts（人への知らせ。report.py が Issue にする）に入れる。
 """
 import datetime
@@ -158,7 +158,6 @@ def update_sessions(watch):
         say(f"[skip] 国会の会期一覧を読めませんでした: {e}")
         return False
     rows = [r for r in rows if len(r) >= 4 and re.match(r"第\d+回", r[0])]
-    years = {int(y) for y in re.findall(r"(\d{4})年", feed.get("criteria", ""))}
     have = {s["name"]: s for s in feed["sessions"]}
     changed = False
     for r in rows:
@@ -181,21 +180,21 @@ def update_sessions(watch):
             continue
         if int(no) <= max(int(re.search(r"\d+", n).group()) for n in have):
             continue  # 古い国会は対象外
-        if start and int(start[:4]) in years:
+        if start:
             feed["sessions"].append({"name": name, "kind": kind, "start": start, "end": end,
                                      "note": f"会期{r[3]}。", "source": {"label": "衆議院 国会会期一覧", "url": SHU_KAIKI}})
             if int(no) not in cfg["sessions"]:
                 cfg["sessions"].append(int(no))
             say(f"[session] 新しい国会：{name}（{kind}、{start} 召集）")
             changed = True
-        else:
-            alert = f"{name}（{start} 召集）"
-            if not any(alert in a.get("body", "") for a in watch.get("alerts", [])) and not watch.get("alerted_sessions", {}).get(name):
-                watch.setdefault("alerts", []).append({
-                    "date": W.today(), "title": "新しい国会が、載せる範囲の外です",
-                    "body": f"{alert} が召集されました。feed.json の criteria（載せる範囲：{feed.get('criteria')}）の外なので、自動では追加していません。\n"
-                            "範囲を広げるときは、ルールT-1の手順で criteria を変えてから、data/config.json の sessions に回次を足してください。"})
-                watch.setdefault("alerted_sessions", {})[name] = W.today()
+    # 閉会から60日たった国会は、毎日の確認から外す（成立したものはすべて載せ終えているため）
+    today = datetime.date.fromisoformat(W.today())
+    for s in feed["sessions"]:
+        no = int(re.search(r"\d+", s["name"]).group())
+        if s.get("end") and no in cfg["sessions"] and (today - datetime.date.fromisoformat(s["end"])).days > 60:
+            cfg["sessions"].remove(no)
+            say(f"[session] {s['name']} は閉会から60日たったので、毎日の確認から外した")
+            changed = True
     if changed:
         feed["sessions"].sort(key=lambda s: int(re.search(r"\d+", s["name"]).group()))
         jsave("feed.json", feed)
