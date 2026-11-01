@@ -4,6 +4,7 @@ name: 公開
 on:
   push:
     branches: [main]
+    paths-ignore: ["work/**"]
   workflow_dispatch:
 
 permissions:

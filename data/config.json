@@ -5,12 +5,12 @@
  "note": "毎日確かめる国会の回次。新しい国会が召集されると mechanical.py が自動で足し、閉会から60日たつと外す。",
  "recheck": {
   "note": "公開中のページの見直し（pipeline/recheck.py）。max_age_days＝確認日からこの日数がたったら、出典に変化がなくても見直す。daily_limit＝1日に見直すページ数の上限（費用の上限にもなる）。",
-  "daily_limit": 8,
+  "daily_limit": 3,
   "max_age_days": {
-   "party": 30,
-   "elections": 90,
-   "links": 90,
-   "learn": 180,
+   "party": 60,
+   "elections": 180,
+   "links": 180,
+   "learn": 365,
    "media": 365
   }
  },

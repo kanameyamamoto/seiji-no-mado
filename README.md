@@ -6,7 +6,7 @@
 - サイト：GitHub Pages で公開（サーバーは使いません）
 - 更新：GitHub Actions が毎朝、次のことを行います（くわしくは [docs/運用.md](docs/運用.md)）
   - 会派別の議員数・国会の会期・法律の公布日を、元の資料から機械で更新
-  - 新しく成立した法律・予算・条約の記事を、AIが書き、機械と別の会社のAIで確かめて公開
+  - 新しく成立した法律・予算・条約の記事を、Claude（スケジュール）が書き、機械と Gemini で確かめて公開
   - 出典が変わったページ・確認日から日数がたったページを、出典と照らして見直す（出典は週1回すべて見張る）
 
 ## しくみ
@@ -15,9 +15,9 @@
 参議院 議案情報 ──▶ update_laws.py ──▶ data/pending/（下書き：資料をそのまま保存）
                                           │
                          ai_draft.py ◀────┘
-                           ├ 書く担当AI（Anthropic）が4つのレベルで書く
+                           ├ 書く担当（Claude のスケジュール。work/ で受け渡し）が4つのレベルで書く
                            ├ 数字・日付を、AIを使わずに元の資料と照合（C-2）
-                           ├ 確かめる担当AI（OpenAI）が誤り・もれ・評価語・偏りを確認（C-1）
+                           ├ 確かめる担当（Google Gemini）が誤り・もれ・評価語・偏りを確認（C-1）
                            └ 通らなければ書き直し（最大3回、だめなら公開しない：C-3）
                                           │
                          publish.py ──▶ data/feed.json ──▶ validate.py ──▶ GitHub Pages
@@ -32,7 +32,8 @@
 | `data/config.json` | 確かめる国会の回次、見直しの間隔と1日の上限 |
 | `data/watch.json` | 出典の見張りの記録と、見直し待ちのページ |
 | `data/logs/` | AIへの指示文・モデル名・チェックの結果（記事・見直しごと） |
-| `pipeline/` | 更新のプログラム（Pythonの標準ライブラリだけ） |
+| `pipeline/` | 更新のプログラム（Python） |
+| `work/` | Claude（スケジュール）への依頼と答えの受け渡し（[docs/claude-writer.md](docs/claude-writer.md)） |
 | `prompts/` | AIへの指示文（そのまま公開） |
 | `.github/workflows/` | 毎日の更新・公開・チェック |
 

@@ -1,4 +1,6 @@
 # 毎日の更新。何がどう更新されるかは docs/運用.md の「1. 何が、どう更新されるか」。
+# AIに書いてほしいことは work/requests/ に書き出し、Claude のスケジュールが答えを work/answers/ に置くと、
+# このワークフローがもう一度動いて、確かめてから公開する（docs/claude-writer.md）。
 #   1. 機械で更新（会派別の議員数・国会の会期・公布日と法律番号）
 #   2. 新しく成立した法律・予算・条約の記事（AIが書き、機械と別の会社のAIで確かめる）
 #   3. 公開中のページの見直し（出典が変わったページ・確認日から日数がたったページ）
@@ -6,6 +8,9 @@
 name: 毎日の更新
 
 on:
+  push:
+    branches: [main]
+    paths: ["work/answers/**"]   # Claude（スケジュール）が答えを置いたら、すぐに確かめて公開する
   schedule:
     - cron: "43 21 * * *"   # 毎日 日本時間 6:43（UTC 21:43）
   workflow_dispatch:
@@ -49,12 +54,10 @@ jobs:
       - name: 新しく成立したものを探す（参議院 議案情報）
         run: python pipeline/update_laws.py ${{ github.event.inputs.sessions && format('--sessions {0}', github.event.inputs.sessions) || '' }}
 
-      - name: 記事を書いて確かめる（書く担当と確かめる担当は別の会社のAI：C-1〜C-4）
+      - name: 記事を書いて確かめる（書くのはClaude〈スケジュール〉、確かめるのはGemini：C-1〜C-4）
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'claude-sonnet-5-5' }}
-          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gpt-5' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL }}
         run: python pipeline/ai_draft.py
 
       - name: チェックに通った記事を載せる
@@ -62,10 +65,8 @@ jobs:
 
       - name: 公開中のページを見直す（出典が変わった・日数がたったページ。1日の上限は data/config.json）
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'claude-sonnet-5-5' }}
-          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gpt-5' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL }}
         run: python pipeline/recheck.py   # 形を変える直し・リンク切れは、直した版を _proposals/ に作る
 
       - name: 公開前の機械チェック
@@ -81,11 +82,11 @@ jobs:
         run: |
           git config user.name "seiji-no-mado-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          git add data work
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-          elif git diff --cached --quiet -- . ':!data/watch.json'; then
-            # 見張りの記録だけが変わったときは、保存だけして公開はしない
+          elif git diff --cached --quiet -- . ':!data/watch.json' ':!work'; then
+            # 見張りの記録・Claudeへの依頼だけが変わったときは、保存だけして公開はしない
             git commit -m "見張りの記録 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
             git pull --rebase -q origin main && git push
             echo "changed=false" >> "$GITHUB_OUTPUT"

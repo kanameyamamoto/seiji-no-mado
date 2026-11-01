@@ -6,11 +6,11 @@
 
 1ページの流れ（ルールC-1〜C-4、T-2）
   1. 出典の今の本文を取ってくる（長いものは、ページに関係する段落だけ）
-  2. 見直し担当AI（Anthropic）が「食い違いなし」か「直す案（場所・前・後・根拠）」を出す
+  2. 見直し担当AI（Claude。Claude のスケジュールが work/ を通して書く）が「食い違いなし」か「直す案（場所・前・後・根拠）」を出す
   3. 直す案は、AIを使わないプログラムで確かめる
      - 前の文が、今のページの文と一字一句同じか
      - 後の文に新しく出てくる数字・日付が、出典の本文にあるか（C-2）
-  4. 確かめる担当AI（OpenAI）が、根拠・必要性・評価語・偏り・レベルを確かめる
+  4. 確かめる担当AI（Google Gemini）が、根拠・必要性・評価語・偏り・レベルを確かめる
   5. 通らなければ指摘を渡して出し直し（最大3回）。だめなら直さずに人へ知らせる（C-3）
   6. 直したら、ページの updates（更新の記録）に「いつ・何を」を残し、確認日を今日にする
   7. 指示文・モデル名・チェック結果を data/logs/recheck/ に残す（C-4）
@@ -97,8 +97,17 @@ def pick(us, watch, limit, max_age, today):
         return h and (t - datetime.date.fromisoformat(h["date"])).days < HOLD_DAYS
 
     byid = {u.id: u for u in us}
+    reqdir = os.path.join(ROOT, "work", "requests")
+    waiting = []
+    for fn in sorted(os.listdir(reqdir)) if os.path.isdir(reqdir) else []:
+        try:
+            f = json.load(open(os.path.join(reqdir, fn), encoding="utf-8")).get("for")
+        except ValueError:
+            continue
+        if f in byid and byid[f] not in waiting:
+            waiting.append(byid[f])  # 書く担当に頼んだまま終わっていないページを先に
     due = sorted((min(r["date"] for r in rs), uid) for uid, rs in watch.get("due", {}).items() if uid in byid and not held_now(uid))
-    chosen = [byid[uid] for _, uid in due]
+    chosen = waiting + [byid[uid] for _, uid in due if byid[uid] not in waiting]
     old = []
     for u in us:
         if u in chosen or held_now(u.id) or not u.sources:
@@ -121,7 +130,30 @@ def view_of(u):
     return v
 
 
+def src_cache(u):
+    return os.path.join(ROOT, "work", "sources", re.sub(r"[^0-9A-Za-z_-]", "_", u.id) + ".json")
+
+
 def gather_sources(u, reasons):
+    """出典の今の本文を取る。書く担当の答えを待つ間も同じ本文を使うため、件が終わるまで work/sources/ に残す。"""
+    cp = src_cache(u)
+    if os.path.exists(cp):
+        return json.load(open(cp, encoding="utf-8"))
+    out = _gather(u, reasons)
+    os.makedirs(os.path.dirname(cp), exist_ok=True)
+    json.dump(out, open(cp, "w", encoding="utf-8"), ensure_ascii=False)
+    return out
+
+
+def done(u):
+    ai.finish(u.id)
+    try:
+        os.remove(src_cache(u))
+    except OSError:
+        pass
+
+
+def _gather(u, reasons):
     hints = list(strings(view_of(u)))
     want = [s for s in u.sources if any(s["label"] and s["label"] in r for r in reasons)]
     rest = [s for s in u.sources if s not in want]
@@ -279,10 +311,16 @@ def fix_broken_sources(us, watch, today, limit):
                "writer_prompt": "prompts/replace_source.md", "rounds": []}
         log["path"] = log_path(log)
         ok = False
+        item = "source:" + url
+        ai.set_item(item)
         try:
             ok = propose.replacement(url, label, us, today, log)
+        except (ai.NeedWriter, ai.RetryLater) as e:
+            print(f"[waiting] 代わりの出典（{label}）：{'Claude（スケジュール）が探すのを待っています' if isinstance(e, ai.NeedWriter) else e}")
+            continue
         except Exception as e:  # noqa: BLE001
             log["rounds"].append({"result": f"エラー：{e}"})
+        ai.finish(item)
         save_log(log)
         if ok:
             st["proposed"] = today
@@ -316,12 +354,13 @@ def main():
     if a.list or not todo:
         return
     if not (ai.writer_available() and ai.checker_available()):
-        print("APIキーとモデル名がないので、見直しはしません（見直し待ちはそのまま残ります）。")
+        print("確かめる担当のAPIキー（GEMINI_API_KEY）がないので、見直しはしません（見直し待ちはそのまま残ります）。")
         return
     fix_broken_sources(us, watch, today, limit=3)
     touched = set()
     for u in todo:
         reasons = [r["reason"] for r in watch.get("due", {}).get(u.id, [])]
+        ai.set_item(u.id)
         try:
             if any("会派" in r for r in reasons):
                 # 会派の組み替え・人数の変化は、党のページの形（会派名など）に関わるので、直した版を作って提案する
@@ -335,9 +374,16 @@ def main():
                 if propose.structural(u, reasons, extra, log.get("_srcs", []), kaiha_text(watch) if u.kind == "party" else "", today, log):
                     result = "proposed"
                     log["final"] = "直した版をプルリクエストで提案"
+        except ai.NeedWriter:
+            print(f"[waiting] {u.id}：Claude（スケジュール）が書くのを待っています")
+            continue
+        except ai.RetryLater as e:
+            print(f"[waiting] {u.id}：{e}。次の回にもう一度")
+            continue
         except Exception as e:  # noqa: BLE001
             print(f"[error] {u.id}: {e}（次の回にもう一度）")
             continue
+        done(u)
         path = save_log(log)
         if result == "ok":
             u.mark_checked(today)

@@ -232,7 +232,7 @@ def save_log(log):
 
 def main():
     if not (ai.writer_available() and ai.checker_available()):
-        print("APIキー（ANTHROPIC_API_KEY・OPENAI_API_KEY）とモデル名（WRITER_MODEL・CHECKER_MODEL）がないので、記事は作りません。")
+        print("確かめる担当のAPIキー（GEMINI_API_KEY）がないので、記事は作りません（下書きのまま待ちます）。")
         return
     feed = json.load(open(os.path.join(DATA, "feed.json"), encoding="utf-8"))
     for fn in sorted(os.listdir(PENDING)):
@@ -241,8 +241,14 @@ def main():
         p = os.path.join(PENDING, fn)
         raw = json.load(open(p, encoding="utf-8"))
         if raw.get("status") == "fetched":
+            ai.set_item(raw["key"])
             try:
                 run_one(p, feed)
+                ai.finish(raw["key"])
+            except ai.NeedWriter:
+                print(f"[waiting] {raw['key']}：Claude（スケジュール）が書くのを待っています")
+            except ai.RetryLater as e:
+                print(f"[waiting] {raw['key']}：{e}。次の回にもう一度")
             except Exception as e:  # noqa: BLE001
                 print(f"[error] {fn}: {e}（次の回にもう一度試す）")
 
