@@ -81,11 +81,12 @@ nav.tabs .row { display: grid; grid-template-columns: repeat(5, 1fr); height: va
 nav.tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; color: var(--nav-muted); }
 nav.tabs button svg { width: 24px; height: 24px; }
 nav.tabs button[aria-current="page"] { color: var(--nav-fg); font-weight: 700; }
-main { padding-block: 24px calc(var(--tabs-h) + 40px + env(safe-area-inset-bottom, 0px)); }
+main { padding-block: 24px 40px; }
 @media (min-width: 900px) {
   .nav-desk { display: flex; }
   nav.tabs { display: none; }
-  main { padding-block: 32px 80px; }
+  main { padding-block: 32px 56px; }
+  .site-foot { padding-bottom: 48px; }
 }
 
 /* common blocks */
@@ -657,6 +658,21 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 #mq { margin: 4px 0 2px; }
 
 pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px; font-size: 13px; overflow-x: auto; white-space: pre; }
+
+/* 議員の絞り込み */
+input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
+/* フッター（公開APIへの入口など） */
+.site-foot { border-top: 1px solid var(--line); background: var(--surface); padding: 28px 0 calc(var(--tabs-h) + 28px + env(safe-area-inset-bottom, 0px)); }
+.site-foot .wrap { display: flex; flex-direction: column; gap: 18px; }
+.api-card { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; padding: 18px 20px; border-radius: var(--r); background: var(--accent-weak); color: var(--fg); }
+.api-card .grow { display: flex; flex-direction: column; gap: 4px; }
+.api-card .grow span { font-size: 14px; color: var(--muted); }
+.api-card .go { flex: none; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 999px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; }
+.foot-links button, .foot-links a { color: var(--fg); text-decoration: none; padding: 4px 0; }
+.foot-links button:hover, .foot-links a:hover { color: var(--accent); }
+.foot-note { font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { .api-card { flex-direction: column; align-items: flex-start; } }
 </style>
 </head>
 <body>
@@ -676,6 +692,11 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
 </header>
 
 <main><div class="wrap" id="app"></div></main>
+<footer class="site-foot"><div class="wrap">
+  <button class="api-card" data-go="api"><span class="grow"><b>このサイトのデータは、だれでも無料で使えます</b><span>国会で決まったこと・政党・国会議員・知事など。登録なしで使える公開API（CC BY 4.0）</span></span><span class="go">データを使う</span></button>
+  <nav class="foot-links" aria-label="サイトについて"><button data-go="about">このサイトについて・書き方のルール</button><button data-go="api">公開API</button><a href="https://github.com/kanameyamamoto/seiji-no-mado/issues/new/choose" target="_blank" rel="noopener">間違いを知らせる</a><a href="https://github.com/kanameyamamoto/seiji-no-mado" target="_blank" rel="noopener">GitHub</a></nav>
+  <p class="foot-note">せいじのまど ・ どの党にもメディアにも偏らずに、事実と出典を届けます。</p>
+</div></footer>
 
 <nav class="tabs" aria-label="メインメニュー"><div class="row" id="navTabs"></div></nav>
 
@@ -737,7 +758,7 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
   function personaName(k) { var p = PERSONAS.filter(function (x) { return x[0] === k; })[0]; return p ? p[1] : '会社員'; }
   var D = {};
   var app = document.getElementById('app');
-  var state = { level: 'std', party: '', partiesSeg: 'parties', feedKind: '', feedTopic: '', feedSort: 'new', feedShown: PAGE_SIZE, q: '', mq: '', openDir: {}, learnCat: '', homeShown: 12, order: null, ctx: 'all' };
+  var state = { level: 'std', party: '', partiesSeg: 'parties', feedKind: '', feedTopic: '', feedSort: 'new', feedShown: PAGE_SIZE, q: '', mq: '', mHow: '', mKaiha: '', mRegion: '', gArea: '', openDir: {}, learnCat: '', homeShown: 12, order: null, ctx: 'all' };
 
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   var savedLevel = store('sh-level');
@@ -1327,7 +1348,7 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
 
   /* ---------- parties ---------- */
   function partiesSeg() {
-    var o = [['parties', '政党'], ['members', '議員'], ['elections', '選挙結果'], ['laws', '<span class="lab-l">国会で決まったこと</span><span class="lab-s">国会の決定</span>']];
+    var o = [['parties', '政党'], ['members', '議員・知事'], ['elections', '選挙結果'], ['laws', '<span class="lab-l">国会で決まったこと</span><span class="lab-s">国会の決定</span>']];
     return '<div class="seg" role="group" aria-label="表示の切り替え">' + o.map(function (x) { return '<button data-pseg="' + x[0] + '" aria-pressed="' + (state.partiesSeg === x[0]) + '">' + x[1] + '</button>'; }).join('') + '</div>';
   }
   function vParties() {
@@ -1351,36 +1372,76 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
   // ---- 国会議員・知事（ルールD-8：全員を同じ項目で。公式の一覧の順。評価や写真は載せない） ----
   function memberById(id) { return ((D.members || {}).members || []).filter(function (m) { return m.id === id; })[0]; }
   function partyName(id) { var p = (D.parties.national || []).filter(function (x) { return x.id === id; })[0]; return p ? p.name : id; }
+  function termsText(t) {
+    // 「2（参2）」→「当選2回（参議院で2回）」
+    var mm = String(t || '').match(/^(\d+)(?:[（(]参(\d+)[）)])?/);
+    return mm ? '当選' + mm[1] + '回' + (mm[2] ? '（参議院で' + mm[2] + '回）' : '') : '';
+  }
   function memberRow(m) {
-    var sub = [esc(m.kaiha), esc(m.district), m.terms ? '<span class="nw">当選' + esc(m.terms) + '回</span>' : (m.term_end ? '<span class="nw">任期 ' + date(m.term_end) + 'まで</span>' : '')].filter(Boolean).join('・');
+    var sub = [esc(m.kaiha), esc(m.district), m.terms ? '<span class="nw">' + termsText(m.terms) + '</span>' : (m.term_end ? '<span class="nw">任期 ' + date(m.term_end) + 'まで</span>' : '')].filter(Boolean).join('・');
     return '<button class="row-item" data-go="m-' + esc(m.id) + '"><span class="grow"><span class="t">' + esc(m.name) + ' <small class="muted">' + esc(m.yomi) + '</small></span><span class="s">' + sub + '</span></span>' + ICON.chev + '</button>';
   }
   function govRow(g) {
     return '<div class="row-item"><span class="grow"><span class="t">' + esc(g.pref) + '　' + esc(g.name) + ' <small class="muted">' + esc(g.yomi) + '</small></span><span class="s">' +
       [g.terms ? g.terms + '期目' : '', g.first_took_office ? '初めての就任 ' + date(g.first_took_office) : '', g.term_end ? '任期 ' + date(g.term_end) + 'まで' : ''].filter(Boolean).map(function (x) { return '<span class="nw">' + x + '</span>'; }).join('・') + '</span></span></div>';
   }
-  function memberMatch(m, q) { return !q || [m.name, m.yomi, m.kaiha, m.kaiha_abbr, m.district, m.name_registered || '', m.pref || ''].join(' ').indexOf(q) >= 0; }
+  var PREF_S = ['北海道', '青森', '岩手', '宮城', '秋田', '山形', '福島', '茨城', '栃木', '群馬', '埼玉', '千葉', '東京', '神奈川', '新潟', '富山', '石川', '福井', '山梨', '長野', '岐阜', '静岡', '愛知', '三重', '滋賀', '京都', '大阪', '兵庫', '奈良', '和歌山', '鳥取', '島根', '岡山', '広島', '山口', '徳島', '香川', '愛媛', '高知', '福岡', '佐賀', '長崎', '熊本', '大分', '宮崎', '鹿児島', '沖縄'];
+  var AREAS = [['北海道・東北', 0, 6], ['関東', 7, 13], ['中部', 14, 22], ['近畿', 23, 29], ['中国', 30, 34], ['四国', 35, 38], ['九州・沖縄', 39, 46]];
+  function regionOf(m) {
+    if (m.elected_by === '比例代表') return m.house === '衆議院' ? '比例 ' + m.district.replace('ブロック', '') : '比例（全国）';
+    return m.district.replace(/選挙区$/, '').replace(/\d+区$/, '');
+  }
+  function regionKey(r) {
+    if (r.indexOf('比例') === 0) return 100 + ['北海道', '東北', '北関東', '南関東', '東京', '北陸信越', '東海', '近畿', '中国', '四国', '九州'].indexOf(r.replace('比例 ', ''));
+    return PREF_S.indexOf(r.split('・')[0]);
+  }
+  function areaOf(pref) { var k = PREF_S.indexOf(pref.replace(/[都府県]$/, '')); var a = AREAS.filter(function (x) { return k >= x[1] && k <= x[2]; })[0]; return a ? a[0] : ''; }
+  function memberMatch(m, q) {
+    if (state.mHow && (state.mHow === '比例') !== (m.elected_by === '比例代表')) return false;
+    if (state.mKaiha && m.kaiha !== state.mKaiha) return false;
+    if (state.mRegion && regionOf(m) !== state.mRegion) return false;
+    return !q || [m.name, m.yomi, m.kaiha, m.kaiha_abbr, m.district, m.name_registered || ''].join(' ').indexOf(q) >= 0;
+  }
   function membersList() {
     var q = state.mq.trim();
     if (state.partiesSeg === 'governors') {
-      var gs = ((D.governors || {}).governors || []).filter(function (g) { return !q || [g.pref, g.name, g.yomi].join(' ').indexOf(q) >= 0; });
-      return '<p class="tb-count">' + gs.length + '人</p>' + gs.map(govRow).join('');
+      var gs = ((D.governors || {}).governors || []).filter(function (g) { return (!state.gArea || areaOf(g.pref) === state.gArea) && (!q || [g.pref, g.name, g.yomi].join(' ').indexOf(q) >= 0); });
+      return gs.map(govRow).join('') || '<p class="muted">当てはまる人はいません。</p>';
     }
     var house = state.mHouse || '衆議院';
     var ms = ((D.members || {}).members || []).filter(function (m) { return m.house === house && memberMatch(m, q); });
-    return '<p class="tb-count">' + ms.length + '人</p>' + ms.map(memberRow).join('');
+    return ms.map(memberRow).join('') || '<p class="muted">当てはまる人はいません。</p>';
+  }
+  function membersCount() {
+    var q = state.mq.trim();
+    if (state.partiesSeg === 'governors') return ((D.governors || {}).governors || []).filter(function (g) { return (!state.gArea || areaOf(g.pref) === state.gArea) && (!q || [g.pref, g.name, g.yomi].join(' ').indexOf(q) >= 0); }).length;
+    var house = state.mHouse || '衆議院';
+    return ((D.members || {}).members || []).filter(function (m) { return m.house === house && memberMatch(m, q); }).length;
   }
   function membersBody() {
     var M = D.members || {}, G = D.governors || {};
     var gov = state.partiesSeg === 'governors', house = state.mHouse || '衆議院';
-    var cnt = function (hs) { return ((M.members || []).filter(function (m) { return m.house === hs; })).length; };
-    var tb = '<div class="seg" role="group" aria-label="院"><button data-mhouse="衆議院" aria-pressed="' + (!gov && house === '衆議院') + '">衆議院 ' + cnt('衆議院') + '</button><button data-mhouse="参議院" aria-pressed="' + (!gov && house === '参議院') + '">参議院 ' + cnt('参議院') + '</button><button data-mhouse="知事" aria-pressed="' + gov + '">知事 ' + ((G.governors || []).length) + '</button></div>';
+    var all = (M.members || []).filter(function (m) { return m.house === house; });
+    var tb = '<div class="seg" role="group" aria-label="衆議院・参議院・知事"><button data-mhouse="衆議院" aria-pressed="' + (!gov && house === '衆議院') + '">衆議院</button><button data-mhouse="参議院" aria-pressed="' + (!gov && house === '参議院') + '">参議院</button><button data-mhouse="知事" aria-pressed="' + gov + '">知事</button></div>';
+    if (gov) {
+      tb += '<select id="garea" class="pill-select" aria-label="地方"><option value="">地方：すべて</option>' + AREAS.map(function (a) { return '<option value="' + a[0] + '"' + (state.gArea === a[0] ? ' selected' : '') + '>' + a[0] + '</option>'; }).join('') + '</select>';
+      EXPLAIN.mlist = { t: 'この一覧について', x: '全国知事会「現職知事一覧」（' + date(G.as_of) + '現在）から、毎日自動で更新しています（ルールC-6）。並び順は都道府県の順。全員を同じ項目で載せ、写真や評価は載せません（ルールD-8）。', go: 'about', gl: 'ルールを見る' };
+    } else {
+      var kai = {}; all.forEach(function (m) { kai[m.kaiha] = (kai[m.kaiha] || 0) + 1; });
+      var kaiList = Object.keys(kai).sort(function (a2, b2) { return kai[b2] - kai[a2] || a2.localeCompare(b2, 'ja'); });
+      var regs = []; all.forEach(function (m) { var r = regionOf(m); if (regs.indexOf(r) < 0) regs.push(r); }); regs.sort(function (a2, b2) { return regionKey(a2) - regionKey(b2); });
+      var how = house === '衆議院' ? '小選挙区' : '選挙区';
+      tb += '<div class="seg" role="group" aria-label="選ばれ方"><button data-mhow="" aria-pressed="' + (!state.mHow) + '">すべて</button><button data-mhow="選挙区" aria-pressed="' + (state.mHow === '選挙区') + '">' + how + '</button><button data-mhow="比例" aria-pressed="' + (state.mHow === '比例') + '">比例</button></div>';
+      tb += '<select id="mkaiha" class="pill-select" aria-label="会派"><option value="">会派：すべて</option>' + kaiList.map(function (k) { return '<option value="' + esc(k) + '"' + (state.mKaiha === k ? ' selected' : '') + '>' + esc(k) + '（' + kai[k] + '）</option>'; }).join('') + '</select>';
+      tb += '<select id="mregion" class="pill-select" aria-label="地域"><option value="">地域：すべて</option>' + regs.map(function (r) { return '<option value="' + esc(r) + '"' + (state.mRegion === r ? ' selected' : '') + '>' + esc(r) + '</option>'; }).join('') + '</select>';
+      var info0 = house === '衆議院' ? M.shu : M.san;
+      EXPLAIN.mlist = { t: 'この一覧について', x: (house === '衆議院' ? '衆議院「議員一覧」' : '参議院「議員一覧」') + '（' + date((info0 || {}).as_of) + '現在）から、毎日自動で更新しています（ルールC-6）。並び順は公式の一覧と同じ五十音順。全員を同じ項目で載せ、写真や評価は載せません（ルールD-8）。会派は国会の中のグループで、党と同じとは限りません。', go: 'about', gl: 'ルールを見る' };
+    }
+    tb += '<span class="tb-count" id="mcount">' + membersCount() + '人' + xp('mlist') + '</span>';
     var info = gov ? G : (house === '衆議院' ? M.shu : M.san) || {};
-    var h = '<div class="toolbar">' + tb + '</div>' +
-      '<input class="search" id="mq" type="search" placeholder="' + (gov ? '都道府県・名前で絞り込む' : '名前・よみ・会派・選挙区で絞り込む') + '" value="' + esc(state.mq) + '" aria-label="絞り込み">' +
-      '<div class="meta">' + ruleChips(['D-8', 'C-6']) + '<span>' + (gov ? '都道府県の順' : '五十音順（公式の一覧の順）') + '</span>' + (info.as_of ? '<span>' + date(info.as_of) + '現在</span>' : '') + '</div>' +
+    return '<div class="toolbar">' + tb + '</div>' +
+      '<input class="search sm" id="mq" type="search" placeholder="' + (gov ? '名前・都道府県で探す' : '名前・よみで探す') + '" value="' + esc(state.mq) + '" aria-label="名前で探す">' +
       '<div id="mlist">' + membersList() + '</div>' + src(info.source ? [info.source] : []);
-    return h;
   }
   function vMember(id) {
     var m = memberById(id);
@@ -1389,7 +1450,7 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
       (m.name_registered ? '<span>本名 ' + esc(m.name_registered) + '</span>' : '') + '<span>' + esc(m.house) + '議員</span>' + checked(D.members.checked) + ruleChips(['D-8', 'C-6']) + '</div></div>';
     h += '<div class="stats"><div class="box stat"><span class="k">会派</span><span class="big sm">' + esc(m.kaiha) + '</span></div>' +
       '<div class="box stat"><span class="k">' + esc(m.elected_by) + '</span><span class="big sm">' + esc(m.district) + '</span></div>' +
-      (m.terms ? '<div class="box stat"><span class="k">当選回数</span><span class="big">' + esc(m.terms) + '<small>回</small></span></div>' : '') +
+      (m.terms ? '<div class="box stat"><span class="k">衆議院での当選回数</span><span class="big">' + esc(String(m.terms).replace(/[（(].*$/, '')) + '<small>回</small></span>' + (/参/.test(m.terms) ? '<span class="k">' + termsText(m.terms).replace(/^当選\d+回/, '').replace(/[（）]/g, '') + 'の当選もあり</span>' : '') + '</div>' : '') +
       (m.term_end ? '<div class="box stat"><span class="k">任期満了</span><span class="big sm">' + date(m.term_end) + '</span></div>' : '') + '</div>';
     if (m.parties && m.parties.length) h += '<section class="sec"><h2>' + (m.parties.length > 1 ? 'この会派を組む党' : '政党') + '</h2><div class="tiles">' + m.parties.map(function (pid) { return '<button class="tile sm" data-go="p-' + esc(pid) + '"><span class="tt">' + esc(partyName(pid)) + '</span><span class="ti">' + ICON.chev + '</span></button>'; }).join('') + '</div>' +
       (m.parties.length > 1 ? '<p class="meta"><span>会派「' + esc(m.kaiha) + '」は複数の党が組む会派（統一会派）です。公式の議員一覧には会派だけが載っているため、どの党の議員かはここでは分けていません。</span></p>' : '') + '</section>';
@@ -1780,7 +1841,8 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
     if (t.hasAttribute('data-hmore')) { var y4 = window.scrollY; state.homeShown += 12; render(); window.scrollTo(0, y4); return; }
     if (t.dataset.level) { var y = window.scrollY; state.level = t.dataset.level; store('sh-level', state.level); render(); window.scrollTo(0, y); return; }
     if (t.dataset.mseg) { state.mediaSeg = t.dataset.mseg; return render(); }
-    if (t.dataset.mhouse) { var hv = t.dataset.mhouse; if (hv === '知事') { state.partiesSeg = 'governors'; history.replaceState(null, '', BASE + 'governors/'); curRoute = 'governors'; } else { state.mHouse = hv; state.partiesSeg = 'members'; history.replaceState(null, '', BASE + 'members/'); curRoute = 'members'; } return render(); }
+    if (t.dataset.mhow !== undefined) { state.mHow = t.dataset.mhow; return render(); }
+    if (t.dataset.mhouse) { var hv = t.dataset.mhouse; state.mKaiha = ''; state.mRegion = ''; state.mHow = ''; if (hv === '知事') { state.partiesSeg = 'governors'; history.replaceState(null, '', BASE + 'governors/'); curRoute = 'governors'; } else { state.mHouse = hv; state.partiesSeg = 'members'; history.replaceState(null, '', BASE + 'members/'); curRoute = 'members'; } return render(); }
     if (t.dataset.pseg) { state.partiesSeg = t.dataset.pseg; history.replaceState(null, '', BASE + routeToPath(t.dataset.pseg)); curRoute = t.dataset.pseg; return render(); }
     if (t.dataset.fsort) { state.feedSort = t.dataset.fsort; state.feedShown = PAGE_SIZE; store('sh-sort', state.feedSort); return render(); }
     if (t.dataset.fkind !== undefined) { state.feedKind = t.dataset.fkind; state.feedShown = PAGE_SIZE; return render(); }
@@ -1799,9 +1861,12 @@ pre.code { background: var(--panel); border-radius: var(--r); padding: 14px 16px
   });
   document.addEventListener('change', function (e) {
     if (e.target.id === 'ftopic') { state.feedTopic = e.target.value; state.feedShown = PAGE_SIZE; render(); }
+    if (e.target.id === 'mkaiha') { state.mKaiha = e.target.value; render(); }
+    if (e.target.id === 'mregion') { state.mRegion = e.target.value; render(); }
+    if (e.target.id === 'garea') { state.gArea = e.target.value; render(); }
   });
   document.addEventListener('input', function (e) {
-    if (e.target.id === 'mq') { state.mq = e.target.value; var ml = document.getElementById('mlist'); if (ml) ml.innerHTML = membersList(); return; }
+    if (e.target.id === 'mq') { state.mq = e.target.value; var ml = document.getElementById('mlist'); if (ml) ml.innerHTML = membersList(); var mc = document.getElementById('mcount'); if (mc) mc.firstChild.textContent = membersCount() + '人'; return; }
     if (e.target.id !== 'q') return;
     state.q = e.target.value;
     var q = state.q.trim();

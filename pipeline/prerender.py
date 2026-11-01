@@ -277,7 +277,7 @@ def main():
     pname = {p["id"]: p["name"] for p in parties["national"]}
     fe = {it["id"]: it for it in feed["items"]}
     for m in M["members"]:
-        meta = [m["yomi"], m["house"] + "議員", f"会派 {m['kaiha']}", m["district"], (f"当選{m['terms']}回" if m.get("terms") else ""),
+        meta = [m["yomi"], m["house"] + "議員", f"会派 {m['kaiha']}", m["district"], ((lambda mm: f"当選{mm.group(1)}回" + (f"（参議院で{mm.group(2)}回）" if mm.group(2) else ""))(re.match(r"(\d+)(?:[（(]参(\d+)[）)])?", m["terms"])) if m.get("terms") else ""),
                 (f"任期 {jdate(m['term_end'])}まで" if m.get("term_end") else "")]
         body = f"<h1>{html.escape(m['name'])}</h1><div class=\"meta\">" + "".join(f"<span>{html.escape(x)}</span>" for x in meta if x) + "</div>"
         if m.get("parties"):
