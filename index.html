@@ -1562,6 +1562,9 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
     var h = location.hash.slice(1) || 'home';
     var html;
     seenTerms = {}; hidePop();
+    // タブの名前：どのURLから開いても、表示しているページの名前にそろえる
+    var tl = h === 'home' ? '' : (h === 'elections' ? '選挙結果' : routeLabel(h));
+    document.title = tl && tl !== '前のページ' ? tl + '｜せいじのまど' : 'せいじのまど';
     if (h === 'home') html = vHome();
     else if (h === 'laws') { state.partiesSeg = 'laws'; html = vParties(); }
     else if (h.indexOf('a-') === 0) html = vArticle(h.slice(2));
