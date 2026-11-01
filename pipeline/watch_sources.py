@@ -114,6 +114,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0, help="試しに見る出典の数")
     ap.add_argument("--only", choices=["egov", "other"], help="法令だけ／法令以外だけ")
+    ap.add_argument("--rebaseline", action="store_true", help="今の出典を基準として記録するだけ（見直し待ちにしない）")
     a = ap.parse_args()
     data = U.load()
     us = U.units(data)
@@ -155,7 +156,7 @@ def main():
                 for uid in m[u]:
                     add_due(w, uid, f"出典「{label}」が3回続けて開けない（{info}）", day)
             continue
-        if not st or not st.get("fp"):
+        if not st or not st.get("fp") or a.rebaseline:
             w["sources"][u] = {"kind": kind, "fp": fp, "since": day, "checked": day}
             new += 1
             continue
@@ -174,6 +175,8 @@ def main():
     for u in list(w["sources"]):
         if u not in m:
             del w["sources"][u]
+    if a.rebaseline:
+        w["due"] = {}
     save_watch(w)
     print(f"見た出典 {len(results)} 件：初めて {new}、変わった {changed}、開けない(3回目) {broken}、"
           f"エラー {sum(1 for r in results.values() if r[0] == 'error')}")
