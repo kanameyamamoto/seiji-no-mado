@@ -2,10 +2,9 @@
 
 サイト本体（index.html）は1つのページの中で表示を切り替えるので、URLの「#」から後ろは
 検索エンジンからは同じページに見える。そこで、記事・ページごとに、中身をそのまま書いた
-普通のHTMLを作り、サイトマップ（sitemap.xml）に載せる。
+HTMLを作り（中身はサイト本体と同じ。開くとそのページの表示で始まる）、サイトマップ（sitemap.xml）に載せる。
 
 - 文章は「ふつう」のレベル（std）で書く。中身はサイト本体と同じデータから作るので、食い違わない。
-- 各ページから「サイトで開く」で、読むレベルや立場を選べるサイト本体に移れる。
 
 使い方：python pipeline/prerender.py _site
 """
@@ -107,52 +106,38 @@ def block(b):
     return ""
 
 
-CSS = """
-:root{--bg:#EEF1F6;--surface:#fff;--line:#D3DAE5;--fg:#13213A;--muted:#4A5872;--accent:#1F3F7A;--nav:#14264A}
-@media (prefers-color-scheme:dark){:root{--bg:#0F1726;--surface:#172236;--line:#2A3852;--fg:#E8EDF6;--muted:#A9B6CF;--accent:#9DB5E6}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'Hiragino Sans','Yu Gothic UI','Noto Sans JP',sans-serif;line-height:1.8}
-header{background:var(--nav);color:#fff}header .w{display:flex;align-items:center;gap:16px;min-height:56px}
-header a{color:#fff;text-decoration:none;font-weight:700;white-space:nowrap}header nav{display:flex;gap:14px;overflow-x:auto;font-size:14px;scrollbar-width:none}header nav a{font-weight:400;opacity:.85}
-.w{max-width:760px;margin:0 auto;padding:0 16px}main.w{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin:20px auto;padding:24px 20px;width:calc(100% - 32px)}
-h1{font-size:26px;line-height:1.4;margin:.2em 0 .4em}h2{font-size:19px;margin:1.6em 0 .4em}h3{font-size:16px;margin:1.2em 0 .2em}
-.meta{color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:4px 14px}.lead{font-size:17px}.hook{font-weight:700;color:var(--accent)}
-.note{color:var(--muted);font-size:14px}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
-td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.stats{display:flex;flex-wrap:wrap;gap:12px}.stats div{border:1px solid var(--line);border-radius:10px;padding:8px 14px}
-dt{font-size:13px;color:var(--muted)}dd{margin:0;font-weight:700}a{color:var(--accent)}.src{font-size:14px}
-.open{display:block;text-align:center;background:var(--nav);color:#fff;border-radius:12px;padding:14px;font-weight:700;text-decoration:none;margin:28px 0 8px}
-footer{color:var(--muted);font-size:13px;padding:8px 0 40px}
-"""
-
-
 class Site:
+    """検索用のページ＝サイト本体（index.html）の写し。
+    ・<base> で、データや画像の場所をサイトの一番上にそろえる
+    ・開いたときに、そのページの表示（#learn… など）で始まるようにする
+    ・本体が表示されるまでの間（と、検索エンジン）のために、中身の文章を #app に入れておく（本体が表示されると置きかわる）
+    ・タイトル・説明・canonical などは、そのページのものにする
+    """
     def __init__(self, out, base):
         self.out, self.base, self.urls = out, base.rstrip("/") + "/", []
+        self.tpl = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        for need in ("<head>", "<title>せいじのまど</title>", '<div class="wrap" id="app"></div>', "\n<script>\n"):
+            assert need in self.tpl, f"index.html に {need!r} がありません"
 
     def page(self, path, title, desc, body, app_route, lastmod=""):
-        depth = path.count("/")
-        up = "../" * depth
+        up = "../" * path.count("/")
         url = self.base + path
         desc = re.sub(r"\s+", " ", t(desc))[:120]
-        doc = f"""<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(title)}｜せいじのまど</title>
-<meta name="description" content="{html.escape(desc)}">
-<link rel="canonical" href="{url}">
-<meta property="og:type" content="article"><meta property="og:title" content="{html.escape(title)}｜せいじのまど">
-<meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{self.base}assets/og.png"><meta property="og:site_name" content="せいじのまど"><meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#14264A">
-<style>{CSS}</style></head><body>
-<header><div class="w"><a href="{up}">せいじのまど</a><nav><a href="{up}#learn">学ぶ</a><a href="{up}#parties">政党・選挙</a><a href="{up}#laws">国会で決まったこと</a><a href="{up}#links">つながり</a><a href="{up}#media">メディア</a><a href="{up}pages/">ページの一覧</a></nav></div></header>
-<main class="w">{body}
-<a class="open" href="{up}#{app_route}">サイトで開く（読むレベル・あなたの立場を選べます）</a>
-</main>
-<footer class="w">このページは、検索エンジン向けに「ふつう」のレベルの文章を書き出したものです。どの党にもメディアにも偏らないよう、事実と意見を分け、結論は書きません。書き方のルールは<a href="{up}#about">すべて公開</a>しています。</footer>
-</body></html>
-"""
+        full = f"{title}｜せいじのまど"
+        h = self.tpl
+        h = h.replace("<head>", f'<head>\n<base href="{up}">', 1)
+        h = h.replace("<title>せいじのまど</title>", f"<title>{html.escape(full)}</title>", 1)
+        h = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{html.escape(desc)}">', h, count=1)
+        h = re.sub(r'<meta property="og:description" content="[^"]*">', lambda m: f'<meta property="og:description" content="{html.escape(desc)}">', h, count=1)
+        h = h.replace('<meta property="og:title" content="せいじのまど">', f'<meta property="og:title" content="{html.escape(full)}">', 1)
+        h = h.replace('<meta property="og:type" content="website">', '<meta property="og:type" content="article">', 1)
+        h = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', h, count=1)
+        h = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{url}">', h, count=1)
+        h = h.replace('<div class="wrap" id="app"></div>', f'<div class="wrap" id="app"><article class="seo-static">{body}</article></div>', 1)
+        h = h.replace("\n<script>\n", f"\n<script>if (!location.hash) history.replaceState(null, '', '#{app_route}');</script>\n<script>\n", 1)
         d = os.path.join(self.out, path)
         os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
+        open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(h)
         self.urls.append((url, lastmod, title, path))
 
 
@@ -263,7 +248,7 @@ def main():
     body = "<h1>ページの一覧</h1><p>このサイトのすべてのページです。</p>"
     for g, label in groups.items():
         items = [(u, ti, pth) for u, _, ti, pth in site.urls if pth.split("/")[0] == g]
-        body += f"<h2>{label}（{len(items)}）</h2><ul>" + "".join(f'<li><a href="../{pth}">{html.escape(ti)}</a></li>' for _, ti, pth in items) + "</ul>"
+        body += f"<h2>{label}（{len(items)}）</h2><ul>" + "".join(f'<li><a href="{pth}">{html.escape(ti)}</a></li>' for _, ti, pth in items) + "</ul>"
     site.page("pages/", "ページの一覧", "せいじのまどの全ページの一覧。国会で決まったこと・学ぶ・つながり・政党・選挙・メディア。", body, "home",
               datetime.datetime.now(JST).strftime("%Y-%m-%d"))
 
