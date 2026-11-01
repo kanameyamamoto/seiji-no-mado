@@ -27,13 +27,13 @@ jobs:
                   "lead": {l: "二級建築士が一級建築士試験を受けやすくなる法律。" for l in ("es", "hs", "std", "univ")},
                   "facts": [{l: "二級建築士として4年以上の実務経験がある人に、一級建築士試験の受験資格を与える。施行は公布の日から2年後。" for l in ("es", "hs", "std", "univ")}]}, ensure_ascii=False))
           import os, time, urllib.request
-          for m in ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"]:
+          for m in ["gemini-3.8-flash", "gemini-flash-lite-latest"]:
               t0 = time.time()
               try:
                   url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
                   body = {"systemInstruction": {"parts": [{"text": system}]}, "contents": [{"role": "user", "parts": [{"text": user}]}],
                           "generationConfig": {"responseMimeType": "application/json", "temperature": 0}}
-                  res = ai._post(url, {"content-type": "application/json", "x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body, timeout=400)
+                  res = ai._post(url, {"content-type": "application/json", "x-goog-api-key": os.environ["GEMINI_API_KEY"]}, body, timeout=200)
                   text = res["candidates"][0]["content"]["parts"][0]["text"]
                   print(f"== {m} → {res.get('modelVersion')}（{time.time()-t0:.0f}秒）")
                   print(json.dumps(ai.extract_json(text), ensure_ascii=False)[:600])
