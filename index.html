@@ -552,7 +552,7 @@ table.dh sup { font-size: 10px; margin-left: 2px; }
 .jump { display: none !important; }
 .toc-btn { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(var(--tabs-h) + 16px + env(safe-area-inset-bottom, 0px)); z-index: 25; height: 44px; padding: 0 16px; border-radius: 999px; background: var(--nav-bg); color: var(--nav-fg); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(19,33,58,.25); }
 .toc-btn svg { width: 18px; height: 18px; }
-@media (min-width: 900px) { .toc-btn { bottom: 24px; } }
+@media (min-width: 900px) { .toc-btn { bottom: 32px; right: max(24px, calc((100vw - 1040px) / 2 + 16px)); height: 52px; padding: 0 24px; font-size: 16px; gap: 10px; } .toc-btn svg { width: 20px; height: 20px; } }
 .toc-list { display: flex; flex-direction: column; }
 .toc-list button { text-align: left; padding: 14px 4px; border-bottom: 1px solid var(--line); font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
 .toc-list button:hover { color: var(--accent); }
