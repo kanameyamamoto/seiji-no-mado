@@ -122,11 +122,25 @@ def update_members(watch):
                 changed = True
         new_names = sorted(set(table) - set(prev)) if prev else []
         gone = sorted(set(prev) - set(table)) if prev else []
-        if new_names or gone:
+        hn = "衆" if house == "shu" else "参"
+        unmatched = []
+        # 会派がなくなった・できた → 関係する党のページを見直し待ちにする（recheck.py が直した版を作って提案する）
+        for g in gone:
+            hit = [p for p in P["national"] if strip_kaiha((p.get("members") or {}).get(f"kaiha_{house}", "")) == g]
+            for p in hit:
+                W.add_due(watch, f"party:{p['id']}", f"{hn}議院の会派「{g}」がなくなった", W.today())
+            if not hit:
+                unmatched.append(f"なくなった会派：{g}")
+        for g in new_names:
+            hit = [p for p in P["national"] if p["name"] in g or (p.get("short") and p["short"] in g)]
+            for p in hit:
+                W.add_due(watch, f"party:{p['id']}", f"{hn}議院に会派「{g}」（{table[g]}人）ができた", W.today())
+            if not hit:
+                unmatched.append(f"新しい会派：{g}（{table[g]}人）")
+        if unmatched:
             watch.setdefault("alerts", []).append({
-                "date": W.today(), "title": f"{'衆' if house == 'shu' else '参'}議院の会派が変わりました",
-                "body": f"新しい会派：{'、'.join(new_names) or 'なし'}\nなくなった会派：{'、'.join(gone) or 'なし'}\n"
-                        f"出典：{url}\n各党の members.kaiha_{house} を確かめてください。"})
+                "date": W.today(), "title": f"{hn}議院の会派が変わりました（どの党か自動では決められないもの）",
+                "body": "\n".join(unmatched) + f"\n出典：{url}\n各党の members.kaiha_{house} を確かめてください。"})
         watch["kaiha"][house] = table
     if changed:
         jsave("parties.json", P)

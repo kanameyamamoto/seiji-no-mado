@@ -648,7 +648,7 @@
       },
       {
        "label": "厚生労働省「令和８（2026）年度 雇用保険料率のご案内」",
-       "url": "https://www.mhlw.go.jp/content/001672589.pdf"
+       "url": "https://www.mhlw.go.jp/content/001692566.pdf"
       },
       {
        "label": "厚生年金保険法 第81条",
@@ -659,7 +659,13 @@
        "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-01",
+     "updates": [
+      {
+       "date": "2026-11-01",
+       "text": "出典の「令和8年度 雇用保険料率のご案内」のURLが変わったため、新しいURLに差し替えた。内容の変更はない。"
+      }
+     ]
     },
     {
      "id": "audit-and-settlement",
@@ -2665,7 +2671,7 @@
       },
       {
        "label": "厚生労働省「令和８（2026）年度 雇用保険料率のご案内」",
-       "url": "https://www.mhlw.go.jp/content/001672589.pdf"
+       "url": "https://www.mhlw.go.jp/content/001692566.pdf"
       },
       {
        "label": "日本年金機構「19歳以上23歳未満の方の被扶養者認定における年間収入要件が変わります」",
@@ -2684,7 +2690,13 @@
        "url": "https://www.nenkin.go.jp/service/yougo/sagyo/zaishokurorei.html"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-01",
+     "updates": [
+      {
+       "date": "2026-11-01",
+       "text": "出典の「令和8年度 雇用保険料率のご案内」のURLが変わったため、新しいURLに差し替えた。内容の変更はない。"
+      }
+     ]
     },
     {
      "id": "maff",
@@ -5112,7 +5124,7 @@
       },
       {
        "label": "厚生労働省「令和８（2026）年度 雇用保険料率のご案内」",
-       "url": "https://www.mhlw.go.jp/content/001672589.pdf"
+       "url": "https://www.mhlw.go.jp/content/001692566.pdf"
       },
       {
        "label": "日本年金機構「国民年金保険料の学生納付特例制度」",
@@ -5131,7 +5143,13 @@
        "url": "https://www.nenkin.go.jp/oshirase/taisetu/kojin/2026/202604/0401.html"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-01",
+     "updates": [
+      {
+       "date": "2026-11-01",
+       "text": "出典の「令和8年度 雇用保険料率のご案内」のURLが変わったため、新しいURLに差し替えた。内容の変更はない。"
+      }
+     ]
     }
    ],
    "show": [

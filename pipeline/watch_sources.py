@@ -152,9 +152,10 @@ def main():
             st["checked"] = day
             w["sources"][u] = st
             if st["fails"] == 3:
+                # リンク切れ：代わりの出典は recheck.py が探して提案する
                 broken += 1
-                for uid in m[u]:
-                    add_due(w, uid, f"出典「{label}」が3回続けて開けない（{info}）", day)
+                st["broken"] = day
+                st["label"] = label
             continue
         if not st or not st.get("fp") or a.rebaseline:
             w["sources"][u] = {"kind": kind, "fp": fp, "since": day, "checked": day}
@@ -167,7 +168,8 @@ def main():
                 add_due(w, uid, f"出典「{label}」の{why}", day)
             st.update({"fp": fp, "since": day})
         st.update({"kind": kind, "checked": day, "fails": 0})
-        st.pop("last_error", None)
+        for k in ("last_error", "broken", "label", "proposed", "alerted"):
+            st.pop(k, None)
         w["sources"][u] = st
     if not a.only and not a.limit:
         check_links(w, data, day)

@@ -26,7 +26,7 @@ CTX.set_ciphers("DEFAULT@SECLEVEL=1")
 # 中身が変わらない出典（論文のDOIなど）は、見張らない
 STATIC_HOSTS = {"doi.org"}
 
-UA = "seiji-no-mado-bot/1.0 (+https://github.com/kanameyamamoto/seiji-no-mado)"
+UA = "Mozilla/5.0 (compatible; seiji-no-mado-bot/1.0; +https://github.com/kanameyamamoto/seiji-no-mado)"
 EGOV = re.compile(r"^https://laws\.e-gov\.go\.jp/law/([0-9A-Za-z_]+)")
 
 

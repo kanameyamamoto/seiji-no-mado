@@ -28,6 +28,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import ai  # noqa: E402
 import numcheck  # noqa: E402
+import propose  # noqa: E402
 import sources as SRC  # noqa: E402
 import units as U  # noqa: E402
 import watch_sources as W  # noqa: E402
@@ -175,7 +176,7 @@ def mech_check(view, changes, srcs):
 def recheck_unit(u, reasons, today):
     view = view_of(u)
     srcs = gather_sources(u, reasons)
-    log = {"unit": u.id, "title": u.title, "date": today, "reasons": reasons,
+    log = {"_srcs": srcs, "unit": u.id, "title": u.title, "date": today, "reasons": reasons,
            "writer_prompt": "prompts/recheck.md", "checker_prompt": "prompts/recheck_check.md",
            "sources": [{"label": s["label"], "url": s["url"], "chars": len(s["text"]), "error": s.get("error")} for s in srcs],
            "rounds": []}
@@ -244,11 +245,56 @@ def recheck_unit(u, reasons, today):
     return "held", log, None
 
 
+def log_path(log):
+    return "data/logs/recheck/" + re.sub(r"[^0-9A-Za-z_-]", "_", log["unit"]) + "-" + log["date"] + ".json"
+
+
 def save_log(log):
     os.makedirs(LOGS, exist_ok=True)
-    name = re.sub(r"[^0-9A-Za-z_-]", "_", log["unit"]) + "-" + log["date"] + ".json"
-    json.dump(log, open(os.path.join(LOGS, name), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    return "data/logs/recheck/" + name
+    path = log_path(log)
+    json.dump({k: v for k, v in log.items() if not k.startswith("_")}, open(os.path.join(ROOT, path), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return path
+
+
+def kaiha_text(watch):
+    k = watch.get("kaiha") or {}
+    lines = []
+    for house, name in (("shu", "衆議院"), ("san", "参議院")):
+        if k.get(house):
+            lines.append(f"### {name}の会派別所属議員数（今の表）\n" + "\n".join(f"{n}：{c}人" for n, c in k[house].items()))
+    return "\n\n".join(lines)
+
+
+def fix_broken_sources(us, watch, today, limit):
+    """リンク切れの出典の代わりを探して提案する（見つからなければ人へ知らせる）。"""
+    done = 0
+    for url, st in sorted(watch.get("sources", {}).items()):
+        if done >= limit:
+            break
+        if not st.get("broken") or st.get("proposed") or st.get("alerted"):
+            continue
+        done += 1
+        label = st.get("label", url)
+        log = {"unit": "source-" + re.sub(r"[^0-9A-Za-z]", "_", url)[-60:], "date": today, "reasons": [f"出典「{label}」が3回続けて開けない"],
+               "writer_prompt": "prompts/replace_source.md", "rounds": []}
+        log["path"] = log_path(log)
+        ok = False
+        try:
+            ok = propose.replacement(url, label, us, today, log)
+        except Exception as e:  # noqa: BLE001
+            log["rounds"].append({"result": f"エラー：{e}"})
+        save_log(log)
+        if ok:
+            st["proposed"] = today
+            print(f"[proposal] 代わりの出典を提案：{label}")
+        else:
+            st["alerted"] = today
+            used = [u.title for u in us if any(s["url"] == url for s in u.sources)]
+            watch.setdefault("alerts", []).append({
+                "date": today, "title": f"リンク切れ：{label}",
+                "body": f"出典 {url} が3回続けて開けず、代わりの出典も自動では見つかりませんでした。\n\n- 使っているページ：{'、'.join(used)}\n"
+                        f"- 記録：`{log['path']}`\n\n代わりの出典に差し替えてください（docs/運用.md「人が見る必要があるもの」）。"})
+            print(f"[alert] リンク切れ：{label}")
 
 
 def main():
@@ -272,11 +318,23 @@ def main():
     if not (ai.writer_available() and ai.checker_available()):
         print("APIキーとモデル名がないので、見直しはしません（見直し待ちはそのまま残ります）。")
         return
+    fix_broken_sources(us, watch, today, limit=3)
     touched = set()
     for u in todo:
         reasons = [r["reason"] for r in watch.get("due", {}).get(u.id, [])]
         try:
-            result, log, extra = recheck_unit(u, reasons, today)
+            if any("会派" in r for r in reasons):
+                # 会派の組み替え・人数の変化は、党のページの形（会派名など）に関わるので、直した版を作って提案する
+                srcs = gather_sources(u, reasons)
+                log = {"_srcs": srcs, "unit": u.id, "title": u.title, "date": today, "reasons": reasons, "rounds": []}
+                result, extra = "needs_human", "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+            else:
+                result, log, extra = recheck_unit(u, reasons, today)
+            if result in ("needs_human",):
+                log["path"] = log_path(log)
+                if propose.structural(u, reasons, extra, log.get("_srcs", []), kaiha_text(watch) if u.kind == "party" else "", today, log):
+                    result = "proposed"
+                    log["final"] = "直した版をプルリクエストで提案"
         except Exception as e:  # noqa: BLE001
             print(f"[error] {u.id}: {e}（次の回にもう一度）")
             continue
@@ -297,6 +355,10 @@ def main():
             watch.get("due", {}).pop(u.id, None)
             watch.get("held", {}).pop(u.id, None)
             print(f"[update] {u.id}：{extra.get('summary', '')}")
+        elif result == "proposed":
+            watch.setdefault("held", {})[u.id] = {"date": today, "reason": "直した版をプルリクエストで提案中", "log": path}
+            watch.get("due", {}).pop(u.id, None)
+            print(f"[proposal] {u.id}：直した版を提案")
         else:
             why = extra if result == "needs_human" else log["final"]
             watch.setdefault("held", {})[u.id] = {"date": today, "reason": why, "log": path}

@@ -17,6 +17,7 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
   pages: write
   id-token: write
 
@@ -65,7 +66,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WRITER_MODEL: ${{ vars.WRITER_MODEL || 'claude-sonnet-5-5' }}
           CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gpt-5' }}
-        run: python pipeline/recheck.py
+        run: python pipeline/recheck.py   # 形を変える直し・リンク切れは、直した版を _proposals/ に作る
 
       - name: 公開前の機械チェック
         run: python pipeline/validate.py
@@ -93,6 +94,11 @@ jobs:
             git pull --rebase -q origin main && git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: 直した版の提案をプルリクエストにする（人が見て取り込む）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python pipeline/open_proposals.py
 
       # GITHUB_TOKEN での push では別のワークフローが動かないので、ここで公開まで行う
       - name: 公開するファイルをまとめる

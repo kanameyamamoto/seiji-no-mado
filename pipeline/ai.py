@@ -32,6 +32,19 @@ def write(system, user, max_tokens=8000):
     return "".join(b.get("text", "") for b in res.get("content", []) if b.get("type") == "text"), res.get("model", os.environ["WRITER_MODEL"])
 
 
+def write_with_search(system, user, max_tokens=4000, max_searches=5):
+    """書く担当に、ウェブ検索を使わせる（リンク切れの代わりの出典を探すときだけ使う）。"""
+    res = _post(
+        "https://api.anthropic.com/v1/messages",
+        {"content-type": "application/json", "x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01"},
+        {"model": os.environ["WRITER_MODEL"], "max_tokens": max_tokens, "system": system,
+         "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": max_searches}],
+         "messages": [{"role": "user", "content": user}]},
+        timeout=300,
+    )
+    return "".join(b.get("text", "") for b in res.get("content", []) if b.get("type") == "text"), res.get("model", os.environ["WRITER_MODEL"])
+
+
 def check(system, user):
     res = _post(
         "https://api.openai.com/v1/chat/completions",

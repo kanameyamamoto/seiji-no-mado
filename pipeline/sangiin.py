@@ -10,7 +10,7 @@ import time
 import urllib.request
 
 BASE = "https://www.sangiin.go.jp"
-UA = "seiji-no-mado-bot/1.0 (+https://github.com/; public civic data)"
+UA = "Mozilla/5.0 (compatible; seiji-no-mado-bot/1.0; +https://github.com/kanameyamamoto/seiji-no-mado)"
 CACHE = os.environ.get("SANGIIN_CACHE")
 
 
