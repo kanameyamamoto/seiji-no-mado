@@ -83,19 +83,22 @@ def skeleton(raw, feed):
     r = raw["bill"]
     cat, ses, no = raw["category"], raw["session"], raw["key"].split("-")[-1]
     year = int((raw["date"] or today())[:4]) - 2018
-    if cat in ("閣法", "衆法", "参法"):
+    rejected = raw.get("kind") == "法律案が否決"
+    if rejected:
+        lid = f"r{year}-rej-{ses}-" + {"閣法": "kakuho", "衆法": "shuho", "参法": "sanho"}[cat] + f"-{no}"
+    elif cat in ("閣法", "衆法", "参法"):
         lid = f"r{year}-law-{int(raw['law_no']):03d}" if raw.get("law_no", "").isdigit() else f"r{year}-law-{ses}-{cat}-{no}"
     elif cat == "予算":
         lid = f"r{year}-budget-{ses}-{no}"
     else:
         lid = f"r{year}-treaty-{ses}-{int(no):02d}" if no.isdigit() else f"r{year}-treaty-{ses}-{no}"
     formal = raw["formal"]
-    if cat in ("閣法", "衆法", "参法"):
+    if cat in ("閣法", "衆法", "参法") and not rejected:  # 否決されたものは「法律案」のまま
         formal = re.sub(r"案$", "", formal)
     elif cat == "条約":
         formal = re.sub(r"の締結について承認を求めるの件$", "", formal)
     ministries = [m for m in (r.get("その他の/所管官庁", "") or "").split("、") if m]
-    topic = "外務省（条約）" if cat == "条約" else (ministries[0] if ministries else "国会（議員立法）")
+    topic = "外務省（条約）" if cat == "条約" else (ministries[0] if ministries else ("内閣" if cat == "閣法" else "国会（議員立法）"))
     item = {
         "id": lid, "src_key": raw["src_key"], "kind": raw["kind"], "date": raw["date"],
         "session": session_label(feed, ses), "title": "", "formal": formal, "bill": raw["formal"],
@@ -103,14 +106,24 @@ def skeleton(raw, feed):
         "submitter": "内閣" if cat in ("閣法", "予算", "条約") else "議員",
         "topic": topic, "ministries": ministries,
     }
+    if raw.get("bill_id"):
+        item["bill_id"] = raw["bill_id"]  # data/bills.json の id
+    if raw.get("groups"):
+        item["submitter_groups"] = raw["groups"]  # 衆議院の議案審議経過情報の「議案提出会派」
     if raw.get("law_no", "").isdigit():
         item["law_no"] = f"令和{year}年法律第{raw['law_no']}号"
     if raw.get("promulgated"):
         item["promulgated"] = raw["promulgated"]
     first = "衆議院" if r.get("議案審議一覧/先議区分", "").startswith("衆") else "参議院"
-    item["process"] = {"first_chamber": first, "shugiin": chamber(r, "衆議院"), "sangiin": chamber(r, "参議院"),
-                       "source": raw["source"]}
-    v = votes_of(raw.get("vote"))
+    if raw.get("process"):  # 衆議院で否決（衆議院の経過情報から作ったもの）
+        item["process"] = raw["process"]
+    else:
+        item["process"] = {"first_chamber": first, "shugiin": chamber(r, "衆議院"), "sangiin": chamber(r, "参議院"),
+                           "source": raw["source"]}
+        for h in ("shugiin", "sangiin"):
+            if not item["process"][h].get("result"):
+                del item["process"][h]
+    v = raw.get("votes") or votes_of(raw.get("vote"))
     if v:
         item["votes"] = v
     return item
@@ -122,8 +135,14 @@ def source_text(raw):
     r = raw["bill"]
     keep = ["議案審議一覧/件名", "議案審議一覧/種別", "議案審議一覧/提出番号", "参議院本会議経過/議決日",
             "衆議院本会議経過/議決日", "その他の/公布年月日", "その他の/法律番号", "その他の/所管官庁"]
+    keep += ["提出者", "提出会派", "衆議院本会議経過/議決", "参議院本会議経過/議決"]
     lines = [f"{k.split('/')[-1]}：{r.get(k, '')}" for k in keep if r.get(k)]
-    return "\n".join(lines) + "\n\n【議案要旨】\n" + (raw.get("yoshi") or "（なし）")
+    head = ""
+    if raw.get("kind") == "法律案が否決":
+        where = "衆議院" if r.get("衆議院本会議経過/議決") == "否決" else "参議院"
+        head = f"【結果】この法律案は{where}の本会議で否決され、成立していない。\n"
+    name = "議案要綱" if raw.get("yoshi_source") else "議案要旨"
+    return head + "\n".join(lines) + f"\n\n【{name}】\n" + (raw.get("yoshi") or "（なし）")
 
 
 def texts_of(draft):
@@ -212,7 +231,7 @@ def run_one(path, feed):
     item = skeleton(raw, feed)
     item["title"] = draft["title"]
     item["lead"] = {l: draft["lead"][l] for l in LEVELS}
-    yoshi_src = {"label": re.sub(r"）$", "・議案要旨）", raw["source"]["label"]), "url": raw["source"]["url"]}
+    yoshi_src = raw.get("yoshi_source") or {"label": re.sub(r"）$", "・議案要旨）", raw["source"]["label"]), "url": raw["source"]["url"]}
     item["facts"] = [{"text": {l: f[l] for l in LEVELS}, "rules": ["F-1", "F-3", "F-4"], "sources": [yoshi_src]}
                      for f in draft["facts"]]
     item["checked"] = today()

@@ -6,7 +6,7 @@
   {サイト}/api/v1/parties.json, parties/<id>.json
   {サイト}/api/v1/members.json, members/<id>.json（参議院議員は1件ずつの賛否つき）
   {サイト}/api/v1/governors.json
-  {サイト}/api/v1/rejected.json     … 参議院の本会議で否決された法律案（議案要旨・会派ごとの賛否）
+  {サイト}/api/v1/bills.json        … 成立しなかった法律案（審議未了・継続審査・撤回・否決・審議中）
   {サイト}/api/v1/learn.json, learn/<id>.json、links.json, links/<id>.json
   {サイト}/api/v1/glossary.json, rules.json
 
@@ -92,9 +92,9 @@ def main():
         put(f"{name}.json", wrap(lst))
     put("glossary.json", wrap(gl))
     put("rules.json", wrap(rules))
-    rj = load("rejected")
-    put("rejected.json", wrap(rj.get("items", []), criteria=rj.get("criteria")))
-    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "rejected", "parties", "members", "governors", "learn", "links", "glossary", "rules")}
+    bl = load("bills")
+    put("bills.json", wrap(bl.get("items", []), criteria=bl.get("criteria"), status_rule=bl.get("status_rule"), order=bl.get("order"), source=bl.get("source")))
+    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "parties", "members", "governors", "learn", "links", "glossary", "rules")}
     put("index.json", wrap(eps, about="せいじのまど（政治の情報を、どの党にもメディアにも偏らずに届けるサイト）の公開データ。サーバーを使わない静的な JSON で、登録やキーは不要。毎日自動で更新される。",
                            levels={"es": "かんたん", "hs": "やさしい", "std": "ふつう", "univ": "くわしく"}, docs=f"{base}api/"))
 
@@ -104,14 +104,15 @@ def main():
         "",
         "> 日本の政治の情報を、どの党にもメディアにも偏らずに届けるサイト。事実と意見を分け、結論は書かない。書き方のルールはすべて公開している。",
         "",
-        "- 中身：国会で成立した法律・予算・条約（すべて）、政治のしくみの解説、政党（全党を同じ項目で）、国会議員と知事（全員を同じ項目で）、予算・省庁などのデータ、メディアの一覧。",
+        "- 中身：国会で成立した法律・予算・条約と否決された法律案（すべて）、成立しなかった法律案の一覧、政治のしくみの解説、政党（全党を同じ項目で）、国会議員と知事（全員を同じ項目で）、予算・省庁などのデータ、メディアの一覧。",
         "- 出典：すべての事実に一次情報（条文・国会の議案情報と投票結果・官公庁の資料）の出典をつけている。各ページに確認日と、更新・訂正の記録がある。",
         "- 文章は4つの読むレベル（かんたん・やさしい・ふつう・くわしく）で書いている。ページ（HTML）は「ふつう」、API はすべてのレベルを含む。",
         "- 書くのは AI（Claude）、確かめるのは別の会社の AI（Gemini）と、AI を使わないプログラム。AI への指示文とチェックの結果も公開している。",
         f"- ライセンス：CC BY 4.0（出典として「せいじのまど」とURLを示せば自由に使える）。",
         "",
         "## 主なページ",
-        f"- [国会で決まったこと]({base}laws/)：成立した法律・予算・条約の一覧と、1件ずつの事実・会派ごとの賛否",
+        f"- [国会で決まったこと]({base}laws/)：成立した法律・予算・条約と否決された法律案の一覧と、1件ずつの事実・会派ごとの賛否",
+        f"- [成立しなかった法律案]({base}bills/)：審議未了・継続審査・撤回・否決・審議中の法律案すべて（衆議院の議案情報の表記のまま）",
         f"- [学ぶ]({base}learn/)：政治のしくみの解説",
         f"- [政党・選挙]({base}parties/)：政党の成り立ち・考え方・政策・国会での賛否",
         f"- [国会議員]({base}members/)・[知事]({base}governors/)",

@@ -4,6 +4,7 @@
 2. 国会の会期一覧（衆議院）→ feed.json の sessions、data/config.json の sessions（新しい国会）
 3. 成立した法律の公布日・法律番号（参議院 議案情報）→ feed.json の各記事
 4. 国会議員の一覧・参議院議員一人ひとりの賛否・知事の一覧（people.py）→ members.json・member_votes.json・governors.json
+5. 成立しなかった法律案の一覧（bills.py）→ bills.json
 
 機械で決められないこと（どの党か決められない会派の組み替えなど）は、
 data/watch.json の due（見直し待ち）か、alerts（人への知らせ。report.py が Issue にする）に入れる。
@@ -19,6 +20,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import sangiin as S  # noqa: E402
 import sources as SRC  # noqa: E402
 import people  # noqa: E402
+import bills  # noqa: E402
 import watch_sources as W  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -244,6 +246,11 @@ def main():
     update_promulgation()
     for c in people.update():  # 国会議員・参議院議員の賛否・知事の一覧
         say("[people] " + c)
+    try:
+        for c in bills.update():  # 成立しなかった法律案の一覧（否決されたものは update_laws.py が記事の下書きにする）
+            say("[bills] " + c)
+    except Exception as e:  # noqa: BLE001
+        say(f"[bills] 衆議院の議案の一覧を読めませんでした: {e}")
     W.save_watch(watch)
     if not LOG:
         print("機械で更新するものはありませんでした")

@@ -1,7 +1,7 @@
 """チェックに通った下書き（status=passed）を feed.json に入れる。
 
 並び順は feed.json の criteria_detail.order のとおり：
-成立日の新しい順。同じ日の中は 法律→予算→条約、閣法→衆法→参法、提出番号の小さい順。
+成立日（否決されたものは否決された日）の新しい順。同じ日の中は 法律→予算→条約→否決された法律案、閣法→衆法→参法、提出番号の小さい順。
 """
 import datetime
 import json
@@ -12,7 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 PENDING = os.path.join(DATA, "pending")
 JST = datetime.timezone(datetime.timedelta(hours=9))
-KIND_ORDER = {"法律が成立": 0, "予算が成立": 1, "条約を承認": 2}
+KIND_ORDER = {"法律が成立": 0, "予算が成立": 1, "条約を承認": 2, "法律案が否決": 3}
 CAT_ORDER = {"閣法": 0, "衆法": 1, "参法": 2}
 
 
@@ -91,6 +91,8 @@ def mark_amended(added):
     watch = W.load_watch()
     n = 0
     for it in added:
+        if it.get("kind") == "法律案が否決":  # 成立していないので、ほかの法律は変わらない
+            continue
         for law in amended_laws(it.get("formal", "")):
             for u in us:
                 if any(s["label"].startswith(law) or f"「{law}」" in s["label"] for s in u.sources):

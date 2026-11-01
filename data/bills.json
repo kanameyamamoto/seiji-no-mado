@@ -1,0 +1,1848 @@
+{
+ "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、成立していないものを、すべて載せる（審議未了・継続審査・撤回・否決・審議中）。",
+ "status_rule": "結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める：衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、国会が開いている間のそのほかの状況→「審議中」。",
+ "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
+ "count": 69,
+ "count_by_result": {
+  "審議中": 42,
+  "衆議院で否決": 3,
+  "撤回": 3,
+  "審議未了": 20,
+  "参議院で否決": 1
+ },
+ "checked": "2026-11-02",
+ "source": {
+  "label": "衆議院 議案の一覧・議案審議経過情報",
+  "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm"
+ },
+ "items": [
+  {
+   "id": "222-kakuho-1",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第1号",
+   "title": "租税及び社会保険料による負担の軽減のための飲食料品に係る消費税率の臨時的な引下げ及び就業者負担軽減支援金の支給に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "財務金融"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE342E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209001.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-2",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第2号",
+   "title": "一般職の職員の給与に関する法律等の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "内閣"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第2号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3442.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209002.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-3",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第3号",
+   "title": "特別職の職員の給与に関する法律及び二千二十七年国際園芸博覧会政府委員の設置に関する臨時措置法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "内閣"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第3号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3456.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209003.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-4",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第4号",
+   "title": "国家公務員災害補償法及び国家公務員共済組合法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "内閣"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第4号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE346A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209004.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-5",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第5号",
+   "title": "地方公務員災害補償法及び地方公務員等共済組合法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "総務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第5号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE347E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209005.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-6",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第6号",
+   "title": "裁判官の報酬等に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "法務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第6号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3492.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209006.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-7",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第7号",
+   "title": "検察官の俸給等に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "法務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第7号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34A6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209007.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-8",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第8号",
+   "title": "公立学校の学校医、学校歯科医及び学校薬剤師の公務災害補償に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "文部科学"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第8号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34BA.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209008.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-9",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第9号",
+   "title": "特定Ｂ型肝炎ウイルス感染者給付金等の支給に関する特別措置法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "厚生労働"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第9号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34CE.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209009.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-10",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第10号",
+   "title": "防衛省の職員の給与等に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-09",
+   "shugiin": {
+    "committee": "安全保障"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第10号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34E2.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209010.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-11",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第11号",
+   "title": "原油等の安定的な輸送の確保のための指定水路の利用の合理化に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-13",
+   "shugiin": {
+    "committee": "経済産業"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第11号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34F6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209011.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-12",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第12号",
+   "title": "特定貨物保険契約及び特定船舶保険契約の履行の確保に関する特別措置法案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-13",
+   "shugiin": {
+    "committee": "経済産業"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第12号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE350A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209012.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-13",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第13号",
+   "title": "独立行政法人エネルギー・金属鉱物資源機構法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-13",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第13号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE351E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209013.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-14",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第14号",
+   "title": "公害健康被害の補償等に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-13",
+   "shugiin": {
+    "committee": "環境"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第14号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3532.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209014.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-15",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第15号",
+   "title": "警察官職務執行法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-16",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第15号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3626.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209015.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-16",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第16号",
+   "title": "地方公共団体の議会の議員及び長の選挙期日等の臨時特例に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-16",
+   "shugiin": {
+    "committee": "政治改革に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第16号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE363A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209016.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-17",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第17号",
+   "title": "特定タンカーに係る特定賠償義務履行担保契約等に関する特別措置法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-16",
+   "shugiin": {
+    "committee": "国土交通"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第17号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE364E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209017.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-18",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第18号",
+   "title": "重要施設周辺及び国境離島等における土地等の利用状況の調査及び利用の規制等に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-23",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第18号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE36CA.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-19",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第19号",
+   "title": "法人等の実質的支配者に係る情報の把握等に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-23",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第19号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE36DE.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-20",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第20号",
+   "title": "法人等の実質的支配者に係る情報の把握等に関する法律の施行に伴う関係法律の整備等に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-23",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第20号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE36F2.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-kakuho-21",
+   "session": "第222回国会",
+   "category": "閣法",
+   "number": "閣法第21号",
+   "title": "商法及び国際海上物品運送法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "内閣",
+   "groups": [],
+   "submitted": "2026-10-23",
+   "shugiin": {
+    "committee": "法務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 閣法第21号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3706.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-shuho-1",
+   "session": "第222回国会",
+   "category": "衆法",
+   "number": "衆法第1号",
+   "title": "就業者の租税及び社会保険料による負担の軽減のために講ずべき措置に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "浅野哲君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "submitted": "2026-10-20",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 衆法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE36B6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22205001.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-sanho-1",
+   "session": "第222回国会",
+   "category": "参法",
+   "number": "参法第1号",
+   "title": "旧氏を通称として使用する機会の拡大を図るための措置等に関する法律案",
+   "status": "参議院で審議中",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外四名",
+   "groups": [],
+   "submitted": "2026-10-06",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 参法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3352.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22206001.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-1",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第1号",
+   "title": "政治資金規正法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "落合貴之君外四名",
+   "groups": [
+    "中道改革連合・無所属",
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "政治改革に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D1E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105001.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-2",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第2号",
+   "title": "令和八年度における公債の発行の特例に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "伊佐進一君外二名",
+   "groups": [
+    "中道改革連合・無所属",
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "財務金融"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第2号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D52.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105002.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-3",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第3号",
+   "title": "インテリジェンスに係る態勢の整備の推進に関する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "橋本幹彦君外二名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "submitted": "2026-03-10",
+   "shugiin": {
+    "committee": "内閣",
+    "result": "否決",
+    "date": "2026-04-23"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "中道改革連合・無所属",
+     "国民民主党・無所属クラブ"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "日本維新の会",
+     "参政党",
+     "チームみらい",
+     "日本共産党"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第3号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE1E7E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105003.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-6",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第6号",
+   "title": "障害者及びその家族に対する福祉、教育等に係る支援に関する施策の総合的な推進に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "森ようすけ君外二名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "文部科学"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第6号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2DAE.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105006.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-7",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第7号",
+   "title": "全ての国民が安心して医療を受けられる環境の整備を図るための高額療養費等の制度の在り方に係る措置に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "浜地雅一君外三名",
+   "groups": [
+    "中道改革連合・無所属",
+    "チームみらい",
+    "日本共産党"
+   ],
+   "shugiin": {
+    "committee": "厚生労働"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第7号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2DBE.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105007.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-9",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第9号",
+   "title": "刑事訴訟法の一部を改正する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "西村智奈美君外三名",
+   "groups": [
+    "中道改革連合・無所属",
+    "チームみらい",
+    "日本共産党"
+   ],
+   "submitted": "2026-05-15",
+   "shugiin": {
+    "committee": "法務",
+    "result": "否決",
+    "date": "2026-06-16"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "中道改革連合・無所属",
+     "チームみらい",
+     "日本共産党"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第9号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2846.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105009.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-12",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第12号",
+   "title": "政党等の政治資金の収入に関する制度の在り方に係る措置に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "長谷川淳二君外九名",
+   "groups": [
+    "自由民主党・無所属の会",
+    "日本維新の会"
+   ],
+   "shugiin": {
+    "committee": "政治改革に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第12号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D22.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105012.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-14",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第14号",
+   "title": "政治資金規正法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "和田政宗君外三名",
+   "groups": [
+    "参政党",
+    "チームみらい"
+   ],
+   "shugiin": {
+    "committee": "政治改革に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第14号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D26.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105014.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-16",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第16号",
+   "title": "自動車税及び軽自動車税の税率の上乗せに係る特例の廃止に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "田中健君外二名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "総務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第16号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D16.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105016.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-17",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第17号",
+   "title": "自動車重量税率の上乗せに係る特例の廃止に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "田中健君外二名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "財務金融"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第17号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D6A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105017.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-19",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第19号",
+   "title": "自動車盗難対策等の推進に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "橋本幹彦君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "内閣"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第19号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D06.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105019.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-20",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第20号",
+   "title": "盗難自動車等の処分の防止に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "西岡義高君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "内閣"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第20号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D0E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105020.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-21",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第21号",
+   "title": "組織的な犯罪の処罰及び犯罪収益の規制等に関する法律及び刑事訴訟法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "河井昭成君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "法務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第21号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D3A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105021.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-24",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第24号",
+   "title": "特別市の設置に係る制度の整備の推進に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "西岡義高君外一名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "地域活性化・こども政策・デジタル社会形成に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第24号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CFE.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105024.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-25",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第25号",
+   "title": "大都市地域における特別区の設置に関する法律の一部を改正する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "西岡義高君外一名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "submitted": "2026-06-24",
+   "shugiin": {
+    "committee": "地域活性化・こども政策・デジタル社会形成に関する特別",
+    "result": "否決",
+    "date": "2026-07-15"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "中道改革連合・無所属",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "日本共産党"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "日本維新の会",
+     "チームみらい"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第25号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2AA6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105025.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-28",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第28号",
+   "title": "衆議院議員の選挙制度改革及び定数削減に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "加藤勝信君外十名",
+   "groups": [
+    "自由民主党・無所属の会",
+    "日本維新の会"
+   ],
+   "shugiin": {
+    "committee": "政治改革に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第28号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D42.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105028.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-30",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第30号",
+   "title": "賃金上昇を上回る所得税の負担増加に対処するために所得税に関し講ずべき措置に関する法律案",
+   "status": "撤回",
+   "submitter": "衆議院議員",
+   "proposer": "鈴木義弘君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "財務金融"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第30号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D72.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105030.htm",
+   "_keika_ok": true,
+   "result": "撤回",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-31",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第31号",
+   "title": "賃金上昇を上回る個人住民税の負担増加等に対処するために個人住民税に関し講ずべき措置に関する法律案",
+   "status": "撤回",
+   "submitter": "衆議院議員",
+   "proposer": "鈴木義弘君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "総務"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第31号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D32.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105031.htm",
+   "_keika_ok": true,
+   "result": "撤回",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-32",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第32号",
+   "title": "受託中小企業振興法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "鈴木義弘君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "経済産業"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第32号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2DC6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105032.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-33",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第33号",
+   "title": "ものづくり基盤技術振興基本法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "鈴木義弘君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "経済産業"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第33号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2DD6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105033.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-34",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第34号",
+   "title": "新型コロナウイルス感染症対策検証委員会等の設置等に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "古川元久君外二名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "議院運営"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第34号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D4A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105034.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-35",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第35号",
+   "title": "公職選挙法の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "古川元久君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "政治改革に関する特別"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第35号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D2A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105035.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-36",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第36号",
+   "title": "非居住住宅税及び超短期所有住宅等の譲渡に係る事業所得等の課税の特例の創設等に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "森ようすけ君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "国土交通"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第36号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2DB6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105036.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-shuho-37",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第37号",
+   "title": "自動車産業における脱炭素化の推進に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "山岡達丸君外十二名",
+   "groups": [
+    "中道改革連合・無所属",
+    "国民民主党・無所属クラブ"
+   ],
+   "shugiin": {
+    "committee": "経済産業"
+   },
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第37号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2DDE.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105037.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第221回国会",
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-1",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第1号",
+   "title": "政党交付金の交付を受ける政党の組織及び管理運営の透明性及び公正性の向上を図るための制度の導入に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "竹詰仁君外一名",
+   "groups": [],
+   "submitted": "2026-03-19",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE213E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106001.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-2",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第2号",
+   "title": "特別児童扶養手当等の支給に関する法律の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "伊藤孝恵君外一名",
+   "groups": [],
+   "submitted": "2026-03-27",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第2号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE23A2.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106002.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-3",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第3号",
+   "title": "所得税法の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "伊藤孝恵君外一名",
+   "groups": [],
+   "submitted": "2026-03-27",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第3号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE23BA.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106003.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-4",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第4号",
+   "title": "地方税法の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "伊藤孝恵君外一名",
+   "groups": [],
+   "submitted": "2026-03-27",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第4号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE23D2.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106004.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-5",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第5号",
+   "title": "防諜に関する施策の推進に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外四名",
+   "groups": [],
+   "submitted": "2026-04-02",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第5号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2532.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106005.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-6",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第6号",
+   "title": "特定秘密の保護に関する法律及び重要経済安保情報の保護及び活用に関する法律の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外四名",
+   "groups": [],
+   "submitted": "2026-04-02",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第6号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE254A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106006.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-7",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第7号",
+   "title": "刑法の一部を改正する法律案",
+   "status": "撤回",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外三名",
+   "groups": [],
+   "submitted": "2026-04-02",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第7号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2562.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106007.htm",
+   "_keika_ok": true,
+   "result": "撤回",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-8",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第8号",
+   "title": "内密出産に対応するための体制の整備等の促進に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "伊藤孝恵君",
+   "groups": [],
+   "submitted": "2026-05-19",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第8号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE28A6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106008.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-9",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第9号",
+   "title": "外国人総合政策庁の設置等による外国人政策の総合的な推進に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外三名",
+   "groups": [],
+   "submitted": "2026-06-17",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第9号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2996.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106009.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-10",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第10号",
+   "title": "児童扶養手当法の一部を改正する等の法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "高木真理君外一名",
+   "groups": [],
+   "submitted": "2026-06-23",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第10号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2A42.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106010.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-11",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第11号",
+   "title": "主要農作物の優良な品種を確保するための公的新品種育成の促進等に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "舟山康江君外四名",
+   "groups": [],
+   "submitted": "2026-06-24",
+   "shugiin": {},
+   "sangiin": {
+    "committee": "農林水産"
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第11号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2A6E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106011.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-12",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第12号",
+   "title": "政治資金規正法の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "石川博崇君外三名",
+   "groups": [],
+   "submitted": "2026-06-30",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第12号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2B02.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106012.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-13",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第13号",
+   "title": "公職選挙法及び地方自治法の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "小西洋之君外二名",
+   "groups": [],
+   "submitted": "2026-07-02",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第13号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2B56.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106013.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-14",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第14号",
+   "title": "特別児童扶養手当等の支給に関する法律の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "小西洋之君外三名",
+   "groups": [],
+   "submitted": "2026-07-07",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第14号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2B72.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106014.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-15",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第15号",
+   "title": "特定空襲等被害者に対する一時金の支給等に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "舟山康江君外七名",
+   "groups": [],
+   "submitted": "2026-07-08",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第15号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2BC6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106015.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-16",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第16号",
+   "title": "国による全ての水俣病の被害者の救済の実現に向けた給付金等の支給に係る制度の創設に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "打越さく良君外九名",
+   "groups": [],
+   "submitted": "2026-07-09",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第16号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2B8A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106016.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-17",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第17号",
+   "title": "少額投資非課税制度における国債に係る所得に対する所得税の非課税に関する措置等に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "原田秀一君",
+   "groups": [],
+   "submitted": "2026-07-10",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第17号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2BE2.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106017.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-18",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第18号",
+   "title": "大都市地域における特別区の設置に関する法律の一部を改正する法律案",
+   "status": "参議院議了",
+   "submitter": "参議院議員",
+   "proposer": "奥村祥大君外三名",
+   "groups": [],
+   "submitted": "2026-07-15",
+   "shugiin": {},
+   "sangiin": {
+    "committee": "沖縄・北方問題及び地方に関する特別",
+    "result": "否決",
+    "date": "2026-07-24"
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第18号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CAA.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106018.htm",
+   "_keika_ok": true,
+   "result": "参議院で否決",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-19",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第19号",
+   "title": "青少年が安全に安心してインターネットを利用できる環境の整備等に関する法律の一部を改正する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "伊藤孝恵君",
+   "groups": [],
+   "submitted": "2026-07-15",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第19号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CC2.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106019.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-20",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第20号",
+   "title": "特別市の設置に係る制度の整備の推進に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "奥村祥大君外一名",
+   "groups": [],
+   "submitted": "2026-07-15",
+   "shugiin": {},
+   "sangiin": {
+    "committee": "沖縄・北方問題及び地方に関する特別"
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第20号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CDA.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106020.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "221-sanho-21",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第21号",
+   "title": "国の出資を通じた特定民間賃貸住宅の供給の促進を図るための措置に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "奥村祥大君外一名",
+   "groups": [],
+   "submitted": "2026-07-16",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第21号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CF2.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106021.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第221回国会"
+   ]
+  },
+  {
+   "id": "220-sanho-1",
+   "session": "第220回国会",
+   "category": "参法",
+   "number": "参法第1号",
+   "title": "政府等特定資産の運用の効率化を図るための措置に関する法律案",
+   "status": "未了",
+   "submitter": "参議院議員",
+   "proposer": "上田勇君外三名",
+   "groups": [],
+   "submitted": "2026-01-23",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第220回国会 参法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE113A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22006001.htm",
+   "_keika_ok": true,
+   "result": "審議未了",
+   "listed": [
+    "第220回国会"
+   ]
+  }
+ ]
+}

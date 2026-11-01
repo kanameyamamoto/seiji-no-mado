@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "成立しなかった法律案", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -190,11 +190,15 @@ def main():
 
     # 国会で決まったこと
     for it in feed["items"]:
-        meta = [it.get("kind", ""), jdate(it.get("date")), it.get("session", ""), it.get("number", ""), ("提出 " + it["submitter"]) if it.get("submitter") else "",
+        meta = [it.get("kind", ""), jdate(it.get("date")), it.get("session", ""), it.get("number", ""), ("提出 " + it["submitter"] + (f"（{'、'.join(it['submitter_groups'])}）" if it.get("submitter_groups") else "")) if it.get("submitter") else "",
                 it.get("law_no", ""), (jdate(it["promulgated"]) + " 公布") if it.get("promulgated") else ""]
         body = f"<h1>{e(it['title'])}</h1><div class=\"meta\">" + "".join(f"<span>{html.escape(m)}</span>" for m in meta if m) + "</div>"
         if it.get("formal") and it["formal"] != it["title"]:
             body += f"<p class=\"note\">正式名：{e(it['formal'])}</p>"
+        rejected = it.get("kind") == "法律案が否決"
+        if rejected:
+            where = "衆議院" if (it.get("process") or {}).get("shugiin", {}).get("result") == "否決" else "参議院"
+            body += f"<p><b>この法律案は{where}で否決され、成立していません。</b></p>"
         body += f"<p class=\"lead\">{e(it.get('lead'))}</p>"
         if it.get("facts"):
             body += "<h2>主な内容</h2><ul>" + "".join(f"<li>{e(f.get('text'))}</li>" for f in it["facts"]) + "</ul>"
@@ -205,6 +209,9 @@ def main():
                      + "<div class=\"tw\"><table><thead><tr><th>会派</th><th>所属</th><th>賛成</th><th>反対</th></tr></thead><tbody>"
                      + "".join(f"<tr><td>{e(d['group'])}</td><td class=\"n\">{d.get('seats', '')}</td><td class=\"n\">{d.get('for', '')}</td><td class=\"n\">{d.get('against', '')}</td></tr>" for d in v["detail"])
                      + "</tbody></table></div>")
+        elif v.get("for") or v.get("against"):
+            body += (f"<h2>会派ごとの賛否（{e(v.get('chamber'))} {jdate(v.get('date'))}）</h2>"
+                     f"<p>賛成：{e('、'.join(v.get('for', [])))}</p><p>反対：{e('、'.join(v.get('against', [])))}</p>")
         srcs = [s for f in it.get("facts", []) for s in f.get("sources", [])] + [x.get("source") for x in (it.get("process"), v) if x and x.get("source")]
         seen, uniq = set(), []
         for s in srcs:
@@ -217,7 +224,8 @@ def main():
                    "about": {"@type": "Legislation", "name": it.get("formal") or it.get("title"),
                              **({"legislationIdentifier": it["law_no"]} if it.get("law_no") else {}),
                              **({"legislationDate": it["promulgated"]} if it.get("promulgated") else {}),
-                             "legislationJurisdiction": "日本", "legislationPassedBy": {"@type": "Organization", "name": "国会"}},
+                             "legislationJurisdiction": "日本",
+                             **({} if rejected else {"legislationPassedBy": {"@type": "Organization", "name": "国会"}})},
                    "isBasedOn": [s["url"] for s in uniq]})
 
     # 学ぶ・つながり
@@ -356,16 +364,25 @@ def main():
             "".join(f"<li>{g['pref']}：{html.escape(g['name'])}（{g['yomi']}）・{g['terms']}期目・任期 {jdate(g['term_end'])}まで</li>" for g in G["governors"]) +
             "</ul>" + sources_html([G["source"]]))
     tabs.append(("governors/", "知事", "47都道府県の知事の一覧（期数・初めての就任日・任期）。", body, "governors", G.get("checked")))
-    rj = load("rejected")
     rj_ok = lambda it: (it.get("votes") or {}).get("chamber") == "参議院" and any(g != "各派に属しない議員" for g in it["votes"].get("for", [])) and any(g != "各派に属しない議員" for g in it["votes"].get("against", []))
-    mitems = sorted([it for it in feed["items"] + rj.get("items", []) if rj_ok(it)], key=lambda it: it["date"], reverse=True)
+    mitems = [it for it in feed["items"] if rj_ok(it)]
     body = ("<h1>投票記録とくらべる</h1><p>参議院の本会議で会派の賛否が分かれた法律・予算・条約と、否決された法律案のすべてについて、あなたなら賛成か反対かを答えると、"
             "各会派が実際にどちらに投票したかとくらべて、同じ側だった本数を数えます。公約や発言から賛否を推し量ることはせず、近い党を判定したり、投票先をすすめたりはしません。"
             "答えは使う人の端末の中だけに保存します。</p>"
             f"<h2>くらべる法律など（{len(mitems)}本）</h2><ul>" +
-            "".join((f'<li><a href="a/{it["id"]}/">{html.escape(it["title"])}</a>（{jdate(it["date"])} 成立）</li>' if it.get("kind") != "法律案が否決"
-                     else f'<li>{html.escape(it["title"])}（{jdate(it["date"])} 参議院で否決・{html.escape(it.get("number", ""))}）</li>') for it in mitems) + "</ul>")
+            "".join(f'<li><a href="a/{it["id"]}/">{html.escape(it["title"])}</a>（{jdate(it["date"])} {html.escape(it["kind"])}）</li>' for it in mitems) + "</ul>")
     tabs.append(("match/", "投票記録とくらべる", "参議院で賛否が分かれた法律に、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる。人が法律を選ばず、判定もしない。", body, "match", feed.get("checked")))
+    bl = load("bills")
+    body = f"<h1>成立しなかった法律案</h1><p>{e(bl.get('criteria'))}</p><p>{e(bl.get('status_rule'))}</p>"
+    by = {}
+    for b in bl.get("items", []):
+        by.setdefault(b["session"], []).append(b)
+    for ses, rows in by.items():
+        body += f"<h2>{e(ses)}に出されたもの（{len(rows)}件）</h2><ul>" + "".join(
+            f"<li>{html.escape(b['title'])}（{e(b['number'])}・提出 {e(b.get('proposer') or b['submitter'])}" + (f"（{e('、'.join(b['groups']))}）" if b.get("groups") else "") + f"・{e(b['result'])}）"
+            + (f' <a href="a/{b["article"]}/">記事</a>' if b.get("article") else "") + "</li>" for b in rows) + "</ul>"
+    body += sources_html([bl["source"]]) if bl.get("source") else ""
+    tabs.append(("bills/", "成立しなかった法律案", "国会に出されたけれど成立していない法律案（審議未了・継続審査・撤回・否決・審議中）のすべて。題名・提出者・提出会派・結果を、衆議院の議案情報の表記のまま。", body, "bills", bl.get("checked")))
     for args in tabs:
         site.page(*args)
 
