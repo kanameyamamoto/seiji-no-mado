@@ -1273,6 +1273,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var t = it.votes && it.votes.totals;
     return '<button class="card" data-go="a-' + esc(it.id) + '"><div class="head"><span class="chip accent">' + esc(it.kind) + '</span>' + (it.topic ? '<span class="chip">' + esc(it.topic) + '</span>' : '') + '</div>' +
       '<h3>' + esc(it.title) + '</h3><p class="lead">' + esc(plain(lv(it.lead))) + '</p><div class="meta"><span>' + date(it.date) + '</span>' +
+      (isRej(it) ? '<span>' + esc(it.number || '') + '・' + rejWhere(it) + '</span>' : '') +
       (t ? '<span>賛成 ' + t['for'] + '・反対 ' + t.against + '</span>' : '') + '</div></button>';
   }
   function todayStr() { return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); }
