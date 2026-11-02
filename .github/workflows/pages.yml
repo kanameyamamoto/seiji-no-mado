@@ -24,6 +24,8 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # 待っている間に「毎日の更新」が新しい記事を足していても、いちばん新しい中身を公開する（古い版で上書きしない）
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
