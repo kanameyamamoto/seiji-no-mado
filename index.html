@@ -145,6 +145,12 @@ main { padding-block: 24px 40px; }
 .view-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
 .view-card h3 { font-size: 17px; }
 .view-card .origin { font-size: 13px; color: var(--muted); }
+.view-card .origin { display: flex; flex-direction: column; gap: 2px; }
+.views-list { display: flex; flex-direction: column; gap: 12px; }
+.side { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.side.yes { background: var(--accent-weak); color: var(--accent); }
+.side.no { background: var(--panel); color: var(--fg); border: 1px solid var(--line); }
+.small-h { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
 .view-card .foot { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .think { padding: 24px; border-radius: var(--r); background: var(--accent-weak); display: flex; flex-direction: column; gap: 6px; }
 .think h2 { font-size: 22px; color: var(--accent); }
@@ -1381,6 +1387,25 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (list.length > shown.length) h += '<button class="more" data-more>もっと見る（残り' + (list.length - shown.length) + '件）</button>';
     return h;
   }
+  // 記事に足した説明：なぜ出されたか・だれに関係するか・国会での議論（enrich.py。ルールV-1〜V-3）
+  function moreHtml(it) {
+    var m = it.more, h = '', rej = isRej(it);
+    function srcs(list) { return (list || []).map(function (x) { return a(x.url, x.label); }).join(''); }
+    if (m.reason) h += '<section class="sec"><h2>なぜ出されたか</h2><div class="facts"><div class="fact"><p>' + rich(lv(m.reason.text)) + '</p><div class="foot">' + ruleChips(['F-1', 'V-3']) + srcs(m.reason.sources) + '</div></div></div></section>';
+    if (m.who) h += '<section class="sec"><h2>だれに関係するか</h2><div class="facts"><div class="fact"><p>' + rich(lv(m.who.text)) + '</p><div class="foot">' + ruleChips(['F-1']) + srcs(m.who.sources) + '</div></div></div></section>';
+    if (m.committee || (m.views && m.views.length) || m.no_debate) {
+      h += '<section class="sec"><h2>国会での議論</h2>';
+      if (m.committee) h += '<div class="facts"><div class="fact"><p class="muted small-h">委員会での審査</p><p>' + rich(lv(m.committee.text)) + '</p><div class="foot">' + ruleChips(['F-1']) + srcs(m.committee.sources) + '</div></div></div>';
+      if (m.views && m.views.length) {
+        h += '<p class="meta">' + ruleChips(['V-1', 'V-2', 'V-3']) + '<span>会派を代表して述べられた' + (rej ? '' : '') + '賛成・反対の理由です。会派の主張で、このサイトの評価ではありません。並びは賛成→反対、同じ側の中は会議録に出てきた順。</span></p>' +
+          '<div class="views-list">' + m.views.map(function (v) {
+            return '<div class="view-card"><div class="meta"><span class="side ' + (v.side === '賛成' ? 'yes' : 'no') + '">' + esc(v.side) + '</span><b>' + esc(v.group) + '</b>' + (v.where ? '<span>' + esc(v.where) + '</span>' : '') + '</div><p>' + rich(lv(v.text)) + '</p><div class="origin">' + srcs(v.sources) + '</div></div>';
+          }).join('') + '</div>';
+      } else if (m.no_debate) h += '<p class="meta"><span>本会議・委員会で、この法律についての討論（賛成・反対の理由を述べること）はありませんでした。</span></p>';
+      h += '</section>';
+    }
+    return h;
+  }
   function vArticle(id) {
     var it = feedItems().filter(function (x) { return x.id === id; })[0];
     if (!it) return vHome();
@@ -1395,6 +1420,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
         return '<div class="fact"><p>' + rich(lv(f.text)) + '</p><div class="foot">' + ruleChips(f.rules || ['F-1']) + (f.sources || []).map(function (s) { return a(s.url, s.label); }).join('') + '</div></div>';
       }).join('') + '</div></section>';
     }
+    if (it.more) h += moreHtml(it);
     if (it.process) {
       var pr = it.process, rowsP = [['衆議院', pr.shugiin], ['参議院', pr.sangiin]].filter(function (x) { return x[1]; });
       h += '<section class="sec"><h2>国会での流れ</h2><div class="table-wrap"><table><thead><tr><th>院</th><th class="num">議決日</th><th>結果</th><th>採決の方法</th></tr></thead><tbody>' +

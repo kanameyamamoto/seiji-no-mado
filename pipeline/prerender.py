@@ -202,6 +202,17 @@ def main():
         body += f"<p class=\"lead\">{e(it.get('lead'))}</p>"
         if it.get("facts"):
             body += "<h2>主な内容</h2><ul>" + "".join(f"<li>{e(f.get('text'))}</li>" for f in it["facts"]) + "</ul>"
+        mo = it.get("more") or {}
+        if mo.get("reason"):
+            body += f"<h2>なぜ出されたか</h2><p>{e(mo['reason']['text'])}</p>"
+        if mo.get("who"):
+            body += f"<h2>だれに関係するか</h2><p>{e(mo['who']['text'])}</p>"
+        if mo.get("committee") or mo.get("views"):
+            body += "<h2>国会での議論</h2>"
+            if mo.get("committee"):
+                body += f"<p>{e(mo['committee']['text'])}</p>"
+            if mo.get("views"):
+                body += "<ul>" + "".join(f"<li>【{e(x['side'])}】{e(x['group'])}：{e(x['text'])}</li>" for x in mo["views"]) + "</ul>"
         v = it.get("votes") or {}
         if v.get("detail"):
             body += (f"<h2>会派ごとの賛否（{e(v.get('chamber'))} {jdate(v.get('date'))}）</h2>"
@@ -213,6 +224,7 @@ def main():
             body += (f"<h2>会派ごとの賛否（{e(v.get('chamber'))} {jdate(v.get('date'))}）</h2>"
                      f"<p>賛成：{e('、'.join(v.get('for', [])))}</p><p>反対：{e('、'.join(v.get('against', [])))}</p>")
         srcs = [s for f in it.get("facts", []) for s in f.get("sources", [])] + [x.get("source") for x in (it.get("process"), v) if x and x.get("source")]
+        srcs += [s for k in ("reason", "who", "committee") for s in ((mo.get(k) or {}).get("sources") or [])] + [s for x in (mo.get("views") or []) for s in x.get("sources", [])]
         seen, uniq = set(), []
         for s in srcs:
             if s and s.get("url") not in seen:

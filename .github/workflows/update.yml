@@ -63,6 +63,12 @@ jobs:
       - name: チェックに通った記事を載せる
         run: python pipeline/publish.py
 
+      - name: 記事に説明を足す（なぜ出されたか・だれに関係するか・国会での議論。国会会議録と法律案の理由から）
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL }}
+        run: python pipeline/enrich.py
+
       - name: 公開中のページを見直す（出典が変わった・日数がたったページ。1日の上限は data/config.json）
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
