@@ -176,7 +176,7 @@ td.num, th.num { text-align: right; }
 .bar .v { min-width: 2.5em; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
 @media (max-width: 480px) { .bar { grid-template-columns: minmax(0, 6.5em) 1fr 7em; font-size: 13px; } }
 .rej-note { padding: 12px 16px; border-radius: var(--r); background: var(--panel); font-weight: 700; font-size: 15px; }
-/* 成立しなかった法律案 */
+/* 審議中・採決されなかった法律案 */
 .b-row { display: flex; flex-direction: column; gap: 4px; padding: 14px 4px; border-bottom: 1px solid var(--line); text-align: left; width: 100%; }
 .b-row .t { font-size: 15px; line-height: 1.5; }
 .b-row .s { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 2px 12px; align-items: center; }
@@ -1216,7 +1216,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
-    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '成立しなかった法律案'; if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
+    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
     if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'about') return 'このサイトについて';
     if (TAB_TITLE[r]) return TAB_TITLE[r];
     if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
@@ -1265,7 +1265,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     ['new', '新しい順', '成立日の新しい順。'],
     ['split', '賛否が分かれた順', '反対票の割合（参議院の本会議の投票）が多い順。同じ割合なら新しい順。']
   ];
-  var KIND_SHORT = { '法律が成立': '法律', '予算が成立': '予算', '条約を承認': '条約', '法律案が否決': '否決' };
+  var KIND_SHORT = { '法律が成立': '法律', '予算が成立': '予算', '条約を承認': '条約', '法律案が否決': '法律' }; // 否決された法律案も「法律」に入れる
   function isRej(it) { return it && it.kind === '法律案が否決'; }
   function rejWhere(it) { var p = it.process || {}; return p.shugiin && p.shugiin.result === '否決' ? '衆議院で否決' : '参議院で否決'; }
   function againstRate(i) { var t = i.votes && i.votes.totals; return t && t.votes ? t.against / t.votes : -1; }
@@ -1332,20 +1332,20 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var F = D.feed || {};
     var items = feedItems();
     var kinds = [];
-    items.forEach(function (i) { if (kinds.indexOf(i.kind) < 0) kinds.push(i.kind); });
+    items.forEach(function (i) { var g = KIND_SHORT[i.kind] || i.kind; if (kinds.indexOf(g) < 0) kinds.push(g); });
     var topics = []; items.forEach(function (i) { if (i.topic && topics.indexOf(i.topic) < 0) topics.push(i.topic); }); topics.sort(function (a, b) { return a.localeCompare(b, 'ja'); });
-    var list = items.filter(function (i) { return (!state.feedKind || i.kind === state.feedKind) && (!state.feedTopic || i.topic === state.feedTopic); });
+    var list = items.filter(function (i) { return (!state.feedKind || (KIND_SHORT[i.kind] || i.kind) === state.feedKind) && (!state.feedTopic || i.topic === state.feedTopic); });
     if (state.feedSort === 'split') list = list.slice().sort(function (a, b) { return (againstRate(b) - againstRate(a)) || (b.date > a.date ? 1 : b.date < a.date ? -1 : 0); });
     var cur = SORTS.filter(function (s) { return s[0] === state.feedSort; })[0] || SORTS[0];
     var sess = (F.sessions || []).map(function (s) { return s.name + (s.kind ? '（' + s.kind + '）' : '') + (s.start ? ' ' + date(s.start) + '〜' + (s.end ? date(s.end) : '開会中') : ''); }).join('、');
     EXPLAIN.laws = { t: 'この一覧について', x: (F.criteria || '') + '（ルールD-4）対象の国会：' + sess + '。並び順は「' + cur[1] + '」：' + cur[2] + '（ルールD-6）', go: 'about', gl: 'ルールを見る' };
     var h = '';
     var tb = '<div class="seg" role="group" aria-label="並び順">' + SORTS.map(function (s) { return '<button data-fsort="' + s[0] + '" aria-pressed="' + (cur[0] === s[0]) + '">' + s[1] + '</button>'; }).join('') + '</div>';
-    tb += '<div class="seg" role="group" aria-label="種類"><button data-fkind="" aria-pressed="' + (!state.feedKind) + '">すべて</button>' + kinds.map(function (k) { return '<button data-fkind="' + esc(k) + '" aria-pressed="' + (state.feedKind === k) + '">' + esc(KIND_SHORT[k] || k) + '</button>'; }).join('') + '</div>';
+    tb += '<div class="seg" role="group" aria-label="種類"><button data-fkind="" aria-pressed="' + (!state.feedKind) + '">すべて</button>' + kinds.map(function (k) { return '<button data-fkind="' + esc(k) + '" aria-pressed="' + (state.feedKind === k) + '">' + esc(k) + '</button>'; }).join('') + '</div>';
     tb += '<select id="ftopic" class="pill-select" aria-label="分野（所管）"><option value="">分野：すべて</option>' + topics.map(function (t) { return '<option value="' + esc(t) + '"' + (state.feedTopic === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select>';
     tb += '<span class="tb-count">' + list.length + '件' + xp('laws') + '</span>';
     var BN = (D.bills && D.bills.items || []).length;
-    h += '<button class="row-item shortcut" data-go="bills"><span class="grow"><span class="t">成立しなかった法律案</span><span class="s">審議未了・継続審査・撤回・否決・審議中の法律案' + BN + '件の一覧</span></span>' + ICON.chev + '</button>';
+    h += '<button class="row-item shortcut" data-go="bills"><span class="grow"><span class="t">審議中・採決されなかった法律案</span><span class="s">審議中・審議未了・撤回などの法律案' + BN + '件の一覧</span></span>' + ICON.chev + '</button>';
     h += '<button class="row-item shortcut" data-go="match"><span class="grow"><span class="t">投票記録とくらべる</span><span class="s">参議院で採決された法律などに、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる</span></span>' + ICON.chev + '</button>';
     h += '<div class="toolbar">' + tb + '</div>';
     var shown = list.slice(0, state.feedShown);
@@ -1417,8 +1417,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     }).join('') + '</div></section>';
     return h + src(P.sources) + '</div>';
   }
-  // ---- 成立しなかった法律案（ルールD-10：機械で集めた一覧。人は選ばない。記事にはしない） ----
-  var B_RESULTS = ['審議中', '継続審査', '審議未了', '衆議院で否決', '参議院で否決', '撤回'];
+  // ---- 審議中・採決されなかった法律案（ルールD-10：機械で集めた一覧。人は選ばない。記事にはしない） ----
+  var B_RESULTS = ['審議中', '継続審査', '審議未了', '撤回'];
   function billRow(b) {
     var who = b.submitter === '内閣' ? '内閣' : (b.proposer || b.submitter) + (b.groups && b.groups.length ? '（' + b.groups.join('、') + '）' : '');
     var where = b.listed && b.listed.length > 1 ? b.session + 'に提出、' + b.listed[b.listed.length - 1] + 'で' + b.result : '';
@@ -1433,8 +1433,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     items.forEach(function (b) { if (res.indexOf(b.result) < 0) res.push(b.result); });
     var list = items.filter(function (b) { return (!state.bRes || b.result === state.bRes) && (!state.bWho || b.submitter === state.bWho); });
     var cnt = function (r) { return items.filter(function (b) { return b.result === r; }).length; };
-    var h = '<div class="view">' + backBtn('laws', '国会で決まったこと') + '<div class="page-head"><h1>成立しなかった法律案</h1><div class="meta">' + ruleChips(['D-10', 'C-6']) + checked(B.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + esc(B.criteria || '') + '</p><p>' + rich('国会に出された法律案の多くは、{{審議未了}}や{{継続審査}}で、採決されないまま終わります。ここでは、出されたけれど成立していない法律案を、衆議院の議案情報の表記のまま、すべて並べます。{{否決}}されたものは、成立したものと同じように記事にしています。') + '</p></section>';
+    var h = '<div class="view">' + backBtn('laws', '国会で決まったこと') + '<div class="page-head"><h1>審議中・採決されなかった法律案</h1><div class="meta">' + ruleChips(['D-10', 'C-6']) + checked(B.checked) + '</div></div>' +
+      '<section class="sec learn-body"><p>' + esc(B.criteria || '') + '</p><p>' + rich('国会に出された法律案の多くは、{{審議未了}}や{{継続審査}}で、採決されないまま終わります。ここでは、審議中のものと、採決されずに終わったものを、衆議院の議案情報の表記のまま、すべて並べます。成立したもの・{{否決}}されたものは「国会で決まったこと」に記事として載せています。') + '</p></section>';
     h += '<div class="toolbar"><div class="seg" role="group" aria-label="結果"><button data-bres="" aria-pressed="' + (!state.bRes) + '">すべて</button>' +
       res.map(function (r) { return '<button data-bres="' + esc(r) + '" aria-pressed="' + (state.bRes === r) + '">' + esc(r) + ' ' + cnt(r) + '</button>'; }).join('') + '</div>' +
       '<select id="bwho" class="pill-select" aria-label="提出"><option value="">提出：すべて</option>' + ['内閣', '衆議院議員', '参議院議員'].map(function (w) { return '<option value="' + w + '"' + (state.bWho === w ? ' selected' : '') + '>' + w + '</option>'; }).join('') + '</select>' +
@@ -1832,7 +1832,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var media = D.media.sections.filter(function (s) { return s.directory; }).slice(0, 6).map(function (s) { return btn(s.name, 'media', s.directory.length + '件', ' data-after="sec-' + s.id + '"'); }).join('');
     function grp(title, inner) { return '<section class="panel"><div class="panel-head"><h2>' + title + '</h2></div><div class="tiles">' + inner + '</div></section>'; }
     return '<div class="panels">' +
-      grp('国会と政党', btn('国会で決まったこと', 'laws', feedItems().length + '件') + btn('成立しなかった法律案', 'bills', ((D.bills && D.bills.items) || []).length + '件') + btn('投票記録とくらべる', 'match', '自分の賛否と会派の投票') + btn('政党の一覧', 'parties', D.parties.national.length + '党') + btn('選挙結果', 'elections', '戦後の衆院選・参院選')) +
+      grp('国会と政党', btn('国会で決まったこと', 'laws', feedItems().length + '件') + btn('審議中・採決されなかった法律案', 'bills', ((D.bills && D.bills.items) || []).length + '件') + btn('投票記録とくらべる', 'match', '自分の賛否と会派の投票') + btn('政党の一覧', 'parties', D.parties.national.length + '党') + btn('選挙結果', 'elections', '戦後の衆院選・参院選')) +
       grp('学ぶ', cats) +
       grp('つながり', themes) +
       grp('メディア', btn('メディアと政治の関わり', 'media', '') + media) +
@@ -1858,7 +1858,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var base = new URL('api/v1/', document.baseURI).href;
     var eps = [['index.json', '一覧（ここから全部たどれる）'], ['laws.json', '国会で決まったこと（一覧）'], ['laws/<id>.json', '1件（事実・審議の経過・会派ごとの賛否・出典・更新の記録）'],
       ['parties.json', '政党（一覧）'], ['parties/<id>.json', '1党（成り立ち・考え方・政策・所属議員）'], ['members.json', '国会議員（一覧）'],
-      ['members/<id>.json', '1人（参議院議員は法律ごとの賛否つき）'], ['governors.json', '知事（47都道府県）'], ['bills.json', '成立しなかった法律案（審議未了・継続審査・撤回・否決・審議中）'], ['learn.json・learn/<id>.json', '学ぶのページ'],
+      ['members/<id>.json', '1人（参議院議員は法律ごとの賛否つき）'], ['governors.json', '知事（47都道府県）'], ['bills.json', '審議中・採決されなかった法律案（審議中・継続審査・審議未了・撤回）'], ['learn.json・learn/<id>.json', '学ぶのページ'],
       ['links.json・links/<id>.json', 'つながりのページ'], ['glossary.json', 'ことばの説明'], ['rules.json', '書き方のルール']];
     return '<div class="view">' + backBtn('about', 'このサイトについて') + '<div class="page-head"><h1>データを使う（公開API）</h1><div class="meta">' + ruleChips(['P-3', 'C-4']) + '</div></div>' +
       '<section class="sec learn-body"><p>このサイトのデータは、登録やキーなしで、無料で使えます。研究・授業・記事・アプリなどに自由に使ってください。毎日自動で更新されます。</p>' +

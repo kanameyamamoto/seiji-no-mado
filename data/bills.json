@@ -1,14 +1,12 @@
 {
- "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、成立していないものを、すべて載せる（審議未了・継続審査・撤回・否決・審議中）。",
+ "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、審議中・継続審査・審議未了・撤回のものを、すべて載せる。成立したもの・否決されたものは「国会で決まったこと」に載せる。",
  "status_rule": "結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める：衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、国会が開いている間のそのほかの状況→「審議中」。",
  "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
- "count": 70,
+ "count": 66,
  "count_by_result": {
   "審議中": 43,
-  "衆議院で否決": 3,
   "撤回": 3,
-  "審議未了": 20,
-  "参議院で否決": 1
+  "審議未了": 20
  },
  "checked": "2026-11-02",
  "source": {
@@ -817,50 +815,6 @@
    ]
   },
   {
-   "id": "221-shuho-3",
-   "session": "第221回国会",
-   "category": "衆法",
-   "number": "衆法第3号",
-   "title": "インテリジェンスに係る態勢の整備の推進に関する法律案",
-   "status": "本院議了",
-   "submitter": "衆議院議員",
-   "proposer": "橋本幹彦君外二名",
-   "groups": [
-    "国民民主党・無所属クラブ"
-   ],
-   "submitted": "2026-03-10",
-   "shugiin": {
-    "committee": "内閣",
-    "result": "否決",
-    "date": "2026-04-23"
-   },
-   "sangiin": {},
-   "votes": {
-    "for": [
-     "中道改革連合・無所属",
-     "国民民主党・無所属クラブ"
-    ],
-    "against": [
-     "自由民主党・無所属の会",
-     "日本維新の会",
-     "参政党",
-     "チームみらい",
-     "日本共産党"
-    ]
-   },
-   "source": {
-    "label": "衆議院 議案審議経過情報（第221回国会 衆法第3号）",
-    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE1E7E.htm"
-   },
-   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105003.htm",
-   "_keika_ok": true,
-   "result": "衆議院で否決",
-   "listed": [
-    "第221回国会"
-   ],
-   "article": "r8-rej-221-shuho-3"
-  },
-  {
    "id": "221-shuho-6",
    "session": "第221回国会",
    "category": "衆法",
@@ -917,52 +871,6 @@
     "第221回国会",
     "第222回国会"
    ]
-  },
-  {
-   "id": "221-shuho-9",
-   "session": "第221回国会",
-   "category": "衆法",
-   "number": "衆法第9号",
-   "title": "刑事訴訟法の一部を改正する法律案",
-   "status": "本院議了",
-   "submitter": "衆議院議員",
-   "proposer": "西村智奈美君外三名",
-   "groups": [
-    "中道改革連合・無所属",
-    "チームみらい",
-    "日本共産党"
-   ],
-   "submitted": "2026-05-15",
-   "shugiin": {
-    "committee": "法務",
-    "result": "否決",
-    "date": "2026-06-16"
-   },
-   "sangiin": {},
-   "votes": {
-    "for": [
-     "中道改革連合・無所属",
-     "チームみらい",
-     "日本共産党"
-    ],
-    "against": [
-     "自由民主党・無所属の会",
-     "日本維新の会",
-     "国民民主党・無所属クラブ",
-     "参政党"
-    ]
-   },
-   "source": {
-    "label": "衆議院 議案審議経過情報（第221回国会 衆法第9号）",
-    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2846.htm"
-   },
-   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105009.htm",
-   "_keika_ok": true,
-   "result": "衆議院で否決",
-   "listed": [
-    "第221回国会"
-   ],
-   "article": "r8-rej-221-shuho-9"
   },
   {
    "id": "221-shuho-12",
@@ -1189,50 +1097,6 @@
     "第221回国会",
     "第222回国会"
    ]
-  },
-  {
-   "id": "221-shuho-25",
-   "session": "第221回国会",
-   "category": "衆法",
-   "number": "衆法第25号",
-   "title": "大都市地域における特別区の設置に関する法律の一部を改正する法律案",
-   "status": "本院議了",
-   "submitter": "衆議院議員",
-   "proposer": "西岡義高君外一名",
-   "groups": [
-    "国民民主党・無所属クラブ"
-   ],
-   "submitted": "2026-06-24",
-   "shugiin": {
-    "committee": "地域活性化・こども政策・デジタル社会形成に関する特別",
-    "result": "否決",
-    "date": "2026-07-15"
-   },
-   "sangiin": {},
-   "votes": {
-    "for": [
-     "中道改革連合・無所属",
-     "国民民主党・無所属クラブ",
-     "参政党",
-     "日本共産党"
-    ],
-    "against": [
-     "自由民主党・無所属の会",
-     "日本維新の会",
-     "チームみらい"
-    ]
-   },
-   "source": {
-    "label": "衆議院 議案審議経過情報（第221回国会 衆法第25号）",
-    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2AA6.htm"
-   },
-   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105025.htm",
-   "_keika_ok": true,
-   "result": "衆議院で否決",
-   "listed": [
-    "第221回国会"
-   ],
-   "article": "r8-rej-221-shuho-25"
   },
   {
    "id": "221-shuho-28",
@@ -1899,35 +1763,6 @@
    ]
   },
   {
-   "id": "221-sanho-18",
-   "session": "第221回国会",
-   "category": "参法",
-   "number": "参法第18号",
-   "title": "大都市地域における特別区の設置に関する法律の一部を改正する法律案",
-   "status": "参議院議了",
-   "submitter": "参議院議員",
-   "proposer": "奥村祥大君外三名",
-   "groups": [],
-   "submitted": "2026-07-15",
-   "shugiin": {},
-   "sangiin": {
-    "committee": "沖縄・北方問題及び地方に関する特別",
-    "result": "否決",
-    "date": "2026-07-24"
-   },
-   "source": {
-    "label": "衆議院 議案審議経過情報（第221回国会 参法第18号）",
-    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CAA.htm"
-   },
-   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106018.htm",
-   "_keika_ok": true,
-   "result": "参議院で否決",
-   "listed": [
-    "第221回国会"
-   ],
-   "article": "r8-rej-221-sanho-18"
-  },
-  {
    "id": "221-sanho-19",
    "session": "第221回国会",
    "category": "参法",
@@ -2024,6 +1859,171 @@
    "listed": [
     "第220回国会"
    ]
+  }
+ ],
+ "rejected": [
+  {
+   "id": "221-shuho-3",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第3号",
+   "title": "インテリジェンスに係る態勢の整備の推進に関する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "橋本幹彦君外二名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "submitted": "2026-03-10",
+   "shugiin": {
+    "committee": "内閣",
+    "result": "否決",
+    "date": "2026-04-23"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "中道改革連合・無所属",
+     "国民民主党・無所属クラブ"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "日本維新の会",
+     "参政党",
+     "チームみらい",
+     "日本共産党"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第3号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE1E7E.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105003.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第221回国会"
+   ],
+   "article": "r8-rej-221-shuho-3"
+  },
+  {
+   "id": "221-shuho-9",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第9号",
+   "title": "刑事訴訟法の一部を改正する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "西村智奈美君外三名",
+   "groups": [
+    "中道改革連合・無所属",
+    "チームみらい",
+    "日本共産党"
+   ],
+   "submitted": "2026-05-15",
+   "shugiin": {
+    "committee": "法務",
+    "result": "否決",
+    "date": "2026-06-16"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "中道改革連合・無所属",
+     "チームみらい",
+     "日本共産党"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第9号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2846.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105009.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第221回国会"
+   ],
+   "article": "r8-rej-221-shuho-9"
+  },
+  {
+   "id": "221-shuho-25",
+   "session": "第221回国会",
+   "category": "衆法",
+   "number": "衆法第25号",
+   "title": "大都市地域における特別区の設置に関する法律の一部を改正する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "西岡義高君外一名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "submitted": "2026-06-24",
+   "shugiin": {
+    "committee": "地域活性化・こども政策・デジタル社会形成に関する特別",
+    "result": "否決",
+    "date": "2026-07-15"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "中道改革連合・無所属",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "日本共産党"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "日本維新の会",
+     "チームみらい"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 衆法第25号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2AA6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105025.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第221回国会"
+   ],
+   "article": "r8-rej-221-shuho-25"
+  },
+  {
+   "id": "221-sanho-18",
+   "session": "第221回国会",
+   "category": "参法",
+   "number": "参法第18号",
+   "title": "大都市地域における特別区の設置に関する法律の一部を改正する法律案",
+   "status": "参議院議了",
+   "submitter": "参議院議員",
+   "proposer": "奥村祥大君外三名",
+   "groups": [],
+   "submitted": "2026-07-15",
+   "shugiin": {},
+   "sangiin": {
+    "committee": "沖縄・北方問題及び地方に関する特別",
+    "result": "否決",
+    "date": "2026-07-24"
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第221回国会 参法第18号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2CAA.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22106018.htm",
+   "_keika_ok": true,
+   "result": "参議院で否決",
+   "listed": [
+    "第221回国会"
+   ],
+   "article": "r8-rej-221-sanho-18"
   }
  ]
 }

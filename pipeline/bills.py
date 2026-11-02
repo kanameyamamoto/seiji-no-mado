@@ -1,8 +1,9 @@
-"""成立しなかった法律案の一覧（data/bills.json）を、機械で作る（AIは使わない：ルールC-6・D-10）。
+"""「審議中・採決されなかった法律案」の一覧（data/bills.json）を、機械で作る（AIは使わない：ルールC-6・D-10）。
 
 出どころ：衆議院「議案の一覧」（国会ごと。閣法・衆法・参法のすべてと、審議状況）と、法案ごとの「議案審議経過情報」。
-- 載せる：第220回国会から後の国会に出された法律案のうち、成立していないものすべて
-  （審議未了・継続審査・撤回・衆議院や参議院で否決・審議中）。
+- 載せる：第220回国会から後の国会に出された法律案のうち、審議中・継続審査・審議未了・撤回のものすべて。
+- 衆議院・参議院で否決されたものは、「国会で決まったこと」に記事として載せるので、一覧（items）には入れない。
+  記事の下書きを作るために、rejected に分けて残す（update_laws.py が使う）。
 - 題名・提出者・提出会派・日付・結果は、衆議院のページの表記のまま。結果のことば（「審議未了」など）は、下の STATUS の決まりで機械的にそろえる。
 - 次の国会に持ち越された法案は、いちばん新しい国会の一覧の審議状況を使う（同じ法案を2回載せない）。
 - 経過情報のページは、審議状況が変わったときだけ読み直す。
@@ -23,7 +24,7 @@ DATA = os.path.join(ROOT, "data")
 PATH = os.path.join(DATA, "bills.json")
 SLUG = {"閣法": "kakuho", "衆法": "shuho", "参法": "sanho"}
 CAT_ORDER = {"閣法": 0, "衆法": 1, "参法": 2}
-CRITERIA = "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、成立していないものを、すべて載せる（審議未了・継続審査・撤回・否決・審議中）。"
+CRITERIA = "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、審議中・継続審査・審議未了・撤回のものを、すべて載せる。成立したもの・否決されたものは「国会で決まったこと」に載せる。"
 STATUS_RULE = ("結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める："
                "衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、"
                "「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、"
@@ -69,7 +70,7 @@ def update():
     """data/bills.json を作り直す。変わったことの説明のリストを返す。"""
     feed = json.load(open(os.path.join(DATA, "feed.json"), encoding="utf-8"))
     old = json.load(open(PATH, encoding="utf-8")) if os.path.exists(PATH) else {"items": []}
-    prev = {x["id"]: x for x in old.get("items", [])}
+    prev = {x["id"]: x for x in old.get("items", []) + old.get("rejected", [])}
     articles = {}
     for it in feed.get("items", []):
         if it.get("bill_id"):
@@ -139,9 +140,11 @@ def update():
             item.pop("article", None)
         items.append(item)
     items.sort(key=lambda x: (-int(x["id"].split("-")[0]), CAT_ORDER.get(x["category"], 9), int(x["id"].split("-")[-1])))
+    rejected = [x for x in items if x["result"] in ("衆議院で否決", "参議院で否決")]
+    items = [x for x in items if x not in rejected]
     out = {"criteria": CRITERIA, "status_rule": STATUS_RULE,
            "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
-           "count": len(items), "count_by_result": {}, "checked": old.get("checked", ""), "source": SOURCE, "items": items}
+           "count": len(items), "count_by_result": {}, "checked": old.get("checked", ""), "source": SOURCE, "items": items, "rejected": rejected}
     for it in items:
         out["count_by_result"][it["result"]] = out["count_by_result"].get(it["result"], 0) + 1
     same = json.dumps({**old, "checked": ""}, sort_keys=True, ensure_ascii=False) == json.dumps({**out, "checked": ""}, sort_keys=True, ensure_ascii=False)
@@ -149,7 +152,7 @@ def update():
         out["checked"] = today()
         json.dump(out, open(PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         if not changes:
-            changes.append("成立しなかった法律案の一覧を更新")
+            changes.append("審議中・採決されなかった法律案の一覧を更新")
     return changes
 
 

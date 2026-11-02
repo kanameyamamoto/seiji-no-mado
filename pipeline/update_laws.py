@@ -59,7 +59,7 @@ def rejected_drafts(feed, have, pending_now):
     bills = json.load(open(path, encoding="utf-8"))
     done = {it.get("bill_id") for it in feed.get("items", [])}
     n = 0
-    for b in bills.get("items", []):
+    for b in bills.get("rejected", []) + bills.get("items", []):
         if b.get("result") not in ("衆議院で否決", "参議院で否決"):
             continue
         ses, cat, no = b["id"].split("-")[0], b["category"], b["id"].split("-")[-1]

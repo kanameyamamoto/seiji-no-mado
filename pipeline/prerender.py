@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "成立しなかった法律案", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -373,7 +373,7 @@ def main():
             "".join(f'<li><a href="a/{it["id"]}/">{html.escape(it["title"])}</a>（{jdate(it["date"])} {html.escape(it["kind"])}）</li>' for it in mitems) + "</ul>")
     tabs.append(("match/", "投票記録とくらべる", "参議院で採決された法律などに、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる。人が法律を選ばず、判定もしない。", body, "match", feed.get("checked")))
     bl = load("bills")
-    body = f"<h1>成立しなかった法律案</h1><p>{e(bl.get('criteria'))}</p><p>{e(bl.get('status_rule'))}</p>"
+    body = f"<h1>審議中・採決されなかった法律案</h1><p>{e(bl.get('criteria'))}</p><p>{e(bl.get('status_rule'))}</p>"
     by = {}
     for b in bl.get("items", []):
         by.setdefault(b["session"], []).append(b)
@@ -382,7 +382,7 @@ def main():
             f"<li>{html.escape(b['title'])}（{e(b['number'])}・提出 {e(b.get('proposer') or b['submitter'])}" + (f"（{e('、'.join(b['groups']))}）" if b.get("groups") else "") + f"・{e(b['result'])}）"
             + (f' <a href="a/{b["article"]}/">記事</a>' if b.get("article") else "") + "</li>" for b in rows) + "</ul>"
     body += sources_html([bl["source"]]) if bl.get("source") else ""
-    tabs.append(("bills/", "成立しなかった法律案", "国会に出されたけれど成立していない法律案（審議未了・継続審査・撤回・否決・審議中）のすべて。題名・提出者・提出会派・結果を、衆議院の議案情報の表記のまま。", body, "bills", bl.get("checked")))
+    tabs.append(("bills/", "審議中・採決されなかった法律案", "国会で審議中の法律案と、採決されずに終わった法律案（審議未了・継続審査・撤回）のすべて。題名・提出者・提出会派・結果を、衆議院の議案情報の表記のまま。", body, "bills", bl.get("checked")))
     for args in tabs:
         site.page(*args)
 
