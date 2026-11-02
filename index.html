@@ -1543,9 +1543,9 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   function matchCard(it) {
     var ans = MATCH[it.id] || {}, rej = it.kind === '法律案が否決';
     var btn = function (v, label) { return '<button data-mans="' + esc(it.id) + '|' + v + '" aria-pressed="' + ((ans.a || '') === v) + '">' + label + '</button>'; };
-    var body = rej ? (it.yoshi ? '<details><summary>議案要旨（参議院の議案情報のまま）</summary><p>' + esc(it.yoshi) + '</p></details>' : '') :
-      (it.lead ? '<p class="lead">' + esc(plain(lv(it.lead))) + '</p>' : '');
-    var links = rej ? (it.sources || []).map(function (x) { return a(x.url, x.label); }).join('') : '<button data-go="a-' + esc(it.id) + '">記事を読む</button>';
+    // 否決された法律案も「国会で決まったこと」の記事なので、成立したものと同じく要約と記事へのリンクを出す
+    var body = it.lead ? '<p class="lead">' + esc(plain(lv(it.lead))) + '</p>' : '';
+    var links = '<button data-go="a-' + esc(it.id) + '">記事を読む</button>';
     return '<div class="m-card' + (ans.a ? ' answered' : '') + '" id="mi-' + esc(it.id) + '"><div class="meta"><span class="chip' + (rej ? '' : ' accent') + '">' + esc(rej ? '否決' : it.kind) + '</span><span>' + date(it.date) + '</span>' + (it.number ? '<span>' + esc(it.number) + '</span>' : '') + '</div>' +
       '<h3>' + esc(it.title) + '</h3>' + body +
       '<div class="m-ans"><div class="seg" role="group" aria-label="あなたなら">' + btn('y', '賛成') + btn('n', '反対') + btn('', '答えない') + '</div>' +
