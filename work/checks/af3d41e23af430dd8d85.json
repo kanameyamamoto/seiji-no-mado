@@ -1,5 +1,0 @@
-{
- "for": "more:r8-law-066",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"事実の誤り\",\n      \"where\": \"no_debate\",\n      \"detail\": \"衆議院・参議院ともに本会議で討論が行われておらず（「本会議の討論（なし）」）、views も空であるにもかかわらず、no_debate が false になっています。\",\n      \"fix\": \"\\\"no_debate\\\": true に修正する。\"\n    }\n  ]\n}",
- "model": "gemini-3.8-flash"
-}
