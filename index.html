@@ -1401,6 +1401,12 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
           '<div class="views-list">' + m.views.map(function (v) {
             return '<div class="view-card"><div class="meta"><span class="side ' + (v.side === '賛成' ? 'yes' : 'no') + '">' + esc(v.side) + '</span><b>' + esc(v.group) + '</b>' + (v.where ? '<span>' + esc(v.where) + '</span>' : '') + '</div><p>' + rich(lv(v.text)) + '</p><div class="origin">' + srcs(v.sources) + '</div></div>';
           }).join('') + '</div>';
+        // 片方の側だけが理由を述べたときは、もう片方がいたことを書いておく（並べ方で片寄って見えないように）
+        var vt = it.votes || {}, sides = m.views.map(function (v) { return v.side; });
+        ['賛成', '反対'].forEach(function (sd) {
+          var had = ((sd === '賛成' ? vt['for'] : vt.against) || []).filter(function (g) { return g !== '各派に属しない議員'; }).length;
+          if (had && sides.indexOf(sd) < 0) h += '<p class="meta"><span>' + sd + 'した会派は、討論でこの法律' + (rej ? '案' : '') + 'についての理由を述べていません（会派ごとの賛否は下の表のとおり）。</span></p>';
+        });
       } else if (m.no_debate) h += '<p class="meta"><span>本会議・委員会で、この法律についての討論（賛成・反対の理由を述べること）はありませんでした。</span></p>';
       h += '</section>';
     }
