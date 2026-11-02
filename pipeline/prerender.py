@@ -185,7 +185,7 @@ class Site:
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else "_site"
     cfg = load("config")
-    site = Site(out, cfg.get("site_url", "https://kanameyamamoto.github.io/seiji-no-mado/"))
+    site = Site(out, cfg.get("site_url", "https://seijinomado.com/"))
     feed, learn, links, parties, media = load("feed"), load("learn"), load("links"), load("parties"), load("media")
 
     # 国会で決まったこと

@@ -34,7 +34,7 @@ def load(name):
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else "_site"
     cfg = load("config")
-    base = cfg.get("site_url", "https://kanameyamamoto.github.io/seiji-no-mado/").rstrip("/") + "/"
+    base = cfg.get("site_url", "https://seijinomado.com/").rstrip("/") + "/"
     api = os.path.join(out, "api", "v1")
     now = datetime.datetime.now(JST).strftime("%Y-%m-%d")
     n = 0

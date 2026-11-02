@@ -14,7 +14,7 @@
    "media": 365
   }
  },
- "site_url": "https://kanameyamamoto.github.io/seiji-no-mado/",
+ "site_url": "https://seijinomado.com/",
  "more": {
   "note": "公開中の法律の記事に「なぜ出されたか・だれに関係するか・国会での議論」を足す（pipeline/enrich.py）。daily_limit＝1回に扱う記事の数。",
   "daily_limit": 30

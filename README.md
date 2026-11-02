@@ -46,7 +46,7 @@
 
 ## データを使う（公開API）
 
-登録・キーなしで、無料で使えます（CC BY 4.0）。一覧：`https://kanameyamamoto.github.io/seiji-no-mado/api/v1/index.json`
+登録・キーなしで、無料で使えます（CC BY 4.0）。一覧：`https://seijinomado.com/api/v1/index.json`
 （国会で決まったこと・政党・国会議員〈参議院議員は法律ごとの賛否つき〉・知事・学ぶ・つながり・ことば・ルール）
 
 ## ライセンス
