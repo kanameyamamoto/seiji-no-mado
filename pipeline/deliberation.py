@@ -135,9 +135,9 @@ def committee_talks(house, committee, until, bill):
             if not agenda_ok:
                 continue
             if chair and "討論に入ります" in t:
-                in_debate = "申出がありません" not in t and "申出がございません" not in t
+                in_debate = not re.search(r"(申出|通告)(が|は)(ありません|ございません)", t)
                 continue
-            if chair and ("討論は終局" in t or "採決に入ります" in t or "採決いたします" in t):
+            if chair and ("討論は終局" in t or "討論を終局" in t or "採決に入ります" in t or "採決いたします" in t or "採決を行います" in t):
                 in_debate = False
                 continue
             if in_debate and not chair:
