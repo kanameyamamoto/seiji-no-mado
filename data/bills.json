@@ -2,9 +2,9 @@
  "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、成立していないものを、すべて載せる（審議未了・継続審査・撤回・否決・審議中）。",
  "status_rule": "結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める：衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、国会が開いている間のそのほかの状況→「審議中」。",
  "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
- "count": 69,
+ "count": 70,
  "count_by_result": {
-  "審議中": 42,
+  "審議中": 43,
   "衆議院で否決": 3,
   "撤回": 3,
   "審議未了": 20,
@@ -47,14 +47,29 @@
    "category": "閣法",
    "number": "閣法第2号",
    "title": "一般職の職員の給与に関する法律等の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "内閣"
+    "committee": "内閣",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第2号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3442.htm"
@@ -72,14 +87,30 @@
    "category": "閣法",
    "number": "閣法第3号",
    "title": "特別職の職員の給与に関する法律及び二千二十七年国際園芸博覧会政府委員の設置に関する臨時措置法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "内閣"
+    "committee": "内閣",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "志士の会"
+    ],
+    "against": [
+     "日本共産党"
+    ]
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第3号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3456.htm"
@@ -97,14 +128,29 @@
    "category": "閣法",
    "number": "閣法第4号",
    "title": "国家公務員災害補償法及び国家公務員共済組合法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "内閣"
+    "committee": "内閣",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第4号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE346A.htm"
@@ -122,14 +168,29 @@
    "category": "閣法",
    "number": "閣法第5号",
    "title": "地方公務員災害補償法及び地方公務員等共済組合法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "総務"
+    "committee": "総務",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第5号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE347E.htm"
@@ -147,14 +208,29 @@
    "category": "閣法",
    "number": "閣法第6号",
    "title": "裁判官の報酬等に関する法律の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "法務"
+    "committee": "法務",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第6号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3492.htm"
@@ -172,14 +248,29 @@
    "category": "閣法",
    "number": "閣法第7号",
    "title": "検察官の俸給等に関する法律の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "法務"
+    "committee": "法務",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第7号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34A6.htm"
@@ -247,14 +338,29 @@
    "category": "閣法",
    "number": "閣法第10号",
    "title": "防衛省の職員の給与等に関する法律の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "安全保障"
+    "committee": "安全保障",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第10号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34E2.htm"
@@ -393,14 +499,29 @@
    "category": "閣法",
    "number": "閣法第16号",
    "title": "地方公共団体の議会の議員及び長の選挙期日等の臨時特例に関する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-16",
    "shugiin": {
-    "committee": "政治改革に関する特別"
+    "committee": "政治改革に関する特別",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第16号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE363A.htm"
@@ -418,14 +539,29 @@
    "category": "閣法",
    "number": "閣法第17号",
    "title": "特定タンカーに係る特定賠償義務履行担保契約等に関する特別措置法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-16",
    "shugiin": {
-    "committee": "国土交通"
+    "committee": "国土交通",
+    "result": "可決",
+    "date": "2026-10-30"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第17号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE364E.htm"
@@ -558,6 +694,47 @@
    ]
   },
   {
+   "id": "222-shuho-2",
+   "session": "第222回国会",
+   "category": "衆法",
+   "number": "衆法第2号",
+   "title": "国会議員の秘書の給与等に関する法律の一部を改正する法律案",
+   "status": "参議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "議院運営委員長",
+   "groups": [],
+   "submitted": "2026-10-30",
+   "shugiin": {
+    "committee": "審査省略",
+    "result": "可決",
+    "date": "2026-10-30"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 衆法第2号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE374A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22205002.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
    "id": "222-sanho-1",
    "session": "第222回国会",
    "category": "参法",
@@ -680,7 +857,8 @@
    "result": "衆議院で否決",
    "listed": [
     "第221回国会"
-   ]
+   ],
+   "article": "r8-rej-221-shuho-3"
   },
   {
    "id": "221-shuho-6",
@@ -783,7 +961,8 @@
    "result": "衆議院で否決",
    "listed": [
     "第221回国会"
-   ]
+   ],
+   "article": "r8-rej-221-shuho-9"
   },
   {
    "id": "221-shuho-12",
@@ -1052,7 +1231,8 @@
    "result": "衆議院で否決",
    "listed": [
     "第221回国会"
-   ]
+   ],
+   "article": "r8-rej-221-shuho-25"
   },
   {
    "id": "221-shuho-28",
@@ -1744,7 +1924,8 @@
    "result": "参議院で否決",
    "listed": [
     "第221回国会"
-   ]
+   ],
+   "article": "r8-rej-221-sanho-18"
   },
   {
    "id": "221-sanho-19",
