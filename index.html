@@ -203,6 +203,12 @@ td.num, th.num { text-align: right; }
 .m-star[disabled] { opacity: .45; }
 .m-links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
 .m-links button { color: var(--accent); }
+.m-cta { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 8px 0 4px; }
+.m-go { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 420px; height: 56px; padding: 0 24px; border-radius: 999px; background: var(--accent); color: var(--surface); font-size: 17px; font-weight: 700; box-shadow: 0 4px 14px rgba(31, 63, 122, .22); transition: transform .12s, box-shadow .12s; }
+.m-go:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(31, 63, 122, .28); }
+.m-go small { font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .18); }
+.m-go .chev { color: inherit; width: 20px; height: 20px; }
+.m-go:disabled { background: var(--panel); color: var(--muted); box-shadow: none; transform: none; cursor: default; }
 .m-res { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
 .m-res details { border-bottom: 1px solid var(--line); }
 .m-res summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 13em) 1fr 7.5em; gap: 12px; align-items: center; padding: 14px 4px; font-size: 15px; }
@@ -1525,7 +1531,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     h += '<p class="m-progress">' + answered + ' / ' + items.length + '本に答えました。並びは成立日・否決日の新しい順です。</p>' +
       '<div class="m-list">' + shown.map(matchCard).join('') + '</div>';
     if (items.length > shown.length) h += '<button class="more" data-mmore>もっと見る（残り' + (items.length - shown.length) + '本）</button>';
-    h += '<button class="more" data-mtab="res">結果を見る（' + answered + '本）</button>';
+    h += '<div class="m-cta"><button class="m-go" data-mtab="res"' + (answered ? '' : ' disabled') + '><span>結果を見る</span>' + (answered ? '<small>' + answered + '本に答えた</small>' : '') + ICON.chev + '</button>' +
+      (answered ? '' : '<p class="muted">1本以上答えると、結果が見られます</p>') + '</div>';
     return h + src([{ label: '参議院 本会議投票結果', url: 'https://www.sangiin.go.jp/japanese/touhyoulist/touhyulist.html' }]) + '</div>';
   }
 
