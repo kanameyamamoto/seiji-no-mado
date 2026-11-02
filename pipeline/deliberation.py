@@ -174,9 +174,11 @@ def debate(house, d, bill):
     if not speeches:
         return None
     key = norm(bill)
-    for seg in segments(speeches):
-        if key not in norm("".join(s.get("speech", "") for s in seg[:3])):
-            continue
+    segs = segments(speeches)
+    # まず議長が告げた議題に名前があるところ。なければ委員長報告まで見る
+    hit = [g for g in segs if key in norm(g[0].get("speech", ""))] or \
+          [g for g in segs if key in norm("".join(s.get("speech", "") for s in g[:3]))]
+    for seg in hit[:1]:
         report, talks = None, []
         for s in seg[1:]:
             if s.get("speakerPosition") in ("議長", "副議長"):
