@@ -34,6 +34,8 @@
   --muted: #4A5872;
   --accent: #1F3F7A;
   --accent-weak: #DCE4F2;
+  --danger: #B42318;
+  --danger-weak: #FDECEA;
   --bar: #6D82A8;
   --nav-bg: #14264A;
   --nav-fg: #FFFFFF;
@@ -209,6 +211,13 @@ td.num, th.num { text-align: right; }
 .m-go small { font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .18); }
 .m-go .chev { color: inherit; width: 20px; height: 20px; }
 .m-go:disabled { background: var(--panel); color: var(--muted); box-shadow: none; transform: none; cursor: default; }
+.m-clear-wrap { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.m-clear { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--danger); color: var(--danger); background: var(--surface); font-size: 15px; font-weight: 700; transition: background .12s, color .12s; }
+.m-clear svg { width: 18px; height: 18px; }
+.m-clear:hover { background: var(--danger-weak); }
+.m-clear.armed { background: var(--danger); color: #fff; }
+.m-clear-cancel { height: 44px; padding: 0 16px; border-radius: 999px; color: var(--muted); font-size: 15px; }
+.m-clear-cancel:hover { background: var(--panel); }
 .m-res { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
 .m-res details { border-bottom: 1px solid var(--line); }
 .m-res summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 13em) 1fr 7.5em; gap: 12px; align-items: center; padding: 14px 4px; font-size: 15px; }
@@ -412,6 +421,16 @@ button.ask:hover { border-color: var(--accent); }
 .feed-head { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
 .feed-head h2 { font-size: 22px; }
 .shuffle { margin-left: auto; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; color: var(--accent); font-weight: 700; }
+.law-tools { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 720px) { .law-tools { grid-template-columns: 1fr 1fr; } }
+.tool { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); text-align: left; width: 100%; }
+.tool:hover { border-color: var(--accent); }
+.tool .ic { flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--accent-weak); color: var(--accent); display: grid; place-items: center; }
+.tool .ic svg { width: 24px; height: 24px; }
+.tool .grow { flex: 1; min-width: 0; }
+@media (max-width: 480px) { .tool { gap: 12px; padding: 14px; } .tool .ic { width: 40px; height: 40px; } .tool .t { font-size: 15px; } }
+.tool .t { display: block; font-size: 16px; font-weight: 700; line-height: 1.4; }
+.tool .s { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; line-height: 1.5; }
 .shortcut { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px; }
 .today { display: flex; flex-direction: column; gap: 6px; text-align: left; padding: 20px; border-radius: var(--r); background: var(--surface); border: 2px solid var(--accent); width: 100%; }
 .today .chip { align-self: flex-start; }
@@ -1351,8 +1370,11 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     tb += '<select id="ftopic" class="pill-select" aria-label="分野（所管）"><option value="">分野：すべて</option>' + topics.map(function (t) { return '<option value="' + esc(t) + '"' + (state.feedTopic === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select>';
     tb += '<span class="tb-count">' + list.length + '件' + xp('laws') + '</span>';
     var BN = (D.bills && D.bills.items || []).length;
-    h += '<button class="row-item shortcut" data-go="bills"><span class="grow"><span class="t">審議中・採決されなかった法律案</span><span class="s">審議中・審議未了・撤回などの法律案' + BN + '件の一覧</span></span>' + ICON.chev + '</button>';
-    h += '<button class="row-item shortcut" data-go="match"><span class="grow"><span class="t">投票記録とくらべる</span><span class="s">参議院で採決された法律などに、自分なら賛成か反対かを答えて、各会派の実際の投票とくらべる</span></span>' + ICON.chev + '</button>';
+    var IC_LIST = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M9 10h6M9 13.5h6M9 17h4"/></svg>';
+    var IC_CMP = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 20h14M7 8h10"/><path d="M7 8 4.5 14a2.6 2.6 0 0 0 5 0zM17 8l-2.5 6a2.6 2.6 0 0 0 5 0z"/></svg>';
+    var tool = function (go, ic, t, sub) { return '<button class="tool" data-go="' + go + '"><span class="ic" aria-hidden="true">' + ic + '</span><span class="grow"><span class="t">' + t + '</span><span class="s">' + sub + '</span></span>' + ICON.chev + '</button>'; };
+    h += '<div class="law-tools">' + tool('match', IC_CMP, '投票記録とくらべる', '自分の賛否と、<span class="nw">各会派の実際の投票</span>を<span class="nw">くらべる</span>') +
+      tool('bills', IC_LIST, '審議中・<span class="nw">採決されなかった法律案</span>', '審議中・審議未了・撤回など ' + BN + '件') + '</div>';
     h += '<div class="toolbar">' + tb + '</div>';
     var shown = list.slice(0, state.feedShown);
     h += '<div class="cards">' + shown.map(card).join('') + '</div>';
@@ -1512,7 +1534,9 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     }).join('') + '</div>';
     h += '<p class="rej-note">採決されていないテーマ（審議されずに終わった法案など）は、ここではわかりません。</p>';
     h += '<p class="meta"><span>行を押すと、1本ずつの内訳が出ます。比べた本数が会派ごとにちがうのは、欠席・会派の中で賛否が分かれた・その時はまだなかった会派を、その1本では数えないためです。</span></p>';
-    h += '<button class="m-star" data-mclear>' + (state.mClearArm ? 'もう一度押すと、答えをすべて消します' : '答えをすべて消す') + '</button>';
+    var IC_TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 12.5h9l1-12.5M10 11v5M14 11v5"/></svg>';
+    h += '<div class="m-clear-wrap"><button class="m-clear' + (state.mClearArm ? ' armed' : '') + '" data-mclear>' + IC_TRASH + (state.mClearArm ? 'もう一度押すと、すべて消えます' : '答えをすべて消す') + '</button>' +
+      (state.mClearArm ? '<button class="m-clear-cancel" data-mclear-cancel>やめる</button>' : '') + '</div>';
     return h;
   }
   function vMatch() {
@@ -1531,7 +1555,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     h += '<p class="m-progress">' + answered + ' / ' + items.length + '本に答えました。並びは成立日・否決日の新しい順です。</p>' +
       '<div class="m-list">' + shown.map(matchCard).join('') + '</div>';
     if (items.length > shown.length) h += '<button class="more" data-mmore>もっと見る（残り' + (items.length - shown.length) + '本）</button>';
-    h += '<div class="m-cta"><button class="m-go" data-mtab="res"' + (answered ? '' : ' disabled') + '><span>結果を見る</span>' + (answered ? '<small>' + answered + '本に答えた</small>' : '') + ICON.chev + '</button>' +
+    h += '<div class="m-cta"><button class="m-go" data-mtab="res"' + (answered ? '' : ' disabled') + '><span>結果を見る</span>' + (answered ? '<small>回答 ' + answered + '本</small>' : '') + ICON.chev + '</button>' +
       (answered ? '' : '<p class="muted">1本以上答えると、結果が見られます</p>') + '</div>';
     return h + src([{ label: '参議院 本会議投票結果', url: 'https://www.sangiin.go.jp/japanese/touhyoulist/touhyulist.html' }]) + '</div>';
   }
@@ -2021,6 +2045,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (t.dataset.mstar) { var ys = window.scrollY, sm = MATCH[t.dataset.mstar]; if (sm) { sm.s = sm.s ? 0 : 1; saveMatch(); } render(); window.scrollTo(0, ys); return; }
     if (t.dataset.mtab) { state.matchTab = t.dataset.mtab; state.mClearArm = false; render(); window.scrollTo(0, 0); return; }
     if (t.hasAttribute('data-mmore')) { var ym2 = window.scrollY; state.matchShown = (state.matchShown || 20) + 20; render(); window.scrollTo(0, ym2); return; }
+    if (t.hasAttribute('data-mclear-cancel')) { state.mClearArm = false; return render(); }
     if (t.hasAttribute('data-mclear')) { if (state.mClearArm) { MATCH = {}; saveMatch(); state.mClearArm = false; } else state.mClearArm = true; return render(); }
     if (t.dataset.bres !== undefined) { state.bRes = t.dataset.bres; return render(); }
     if (t.dataset.fsort) { state.feedSort = t.dataset.fsort; state.feedShown = PAGE_SIZE; store('sh-sort', state.feedSort); return render(); }
