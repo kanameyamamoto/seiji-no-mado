@@ -1,0 +1,4799 @@
+{
+ "criteria": "政府（首相官邸・内閣官房・内閣府と各省庁）、国会（衆議院・参議院・国立国会図書館）、政党（このサイトの政党の一覧のすべて）の公式サイトと、公式サイトのトップページ・SNS一覧ページにリンクされているSNSアカウントを、すべて載せる。",
+ "rule": "アカウントは機械で集め、人は選ばない。並びは X・YouTube・Instagram・TikTok・Facebook・LINE・note・Threads。各SNSの中は、トップページに載っている順、次にSNS一覧ページに載っている順。画面には各SNSの最初の1つを出し、ほかは「ほかN件」にたたむ。",
+ "order": [
+  "X",
+  "YouTube",
+  "Instagram",
+  "TikTok",
+  "Facebook",
+  "LINE",
+  "note",
+  "Threads"
+ ],
+ "groups": [
+  {
+   "id": "gov",
+   "name": "政府",
+   "items": [
+    {
+     "id": "kantei",
+     "name": "首相官邸",
+     "url": "https://www.kantei.go.jp/",
+     "counts": {
+      "X": 5,
+      "YouTube": 1,
+      "Instagram": 1,
+      "Facebook": 2,
+      "LINE": 2
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "kantei",
+        "url": "https://x.com/kantei"
+       },
+       {
+        "id": "Kantei_Saigai",
+        "url": "https://x.com/Kantei_Saigai"
+       },
+       {
+        "id": "kantei_hisai",
+        "url": "https://x.com/kantei_hisai"
+       },
+       {
+        "id": "kantei_vaccine",
+        "url": "https://x.com/kantei_vaccine"
+       },
+       {
+        "id": "JPN_PMO",
+        "url": "https://x.com/JPN_PMO"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/kanteijp",
+        "url": "https://www.youtube.com/user/kanteijp"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "kantei",
+        "url": "https://www.instagram.com/kantei"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "sourikantei",
+        "url": "https://www.facebook.com/sourikantei"
+       },
+       {
+        "id": "Japan.PMO",
+        "url": "https://www.facebook.com/Japan.PMO"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/kantei",
+        "url": "https://page.line.me/kantei"
+       },
+       {
+        "id": "line.me/R/ti/p/%40kantei",
+        "url": "https://line.me/R/ti/p/%40kantei"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.kantei.go.jp/",
+      "https://www.kantei.go.jp/jp/pages/sns_policy.html",
+      "https://www.kantei.go.jp/jp/headline/kantei_sns.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "cas",
+     "name": "内閣官房",
+     "url": "https://www.cas.go.jp/",
+     "counts": {
+      "X": 18,
+      "YouTube": 13,
+      "Instagram": 6,
+      "Facebook": 7,
+      "note": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "naikakukanbo",
+        "url": "https://x.com/naikakukanbo"
+       },
+       {
+        "id": "rachitaisaku",
+        "url": "https://x.com/rachitaisaku"
+       },
+       {
+        "id": "digital_gyozai",
+        "url": "https://x.com/digital_gyozai"
+       },
+       {
+        "id": "gyouseijigyoure",
+        "url": "https://x.com/gyouseijigyoure"
+       },
+       {
+        "id": "Kanboukansen",
+        "url": "https://x.com/Kanboukansen"
+       },
+       {
+        "id": "ResilienceJPN",
+        "url": "https://x.com/ResilienceJPN"
+       },
+       {
+        "id": "kodokukoritsu",
+        "url": "https://x.com/kodokukoritsu"
+       },
+       {
+        "id": "cyber_forecast",
+        "url": "https://x.com/cyber_forecast"
+       },
+       {
+        "id": "cas_cyberpr",
+        "url": "https://x.com/cas_cyberpr"
+       },
+       {
+        "id": "JapanCyberGov",
+        "url": "https://x.com/JapanCyberGov"
+       },
+       {
+        "id": "CareerGuide_JPN",
+        "url": "https://x.com/CareerGuide_JPN"
+       },
+       {
+        "id": "kouhou_sousei",
+        "url": "https://x.com/kouhou_sousei"
+       },
+       {
+        "id": "digital_denen",
+        "url": "https://x.com/digital_denen"
+       },
+       {
+        "id": "hyougakishien",
+        "url": "https://x.com/hyougakishien"
+       },
+       {
+        "id": "ryodoshuken",
+        "url": "https://x.com/ryodoshuken"
+       },
+       {
+        "id": "Showa100yrs",
+        "url": "https://x.com/Showa100yrs"
+       },
+       {
+        "id": "PressSec_JP",
+        "url": "https://x.com/PressSec_JP"
+       },
+       {
+        "id": "cas_bousai_rct",
+        "url": "https://x.com/cas_bousai_rct"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "c/rachitaichannel",
+        "url": "https://www.youtube.com/c/rachitaichannel"
+       },
+       {
+        "id": "channel/UC4P3-qLldLxqYFwNtKV8E6g",
+        "url": "https://www.youtube.com/channel/UC4P3-qLldLxqYFwNtKV8E6g"
+       },
+       {
+        "id": "channel/UC-uUU7hkEl1Ddd-rfipuL0Q",
+        "url": "https://www.youtube.com/channel/UC-uUU7hkEl1Ddd-rfipuL0Q"
+       },
+       {
+        "id": "channel/UCSbfb0q4ax5bAC-sXiPNR5A",
+        "url": "https://www.youtube.com/channel/UCSbfb0q4ax5bAC-sXiPNR5A"
+       },
+       {
+        "id": "channel/UCGFqcEtA3kdTqDeXmdItyzQ",
+        "url": "https://www.youtube.com/channel/UCGFqcEtA3kdTqDeXmdItyzQ"
+       },
+       {
+        "id": "channel/UCJioDqVB7_f9GWYtjhD6qkA",
+        "url": "https://www.youtube.com/channel/UCJioDqVB7_f9GWYtjhD6qkA"
+       },
+       {
+        "id": "channel/UCNMmlmv33MvJcYSUxh14CeQ",
+        "url": "https://www.youtube.com/channel/UCNMmlmv33MvJcYSUxh14CeQ"
+       },
+       {
+        "id": "@NCOcyberchannel",
+        "url": "https://www.youtube.com/@NCOcyberchannel"
+       },
+       {
+        "id": "channel/UCgrvZa4L22Xc3aUhvs3OxFA",
+        "url": "https://www.youtube.com/channel/UCgrvZa4L22Xc3aUhvs3OxFA"
+       },
+       {
+        "id": "channel/UCWfDo4EgsHJt96rLtM3HGGQ",
+        "url": "https://www.youtube.com/channel/UCWfDo4EgsHJt96rLtM3HGGQ"
+       },
+       {
+        "id": "channel/UCyki8ZNu_I-QJiTUqOEutPA",
+        "url": "https://www.youtube.com/channel/UCyki8ZNu_I-QJiTUqOEutPA"
+       },
+       {
+        "id": "channel/UCLEdPLEqq3fPrIV6WSCW2Jw",
+        "url": "https://www.youtube.com/channel/UCLEdPLEqq3fPrIV6WSCW2Jw"
+       },
+       {
+        "id": "channel/UC1M82nsry2VWxB9xkVvBNbw",
+        "url": "https://www.youtube.com/channel/UC1M82nsry2VWxB9xkVvBNbw"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "kanbou_kansen",
+        "url": "https://www.instagram.com/kanbou_kansen"
+       },
+       {
+        "id": "national_resilience",
+        "url": "https://www.instagram.com/national_resilience"
+       },
+       {
+        "id": "careerguide_jpn",
+        "url": "https://www.instagram.com/careerguide_jpn"
+       },
+       {
+        "id": "Showa100yrs",
+        "url": "https://www.instagram.com/Showa100yrs"
+       },
+       {
+        "id": "presssec_jp",
+        "url": "https://www.instagram.com/presssec_jp"
+       },
+       {
+        "id": "cas_bousai_rct",
+        "url": "https://www.instagram.com/cas_bousai_rct"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "naikakukanbo",
+        "url": "https://www.facebook.com/naikakukanbo"
+       },
+       {
+        "id": "pirkakanpi",
+        "url": "https://www.facebook.com/pirkakanpi"
+       },
+       {
+        "id": "gyouseikaikaku",
+        "url": "https://www.facebook.com/gyouseikaikaku"
+       },
+       {
+        "id": "ResilienceJPN",
+        "url": "https://www.facebook.com/ResilienceJPN"
+       },
+       {
+        "id": "cyberpr.jp",
+        "url": "https://www.facebook.com/cyberpr.jp"
+       },
+       {
+        "id": "Chihousousei.kouhou",
+        "url": "https://www.facebook.com/Chihousousei.kouhou"
+       },
+       {
+        "id": "digital.denen",
+        "url": "https://www.facebook.com/digital.denen"
+       }
+      ],
+      "note": [
+       {
+        "id": "digital_gyozai",
+        "url": "https://note.com/digital_gyozai"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.cas.go.jp/",
+      "https://www.cas.go.jp/socialmedia/index.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "cabinet-office",
+     "name": "内閣府",
+     "url": "https://www.cao.go.jp/",
+     "page": "cabinet-office",
+     "counts": {
+      "X": 16,
+      "YouTube": 9,
+      "Facebook": 9
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "cao_japan",
+        "url": "https://x.com/cao_japan"
+       },
+       {
+        "id": "cao_recruit",
+        "url": "https://x.com/cao_recruit"
+       },
+       {
+        "id": "noguchi_cao",
+        "url": "https://x.com/noguchi_cao"
+       },
+       {
+        "id": "cao_keizai",
+        "url": "https://x.com/cao_keizai"
+       },
+       {
+        "id": "CAO_GENBOU",
+        "url": "https://x.com/CAO_GENBOU"
+       },
+       {
+        "id": "cao_okinawa",
+        "url": "https://x.com/cao_okinawa"
+       },
+       {
+        "id": "kyoseikyojo_cao",
+        "url": "https://x.com/kyoseikyojo_cao"
+       },
+       {
+        "id": "cao_koutsu",
+        "url": "https://x.com/cao_koutsu"
+       },
+       {
+        "id": "cao_koryu",
+        "url": "https://x.com/cao_koryu"
+       },
+       {
+        "id": "kodokukoritsu",
+        "url": "https://x.com/kodokukoritsu"
+       },
+       {
+        "id": "cao_bunken",
+        "url": "https://x.com/cao_bunken"
+       },
+       {
+        "id": "cao_kisei",
+        "url": "https://x.com/cao_kisei"
+       },
+       {
+        "id": "cooljapan_2022",
+        "url": "https://x.com/cooljapan_2022"
+       },
+       {
+        "id": "cao_kagi",
+        "url": "https://x.com/cao_kagi"
+       },
+       {
+        "id": "cao_pko",
+        "url": "https://x.com/cao_pko"
+       },
+       {
+        "id": "Cons_commission",
+        "url": "https://x.com/Cons_commission"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCAgxXoAYZScmEdhiv0gDOuA",
+        "url": "https://www.youtube.com/channel/UCAgxXoAYZScmEdhiv0gDOuA"
+       },
+       {
+        "id": "channel/UCKAODg6ASo85mfUAmq5L8tw",
+        "url": "https://www.youtube.com/channel/UCKAODg6ASo85mfUAmq5L8tw"
+       },
+       {
+        "id": "channel/UC2nCQPKkZvbeMh4fWhVYFQg",
+        "url": "https://www.youtube.com/channel/UC2nCQPKkZvbeMh4fWhVYFQg"
+       },
+       {
+        "id": "@cao_koutsu",
+        "url": "https://www.youtube.com/@cao_koutsu"
+       },
+       {
+        "id": "@cao_koryu",
+        "url": "https://www.youtube.com/@cao_koryu"
+       },
+       {
+        "id": "channel/UCJioDqVB7_f9GWYtjhD6qkA",
+        "url": "https://www.youtube.com/channel/UCJioDqVB7_f9GWYtjhD6qkA"
+       },
+       {
+        "id": "channel/UC7yHk0moUuqAiWqQtraZNEQ",
+        "url": "https://www.youtube.com/channel/UC7yHk0moUuqAiWqQtraZNEQ"
+       },
+       {
+        "id": "channel/UCqi9G5O47sa42YHIRIvMgoQ",
+        "url": "https://www.youtube.com/channel/UCqi9G5O47sa42YHIRIvMgoQ"
+       },
+       {
+        "id": "@cao-CC-JAPAN",
+        "url": "https://www.youtube.com/@cao-CC-JAPAN"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "caojapan",
+        "url": "https://www.facebook.com/caojapan"
+       },
+       {
+        "id": "hnapjp",
+        "url": "https://www.facebook.com/hnapjp"
+       },
+       {
+        "id": "hnapen",
+        "url": "https://www.facebook.com/hnapen"
+       },
+       {
+        "id": "cao.keizaizaisei",
+        "url": "https://www.facebook.com/cao.keizaizaisei"
+       },
+       {
+        "id": "cao.koryu",
+        "url": "https://www.facebook.com/cao.koryu"
+       },
+       {
+        "id": "kodoku.koritsu.taisaku",
+        "url": "https://www.facebook.com/kodoku.koritsu.taisaku"
+       },
+       {
+        "id": "cao.tochichosa",
+        "url": "https://www.facebook.com/cao.tochichosa"
+       },
+       {
+        "id": "cao.csti",
+        "url": "https://www.facebook.com/cao.csti"
+       },
+       {
+        "id": "cao.bunken",
+        "url": "https://www.facebook.com/cao.bunken"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.cao.go.jp/",
+      "https://www.cao.go.jp/about/list.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "reconstruction-agency",
+     "name": "復興庁",
+     "url": "https://www.reconstruction.go.jp/",
+     "page": "reconstruction-agency",
+     "counts": {
+      "X": 1,
+      "YouTube": 2,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "Fukkocho_JAPAN",
+        "url": "https://x.com/Fukkocho_JAPAN"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCuD2Ot8EVT21VdEfn-a9L5g",
+        "url": "https://www.youtube.com/channel/UCuD2Ot8EVT21VdEfn-a9L5g"
+       },
+       {
+        "id": "c/ReconstructionAgency",
+        "url": "https://www.youtube.com/c/ReconstructionAgency"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "Fukkocho.JAPAN",
+        "url": "https://www.facebook.com/Fukkocho.JAPAN"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.reconstruction.go.jp/",
+      "https://www.reconstruction.go.jp/sns/20161101_SNS-Management-Policy.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "digital-agency",
+     "name": "デジタル庁",
+     "url": "https://www.digital.go.jp/",
+     "page": "digital-agency",
+     "counts": {
+      "X": 2,
+      "YouTube": 3,
+      "Instagram": 1,
+      "Facebook": 1,
+      "Threads": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "digital_jpn",
+        "url": "https://x.com/digital_jpn"
+       },
+       {
+        "id": "digital_jpn_en",
+        "url": "https://x.com/digital_jpn_en"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCKmJk25wcPwCecf7nV9HwCw",
+        "url": "https://www.youtube.com/channel/UCKmJk25wcPwCecf7nV9HwCw"
+       },
+       {
+        "id": "@digital_jpn",
+        "url": "https://www.youtube.com/@digital_jpn"
+       },
+       {
+        "id": "@digital-agency-news",
+        "url": "https://www.youtube.com/@digital-agency-news"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "digital_jpn",
+        "url": "https://www.instagram.com/digital_jpn"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "DigitalAgencyJapan",
+        "url": "https://www.facebook.com/DigitalAgencyJapan"
+       }
+      ],
+      "Threads": [
+       {
+        "id": "@digital_jpn",
+        "url": "https://www.threads.com/@digital_jpn"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.digital.go.jp/",
+      "https://www.digital.go.jp/social-media-policy"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "disaster-management-agency",
+     "name": "防災庁",
+     "url": "https://www.bousai.go.jp/",
+     "page": "disaster-management-agency",
+     "counts": {
+      "X": 9,
+      "YouTube": 1,
+      "Instagram": 1,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "NDMA_bousai",
+        "url": "https://x.com/NDMA_bousai"
+       },
+       {
+        "id": "NDMA_saigai",
+        "url": "https://x.com/NDMA_saigai"
+       },
+       {
+        "id": "kantei_hisai",
+        "url": "https://x.com/kantei_hisai"
+       },
+       {
+        "id": "Kantei_Saigai",
+        "url": "https://x.com/Kantei_Saigai"
+       },
+       {
+        "id": "MLIT_JAPAN",
+        "url": "https://x.com/MLIT_JAPAN"
+       },
+       {
+        "id": "JMA_bousai",
+        "url": "https://x.com/JMA_bousai"
+       },
+       {
+        "id": "ModJapan_saigai",
+        "url": "https://x.com/ModJapan_saigai"
+       },
+       {
+        "id": "JCG_koho",
+        "url": "https://x.com/JCG_koho"
+       },
+       {
+        "id": "C2010NIED",
+        "url": "https://x.com/C2010NIED"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UC0B5vIolexAAbv_11H91Z_Q",
+        "url": "https://www.youtube.com/channel/UC0B5vIolexAAbv_11H91Z_Q"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "NDMA_bousai",
+        "url": "https://www.instagram.com/NDMA_bousai"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "NDMA.bousai",
+        "url": "https://www.facebook.com/NDMA.bousai"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.bousai.go.jp/",
+      "https://www.bousai.go.jp/kouhou/sns/sns.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mic",
+     "name": "総務省",
+     "url": "https://www.soumu.go.jp/",
+     "page": "mic",
+     "counts": {
+      "X": 34,
+      "YouTube": 12,
+      "Instagram": 7,
+      "Facebook": 13
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "MIC_JAPAN",
+        "url": "https://x.com/MIC_JAPAN"
+       },
+       {
+        "id": "Cbt_News",
+        "url": "https://x.com/Cbt_News"
+       },
+       {
+        "id": "tohoku_bt",
+        "url": "https://x.com/tohoku_bt"
+       },
+       {
+        "id": "08hokkaidoBt",
+        "url": "https://x.com/08hokkaidoBt"
+       },
+       {
+        "id": "kyushu_bt",
+        "url": "https://x.com/kyushu_bt"
+       },
+       {
+        "id": "kinki_bt",
+        "url": "https://x.com/kinki_bt"
+       },
+       {
+        "id": "Kbt_Koho",
+        "url": "https://x.com/Kbt_Koho"
+       },
+       {
+        "id": "08hokkaidodenpa",
+        "url": "https://x.com/08hokkaidodenpa"
+       },
+       {
+        "id": "tokai_bt",
+        "url": "https://x.com/tokai_bt"
+       },
+       {
+        "id": "Sbt_Kouho",
+        "url": "https://x.com/Sbt_Kouho"
+       },
+       {
+        "id": "telework_2024",
+        "url": "https://x.com/telework_2024"
+       },
+       {
+        "id": "denwancenter",
+        "url": "https://x.com/denwancenter"
+       },
+       {
+        "id": "MIC_hyouka",
+        "url": "https://x.com/MIC_hyouka"
+       },
+       {
+        "id": "MIC_soudan",
+        "url": "https://x.com/MIC_soudan"
+       },
+       {
+        "id": "kinki_hyouka",
+        "url": "https://x.com/kinki_hyouka"
+       },
+       {
+        "id": "kikumimi_kagawa",
+        "url": "https://x.com/kikumimi_kagawa"
+       },
+       {
+        "id": "kikumimi_tokusi",
+        "url": "https://x.com/kikumimi_tokusi"
+       },
+       {
+        "id": "kikumimi_ehime",
+        "url": "https://x.com/kikumimi_ehime"
+       },
+       {
+        "id": "kikumimi_kochi",
+        "url": "https://x.com/kikumimi_kochi"
+       },
+       {
+        "id": "Niigata_hyouka",
+        "url": "https://x.com/Niigata_hyouka"
+       },
+       {
+        "id": "chubu_hyouka",
+        "url": "https://x.com/chubu_hyouka"
+       },
+       {
+        "id": "shikoku_hyouka",
+        "url": "https://x.com/shikoku_hyouka"
+       },
+       {
+        "id": "furusato_WH",
+        "url": "https://x.com/furusato_WH"
+       },
+       {
+        "id": "FDMA_JAPAN",
+        "url": "https://x.com/FDMA_JAPAN"
+       },
+       {
+        "id": "fdma_syobodan",
+        "url": "https://x.com/fdma_syobodan"
+       },
+       {
+        "id": "stat_japan",
+        "url": "https://x.com/stat_japan"
+       },
+       {
+        "id": "ecensus2026",
+        "url": "https://x.com/ecensus2026"
+       },
+       {
+        "id": "MIC_kouchoi",
+        "url": "https://x.com/MIC_kouchoi"
+       },
+       {
+        "id": "heiwakinen",
+        "url": "https://x.com/heiwakinen"
+       },
+       {
+        "id": "MIC_recruit",
+        "url": "https://x.com/MIC_recruit"
+       },
+       {
+        "id": "MIC_knt_recruit",
+        "url": "https://x.com/MIC_knt_recruit"
+       },
+       {
+        "id": "MIC_Sougou",
+        "url": "https://x.com/MIC_Sougou"
+       },
+       {
+        "id": "MIC_telecomrct",
+        "url": "https://x.com/MIC_telecomrct"
+       },
+       {
+        "id": "kinki_b",
+        "url": "https://x.com/kinki_b"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/soumuchannel",
+        "url": "https://www.youtube.com/user/soumuchannel"
+       },
+       {
+        "id": "channel/UC-SEBTaiLnx82549Xjkmu-Q",
+        "url": "https://www.youtube.com/channel/UC-SEBTaiLnx82549Xjkmu-Q"
+       },
+       {
+        "id": "channel/UCy9auQQt9NhDrTy2AgiGobg",
+        "url": "https://www.youtube.com/channel/UCy9auQQt9NhDrTy2AgiGobg"
+       },
+       {
+        "id": "channel/UCDAeirE0RSaV42hNvdxz3Cg",
+        "url": "https://www.youtube.com/channel/UCDAeirE0RSaV42hNvdxz3Cg"
+       },
+       {
+        "id": "channel/UClOJUT7R9EHe0Tz21-riVSA",
+        "url": "https://www.youtube.com/channel/UClOJUT7R9EHe0Tz21-riVSA"
+       },
+       {
+        "id": "channel/UCtpSkCb1cb1iwoMuMvVQvHQ",
+        "url": "https://www.youtube.com/channel/UCtpSkCb1cb1iwoMuMvVQvHQ"
+       },
+       {
+        "id": "channel/UCI6G87dvZS3O8tcRPXVc7vg",
+        "url": "https://www.youtube.com/channel/UCI6G87dvZS3O8tcRPXVc7vg"
+       },
+       {
+        "id": "channel/UCIN28to3AQ0fe8VtJ8Uo-3A",
+        "url": "https://www.youtube.com/channel/UCIN28to3AQ0fe8VtJ8Uo-3A"
+       },
+       {
+        "id": "channel/UCe1o9LxCZfVL9RSTEh760Sw",
+        "url": "https://www.youtube.com/channel/UCe1o9LxCZfVL9RSTEh760Sw"
+       },
+       {
+        "id": "channel/UCwOsfRaNEaAqOtB2nvFyC_w",
+        "url": "https://www.youtube.com/channel/UCwOsfRaNEaAqOtB2nvFyC_w"
+       },
+       {
+        "id": "c/stat-japan",
+        "url": "https://www.youtube.com/c/stat-japan"
+       },
+       {
+        "id": "@heiwakinen",
+        "url": "https://www.youtube.com/@heiwakinen"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "mic_koho",
+        "url": "https://www.instagram.com/mic_koho"
+       },
+       {
+        "id": "furusato.workingholiday",
+        "url": "https://www.instagram.com/furusato.workingholiday"
+       },
+       {
+        "id": "mic_chiikiokoshikyouryokutai",
+        "url": "https://www.instagram.com/mic_chiikiokoshikyouryokutai"
+       },
+       {
+        "id": "mic_chishin",
+        "url": "https://www.instagram.com/mic_chishin"
+       },
+       {
+        "id": "stat.japan",
+        "url": "https://www.instagram.com/stat.japan"
+       },
+       {
+        "id": "heiwakinen",
+        "url": "https://www.instagram.com/heiwakinen"
+       },
+       {
+        "id": "MIC_Sougou",
+        "url": "https://www.instagram.com/MIC_Sougou"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "MICJAPAN.gov",
+        "url": "https://www.facebook.com/MICJAPAN.gov"
+       },
+       {
+        "id": "Cbt.News",
+        "url": "https://www.facebook.com/Cbt.News"
+       },
+       {
+        "id": "tohoku.bt",
+        "url": "https://www.facebook.com/tohoku.bt"
+       },
+       {
+        "id": "kinki.bt",
+        "url": "https://www.facebook.com/kinki.bt"
+       },
+       {
+        "id": "kbt.koho",
+        "url": "https://www.facebook.com/kbt.koho"
+       },
+       {
+        "id": "chiikiokoshikyouryokutai",
+        "url": "https://www.facebook.com/chiikiokoshikyouryokutai"
+       },
+       {
+        "id": "furusato.workingholiday",
+        "url": "https://www.facebook.com/furusato.workingholiday"
+       },
+       {
+        "id": "otameshisatelliteoffice",
+        "url": "https://www.facebook.com/otameshisatelliteoffice"
+       },
+       {
+        "id": "stat.japan",
+        "url": "https://www.facebook.com/stat.japan"
+       },
+       {
+        "id": "ecensus2026",
+        "url": "https://www.facebook.com/ecensus2026"
+       },
+       {
+        "id": "heiwakinen.shinjyuku",
+        "url": "https://www.facebook.com/heiwakinen.shinjyuku"
+       },
+       {
+        "id": "08hokkaidoBt",
+        "url": "https://www.facebook.com/08hokkaidoBt"
+       },
+       {
+        "id": "sourikantei",
+        "url": "https://www.facebook.com/sourikantei"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.soumu.go.jp/",
+      "https://www.soumu.go.jp/sns/index.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "moj",
+     "name": "法務省",
+     "url": "https://www.moj.go.jp/",
+     "page": "moj",
+     "counts": {
+      "X": 5,
+      "YouTube": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "MOJ_HOUMU",
+        "url": "https://x.com/MOJ_HOUMU"
+       },
+       {
+        "id": "unafeiPNI",
+        "url": "https://x.com/unafeiPNI"
+       },
+       {
+        "id": "MOJ_HOGO",
+        "url": "https://x.com/MOJ_HOGO"
+       },
+       {
+        "id": "touki_net",
+        "url": "https://x.com/touki_net"
+       },
+       {
+        "id": "HOURISU_KUN",
+        "url": "https://x.com/HOURISU_KUN"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/MOJchannel",
+        "url": "https://www.youtube.com/user/MOJchannel"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.moj.go.jp/",
+      "https://www.moj.go.jp/hisho/kouhou/hisho06_00189.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mofa",
+     "name": "外務省",
+     "url": "https://www.mofa.go.jp/mofaj/",
+     "page": "mofa",
+     "counts": {},
+     "sns": {},
+     "sources": [
+      "https://www.mofa.go.jp/mofaj/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mof",
+     "name": "財務省",
+     "url": "https://www.mof.go.jp/",
+     "page": "mof",
+     "counts": {
+      "X": 7,
+      "YouTube": 1,
+      "Instagram": 5,
+      "Facebook": 6,
+      "LINE": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "MOF_Japan",
+        "url": "https://x.com/MOF_Japan"
+       },
+       {
+        "id": "Custom_kun",
+        "url": "https://x.com/Custom_kun"
+       },
+       {
+        "id": "kokusai_sensei",
+        "url": "https://x.com/kokusai_sensei"
+       },
+       {
+        "id": "MOF_recruit",
+        "url": "https://x.com/MOF_recruit"
+       },
+       {
+        "id": "MOF_gijutsu_rec",
+        "url": "https://x.com/MOF_gijutsu_rec"
+       },
+       {
+        "id": "MOF_LFB_recruit",
+        "url": "https://x.com/MOF_LFB_recruit"
+       },
+       {
+        "id": "PRI_MOF_Japan",
+        "url": "https://x.com/PRI_MOF_Japan"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/MOFJapan",
+        "url": "https://www.youtube.com/user/MOFJapan"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "koko_kokusai",
+        "url": "https://www.instagram.com/koko_kokusai"
+       },
+       {
+        "id": "mof_LFB_recruit",
+        "url": "https://www.instagram.com/mof_LFB_recruit"
+       },
+       {
+        "id": "custom_kun",
+        "url": "https://www.instagram.com/custom_kun"
+       },
+       {
+        "id": "customs_recruit",
+        "url": "https://www.instagram.com/customs_recruit"
+       },
+       {
+        "id": "mof_ippansyoku_saiyo",
+        "url": "https://www.instagram.com/mof_ippansyoku_saiyo"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "MOF.Japan",
+        "url": "https://www.facebook.com/MOF.Japan"
+       },
+       {
+        "id": "MOF.Japan.english",
+        "url": "https://www.facebook.com/MOF.Japan.english"
+       },
+       {
+        "id": "Japan.Customs",
+        "url": "https://www.facebook.com/Japan.Customs"
+       },
+       {
+        "id": "zaimukyoku",
+        "url": "https://www.facebook.com/zaimukyoku"
+       },
+       {
+        "id": "PRI.MOF.Japan",
+        "url": "https://www.facebook.com/PRI.MOF.Japan"
+       },
+       {
+        "id": "kokusai.sensei",
+        "url": "https://www.facebook.com/kokusai.sensei"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/186uyiif",
+        "url": "https://page.line.me/186uyiif"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.mof.go.jp/",
+      "https://www.mof.go.jp/about_mof/social_media_account/index.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mext",
+     "name": "文部科学省",
+     "url": "https://www.mext.go.jp/",
+     "page": "mext",
+     "counts": {
+      "X": 10,
+      "YouTube": 8,
+      "Instagram": 7,
+      "Facebook": 12,
+      "LINE": 3,
+      "note": 2
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "mextjapan",
+        "url": "https://x.com/mextjapan"
+       },
+       {
+        "id": "mext_recruit",
+        "url": "https://x.com/mext_recruit"
+       },
+       {
+        "id": "k_shiken",
+        "url": "https://x.com/k_shiken"
+       },
+       {
+        "id": "senshu_shirusen",
+        "url": "https://x.com/senshu_shirusen"
+       },
+       {
+        "id": "ryugakujapan",
+        "url": "https://x.com/ryugakujapan"
+       },
+       {
+        "id": "sekaibu",
+        "url": "https://x.com/sekaibu"
+       },
+       {
+        "id": "researcherplus",
+        "url": "https://x.com/researcherplus"
+       },
+       {
+        "id": "sports_JSA",
+        "url": "https://x.com/sports_JSA"
+       },
+       {
+        "id": "sportinlife_JSA",
+        "url": "https://x.com/sportinlife_JSA"
+       },
+       {
+        "id": "usportproject",
+        "url": "https://x.com/usportproject"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@ib3296",
+        "url": "https://www.youtube.com/@ib3296"
+       },
+       {
+        "id": "channel/UCzlKK_3MuMIvp5Ck-uQmrDA",
+        "url": "https://www.youtube.com/channel/UCzlKK_3MuMIvp5Ck-uQmrDA"
+       },
+       {
+        "id": "channel/UCzqZYCFzxM0zrfAHToeNVXA",
+        "url": "https://www.youtube.com/channel/UCzqZYCFzxM0zrfAHToeNVXA"
+       },
+       {
+        "id": "channel/UCeL7elTXT4-yCmiUkqHHHQg",
+        "url": "https://www.youtube.com/channel/UCeL7elTXT4-yCmiUkqHHHQg"
+       },
+       {
+        "id": "@Tobitate_Ryugaku_Japan",
+        "url": "https://www.youtube.com/@Tobitate_Ryugaku_Japan"
+       },
+       {
+        "id": "@%E5%9C%B0%E9%9C%87%E6%9C%AC%E9%83%A8",
+        "url": "https://www.youtube.com/@%E5%9C%B0%E9%9C%87%E6%9C%AC%E9%83%A8"
+       },
+       {
+        "id": "@Researcherplus",
+        "url": "https://www.youtube.com/@Researcherplus"
+       },
+       {
+        "id": "channel/UCB15YA0REtA6cY8CEaxkPYQ",
+        "url": "https://www.youtube.com/channel/UCB15YA0REtA6cY8CEaxkPYQ"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "mextjapan",
+        "url": "https://www.instagram.com/mextjapan"
+       },
+       {
+        "id": "ryugaku_daizukan",
+        "url": "https://www.instagram.com/ryugaku_daizukan"
+       },
+       {
+        "id": "sekaibu",
+        "url": "https://www.instagram.com/sekaibu"
+       },
+       {
+        "id": "mext_sangyo",
+        "url": "https://www.instagram.com/mext_sangyo"
+       },
+       {
+        "id": "expo_watashitomirai",
+        "url": "https://www.instagram.com/expo_watashitomirai"
+       },
+       {
+        "id": "japansportsagency",
+        "url": "https://www.instagram.com/japansportsagency"
+       },
+       {
+        "id": "budo.tourism.japansportsagency",
+        "url": "https://www.instagram.com/budo.tourism.japansportsagency"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "mextjapan",
+        "url": "https://www.facebook.com/mextjapan"
+       },
+       {
+        "id": "mext.recruit",
+        "url": "https://www.facebook.com/mext.recruit"
+       },
+       {
+        "id": "mextib",
+        "url": "https://www.facebook.com/mextib"
+       },
+       {
+        "id": "community.school.mext",
+        "url": "https://www.facebook.com/community.school.mext"
+       },
+       {
+        "id": "scheemd",
+        "url": "https://www.facebook.com/scheemd"
+       },
+       {
+        "id": "minnnanoglobal",
+        "url": "https://www.facebook.com/minnnanoglobal"
+       },
+       {
+        "id": "ryugakujapan",
+        "url": "https://www.facebook.com/ryugakujapan"
+       },
+       {
+        "id": "aspnet.japan",
+        "url": "https://www.facebook.com/aspnet.japan"
+       },
+       {
+        "id": "unesco.japan",
+        "url": "https://www.facebook.com/unesco.japan"
+       },
+       {
+        "id": "japansportsagency",
+        "url": "https://www.facebook.com/japansportsagency"
+       },
+       {
+        "id": "TeamSportinLife",
+        "url": "https://www.facebook.com/TeamSportinLife"
+       },
+       {
+        "id": "budo.tourism.japansportsagency",
+        "url": "https://www.facebook.com/budo.tourism.japansportsagency"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/855asdfp",
+        "url": "https://page.line.me/855asdfp"
+       },
+       {
+        "id": "page.line.me/222cbxug",
+        "url": "https://page.line.me/222cbxug"
+       },
+       {
+        "id": "lin.ee/ShxxU1A",
+        "url": "https://lin.ee/ShxxU1A"
+       }
+      ],
+      "note": [
+       {
+        "id": "nihongo_mext",
+        "url": "https://note.com/nihongo_mext"
+       },
+       {
+        "id": "unesco_japan",
+        "url": "https://note.com/unesco_japan"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.mext.go.jp/",
+      "https://www.mext.go.jp/social/index.htm"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mhlw",
+     "name": "厚生労働省",
+     "url": "https://www.mhlw.go.jp/",
+     "page": "mhlw",
+     "counts": {
+      "X": 184,
+      "YouTube": 116,
+      "Facebook": 31,
+      "LINE": 417,
+      "note": 3
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "mhlwitter",
+        "url": "https://x.com/mhlwitter"
+       },
+       {
+        "id": "MHLWitter_en",
+        "url": "https://x.com/MHLWitter_en"
+       },
+       {
+        "id": "mhlw_ikei",
+        "url": "https://x.com/mhlw_ikei"
+       },
+       {
+        "id": "ShitteKanen",
+        "url": "https://x.com/ShitteKanen"
+       },
+       {
+        "id": "StopTheDrug",
+        "url": "https://x.com/StopTheDrug"
+       },
+       {
+        "id": "Shokuhin_ANZEN",
+        "url": "https://x.com/Shokuhin_ANZEN"
+       },
+       {
+        "id": "POSISHARE",
+        "url": "https://x.com/POSISHARE"
+       },
+       {
+        "id": "no_pwr_harassmn",
+        "url": "https://x.com/no_pwr_harassmn"
+       },
+       {
+        "id": "kokoronomimi",
+        "url": "https://x.com/kokoronomimi"
+       },
+       {
+        "id": "ikumen_project",
+        "url": "https://x.com/ikumen_project"
+       },
+       {
+        "id": "zaitaku_work",
+        "url": "https://x.com/zaitaku_work"
+       },
+       {
+        "id": "nrcd_",
+        "url": "https://x.com/nrcd_"
+       },
+       {
+        "id": "kobesiryoku",
+        "url": "https://x.com/kobesiryoku"
+       },
+       {
+        "id": "yakubutsumhlw",
+        "url": "https://x.com/yakubutsumhlw"
+       },
+       {
+        "id": "izonshonavi",
+        "url": "https://x.com/izonshonavi"
+       },
+       {
+        "id": "engogyousei",
+        "url": "https://x.com/engogyousei"
+       },
+       {
+        "id": "MHLWhoiku",
+        "url": "https://x.com/MHLWhoiku"
+       },
+       {
+        "id": "karoushiboushi",
+        "url": "https://x.com/karoushiboushi"
+       },
+       {
+        "id": "mhlw_reskilling",
+        "url": "https://x.com/mhlw_reskilling"
+       },
+       {
+        "id": "mhlw_quaran",
+        "url": "https://x.com/mhlw_quaran"
+       },
+       {
+        "id": "v9VVnNrjZk5WGeN",
+        "url": "https://x.com/v9VVnNrjZk5WGeN"
+       },
+       {
+        "id": "F_shinsotu_hw",
+        "url": "https://x.com/F_shinsotu_hw"
+       },
+       {
+        "id": "carisapocenter",
+        "url": "https://x.com/carisapocenter"
+       },
+       {
+        "id": "hw_yukuhashi",
+        "url": "https://x.com/hw_yukuhashi"
+       },
+       {
+        "id": "FukuokaWakaharo",
+        "url": "https://x.com/FukuokaWakaharo"
+       },
+       {
+        "id": "hwPurazafukuoka",
+        "url": "https://x.com/hwPurazafukuoka"
+       },
+       {
+        "id": "wakamono_koyou",
+        "url": "https://x.com/wakamono_koyou"
+       },
+       {
+        "id": "mhlw_recruit",
+        "url": "https://x.com/mhlw_recruit"
+       },
+       {
+        "id": "Local_syukatsu",
+        "url": "https://x.com/Local_syukatsu"
+       },
+       {
+        "id": "lokatsut",
+        "url": "https://x.com/lokatsut"
+       },
+       {
+        "id": "kanagawakyoku",
+        "url": "https://x.com/kanagawakyoku"
+       },
+       {
+        "id": "1401wakaharo",
+        "url": "https://x.com/1401wakaharo"
+       },
+       {
+        "id": "14hw_yokohama",
+        "url": "https://x.com/14hw_yokohama"
+       },
+       {
+        "id": "hw_toyama",
+        "url": "https://x.com/hw_toyama"
+       },
+       {
+        "id": "hyougo_hw",
+        "url": "https://x.com/hyougo_hw"
+       },
+       {
+        "id": "HKDMHLWitter",
+        "url": "https://x.com/HKDMHLWitter"
+       },
+       {
+        "id": "safe_mhlw",
+        "url": "https://x.com/safe_mhlw"
+       },
+       {
+        "id": "DDIS_REHAB",
+        "url": "https://x.com/DDIS_REHAB"
+       },
+       {
+        "id": "DDNP2021",
+        "url": "https://x.com/DDNP2021"
+       },
+       {
+        "id": "hakodatesiryoku",
+        "url": "https://x.com/hakodatesiryoku"
+       },
+       {
+        "id": "SZOKMHLWitter",
+        "url": "https://x.com/SZOKMHLWitter"
+       },
+       {
+        "id": "21GIFU_saiyou",
+        "url": "https://x.com/21GIFU_saiyou"
+       },
+       {
+        "id": "21GIFU_hwgifu",
+        "url": "https://x.com/21GIFU_hwgifu"
+       },
+       {
+        "id": "MHLW_Okayama",
+        "url": "https://x.com/MHLW_Okayama"
+       },
+       {
+        "id": "iwate_harotore",
+        "url": "https://x.com/iwate_harotore"
+       },
+       {
+        "id": "hw_moriokasaien",
+        "url": "https://x.com/hw_moriokasaien"
+       },
+       {
+        "id": "sagakyoku",
+        "url": "https://x.com/sagakyoku"
+       },
+       {
+        "id": "sendaishinsotsu",
+        "url": "https://x.com/sendaishinsotsu"
+       },
+       {
+        "id": "akita_labor",
+        "url": "https://x.com/akita_labor"
+       },
+       {
+        "id": "hw_akita",
+        "url": "https://x.com/hw_akita"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/MHLWchannel",
+        "url": "https://www.youtube.com/user/MHLWchannel"
+       },
+       {
+        "id": "channel/UCGtpWS2xA-E1JqkIHXnuX4w",
+        "url": "https://www.youtube.com/channel/UCGtpWS2xA-E1JqkIHXnuX4w"
+       },
+       {
+        "id": "channel/UCItxrU9uKU8iJkfqpSqn_9Q",
+        "url": "https://www.youtube.com/channel/UCItxrU9uKU8iJkfqpSqn_9Q"
+       },
+       {
+        "id": "user/MHLWanzenvideo",
+        "url": "https://www.youtube.com/user/MHLWanzenvideo"
+       },
+       {
+        "id": "@mhlw_reskilling",
+        "url": "https://www.youtube.com/@mhlw_reskilling"
+       },
+       {
+        "id": "@MHLW_Quaran",
+        "url": "https://www.youtube.com/@MHLW_Quaran"
+       },
+       {
+        "id": "channel/UClmH3KRfVKB9LPiwIEb4CAA",
+        "url": "https://www.youtube.com/channel/UClmH3KRfVKB9LPiwIEb4CAA"
+       },
+       {
+        "id": "channel/UCuB3W9zQQfoFlsVuel85Ajw",
+        "url": "https://www.youtube.com/channel/UCuB3W9zQQfoFlsVuel85Ajw"
+       },
+       {
+        "id": "channel/UCo0GqgYdJmoWssY0Uom1-Bw",
+        "url": "https://www.youtube.com/channel/UCo0GqgYdJmoWssY0Uom1-Bw"
+       },
+       {
+        "id": "channel/UCCeHhhBr30JSYwwlC8uBGDQ",
+        "url": "https://www.youtube.com/channel/UCCeHhhBr30JSYwwlC8uBGDQ"
+       },
+       {
+        "id": "channel/UCZwV6fh3mDxRkaBwY59187A",
+        "url": "https://www.youtube.com/channel/UCZwV6fh3mDxRkaBwY59187A"
+       },
+       {
+        "id": "channel/UCcEk_R_0muz2Qg6N-UdFwQA",
+        "url": "https://www.youtube.com/channel/UCcEk_R_0muz2Qg6N-UdFwQA"
+       },
+       {
+        "id": "channel/UCfmloFWIJIh4PGvQASD2SSA",
+        "url": "https://www.youtube.com/channel/UCfmloFWIJIh4PGvQASD2SSA"
+       },
+       {
+        "id": "channel/UCgjuqVj3DpnswgsqDeGYeTA",
+        "url": "https://www.youtube.com/channel/UCgjuqVj3DpnswgsqDeGYeTA"
+       },
+       {
+        "id": "channel/UCuM71I5Xg8HoWYk7ugVWTzQ",
+        "url": "https://www.youtube.com/channel/UCuM71I5Xg8HoWYk7ugVWTzQ"
+       },
+       {
+        "id": "channel/UCE0Gnv_hZWknvojic6RTxaQ",
+        "url": "https://www.youtube.com/channel/UCE0Gnv_hZWknvojic6RTxaQ"
+       },
+       {
+        "id": "channel/UCFCbkaosU7Mh-epUE6bYTjw",
+        "url": "https://www.youtube.com/channel/UCFCbkaosU7Mh-epUE6bYTjw"
+       },
+       {
+        "id": "channel/UCSUmHPaNWM16JMjECJnhpxA",
+        "url": "https://www.youtube.com/channel/UCSUmHPaNWM16JMjECJnhpxA"
+       },
+       {
+        "id": "channel/UCW-y_fijU6yk1jgqn2sM2pQ",
+        "url": "https://www.youtube.com/channel/UCW-y_fijU6yk1jgqn2sM2pQ"
+       },
+       {
+        "id": "channel/UCU37RXEEsFqGdyxu1FBkK6w",
+        "url": "https://www.youtube.com/channel/UCU37RXEEsFqGdyxu1FBkK6w"
+       },
+       {
+        "id": "channel/UCZaiYKaSUzvmjSgyoVFlfmg",
+        "url": "https://www.youtube.com/channel/UCZaiYKaSUzvmjSgyoVFlfmg"
+       },
+       {
+        "id": "channel/UCLJCXm4yylnFjplj4TTJRDw",
+        "url": "https://www.youtube.com/channel/UCLJCXm4yylnFjplj4TTJRDw"
+       },
+       {
+        "id": "channel/UCrIprfO7jkqxwfcXLcfvFrQ",
+        "url": "https://www.youtube.com/channel/UCrIprfO7jkqxwfcXLcfvFrQ"
+       },
+       {
+        "id": "channel/UCZ79C9XbcfTvbGMFOxEKFoA",
+        "url": "https://www.youtube.com/channel/UCZ79C9XbcfTvbGMFOxEKFoA"
+       },
+       {
+        "id": "@手話通訳学科国立障害",
+        "url": "https://www.youtube.com/@手話通訳学科国立障害"
+       },
+       {
+        "id": "@神戸視力障害センター",
+        "url": "https://www.youtube.com/@神戸視力障害センター"
+       },
+       {
+        "id": "channel/UC600rSiAqL-gKI-tdbB2IVg",
+        "url": "https://www.youtube.com/channel/UC600rSiAqL-gKI-tdbB2IVg"
+       },
+       {
+        "id": "channel/UC9B7nvWuTctf3iXAIW-d4iA",
+        "url": "https://www.youtube.com/channel/UC9B7nvWuTctf3iXAIW-d4iA"
+       },
+       {
+        "id": "channel/UCe-tpKjq56mXZNdCJkmhPYQ",
+        "url": "https://www.youtube.com/channel/UCe-tpKjq56mXZNdCJkmhPYQ"
+       },
+       {
+        "id": "channel/UC_1WK1xtb5OO5qPLlzKlkpg",
+        "url": "https://www.youtube.com/channel/UC_1WK1xtb5OO5qPLlzKlkpg"
+       },
+       {
+        "id": "channel/UCQjrZAVHgcgkAT5TwcirH5w",
+        "url": "https://www.youtube.com/channel/UCQjrZAVHgcgkAT5TwcirH5w"
+       },
+       {
+        "id": "channel/UCMccyei1zg_iL9Yd7LP9vMQ",
+        "url": "https://www.youtube.com/channel/UCMccyei1zg_iL9Yd7LP9vMQ"
+       },
+       {
+        "id": "channel/UCIvxMpg6QJ7aWWmhI91qJWA",
+        "url": "https://www.youtube.com/channel/UCIvxMpg6QJ7aWWmhI91qJWA"
+       },
+       {
+        "id": "@osakashinsotsu",
+        "url": "https://www.youtube.com/@osakashinsotsu"
+       },
+       {
+        "id": "channel/UCKQmv6ePjH23Fpl0k4UH6XQ",
+        "url": "https://www.youtube.com/channel/UCKQmv6ePjH23Fpl0k4UH6XQ"
+       },
+       {
+        "id": "channel/UCp2RCasRokhb-rmxqs43OjA",
+        "url": "https://www.youtube.com/channel/UCp2RCasRokhb-rmxqs43OjA"
+       },
+       {
+        "id": "channel/UC-6jZiwObZjp-pIrO41hsKQ",
+        "url": "https://www.youtube.com/channel/UC-6jZiwObZjp-pIrO41hsKQ"
+       },
+       {
+        "id": "channel/UCrswQ6EyTH53W1nM9q5Tcyw",
+        "url": "https://www.youtube.com/channel/UCrswQ6EyTH53W1nM9q5Tcyw"
+       },
+       {
+        "id": "channel/UCLETO37HpSWXzUjXj180TSw",
+        "url": "https://www.youtube.com/channel/UCLETO37HpSWXzUjXj180TSw"
+       },
+       {
+        "id": "channel/UCtJx_6dFd2l5HPgqcwgDZaQ",
+        "url": "https://www.youtube.com/channel/UCtJx_6dFd2l5HPgqcwgDZaQ"
+       },
+       {
+        "id": "channel/UCUWa3V3SJsFOUIzo3FkCl2w",
+        "url": "https://www.youtube.com/channel/UCUWa3V3SJsFOUIzo3FkCl2w"
+       },
+       {
+        "id": "channel/UCTD5xuv2jIKK13V0-yRRGFA",
+        "url": "https://www.youtube.com/channel/UCTD5xuv2jIKK13V0-yRRGFA"
+       },
+       {
+        "id": "channel/UChoHL8itU4FLbdyZf15jL2A",
+        "url": "https://www.youtube.com/channel/UChoHL8itU4FLbdyZf15jL2A"
+       },
+       {
+        "id": "channel/UCgMiJRghMxUTrGp98-jyOPg",
+        "url": "https://www.youtube.com/channel/UCgMiJRghMxUTrGp98-jyOPg"
+       },
+       {
+        "id": "channel/UCkdvbvn0BnH5Tts3q88XJUA",
+        "url": "https://www.youtube.com/channel/UCkdvbvn0BnH5Tts3q88XJUA"
+       },
+       {
+        "id": "channel/UCDyno3jWLLg59V6ZrnzOwng",
+        "url": "https://www.youtube.com/channel/UCDyno3jWLLg59V6ZrnzOwng"
+       },
+       {
+        "id": "channel/UCwv2oSJvxGg38EtFsg2_alw",
+        "url": "https://www.youtube.com/channel/UCwv2oSJvxGg38EtFsg2_alw"
+       },
+       {
+        "id": "channel/UCMyO1w468XLnDgOllG4Xo3Q",
+        "url": "https://www.youtube.com/channel/UCMyO1w468XLnDgOllG4Xo3Q"
+       },
+       {
+        "id": "channel/UCal9WgM2rnHb9boMoSLIMiQ",
+        "url": "https://www.youtube.com/channel/UCal9WgM2rnHb9boMoSLIMiQ"
+       },
+       {
+        "id": "c/OtsuRoki",
+        "url": "https://www.youtube.com/c/OtsuRoki"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "mhlw.japan",
+        "url": "https://www.facebook.com/mhlw.japan"
+       },
+       {
+        "id": "Mhlw.Japan.en",
+        "url": "https://www.facebook.com/Mhlw.Japan.en"
+       },
+       {
+        "id": "mhlw.ikei",
+        "url": "https://www.facebook.com/mhlw.ikei"
+       },
+       {
+        "id": "gankenshin50",
+        "url": "https://www.facebook.com/gankenshin50"
+       },
+       {
+        "id": "shitte.kanen",
+        "url": "https://www.facebook.com/shitte.kanen"
+       },
+       {
+        "id": "stopthedrug",
+        "url": "https://www.facebook.com/stopthedrug"
+       },
+       {
+        "id": "kokoronomimi",
+        "url": "https://www.facebook.com/kokoronomimi"
+       },
+       {
+        "id": "POSISHARE",
+        "url": "https://www.facebook.com/POSISHARE"
+       },
+       {
+        "id": "check.roudou",
+        "url": "https://www.facebook.com/check.roudou"
+       },
+       {
+        "id": "zaitakuwork",
+        "url": "https://www.facebook.com/zaitakuwork"
+       },
+       {
+        "id": "carisapofb",
+        "url": "https://www.facebook.com/carisapofb"
+       },
+       {
+        "id": "kyoiku.kunren.mhlw",
+        "url": "https://www.facebook.com/kyoiku.kunren.mhlw"
+       },
+       {
+        "id": "chiryoutoshigoto",
+        "url": "https://www.facebook.com/chiryoutoshigoto"
+       },
+       {
+        "id": "localsyukatsu",
+        "url": "https://www.facebook.com/localsyukatsu"
+       },
+       {
+        "id": "shinstotsuyokohama",
+        "url": "https://www.facebook.com/shinstotsuyokohama"
+       },
+       {
+        "id": "shinsotsukawasaki",
+        "url": "https://www.facebook.com/shinsotsukawasaki"
+       },
+       {
+        "id": "kanagawaroudoukyokusaiyoutantou",
+        "url": "https://www.facebook.com/kanagawaroudoukyokusaiyoutantou"
+       },
+       {
+        "id": "mhlw.hokkaido",
+        "url": "https://www.facebook.com/mhlw.hokkaido"
+       },
+       {
+        "id": "Hattatsu.Navi.Portal.Site",
+        "url": "https://www.facebook.com/Hattatsu.Navi.Portal.Site"
+       },
+       {
+        "id": "21gifukantoku",
+        "url": "https://www.facebook.com/21gifukantoku"
+       },
+       {
+        "id": "shinjyuku.wakaharo",
+        "url": "https://www.facebook.com/shinjyuku.wakaharo"
+       },
+       {
+        "id": "nippori.wakaharo",
+        "url": "https://www.facebook.com/nippori.wakaharo"
+       },
+       {
+        "id": "mothersChiba",
+        "url": "https://www.facebook.com/mothersChiba"
+       },
+       {
+        "id": "yamaguchi.roudoukyoku",
+        "url": "https://www.facebook.com/yamaguchi.roudoukyoku"
+       },
+       {
+        "id": "aichi.roudoukyoku",
+        "url": "https://www.facebook.com/aichi.roudoukyoku"
+       },
+       {
+        "id": "ikujikaigo.support",
+        "url": "https://www.facebook.com/ikujikaigo.support"
+       },
+       {
+        "id": "e.laborlaw",
+        "url": "https://www.facebook.com/e.laborlaw"
+       },
+       {
+        "id": "people",
+        "url": "https://www.facebook.com/people"
+       },
+       {
+        "id": "hikikomori.voice.station",
+        "url": "https://www.facebook.com/hikikomori.voice.station"
+       },
+       {
+        "id": "rehab.gakuin",
+        "url": "https://www.facebook.com/rehab.gakuin"
+       },
+       {
+        "id": "cariso.mhlw",
+        "url": "https://www.facebook.com/cariso.mhlw"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "lin.ee/K4aJjUi",
+        "url": "https://lin.ee/K4aJjUi"
+       },
+       {
+        "id": "page.line.me/988ihovj",
+        "url": "https://page.line.me/988ihovj"
+       },
+       {
+        "id": "lin.ee/qRIcpi5",
+        "url": "https://lin.ee/qRIcpi5"
+       },
+       {
+        "id": "lin.ee/m7UtBHS",
+        "url": "https://lin.ee/m7UtBHS"
+       },
+       {
+        "id": "page.line.me/656rwqrr",
+        "url": "https://page.line.me/656rwqrr"
+       },
+       {
+        "id": "page.line.me/741gkwjb",
+        "url": "https://page.line.me/741gkwjb"
+       },
+       {
+        "id": "page.line.me/qfe6299v",
+        "url": "https://page.line.me/qfe6299v"
+       },
+       {
+        "id": "page.line.me/cwr7681m",
+        "url": "https://page.line.me/cwr7681m"
+       },
+       {
+        "id": "lin.ee/Mbnm9ZG",
+        "url": "https://lin.ee/Mbnm9ZG"
+       },
+       {
+        "id": "page.line.me/823wtjrp",
+        "url": "https://page.line.me/823wtjrp"
+       },
+       {
+        "id": "lin.ee/WZYOKsF",
+        "url": "https://lin.ee/WZYOKsF"
+       },
+       {
+        "id": "line.me/R/ti/p/%40949cbsoi",
+        "url": "https://line.me/R/ti/p/%40949cbsoi"
+       },
+       {
+        "id": "lin.ee/u5T05OU",
+        "url": "https://lin.ee/u5T05OU"
+       },
+       {
+        "id": "lin.ee/rfXFvga",
+        "url": "https://lin.ee/rfXFvga"
+       },
+       {
+        "id": "lin.ee/QaBgXsV",
+        "url": "https://lin.ee/QaBgXsV"
+       },
+       {
+        "id": "lin.ee/21lXEKW",
+        "url": "https://lin.ee/21lXEKW"
+       },
+       {
+        "id": "page.line.me/mql3493d",
+        "url": "https://page.line.me/mql3493d"
+       },
+       {
+        "id": "lin.ee/cdjp4A1",
+        "url": "https://lin.ee/cdjp4A1"
+       },
+       {
+        "id": "lin.ee/Gy1yQsp",
+        "url": "https://lin.ee/Gy1yQsp"
+       },
+       {
+        "id": "lin.ee/jGhM6u4",
+        "url": "https://lin.ee/jGhM6u4"
+       },
+       {
+        "id": "line.me/R/ti/p/%40515zmyfw",
+        "url": "https://line.me/R/ti/p/%40515zmyfw"
+       },
+       {
+        "id": "line.me/R/ti/p/%40847gumav",
+        "url": "https://line.me/R/ti/p/%40847gumav"
+       },
+       {
+        "id": "lin.ee/LjFIRc5",
+        "url": "https://lin.ee/LjFIRc5"
+       },
+       {
+        "id": "lin.ee/tark1KA",
+        "url": "https://lin.ee/tark1KA"
+       },
+       {
+        "id": "lin.ee/IL5SNWC",
+        "url": "https://lin.ee/IL5SNWC"
+       },
+       {
+        "id": "lin.ee/Zu6wAJG",
+        "url": "https://lin.ee/Zu6wAJG"
+       },
+       {
+        "id": "lin.ee/ooJDwxS",
+        "url": "https://lin.ee/ooJDwxS"
+       },
+       {
+        "id": "lin.ee/Q9ESJPw",
+        "url": "https://lin.ee/Q9ESJPw"
+       },
+       {
+        "id": "lin.ee/FxAt8Ed",
+        "url": "https://lin.ee/FxAt8Ed"
+       },
+       {
+        "id": "lin.ee/3k98CuZ",
+        "url": "https://lin.ee/3k98CuZ"
+       },
+       {
+        "id": "lin.ee/COYSEhP",
+        "url": "https://lin.ee/COYSEhP"
+       },
+       {
+        "id": "lin.ee/4fnCUC6",
+        "url": "https://lin.ee/4fnCUC6"
+       },
+       {
+        "id": "lin.ee/kaaXeB9",
+        "url": "https://lin.ee/kaaXeB9"
+       },
+       {
+        "id": "lin.ee/HODxBk1",
+        "url": "https://lin.ee/HODxBk1"
+       },
+       {
+        "id": "lin.ee/II9cTIf",
+        "url": "https://lin.ee/II9cTIf"
+       },
+       {
+        "id": "lin.ee/YDcr5X5m",
+        "url": "https://lin.ee/YDcr5X5m"
+       },
+       {
+        "id": "page.line.me/592khhzf",
+        "url": "https://page.line.me/592khhzf"
+       },
+       {
+        "id": "lin.ee/jE8m2kq",
+        "url": "https://lin.ee/jE8m2kq"
+       },
+       {
+        "id": "lin.ee/ygwMOS8",
+        "url": "https://lin.ee/ygwMOS8"
+       },
+       {
+        "id": "line.me/R/ti/p/%40448yczqn",
+        "url": "https://line.me/R/ti/p/%40448yczqn"
+       },
+       {
+        "id": "page.line.me/125hbyrr",
+        "url": "https://page.line.me/125hbyrr"
+       },
+       {
+        "id": "lin.ee/LNsxXwR",
+        "url": "https://lin.ee/LNsxXwR"
+       },
+       {
+        "id": "line.me/R/ti/p/%40693qiivb",
+        "url": "https://line.me/R/ti/p/%40693qiivb"
+       },
+       {
+        "id": "lin.ee/ZyQq6nN",
+        "url": "https://lin.ee/ZyQq6nN"
+       },
+       {
+        "id": "page.line.me/618wiigz",
+        "url": "https://page.line.me/618wiigz"
+       },
+       {
+        "id": "line.me/R/ti/p/%40136vhcie",
+        "url": "https://line.me/R/ti/p/%40136vhcie"
+       },
+       {
+        "id": "lin.ee/dKodUgK",
+        "url": "https://lin.ee/dKodUgK"
+       },
+       {
+        "id": "lin.ee/ISI9Zj4",
+        "url": "https://lin.ee/ISI9Zj4"
+       },
+       {
+        "id": "lin.ee/zulOV5C",
+        "url": "https://lin.ee/zulOV5C"
+       },
+       {
+        "id": "lin.ee/EvQWpBm",
+        "url": "https://lin.ee/EvQWpBm"
+       }
+      ],
+      "note": [
+       {
+        "id": "miyazakikokin_",
+        "url": "https://note.com/miyazakikokin_"
+       },
+       {
+        "id": "wakahw_hiro",
+        "url": "https://note.com/wakahw_hiro"
+       },
+       {
+        "id": "hakodatesiryoku",
+        "url": "https://note.com/hakodatesiryoku"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.mhlw.go.jp/",
+      "https://www.mhlw.go.jp/stf/SNSpage.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "maff",
+     "name": "農林水産省",
+     "url": "https://www.maff.go.jp/",
+     "page": "maff",
+     "counts": {
+      "X": 13,
+      "YouTube": 4,
+      "Instagram": 17,
+      "Facebook": 12,
+      "note": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "MAFF_JAPAN",
+        "url": "https://x.com/MAFF_JAPAN"
+       },
+       {
+        "id": "maff_recruit",
+        "url": "https://x.com/maff_recruit"
+       },
+       {
+        "id": "nipponfoodshift",
+        "url": "https://x.com/nipponfoodshift"
+       },
+       {
+        "id": "shokuikupf",
+        "url": "https://x.com/shokuikupf"
+       },
+       {
+        "id": "MAFF_GOHAN",
+        "url": "https://x.com/MAFF_GOHAN"
+       },
+       {
+        "id": "MAFF_EXPO2027",
+        "url": "https://x.com/MAFF_EXPO2027"
+       },
+       {
+        "id": "maff_arigatou",
+        "url": "https://x.com/maff_arigatou"
+       },
+       {
+        "id": "rinyajapan",
+        "url": "https://x.com/rinyajapan"
+       },
+       {
+        "id": "rinya_to",
+        "url": "https://x.com/rinya_to"
+       },
+       {
+        "id": "rinya_chubu",
+        "url": "https://x.com/rinya_chubu"
+       },
+       {
+        "id": "MAFF_Kinki",
+        "url": "https://x.com/MAFF_Kinki"
+       },
+       {
+        "id": "saiyou_kinki",
+        "url": "https://x.com/saiyou_kinki"
+       },
+       {
+        "id": "MAFF_CHUSHI",
+        "url": "https://x.com/MAFF_CHUSHI"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCDrlZ0fFFrVkhaV4rFKba9w",
+        "url": "https://www.youtube.com/channel/UCDrlZ0fFFrVkhaV4rFKba9w"
+       },
+       {
+        "id": "user/maffchannel",
+        "url": "https://www.youtube.com/user/maffchannel"
+       },
+       {
+        "id": "@nipponfoodshift",
+        "url": "https://www.youtube.com/@nipponfoodshift"
+       },
+       {
+        "id": "channel/UCk2ryX95GgVFSTcVCH2HS2g",
+        "url": "https://www.youtube.com/channel/UCk2ryX95GgVFSTcVCH2HS2g"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "maffjapan",
+        "url": "https://www.instagram.com/maffjapan"
+       },
+       {
+        "id": "nipponfoodshift",
+        "url": "https://www.instagram.com/nipponfoodshift"
+       },
+       {
+        "id": "scafff_2030",
+        "url": "https://www.instagram.com/scafff_2030"
+       },
+       {
+        "id": "cheer_up_japanese_food",
+        "url": "https://www.instagram.com/cheer_up_japanese_food"
+       },
+       {
+        "id": "gohan_maff",
+        "url": "https://www.instagram.com/gohan_maff"
+       },
+       {
+        "id": "maff_expo2027",
+        "url": "https://www.instagram.com/maff_expo2027"
+       },
+       {
+        "id": "maff_arigatou",
+        "url": "https://www.instagram.com/maff_arigatou"
+       },
+       {
+        "id": "nougyoujoshipj",
+        "url": "https://www.instagram.com/nougyoujoshipj"
+       },
+       {
+        "id": "woodchange_",
+        "url": "https://www.instagram.com/woodchange_"
+       },
+       {
+        "id": "suisan_jp",
+        "url": "https://www.instagram.com/suisan_jp"
+       },
+       {
+        "id": "pikyun_ppsjapan",
+        "url": "https://www.instagram.com/pikyun_ppsjapan"
+       },
+       {
+        "id": "kunkun_aqsjapan",
+        "url": "https://www.instagram.com/kunkun_aqsjapan"
+       },
+       {
+        "id": "hokkaido_national_forest",
+        "url": "https://www.instagram.com/hokkaido_national_forest"
+       },
+       {
+        "id": "hokuriku_midori",
+        "url": "https://www.instagram.com/hokuriku_midori"
+       },
+       {
+        "id": "syokunowa_kansai",
+        "url": "https://www.instagram.com/syokunowa_kansai"
+       },
+       {
+        "id": "maff_saiyoukinki",
+        "url": "https://www.instagram.com/maff_saiyoukinki"
+       },
+       {
+        "id": "midoriinfo_kinki",
+        "url": "https://www.instagram.com/midoriinfo_kinki"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "maffjapan",
+        "url": "https://www.facebook.com/maffjapan"
+       },
+       {
+        "id": "maffjapan.en",
+        "url": "https://www.facebook.com/maffjapan.en"
+       },
+       {
+        "id": "maff.shokusan",
+        "url": "https://www.facebook.com/maff.shokusan"
+       },
+       {
+        "id": "maffgohan",
+        "url": "https://www.facebook.com/maffgohan"
+       },
+       {
+        "id": "maff.arigatou",
+        "url": "https://www.facebook.com/maff.arigatou"
+       },
+       {
+        "id": "nogyokeiei",
+        "url": "https://www.facebook.com/nogyokeiei"
+       },
+       {
+        "id": "nougyoujoshi.project",
+        "url": "https://www.facebook.com/nougyoujoshi.project"
+       },
+       {
+        "id": "nouson.maff",
+        "url": "https://www.facebook.com/nouson.maff"
+       },
+       {
+        "id": "rinyajapan",
+        "url": "https://www.facebook.com/rinyajapan"
+       },
+       {
+        "id": "suisanjapan.jfa",
+        "url": "https://www.facebook.com/suisanjapan.jfa"
+       },
+       {
+        "id": "suisanjoshi.project",
+        "url": "https://www.facebook.com/suisanjoshi.project"
+       },
+       {
+        "id": "rinyahokkaido",
+        "url": "https://www.facebook.com/rinyahokkaido"
+       }
+      ],
+      "note": [
+       {
+        "id": "maff_expo2027",
+        "url": "https://note.com/maff_expo2027"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.maff.go.jp/",
+      "https://www.maff.go.jp/j/pr/social_media/index.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "meti",
+     "name": "経済産業省",
+     "url": "https://www.meti.go.jp/",
+     "page": "meti",
+     "counts": {
+      "X": 55,
+      "YouTube": 1,
+      "Instagram": 25,
+      "Facebook": 30,
+      "LINE": 2,
+      "note": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "meti_NIPPON",
+        "url": "https://x.com/meti_NIPPON"
+       },
+       {
+        "id": "METI_JPN",
+        "url": "https://x.com/METI_JPN"
+       },
+       {
+        "id": "keizaikaiseki",
+        "url": "https://x.com/keizaikaiseki"
+       },
+       {
+        "id": "openmeti",
+        "url": "https://x.com/openmeti"
+       },
+       {
+        "id": "kochijiko",
+        "url": "https://x.com/kochijiko"
+       },
+       {
+        "id": "shienteam",
+        "url": "https://x.com/shienteam"
+       },
+       {
+        "id": "meti_fksm_art",
+        "url": "https://x.com/meti_fksm_art"
+       },
+       {
+        "id": "hcm_consortium",
+        "url": "https://x.com/hcm_consortium"
+       },
+       {
+        "id": "psawardmeti",
+        "url": "https://x.com/psawardmeti"
+       },
+       {
+        "id": "metiip360",
+        "url": "https://x.com/metiip360"
+       },
+       {
+        "id": "HubHealthcare",
+        "url": "https://x.com/HubHealthcare"
+       },
+       {
+        "id": "cop_meti",
+        "url": "https://x.com/cop_meti"
+       },
+       {
+        "id": "ASEANJBC",
+        "url": "https://x.com/ASEANJBC"
+       },
+       {
+        "id": "ASEANJBC_EN",
+        "url": "https://x.com/ASEANJBC_EN"
+       },
+       {
+        "id": "japanpavilion_j",
+        "url": "https://x.com/japanpavilion_j"
+       },
+       {
+        "id": "japanpavilion_e",
+        "url": "https://x.com/japanpavilion_e"
+       },
+       {
+        "id": "meti_saiene",
+        "url": "https://x.com/meti_saiene"
+       },
+       {
+        "id": "meti_chusho",
+        "url": "https://x.com/meti_chusho"
+       },
+       {
+        "id": "atotsugi_Ko",
+        "url": "https://x.com/atotsugi_Ko"
+       },
+       {
+        "id": "jpo_NIPPON",
+        "url": "https://x.com/jpo_NIPPON"
+       },
+       {
+        "id": "JPO_JPN",
+        "url": "https://x.com/JPO_JPN"
+       },
+       {
+        "id": "globalipdb_jpo",
+        "url": "https://x.com/globalipdb_jpo"
+       },
+       {
+        "id": "jpo_senmonkan",
+        "url": "https://x.com/jpo_senmonkan"
+       },
+       {
+        "id": "jpo_recruit",
+        "url": "https://x.com/jpo_recruit"
+       },
+       {
+        "id": "IP_BASE",
+        "url": "https://x.com/IP_BASE"
+       },
+       {
+        "id": "IP_BASE_koubo",
+        "url": "https://x.com/IP_BASE_koubo"
+       },
+       {
+        "id": "mystorymark",
+        "url": "https://x.com/mystorymark"
+       },
+       {
+        "id": "meti_hokkaido",
+        "url": "https://x.com/meti_hokkaido"
+       },
+       {
+        "id": "hoan_hokkaido",
+        "url": "https://x.com/hoan_hokkaido"
+       },
+       {
+        "id": "hoan_tohoku",
+        "url": "https://x.com/hoan_tohoku"
+       },
+       {
+        "id": "meti_Kanto",
+        "url": "https://x.com/meti_Kanto"
+       },
+       {
+        "id": "hoan_kanto",
+        "url": "https://x.com/hoan_kanto"
+       },
+       {
+        "id": "METI_chb",
+        "url": "https://x.com/METI_chb"
+       },
+       {
+        "id": "hoan_chubu",
+        "url": "https://x.com/hoan_chubu"
+       },
+       {
+        "id": "meti_Kansai",
+        "url": "https://x.com/meti_Kansai"
+       },
+       {
+        "id": "kinkan_tweet",
+        "url": "https://x.com/kinkan_tweet"
+       },
+       {
+        "id": "meti_chugoku",
+        "url": "https://x.com/meti_chugoku"
+       },
+       {
+        "id": "hoanchugoku",
+        "url": "https://x.com/hoanchugoku"
+       },
+       {
+        "id": "hoan_shikoku",
+        "url": "https://x.com/hoan_shikoku"
+       },
+       {
+        "id": "meti_kyushu",
+        "url": "https://x.com/meti_kyushu"
+       },
+       {
+        "id": "jstartup_kyushu",
+        "url": "https://x.com/jstartup_kyushu"
+       },
+       {
+        "id": "hoan_kyushu",
+        "url": "https://x.com/hoan_kyushu"
+       },
+       {
+        "id": "hoan_naha",
+        "url": "https://x.com/hoan_naha"
+       },
+       {
+        "id": "okisokyoku",
+        "url": "https://x.com/okisokyoku"
+       },
+       {
+        "id": "gipdb_inpit",
+        "url": "https://x.com/gipdb_inpit"
+       },
+       {
+        "id": "AIST_JP",
+        "url": "https://x.com/AIST_JP"
+       },
+       {
+        "id": "JETRO_info",
+        "url": "https://x.com/JETRO_info"
+       },
+       {
+        "id": "ide_jetro",
+        "url": "https://x.com/ide_jetro"
+       },
+       {
+        "id": "smrjpr",
+        "url": "https://x.com/smrjpr"
+       },
+       {
+        "id": "NITE_JP",
+        "url": "https://x.com/NITE_JP"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/metichannel",
+        "url": "https://www.youtube.com/user/metichannel"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "meti_japan",
+        "url": "https://www.instagram.com/meti_japan"
+       },
+       {
+        "id": "meti_recruit",
+        "url": "https://www.instagram.com/meti_recruit"
+       },
+       {
+        "id": "fukushimameti_japan",
+        "url": "https://www.instagram.com/fukushimameti_japan"
+       },
+       {
+        "id": "japan_beauty_week",
+        "url": "https://www.instagram.com/japan_beauty_week"
+       },
+       {
+        "id": "ps_award_seihinanzen",
+        "url": "https://www.instagram.com/ps_award_seihinanzen"
+       },
+       {
+        "id": "expo2025_japanpavilion",
+        "url": "https://www.instagram.com/expo2025_japanpavilion"
+       },
+       {
+        "id": "giraffes_japan_hokkaido",
+        "url": "https://www.instagram.com/giraffes_japan_hokkaido"
+       },
+       {
+        "id": "giraffes_japan_tohoku",
+        "url": "https://www.instagram.com/giraffes_japan_tohoku"
+       },
+       {
+        "id": "giraffesjapan_kanto",
+        "url": "https://www.instagram.com/giraffesjapan_kanto"
+       },
+       {
+        "id": "giraffes_japan_shikoku",
+        "url": "https://www.instagram.com/giraffes_japan_shikoku"
+       },
+       {
+        "id": "giraffes_japan_kinki",
+        "url": "https://www.instagram.com/giraffes_japan_kinki"
+       },
+       {
+        "id": "giraffesjapan_chubu",
+        "url": "https://www.instagram.com/giraffesjapan_chubu"
+       },
+       {
+        "id": "giraffes_japan_chugoku",
+        "url": "https://www.instagram.com/giraffes_japan_chugoku"
+       },
+       {
+        "id": "giraffes_japan_kyushu",
+        "url": "https://www.instagram.com/giraffes_japan_kyushu"
+       },
+       {
+        "id": "cop_meti",
+        "url": "https://www.instagram.com/cop_meti"
+       },
+       {
+        "id": "enecho_saiene",
+        "url": "https://www.instagram.com/enecho_saiene"
+       },
+       {
+        "id": "atotsugikoshien",
+        "url": "https://www.instagram.com/atotsugikoshien"
+       },
+       {
+        "id": "chiikidantaishohyo_official",
+        "url": "https://www.instagram.com/chiikidantaishohyo_official"
+       },
+       {
+        "id": "kyushu_brand_competition",
+        "url": "https://www.instagram.com/kyushu_brand_competition"
+       },
+       {
+        "id": "meti_tohoku",
+        "url": "https://www.instagram.com/meti_tohoku"
+       },
+       {
+        "id": "meti_chubu_recruit",
+        "url": "https://www.instagram.com/meti_chubu_recruit"
+       },
+       {
+        "id": "shitetsu_sai",
+        "url": "https://www.instagram.com/shitetsu_sai"
+       },
+       {
+        "id": "u30_kansai",
+        "url": "https://www.instagram.com/u30_kansai"
+       },
+       {
+        "id": "kansai_unique_experiences",
+        "url": "https://www.instagram.com/kansai_unique_experiences"
+       },
+       {
+        "id": "kinki_12brand",
+        "url": "https://www.instagram.com/kinki_12brand"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "meti4students",
+        "url": "https://www.facebook.com/meti4students"
+       },
+       {
+        "id": "keizaikaiseki",
+        "url": "https://www.facebook.com/keizaikaiseki"
+       },
+       {
+        "id": "JStartup.goj",
+        "url": "https://www.facebook.com/JStartup.goj"
+       },
+       {
+        "id": "diversity.meti",
+        "url": "https://www.facebook.com/diversity.meti"
+       },
+       {
+        "id": "meti.cooljapan",
+        "url": "https://www.facebook.com/meti.cooljapan"
+       },
+       {
+        "id": "nichiyo.densan.meti",
+        "url": "https://www.facebook.com/nichiyo.densan.meti"
+       },
+       {
+        "id": "product.safety.meti",
+        "url": "https://www.facebook.com/product.safety.meti"
+       },
+       {
+        "id": "HRpolicy.METI",
+        "url": "https://www.facebook.com/HRpolicy.METI"
+       },
+       {
+        "id": "fukushimameti.japan",
+        "url": "https://www.facebook.com/fukushimameti.japan"
+       },
+       {
+        "id": "fashion.consortium.japan",
+        "url": "https://www.facebook.com/fashion.consortium.japan"
+       },
+       {
+        "id": "Healthcare-Innovation-Hub",
+        "url": "https://www.facebook.com/Healthcare-Innovation-Hub"
+       },
+       {
+        "id": "METI.learninginnovation",
+        "url": "https://www.facebook.com/METI.learninginnovation"
+       },
+       {
+        "id": "giraffes.japan.kyushu",
+        "url": "https://www.facebook.com/giraffes.japan.kyushu"
+       },
+       {
+        "id": "meti.saiene",
+        "url": "https://www.facebook.com/meti.saiene"
+       },
+       {
+        "id": "TaM-TaM-1714216538840807",
+        "url": "https://www.facebook.com/TaM-TaM-1714216538840807"
+       },
+       {
+        "id": "IPBASE",
+        "url": "https://www.facebook.com/IPBASE"
+       },
+       {
+        "id": "The-Japan-Patent-Office-Cooperation-in-Human-Resource-Development-139419119425571",
+        "url": "https://www.facebook.com/The-Japan-Patent-Office-Cooperation-in-Human-Resource-Development-139419119425571"
+       },
+       {
+        "id": "watashinostorymark",
+        "url": "https://www.facebook.com/watashinostorymark"
+       },
+       {
+        "id": "people",
+        "url": "https://www.facebook.com/people"
+       },
+       {
+        "id": "jstartup.tohoku",
+        "url": "https://www.facebook.com/jstartup.tohoku"
+       },
+       {
+        "id": "public.debate.tohoku",
+        "url": "https://www.facebook.com/public.debate.tohoku"
+       },
+       {
+        "id": "KansaiVentureSupporters",
+        "url": "https://www.facebook.com/KansaiVentureSupporters"
+       },
+       {
+        "id": "kansai.shotengai",
+        "url": "https://www.facebook.com/kansai.shotengai"
+       },
+       {
+        "id": "meti.chugoku",
+        "url": "https://www.facebook.com/meti.chugoku"
+       },
+       {
+        "id": "kyukeikouryuplaza",
+        "url": "https://www.facebook.com/kyukeikouryuplaza"
+       },
+       {
+        "id": "jstartup.kyushu",
+        "url": "https://www.facebook.com/jstartup.kyushu"
+       },
+       {
+        "id": "okisou.naikakufu",
+        "url": "https://www.facebook.com/okisou.naikakufu"
+       },
+       {
+        "id": "Japan.RIETI",
+        "url": "https://www.facebook.com/Japan.RIETI"
+       },
+       {
+        "id": "smrjpr",
+        "url": "https://www.facebook.com/smrjpr"
+       },
+       {
+        "id": "sourikantei",
+        "url": "https://www.facebook.com/sourikantei"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "lin.ee/rUXWElq",
+        "url": "https://lin.ee/rUXWElq"
+       },
+       {
+        "id": "page.line.me/510gbohp",
+        "url": "https://page.line.me/510gbohp"
+       }
+      ],
+      "note": [
+       {
+        "id": "kyushu_catalyst",
+        "url": "https://note.com/kyushu_catalyst"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.meti.go.jp/",
+      "https://www.meti.go.jp/sns/index.html",
+      "https://www.meti.go.jp/sns/sns_twitter.html",
+      "https://www.meti.go.jp/sns/sns_facebook.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mlit",
+     "name": "国土交通省",
+     "url": "https://www.mlit.go.jp/",
+     "page": "mlit",
+     "counts": {
+      "X": 1,
+      "YouTube": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "MLIT_JAPAN",
+        "url": "https://x.com/MLIT_JAPAN"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/mlitchannel",
+        "url": "https://www.youtube.com/user/mlitchannel"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.mlit.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "env",
+     "name": "環境省",
+     "url": "https://www.env.go.jp/",
+     "page": "env",
+     "counts": {
+      "X": 11,
+      "YouTube": 17,
+      "Instagram": 24,
+      "Facebook": 19,
+      "LINE": 1,
+      "note": 2
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "Kankyo_Jpn",
+        "url": "https://x.com/Kankyo_Jpn"
+       },
+       {
+        "id": "moe_recruit",
+        "url": "https://x.com/moe_recruit"
+       },
+       {
+        "id": "KankyoDecokatsu",
+        "url": "https://x.com/KankyoDecokatsu"
+       },
+       {
+        "id": "kankyoshosado01",
+        "url": "https://x.com/kankyoshosado01"
+       },
+       {
+        "id": "aso_kuju_np",
+        "url": "https://x.com/aso_kuju_np"
+       },
+       {
+        "id": "dojyosaisei",
+        "url": "https://x.com/dojyosaisei"
+       },
+       {
+        "id": "KankyoRyoko_",
+        "url": "https://x.com/KankyoRyoko_"
+       },
+       {
+        "id": "fuku_messengers",
+        "url": "https://x.com/fuku_messengers"
+       },
+       {
+        "id": "EcoChildJECSMOE",
+        "url": "https://x.com/EcoChildJECSMOE"
+       },
+       {
+        "id": "moe_chubu",
+        "url": "https://x.com/moe_chubu"
+       },
+       {
+        "id": "moe_kinki",
+        "url": "https://x.com/moe_kinki"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/kankyosho",
+        "url": "https://www.youtube.com/user/kankyosho"
+       },
+       {
+        "id": "channel/UCm9zpe4IR9BPRZbLU-fLvnQ",
+        "url": "https://www.youtube.com/channel/UCm9zpe4IR9BPRZbLU-fLvnQ"
+       },
+       {
+        "id": "channel/UCrCs-6wE4-F2K8fg6gslSIg",
+        "url": "https://www.youtube.com/channel/UCrCs-6wE4-F2K8fg6gslSIg"
+       },
+       {
+        "id": "@KankyoDecokatsu",
+        "url": "https://www.youtube.com/@KankyoDecokatsu"
+       },
+       {
+        "id": "channel/UCAn2Dw322r5e7f2vbPTe24Q",
+        "url": "https://www.youtube.com/channel/UCAn2Dw322r5e7f2vbPTe24Q"
+       },
+       {
+        "id": "@nationalparksofjapan",
+        "url": "https://www.youtube.com/@nationalparksofjapan"
+       },
+       {
+        "id": "channel/UCom_ZeDgyaSBAWyhsEa-vDw",
+        "url": "https://www.youtube.com/channel/UCom_ZeDgyaSBAWyhsEa-vDw"
+       },
+       {
+        "id": "channel/UCo0zUsfkJ8Lb9nDEqU8I6zQ",
+        "url": "https://www.youtube.com/channel/UCo0zUsfkJ8Lb9nDEqU8I6zQ"
+       },
+       {
+        "id": "@shiretoko-whc",
+        "url": "https://www.youtube.com/@shiretoko-whc"
+       },
+       {
+        "id": "channel/UC0XmhcBPDpyXPrx39roODow",
+        "url": "https://www.youtube.com/channel/UC0XmhcBPDpyXPrx39roODow"
+       },
+       {
+        "id": "@kankyoshosado01",
+        "url": "https://www.youtube.com/@kankyoshosado01"
+       },
+       {
+        "id": "@%E7%92%B0%E5%A2%83%E7%9C%81%E7%A6%8F%E5%B3%B6%E3%81%9D%E3%81%AE%E5%85%88%E3%81%AE%E7%92%B0%E5%A2%83%E3%81%B8",
+        "url": "https://www.youtube.com/@%E7%92%B0%E5%A2%83%E7%9C%81%E7%A6%8F%E5%B3%B6%E3%81%9D%E3%81%AE%E5%85%88%E3%81%AE%E7%92%B0%E5%A2%83%E3%81%B8"
+       },
+       {
+        "id": "channel/UCdzxYnhoDGWd4oWlsdpOaFA",
+        "url": "https://www.youtube.com/channel/UCdzxYnhoDGWd4oWlsdpOaFA"
+       },
+       {
+        "id": "@guguru_project",
+        "url": "https://www.youtube.com/@guguru_project"
+       },
+       {
+        "id": "@chubusangakunationalpark7343",
+        "url": "https://www.youtube.com/@chubusangakunationalpark7343"
+       },
+       {
+        "id": "channel/UCOHcOjDvZ52rxRa016i_SxA",
+        "url": "https://www.youtube.com/channel/UCOHcOjDvZ52rxRa016i_SxA"
+       },
+       {
+        "id": "channel/UCF7DCtq4vHjw-xdHR07BRaQ",
+        "url": "https://www.youtube.com/channel/UCF7DCtq4vHjw-xdHR07BRaQ"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "moe_recruit",
+        "url": "https://www.instagram.com/moe_recruit"
+       },
+       {
+        "id": "local_sdgs_platform.env",
+        "url": "https://www.instagram.com/local_sdgs_platform.env"
+       },
+       {
+        "id": "coolchoice100",
+        "url": "https://www.instagram.com/coolchoice100"
+       },
+       {
+        "id": "nationalpark_japan",
+        "url": "https://www.instagram.com/nationalpark_japan"
+       },
+       {
+        "id": "nationalpark_japan_jp",
+        "url": "https://www.instagram.com/nationalpark_japan_jp"
+       },
+       {
+        "id": "hagukun0328",
+        "url": "https://www.instagram.com/hagukun0328"
+       },
+       {
+        "id": "dojyosaisei",
+        "url": "https://www.instagram.com/dojyosaisei"
+       },
+       {
+        "id": "kankyoryoko",
+        "url": "https://www.instagram.com/kankyoryoko"
+       },
+       {
+        "id": "fukushima_messengers",
+        "url": "https://www.instagram.com/fukushima_messengers"
+       },
+       {
+        "id": "nagadoro_hiroba",
+        "url": "https://www.instagram.com/nagadoro_hiroba"
+       },
+       {
+        "id": "reprunfukushima",
+        "url": "https://www.instagram.com/reprunfukushima"
+       },
+       {
+        "id": "daisen_okinationalpark",
+        "url": "https://www.instagram.com/daisen_okinationalpark"
+       },
+       {
+        "id": "ashizuri_uwakai_np",
+        "url": "https://www.instagram.com/ashizuri_uwakai_np"
+       },
+       {
+        "id": "shikotsutoya_nationalpark",
+        "url": "https://www.instagram.com/shikotsutoya_nationalpark"
+       },
+       {
+        "id": "ogasawara_whc",
+        "url": "https://www.instagram.com/ogasawara_whc"
+       },
+       {
+        "id": "aso_kuju_nationalpark",
+        "url": "https://www.instagram.com/aso_kuju_nationalpark"
+       },
+       {
+        "id": "oze_nationalpark",
+        "url": "https://www.instagram.com/oze_nationalpark"
+       },
+       {
+        "id": "twcc2021",
+        "url": "https://www.instagram.com/twcc2021"
+       },
+       {
+        "id": "minamialps_nationalpark",
+        "url": "https://www.instagram.com/minamialps_nationalpark"
+       },
+       {
+        "id": "bandai_asahi_nationalpark",
+        "url": "https://www.instagram.com/bandai_asahi_nationalpark"
+       },
+       {
+        "id": "joshinetsukogen_nationalpark",
+        "url": "https://www.instagram.com/joshinetsukogen_nationalpark"
+       },
+       {
+        "id": "chubusangaku",
+        "url": "https://www.instagram.com/chubusangaku"
+       },
+       {
+        "id": "sawandopark",
+        "url": "https://www.instagram.com/sawandopark"
+       },
+       {
+        "id": "moe_chubu",
+        "url": "https://www.instagram.com/moe_chubu"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "KankyoJpn.gov",
+        "url": "https://www.facebook.com/KankyoJpn.gov"
+       },
+       {
+        "id": "moecareer",
+        "url": "https://www.facebook.com/moecareer"
+       },
+       {
+        "id": "goodlifeaward",
+        "url": "https://www.facebook.com/goodlifeaward"
+       },
+       {
+        "id": "LocalSDGsplatform.env",
+        "url": "https://www.facebook.com/LocalSDGsplatform.env"
+       },
+       {
+        "id": "KankyoDecokatsu",
+        "url": "https://www.facebook.com/KankyoDecokatsu"
+       },
+       {
+        "id": "NationalParksOfJapan",
+        "url": "https://www.facebook.com/NationalParksOfJapan"
+       },
+       {
+        "id": "JP.NationalParksOfJapan",
+        "url": "https://www.facebook.com/JP.NationalParksOfJapan"
+       },
+       {
+        "id": "hagukun0328",
+        "url": "https://www.facebook.com/hagukun0328"
+       },
+       {
+        "id": "KankyoDatsutanso",
+        "url": "https://www.facebook.com/KankyoDatsutanso"
+       },
+       {
+        "id": "KankyoQOL",
+        "url": "https://www.facebook.com/KankyoQOL"
+       },
+       {
+        "id": "EcoChildJECSMOE",
+        "url": "https://www.facebook.com/EcoChildJECSMOE"
+       },
+       {
+        "id": "ShikotsuToya",
+        "url": "https://www.facebook.com/ShikotsuToya"
+       },
+       {
+        "id": "chubusangaku",
+        "url": "https://www.facebook.com/chubusangaku"
+       },
+       {
+        "id": "iseshimanp.longtrail",
+        "url": "https://www.facebook.com/iseshimanp.longtrail"
+       },
+       {
+        "id": "Daisen.Oki0201",
+        "url": "https://www.facebook.com/Daisen.Oki0201"
+       },
+       {
+        "id": "ashizuriuwakai.np",
+        "url": "https://www.facebook.com/ashizuriuwakai.np"
+       },
+       {
+        "id": "kankyoshosado01",
+        "url": "https://www.facebook.com/kankyoshosado01"
+       },
+       {
+        "id": "Aso-Kuju-National-Park-100359582787030",
+        "url": "https://www.facebook.com/Aso-Kuju-National-Park-100359582787030"
+       },
+       {
+        "id": "tsushimatwcc",
+        "url": "https://www.facebook.com/tsushimatwcc"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/869ixlbo",
+        "url": "https://page.line.me/869ixlbo"
+       }
+      ],
+      "note": [
+       {
+        "id": "kankyo_ryoko",
+        "url": "https://note.com/kankyo_ryoko"
+       },
+       {
+        "id": "goto_story",
+        "url": "https://note.com/goto_story"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.env.go.jp/",
+      "https://www.env.go.jp/guide/sns/index.html",
+      "https://www.env.go.jp/info/sns/facebook.html",
+      "https://www.env.go.jp/info/sns/twitter.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mod",
+     "name": "防衛省",
+     "url": "https://www.mod.go.jp/",
+     "page": "mod",
+     "counts": {
+      "X": 4,
+      "YouTube": 1,
+      "Instagram": 1,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "ModJapan_jp",
+        "url": "https://x.com/ModJapan_jp"
+       },
+       {
+        "id": "ModJapan_en",
+        "url": "https://x.com/ModJapan_en"
+       },
+       {
+        "id": "ModJapan_saigai",
+        "url": "https://x.com/ModJapan_saigai"
+       },
+       {
+        "id": "PressSec_JMOD",
+        "url": "https://x.com/PressSec_JMOD"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/modchannel",
+        "url": "https://www.youtube.com/user/modchannel"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "modjapan",
+        "url": "https://www.instagram.com/modjapan"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "mod.japn",
+        "url": "https://www.facebook.com/mod.japn"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.mod.go.jp/",
+      "https://www.mod.go.jp/j/info/sns.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "jftc",
+     "name": "公正取引委員会",
+     "url": "https://www.jftc.go.jp/",
+     "page": "jftc",
+     "counts": {},
+     "sns": {},
+     "sources": [
+      "https://www.jftc.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "npa",
+     "name": "警察庁",
+     "url": "https://www.npa.go.jp/",
+     "page": "npsc-npa",
+     "counts": {
+      "X": 1,
+      "LINE": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "gyuttochan_npa",
+        "url": "https://x.com/gyuttochan_npa"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "lin.ee/be7E2U9",
+        "url": "https://lin.ee/be7E2U9"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.npa.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "ppc",
+     "name": "個人情報保護委員会",
+     "url": "https://www.ppc.go.jp/",
+     "page": "ppc",
+     "counts": {
+      "X": 1,
+      "YouTube": 1,
+      "Instagram": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "PPC_JPN",
+        "url": "https://x.com/PPC_JPN"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@PPC.JPNchannel",
+        "url": "https://www.youtube.com/@PPC.JPNchannel"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "ppc.jpn",
+        "url": "https://www.instagram.com/ppc.jpn"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.ppc.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "jcrc",
+     "name": "カジノ管理委員会",
+     "url": "https://www.jcrc.go.jp/",
+     "page": "jcrc",
+     "counts": {},
+     "sns": {},
+     "sources": [
+      "https://www.jcrc.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "fsa",
+     "name": "金融庁",
+     "url": "https://www.fsa.go.jp/",
+     "page": "fsa",
+     "counts": {
+      "X": 1,
+      "YouTube": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "fsa_JAPAN",
+        "url": "https://x.com/fsa_JAPAN"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCpIgZIDc-ptkZZTvzqlwGQg",
+        "url": "https://www.youtube.com/channel/UCpIgZIDc-ptkZZTvzqlwGQg"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.fsa.go.jp/",
+      "https://www.fsa.go.jp/receipt/toushisagi_koukoku/shuhou.html"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "caa",
+     "name": "消費者庁",
+     "url": "https://www.caa.go.jp/",
+     "page": "caa",
+     "counts": {
+      "X": 4,
+      "YouTube": 1,
+      "Instagram": 1,
+      "Facebook": 1,
+      "LINE": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "caa_shohishacho",
+        "url": "https://x.com/caa_shohishacho"
+       },
+       {
+        "id": "caa_kodomo",
+        "url": "https://x.com/caa_kodomo"
+       },
+       {
+        "id": "caa_nofoodloss",
+        "url": "https://x.com/caa_nofoodloss"
+       },
+       {
+        "id": "caa_18sai_otona",
+        "url": "https://x.com/caa_18sai_otona"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCxYpWT3DELDs8_uks1hKuUw",
+        "url": "https://www.youtube.com/channel/UCxYpWT3DELDs8_uks1hKuUw"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "caa_ethical",
+        "url": "https://www.instagram.com/caa_ethical"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "caa.shohishacho",
+        "url": "https://www.facebook.com/caa.shohishacho"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "lin.ee/Vly3NYf",
+        "url": "https://lin.ee/Vly3NYf"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.caa.go.jp/",
+      "https://www.caa.go.jp/socialmedia_guideline/",
+      "https://www.caa.go.jp/socialmedia_guideline/twitter/",
+      "https://www.caa.go.jp/socialmedia_guideline/facebook/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "cfa",
+     "name": "こども家庭庁",
+     "url": "https://www.cfa.go.jp/",
+     "page": "cfa",
+     "counts": {},
+     "sns": {},
+     "sources": [
+      "https://www.cfa.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    }
+   ]
+  },
+  {
+   "id": "diet",
+   "name": "国会",
+   "items": [
+    {
+     "id": "shugiin",
+     "name": "衆議院",
+     "url": "https://www.shugiin.go.jp/internet/index.nsf/html/index.htm",
+     "counts": {
+      "X": 1,
+      "YouTube": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "shugiinjimu",
+        "url": "https://x.com/shugiinjimu"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCppg061zUuuEbmyJPGuc_BA",
+        "url": "https://www.youtube.com/channel/UCppg061zUuuEbmyJPGuc_BA"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.shugiin.go.jp/internet/index.nsf/html/index.htm"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "sangiin",
+     "name": "参議院",
+     "url": "https://www.sangiin.go.jp/",
+     "counts": {
+      "X": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "sangiinwebtv",
+        "url": "https://x.com/sangiinwebtv"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.sangiin.go.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "ndl",
+     "name": "国立国会図書館",
+     "url": "https://www.ndl.go.jp/",
+     "counts": {
+      "X": 6,
+      "YouTube": 3,
+      "Instagram": 2,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "NDLJP",
+        "url": "https://x.com/NDLJP"
+       },
+       {
+        "id": "NDLJP_en",
+        "url": "https://x.com/NDLJP_en"
+       },
+       {
+        "id": "ca_tweet",
+        "url": "https://x.com/ca_tweet"
+       },
+       {
+        "id": "crd_tweet",
+        "url": "https://x.com/crd_tweet"
+       },
+       {
+        "id": "unicanet",
+        "url": "https://x.com/unicanet"
+       },
+       {
+        "id": "NDLKODOMO",
+        "url": "https://x.com/NDLKODOMO"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@nationaldietlibraryjapan4964",
+        "url": "https://www.youtube.com/@nationaldietlibraryjapan4964"
+       },
+       {
+        "id": "channel/UCHpDnv60i1LxOszXgBSE7DA",
+        "url": "https://www.youtube.com/channel/UCHpDnv60i1LxOszXgBSE7DA"
+       },
+       {
+        "id": "@nationaldietlibraryjapan4964>\\n\\nご注意\\n:",
+        "url": "https://www.youtube.com/@nationaldietlibraryjapan4964>\\n\\nご注意\\n:"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "ndlimagebank",
+        "url": "https://www.instagram.com/ndlimagebank"
+       },
+       {
+        "id": "ndlkodomo",
+        "url": "https://www.instagram.com/ndlkodomo"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "NDLexhibition",
+        "url": "https://www.facebook.com/NDLexhibition"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.ndl.go.jp/",
+      "https://www.ndl.go.jp/service/rssemag"
+     ],
+     "checked": "2026-11-04"
+    }
+   ]
+  },
+  {
+   "id": "party",
+   "name": "政党",
+   "items": [
+    {
+     "id": "ldp",
+     "name": "自由民主党",
+     "url": "https://www.jimin.jp/",
+     "party": "ldp",
+     "counts": {
+      "X": 5,
+      "YouTube": 1,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 3
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "jimin_koho",
+        "url": "https://x.com/jimin_koho"
+       },
+       {
+        "id": "jimin_daigakuin",
+        "url": "https://x.com/jimin_daigakuin"
+       },
+       {
+        "id": "joseikyoku",
+        "url": "https://x.com/joseikyoku"
+       },
+       {
+        "id": "seinenkyoku",
+        "url": "https://x.com/seinenkyoku"
+       },
+       {
+        "id": "jimin_kaikaku",
+        "url": "https://x.com/jimin_kaikaku"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/LDPchannel",
+        "url": "https://www.youtube.com/user/LDPchannel"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "jimin.jp",
+        "url": "https://www.instagram.com/jimin.jp"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@jimin_koho",
+        "url": "https://www.tiktok.com/@jimin_koho"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "jimin.official",
+        "url": "https://www.facebook.com/jimin.official"
+       },
+       {
+        "id": "yuzei.ldp.pj",
+        "url": "https://www.facebook.com/yuzei.ldp.pj"
+       },
+       {
+        "id": "seinenkyoku",
+        "url": "https://www.facebook.com/seinenkyoku"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.jimin.jp/",
+      "https://www.jimin.jp/involved/sns/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "chudo",
+     "name": "中道改革連合",
+     "url": "https://craj.jp/",
+     "party": "chudo",
+     "counts": {
+      "X": 2,
+      "YouTube": 1,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 1,
+      "LINE": 1,
+      "note": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "craj2026",
+        "url": "https://x.com/craj2026"
+       },
+       {
+        "id": "cra_kokkai",
+        "url": "https://x.com/cra_kokkai"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@craj2026",
+        "url": "https://www.youtube.com/@craj2026"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "craj_2026",
+        "url": "https://www.instagram.com/craj_2026"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@craj2026",
+        "url": "https://www.tiktok.com/@craj2026"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "craj2026",
+        "url": "https://www.facebook.com/craj2026"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "line.me/R/ti/p/@craj2026",
+        "url": "https://line.me/R/ti/p/@craj2026"
+       }
+      ],
+      "note": [
+       {
+        "id": "craj2026",
+        "url": "https://note.com/craj2026"
+       }
+      ]
+     },
+     "sources": [
+      "https://craj.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "ishin",
+     "name": "日本維新の会",
+     "url": "https://o-ishin.jp/",
+     "party": "ishin",
+     "counts": {
+      "X": 2,
+      "YouTube": 1,
+      "Instagram": 1,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "osaka_ishin",
+        "url": "https://x.com/osaka_ishin"
+       },
+       {
+        "id": "hiroyoshimura",
+        "url": "https://x.com/hiroyoshimura"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@OishinJpn",
+        "url": "https://www.youtube.com/@OishinJpn"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "nippon.ishin",
+        "url": "https://www.instagram.com/nippon.ishin"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "nipponishinnokai",
+        "url": "https://www.facebook.com/nipponishinnokai"
+       }
+      ]
+     },
+     "sources": [
+      "https://o-ishin.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "dpfp",
+     "name": "国民民主党",
+     "url": "https://new-kokumin.jp/",
+     "party": "dpfp",
+     "counts": {
+      "X": 2,
+      "YouTube": 1,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 1,
+      "LINE": 1,
+      "Threads": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "DPFPnews",
+        "url": "https://x.com/DPFPnews"
+       },
+       {
+        "id": "DPFP_DietInfo",
+        "url": "https://x.com/DPFP_DietInfo"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCJc_jL0yOBGychLgiTCGtPw",
+        "url": "https://www.youtube.com/channel/UCJc_jL0yOBGychLgiTCGtPw"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "dpfp2018",
+        "url": "https://www.instagram.com/dpfp2018"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@dpfp_official_tiktok",
+        "url": "https://www.tiktok.com/@dpfp_official_tiktok"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "democratic.party.for.the.people",
+        "url": "https://www.facebook.com/democratic.party.for.the.people"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/qwd5735d",
+        "url": "https://page.line.me/qwd5735d"
+       }
+      ],
+      "Threads": [
+       {
+        "id": "@dpfp2018",
+        "url": "https://www.threads.com/@dpfp2018"
+       }
+      ]
+     },
+     "sources": [
+      "https://new-kokumin.jp/",
+      "https://new-kokumin.jp/support/sns"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "sanseito",
+     "name": "参政党",
+     "url": "https://sanseito.jp/",
+     "party": "sanseito",
+     "counts": {
+      "X": 1,
+      "YouTube": 4,
+      "Instagram": 3,
+      "TikTok": 1,
+      "Facebook": 1,
+      "LINE": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "sansei411",
+        "url": "https://x.com/sansei411"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@sanseito-kokkai",
+        "url": "https://www.youtube.com/@sanseito-kokkai"
+       },
+       {
+        "id": "@sanseito-official",
+        "url": "https://www.youtube.com/@sanseito-official"
+       },
+       {
+        "id": "@sanseito_the_second",
+        "url": "https://www.youtube.com/@sanseito_the_second"
+       },
+       {
+        "id": "channel/UCjrN-o1HlLk22qcauIKDtlQ",
+        "url": "https://www.youtube.com/channel/UCjrN-o1HlLk22qcauIKDtlQ"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "sanseito",
+        "url": "https://www.instagram.com/sanseito"
+       },
+       {
+        "id": "sanseito_gallery",
+        "url": "https://www.instagram.com/sanseito_gallery"
+       },
+       {
+        "id": "sanseito_seinenkyoku",
+        "url": "https://www.instagram.com/sanseito_seinenkyoku"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@sanseito",
+        "url": "https://www.tiktok.com/@sanseito"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "sanseito2020",
+        "url": "https://www.facebook.com/sanseito2020"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "line.me/R/ti/p/@583ikqku",
+        "url": "https://line.me/R/ti/p/@583ikqku"
+       }
+      ]
+     },
+     "sources": [
+      "https://sanseito.jp/",
+      "https://sanseito.jp/news/n3509/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "mirai",
+     "name": "チームみらい",
+     "url": "https://team-mir.ai/",
+     "party": "mirai",
+     "counts": {
+      "X": 13,
+      "YouTube": 11,
+      "Instagram": 13,
+      "TikTok": 12,
+      "Facebook": 1,
+      "LINE": 1,
+      "note": 6,
+      "Threads": 8
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "team_mirai_jp",
+        "url": "https://x.com/team_mirai_jp"
+       },
+       {
+        "id": "takahiroanno",
+        "url": "https://x.com/takahiroanno"
+       },
+       {
+        "id": "usami_mirai",
+        "url": "https://x.com/usami_mirai"
+       },
+       {
+        "id": "michio_mirai",
+        "url": "https://x.com/michio_mirai"
+       },
+       {
+        "id": "syuhei_mirai",
+        "url": "https://x.com/syuhei_mirai"
+       },
+       {
+        "id": "Btaros",
+        "url": "https://x.com/Btaros"
+       },
+       {
+        "id": "satoshi_2125",
+        "url": "https://x.com/satoshi_2125"
+       },
+       {
+        "id": "a_dobashi",
+        "url": "https://x.com/a_dobashi"
+       },
+       {
+        "id": "TakumiHayashi",
+        "url": "https://x.com/TakumiHayashi"
+       },
+       {
+        "id": "AoiFurukawa",
+        "url": "https://x.com/AoiFurukawa"
+       },
+       {
+        "id": "mineshima_mirai",
+        "url": "https://x.com/mineshima_mirai"
+       },
+       {
+        "id": "moo_mirai",
+        "url": "https://x.com/moo_mirai"
+       },
+       {
+        "id": "yamadaeri1982",
+        "url": "https://x.com/yamadaeri1982"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@team_mirai_jp",
+        "url": "https://www.youtube.com/@team_mirai_jp"
+       },
+       {
+        "id": "@%E5%AE%89%E9%87%8E%E8%B2%B4%E5%8D%9A",
+        "url": "https://www.youtube.com/@%E5%AE%89%E9%87%8E%E8%B2%B4%E5%8D%9A"
+       },
+       {
+        "id": "channel/UCqwsRNMWNh6zx3QYuqVJvSw",
+        "url": "https://www.youtube.com/channel/UCqwsRNMWNh6zx3QYuqVJvSw"
+       },
+       {
+        "id": "@syuhei_mirai",
+        "url": "https://www.youtube.com/@syuhei_mirai"
+       },
+       {
+        "id": "@eitaro_suda",
+        "url": "https://www.youtube.com/@eitaro_suda"
+       },
+       {
+        "id": "@satoshi_takayama",
+        "url": "https://www.youtube.com/@satoshi_takayama"
+       },
+       {
+        "id": "channel/UCxnB10C-rIra6KUPGLdJySg",
+        "url": "https://www.youtube.com/channel/UCxnB10C-rIra6KUPGLdJySg"
+       },
+       {
+        "id": "@FurukawaAoi",
+        "url": "https://www.youtube.com/@FurukawaAoi"
+       },
+       {
+        "id": "channel/UCHefyUa7pnlEtryEjvXb9gw",
+        "url": "https://www.youtube.com/channel/UCHefyUa7pnlEtryEjvXb9gw"
+       },
+       {
+        "id": "@KazukoMuto",
+        "url": "https://www.youtube.com/@KazukoMuto"
+       },
+       {
+        "id": "channel/UC9c3G8HoL-tt9rf5BTzmf4g",
+        "url": "https://www.youtube.com/channel/UC9c3G8HoL-tt9rf5BTzmf4g"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "team_mirai_jp",
+        "url": "https://www.instagram.com/team_mirai_jp"
+       },
+       {
+        "id": "takahiro.anno.sns",
+        "url": "https://www.instagram.com/takahiro.anno.sns"
+       },
+       {
+        "id": "usami_teammirai",
+        "url": "https://www.instagram.com/usami_teammirai"
+       },
+       {
+        "id": "michio.kawai.mirai",
+        "url": "https://www.instagram.com/michio.kawai.mirai"
+       },
+       {
+        "id": "syuhei_mirai",
+        "url": "https://www.instagram.com/syuhei_mirai"
+       },
+       {
+        "id": "eitaro.suda",
+        "url": "https://www.instagram.com/eitaro.suda"
+       },
+       {
+        "id": "satoshi.takayama.12",
+        "url": "https://www.instagram.com/satoshi.takayama.12"
+       },
+       {
+        "id": "dobashi_akihiro",
+        "url": "https://www.instagram.com/dobashi_akihiro"
+       },
+       {
+        "id": "takumihayashi.teammirai",
+        "url": "https://www.instagram.com/takumihayashi.teammirai"
+       },
+       {
+        "id": "aoi.furukawa",
+        "url": "https://www.instagram.com/aoi.furukawa"
+       },
+       {
+        "id": "yuyamineshima_teammirai",
+        "url": "https://www.instagram.com/yuyamineshima_teammirai"
+       },
+       {
+        "id": "muto_mirai",
+        "url": "https://www.instagram.com/muto_mirai"
+       },
+       {
+        "id": "yamadaeri_kawasaki",
+        "url": "https://www.instagram.com/yamadaeri_kawasaki"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@team_mirai_jp",
+        "url": "https://www.tiktok.com/@team_mirai_jp"
+       },
+       {
+        "id": "@annotakahiro2024",
+        "url": "https://www.tiktok.com/@annotakahiro2024"
+       },
+       {
+        "id": "@michio.kawai.mirai",
+        "url": "https://www.tiktok.com/@michio.kawai.mirai"
+       },
+       {
+        "id": "@syuhei_mirai",
+        "url": "https://www.tiktok.com/@syuhei_mirai"
+       },
+       {
+        "id": "@eitaro.suda",
+        "url": "https://www.tiktok.com/@eitaro.suda"
+       },
+       {
+        "id": "@satoshi2215",
+        "url": "https://www.tiktok.com/@satoshi2215"
+       },
+       {
+        "id": "@dobassie1",
+        "url": "https://www.tiktok.com/@dobassie1"
+       },
+       {
+        "id": "@hayashi_teammirai",
+        "url": "https://www.tiktok.com/@hayashi_teammirai"
+       },
+       {
+        "id": "@furukawa.aoi",
+        "url": "https://www.tiktok.com/@furukawa.aoi"
+       },
+       {
+        "id": "@yuyamineshima_teammirai",
+        "url": "https://www.tiktok.com/@yuyamineshima_teammirai"
+       },
+       {
+        "id": "@muto_mirai",
+        "url": "https://www.tiktok.com/@muto_mirai"
+       },
+       {
+        "id": "@yamadaeri_kawasaki",
+        "url": "https://www.tiktok.com/@yamadaeri_kawasaki"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "teammirai.official",
+        "url": "https://www.facebook.com/teammirai.official"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "lin.ee/aVvgk9jN",
+        "url": "https://lin.ee/aVvgk9jN"
+       }
+      ],
+      "note": [
+       {
+        "id": "team_mirai_jp",
+        "url": "https://note.com/team_mirai_jp"
+       },
+       {
+        "id": "btaros",
+        "url": "https://note.com/btaros"
+       },
+       {
+        "id": "dobassie",
+        "url": "https://note.com/dobassie"
+       },
+       {
+        "id": "aoifurukawa",
+        "url": "https://note.com/aoifurukawa"
+       },
+       {
+        "id": "ymineshima_mirai",
+        "url": "https://note.com/ymineshima_mirai"
+       },
+       {
+        "id": "annotakahiro24",
+        "url": "https://note.com/annotakahiro24"
+       }
+      ],
+      "Threads": [
+       {
+        "id": "@team_mirai_jp",
+        "url": "https://www.threads.com/@team_mirai_jp"
+       },
+       {
+        "id": "@michio.kawai.mirai",
+        "url": "https://www.threads.com/@michio.kawai.mirai"
+       },
+       {
+        "id": "@eitaro.suda",
+        "url": "https://www.threads.com/@eitaro.suda"
+       },
+       {
+        "id": "@satoshi.takayama.12",
+        "url": "https://www.threads.com/@satoshi.takayama.12"
+       },
+       {
+        "id": "@akihiro_dobashi",
+        "url": "https://www.threads.com/@akihiro_dobashi"
+       },
+       {
+        "id": "@aoi.furukawa",
+        "url": "https://www.threads.com/@aoi.furukawa"
+       },
+       {
+        "id": "@yuyamineshima_teammirai",
+        "url": "https://www.threads.com/@yuyamineshima_teammirai"
+       },
+       {
+        "id": "@yamadaeri_kawasaki",
+        "url": "https://www.threads.com/@yamadaeri_kawasaki"
+       }
+      ]
+     },
+     "sources": [
+      "https://team-mir.ai/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "jcp",
+     "name": "日本共産党",
+     "url": "https://www.jcp.or.jp/",
+     "party": "jcp",
+     "counts": {
+      "X": 12,
+      "YouTube": 16,
+      "Instagram": 10,
+      "TikTok": 4,
+      "Facebook": 8,
+      "LINE": 7
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "jcp_cc",
+        "url": "https://x.com/jcp_cc"
+       },
+       {
+        "id": "buchitom",
+        "url": "https://x.com/buchitom"
+       },
+       {
+        "id": "kirayoshiko",
+        "url": "https://x.com/kirayoshiko"
+       },
+       {
+        "id": "koike_akira",
+        "url": "https://x.com/koike_akira"
+       },
+       {
+        "id": "ShiokawaTetsuya",
+        "url": "https://x.com/ShiokawaTetsuya"
+       },
+       {
+        "id": "YoukoSirakawa",
+        "url": "https://x.com/YoukoSirakawa"
+       },
+       {
+        "id": "mikishidaimon",
+        "url": "https://x.com/mikishidaimon"
+       },
+       {
+        "id": "kotarotatsumi",
+        "url": "https://x.com/kotarotatsumi"
+       },
+       {
+        "id": "tamutomojcp",
+        "url": "https://x.com/tamutomojcp"
+       },
+       {
+        "id": "nihi_souhei",
+        "url": "https://x.com/nihi_souhei"
+       },
+       {
+        "id": "hatanokimie",
+        "url": "https://x.com/hatanokimie"
+       },
+       {
+        "id": "pioneertaku84",
+        "url": "https://x.com/pioneertaku84"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@jcpmovie",
+        "url": "https://www.youtube.com/@jcpmovie"
+       },
+       {
+        "id": "@tamuratomoko",
+        "url": "https://www.youtube.com/@tamuratomoko"
+       },
+       {
+        "id": "@YouTuberKoikeAkira",
+        "url": "https://www.youtube.com/@YouTuberKoikeAkira"
+       },
+       {
+        "id": "@yukkuriJCP",
+        "url": "https://www.youtube.com/@yukkuriJCP"
+       },
+       {
+        "id": "@JCPkokkaichannel",
+        "url": "https://www.youtube.com/@JCPkokkaichannel"
+       },
+       {
+        "id": "channel/UC_7GbtufUtR9l3pwvvn7Zlg",
+        "url": "https://www.youtube.com/channel/UC_7GbtufUtR9l3pwvvn7Zlg"
+       },
+       {
+        "id": "channel/UCl4ByOhwQpA293Skd1y-cXA",
+        "url": "https://www.youtube.com/channel/UCl4ByOhwQpA293Skd1y-cXA"
+       },
+       {
+        "id": "@yossikira1982",
+        "url": "https://www.youtube.com/@yossikira1982"
+       },
+       {
+        "id": "channel/UCx2Tkf3KuB8BzdDNp9t2bzA",
+        "url": "https://www.youtube.com/channel/UCx2Tkf3KuB8BzdDNp9t2bzA"
+       },
+       {
+        "id": "channel/UCPVtzQ2R7KOqY_Zj7FzjaqQ",
+        "url": "https://www.youtube.com/channel/UCPVtzQ2R7KOqY_Zj7FzjaqQ"
+       },
+       {
+        "id": "channel/UCJ9P-4OFDAVgVOHIomuCo8w",
+        "url": "https://www.youtube.com/channel/UCJ9P-4OFDAVgVOHIomuCo8w"
+       },
+       {
+        "id": "channel/UC5s4kIdKMjeM0I9sOgJMNbw",
+        "url": "https://www.youtube.com/channel/UC5s4kIdKMjeM0I9sOgJMNbw"
+       },
+       {
+        "id": "@kotarotatsumi",
+        "url": "https://www.youtube.com/@kotarotatsumi"
+       },
+       {
+        "id": "channel/UC37tb1mDOEQyWKWkRa-zO8g",
+        "url": "https://www.youtube.com/channel/UC37tb1mDOEQyWKWkRa-zO8g"
+       },
+       {
+        "id": "user/hatanokimie",
+        "url": "https://www.youtube.com/user/hatanokimie"
+       },
+       {
+        "id": "channel/UChy6Aa_oCqo2PgtddUky6fQ",
+        "url": "https://www.youtube.com/channel/UChy6Aa_oCqo2PgtddUky6fQ"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "nihonkyosanto",
+        "url": "https://www.instagram.com/nihonkyosanto"
+       },
+       {
+        "id": "tomo_iwabuchi",
+        "url": "https://www.instagram.com/tomo_iwabuchi"
+       },
+       {
+        "id": "kirayoshiko_official",
+        "url": "https://www.instagram.com/kirayoshiko_official"
+       },
+       {
+        "id": "akira_koike01",
+        "url": "https://www.instagram.com/akira_koike01"
+       },
+       {
+        "id": "youko_shirakawa",
+        "url": "https://www.instagram.com/youko_shirakawa"
+       },
+       {
+        "id": "mikishidaimon",
+        "url": "https://www.instagram.com/mikishidaimon"
+       },
+       {
+        "id": "kotaro_tatsumi1976",
+        "url": "https://www.instagram.com/kotaro_tatsumi1976"
+       },
+       {
+        "id": "tamutom.jcp",
+        "url": "https://www.instagram.com/tamutom.jcp"
+       },
+       {
+        "id": "hatano_kimie",
+        "url": "https://www.instagram.com/hatano_kimie"
+       },
+       {
+        "id": "yamazoe_taku",
+        "url": "https://www.instagram.com/yamazoe_taku"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@jcp_cc",
+        "url": "https://www.tiktok.com/@jcp_cc"
+       },
+       {
+        "id": "@kirayoshiko_official",
+        "url": "https://www.tiktok.com/@kirayoshiko_official"
+       },
+       {
+        "id": "@youko_shirakawa",
+        "url": "https://www.tiktok.com/@youko_shirakawa"
+       },
+       {
+        "id": "@kotarotatsumi_jcp",
+        "url": "https://www.tiktok.com/@kotarotatsumi_jcp"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "kyosanto",
+        "url": "https://www.facebook.com/kyosanto"
+       },
+       {
+        "id": "iwabuchitomo",
+        "url": "https://www.facebook.com/iwabuchitomo"
+       },
+       {
+        "id": "yoshikokira.official",
+        "url": "https://www.facebook.com/yoshikokira.official"
+       },
+       {
+        "id": "shiokawa.jcp",
+        "url": "https://www.facebook.com/shiokawa.jcp"
+       },
+       {
+        "id": "daimonmikishi",
+        "url": "https://www.facebook.com/daimonmikishi"
+       },
+       {
+        "id": "tatsumikotaro",
+        "url": "https://www.facebook.com/tatsumikotaro"
+       },
+       {
+        "id": "souhei.nihi",
+        "url": "https://www.facebook.com/souhei.nihi"
+       },
+       {
+        "id": "kimie.hatano.9",
+        "url": "https://www.facebook.com/kimie.hatano.9"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/dst0671n",
+        "url": "https://page.line.me/dst0671n"
+       },
+       {
+        "id": "line.me/R/ti/p/%40325hiqxa",
+        "url": "https://line.me/R/ti/p/%40325hiqxa"
+       },
+       {
+        "id": "line.me/R/ti/p/@928juarj",
+        "url": "https://line.me/R/ti/p/@928juarj"
+       },
+       {
+        "id": "line.me/R/ti/p/%40484rbpby#~",
+        "url": "https://line.me/R/ti/p/%40484rbpby#~"
+       },
+       {
+        "id": "line.me/R/ti/p/@tax5645q",
+        "url": "https://line.me/R/ti/p/@tax5645q"
+       },
+       {
+        "id": "line.me/R/ti/p/%40960cwbad",
+        "url": "https://line.me/R/ti/p/%40960cwbad"
+       },
+       {
+        "id": "line.me/R/ti/p/@906qblam",
+        "url": "https://line.me/R/ti/p/@906qblam"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.jcp.or.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "inochi",
+     "name": "いのちの党",
+     "url": "https://inochinoto.jp/",
+     "party": "inochi",
+     "counts": {
+      "X": 3,
+      "YouTube": 1,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 1,
+      "LINE": 1,
+      "note": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "inochi_kokkai",
+        "url": "https://x.com/inochi_kokkai"
+       },
+       {
+        "id": "reiwashinsen",
+        "url": "https://x.com/reiwashinsen"
+       },
+       {
+        "id": "inochinoto",
+        "url": "https://x.com/inochinoto"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@inochinoto",
+        "url": "https://www.youtube.com/@inochinoto"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "inochinoto",
+        "url": "https://www.instagram.com/inochinoto"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@inochinoto",
+        "url": "https://www.tiktok.com/@inochinoto"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "inochinoto",
+        "url": "https://www.facebook.com/inochinoto"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/519eqaer",
+        "url": "https://page.line.me/519eqaer"
+       }
+      ],
+      "note": [
+       {
+        "id": "inochinoto",
+        "url": "https://note.com/inochinoto"
+       }
+      ]
+     },
+     "sources": [
+      "https://inochinoto.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "genzei",
+     "name": "減税日本・ゆうこく連合",
+     "party": "genzei",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "komei",
+     "name": "公明党",
+     "url": "https://www.komei.or.jp/",
+     "party": "komei",
+     "counts": {
+      "X": 1,
+      "YouTube": 3,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "komei_koho",
+        "url": "https://x.com/komei_koho"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "channel/UCn4qYPyxDdhvMn8-NIS0ydw",
+        "url": "https://www.youtube.com/channel/UCn4qYPyxDdhvMn8-NIS0ydw"
+       },
+       {
+        "id": "@sub_komei",
+        "url": "https://www.youtube.com/@sub_komei"
+       },
+       {
+        "id": "user/newkomeito",
+        "url": "https://www.youtube.com/user/newkomeito"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "komei.jp",
+        "url": "https://www.instagram.com/komei.jp"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@komei.official",
+        "url": "https://www.tiktok.com/@komei.official"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "komeito",
+        "url": "https://www.facebook.com/komeito"
+       }
+      ]
+     },
+     "sources": [
+      "https://www.komei.or.jp/",
+      "https://www.komei.or.jp/content/team-rice/",
+      "https://www.komei.or.jp/review/social/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "sdp",
+     "name": "社会民主党",
+     "url": "https://sdp.or.jp/",
+     "party": "sdp",
+     "counts": {
+      "X": 1,
+      "YouTube": 1,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 1,
+      "LINE": 1,
+      "Threads": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "SDPJapan",
+        "url": "https://x.com/SDPJapan"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "user/shaminparty",
+        "url": "https://www.youtube.com/user/shaminparty"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "sdp.japan",
+        "url": "https://www.instagram.com/sdp.japan"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@sdp_japan",
+        "url": "https://www.tiktok.com/@sdp_japan"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "SDP.Japan",
+        "url": "https://www.facebook.com/SDP.Japan"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/ndt7166h",
+        "url": "https://page.line.me/ndt7166h"
+       }
+      ],
+      "Threads": [
+       {
+        "id": "@sdp.japan",
+        "url": "https://www.threads.com/@sdp.japan"
+       }
+      ]
+     },
+     "sources": [
+      "https://sdp.or.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "hoshu",
+     "name": "日本保守党",
+     "url": "https://hoshuto.jp/",
+     "party": "hoshu",
+     "counts": {
+      "X": 1,
+      "YouTube": 1,
+      "Instagram": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "hoshuto_jp",
+        "url": "https://x.com/hoshuto_jp"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@hoshutojp",
+        "url": "https://www.youtube.com/@hoshutojp"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "hoshuto_jp",
+        "url": "https://www.instagram.com/hoshuto_jp"
+       }
+      ]
+     },
+     "sources": [
+      "https://hoshuto.jp/"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "drp",
+     "name": "民主改革の会",
+     "url": "https://note.com/drp_japan2026",
+     "party": "drp",
+     "counts": {
+      "note": 2
+     },
+     "sns": {
+      "note": [
+       {
+        "id": "drp_japan2026",
+        "url": "https://note.com/drp_japan2026"
+       },
+       {
+        "id": "terms",
+        "url": "https://note.com/terms"
+       }
+      ]
+     },
+     "sources": [
+      "https://note.com/drp_japan2026"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "cdp",
+     "name": "立憲民主党",
+     "url": "https://cdp-japan.jp/",
+     "party": "cdp",
+     "counts": {
+      "X": 4,
+      "YouTube": 1,
+      "Instagram": 1,
+      "TikTok": 1,
+      "Facebook": 1,
+      "LINE": 1,
+      "note": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "CDP2017",
+        "url": "https://x.com/CDP2017"
+       },
+       {
+        "id": "cdp_kokkai",
+        "url": "https://x.com/cdp_kokkai"
+       },
+       {
+        "id": "CDPPOLICY",
+        "url": "https://x.com/CDPPOLICY"
+       },
+       {
+        "id": "cdp_youth",
+        "url": "https://x.com/cdp_youth"
+       }
+      ],
+      "YouTube": [
+       {
+        "id": "@cdp_kokkai",
+        "url": "https://www.youtube.com/@cdp_kokkai"
+       }
+      ],
+      "Instagram": [
+       {
+        "id": "cdp2019.jp",
+        "url": "https://www.instagram.com/cdp2019.jp"
+       }
+      ],
+      "TikTok": [
+       {
+        "id": "@cdp_rikkenminshu",
+        "url": "https://www.tiktok.com/@cdp_rikkenminshu"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "rikkenminshu",
+        "url": "https://www.facebook.com/rikkenminshu"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "page.line.me/wvq1396f",
+        "url": "https://page.line.me/wvq1396f"
+       }
+      ],
+      "note": [
+       {
+        "id": "cdpj",
+        "url": "https://note.com/cdpj"
+       }
+      ]
+     },
+     "sources": [
+      "https://cdp-japan.jp/",
+      "https://cdp-japan.jp/about/sns-guideline",
+      "https://cdp-japan.jp/info/sns"
+     ],
+     "checked": "2026-11-04"
+    },
+    {
+     "id": "o0",
+     "name": "安楽死制度を考える会",
+     "party": "o0",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o1",
+     "name": "NHK党",
+     "party": "o1",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o2",
+     "name": "再生の道",
+     "party": "o2",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o3",
+     "name": "日本改革党",
+     "party": "o3",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o4",
+     "name": "日本誠真会",
+     "party": "o4",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o5",
+     "name": "無所属連合",
+     "party": "o5",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o6",
+     "name": "新政しずおか",
+     "party": "o6",
+     "sns": {},
+     "note": "公式サイトの住所がまだ登録されていない"
+    },
+    {
+     "id": "o7",
+     "name": "都民ファーストの会",
+     "url": "https://tomin1st.jp/",
+     "party": "o7",
+     "counts": {
+      "X": 1,
+      "Facebook": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "tomin_1st",
+        "url": "https://x.com/tomin_1st"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "tomin1st",
+        "url": "https://www.facebook.com/tomin1st"
+       }
+      ]
+     },
+     "sources": [
+      "https://tomin1st.jp/"
+     ],
+     "checked": "2026-11-04"
+    }
+   ]
+  }
+ ]
+}
