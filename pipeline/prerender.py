@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -316,6 +316,10 @@ def main():
 
     # 国会議員・知事
     M, G, MV = load("members"), load("governors"), load("member_votes")
+    qbym = {}
+    for q in load("questions").get("items", []):
+        if q.get("member"):
+            qbym.setdefault(q["member"], []).append(q)
     pname = {p["id"]: p["name"] for p in parties["national"]}
     fe = {it["id"]: it for it in feed["items"]}
     for m in M["members"]:
@@ -332,6 +336,10 @@ def main():
                 body += ("<h2>国会での賛否（参議院の本会議）</h2><ul>" +
                          "".join(f'<li>{lab[v]}：<a href="a/{it["id"]}/">{html.escape(it["title"])}</a>（{jdate(it["date"])}）</li>' for it, v in rows) + "</ul>")
         srcs = ([{"label": "参議院 議員のページ", "url": m["url"]}] if m.get("url") else []) + [(M["shu"] if m["house"] == "衆議院" else M["san"])["source"]]
+        mq = qbym.get(m["id"], [])
+        if mq:
+            body += f"<h2>出した質問主意書（{len(mq)}件）</h2><ul>" + "".join(
+                f"<li>{e(q['session'])} {q['number']}号 {link(q['question_url'], q['title']) if q.get('question_url') else html.escape(q['title'])}（{e(q['status'])}）</li>" for q in mq) + "</ul>"
         body += sources_html(srcs)
         site.page(f"member/{m['id']}/", m["name"], f"{m['house']}議員（{m['kaiha']}・{m['district']}）。会派・選挙区・当選回数" + ("と、参議院の本会議での賛否。" if m["house"] == "参議院" else "。"),
                   body, "m-" + m["id"], M.get("checked"),
@@ -417,6 +425,18 @@ def main():
             + (f' <a href="a/{b["article"]}/">記事</a>' if b.get("article") else "") + "</li>" for b in rows) + "</ul>"
     body += sources_html([bl["source"]]) if bl.get("source") else ""
     tabs.append(("bills/", "審議中・採決されなかった法律案", "国会で審議中の法律案と、採決されずに終わった法律案（審議未了・継続審査・撤回）のすべて。題名・提出者・提出会派・結果を、衆議院の議案情報の表記のまま。", body, "bills", bl.get("checked")))
+    qs = load("questions")
+    body = f"<h1>質問主意書と答弁書</h1><p>{e(qs.get('criteria'))}</p><p>{e(qs.get('rule'))}</p>"
+    qgroups = {}
+    for q in qs.get("items", []):
+        qgroups.setdefault(f"{q['session']}・{q['house']}", []).append(q)
+    for k, rows in qgroups.items():
+        body += f"<h2>{e(k)}（{len(rows)}件）</h2><ul>" + "".join(
+            f"<li>{q['number']}号 {link(q['question_url'], q['title']) if q.get('question_url') else html.escape(q['title'])}（提出 "
+            + (f'<a href="member/{q["member"]}/">{html.escape(q["submitter"])}</a>' if q.get("member") else html.escape(q["submitter"]))
+            + (f"・{jdate(q['submitted'])}" if q.get("submitted") else "") + f"・{e(q['status'])}" + (f"・{link(q['answer_url'], '答弁書')}" if q.get("answer_url") else "") + "）</li>" for q in rows) + "</ul>"
+    body += sources_html(qs.get("sources"))
+    tabs.append(("questions/", "質問主意書と答弁書", "国会議員が内閣に文書で出した質問主意書と、内閣の答弁書のすべて。件名・提出者・日付は衆議院・参議院のページの表記のまま。", body, "questions", qs.get("checked")))
     body = f"<h1>公式サイト・SNSの一覧</h1><p>{e(acc.get('criteria'))}</p><p>{e(acc.get('rule'))}</p>"
     for g in acc.get("groups", []):
         body += f"<h2>{e(g['name'])}（{len(g['items'])}）</h2>" + "".join(f"<h3>{e(x['name'])}</h3>" + sns_html(x).replace("<h2>公式サイト・SNS</h2>", "") for x in g["items"])

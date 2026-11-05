@@ -5,6 +5,7 @@
 3. 成立した法律の公布日・法律番号（参議院 議案情報）→ feed.json の各記事
 4. 国会議員の一覧・参議院議員一人ひとりの賛否・知事の一覧（people.py）→ members.json・member_votes.json・governors.json
 5. 審議中・採決されなかった法律案の一覧（bills.py）→ bills.json
+6. 質問主意書と答弁書の一覧（questions.py）→ questions.json
 
 機械で決められないこと（どの党か決められない会派の組み替えなど）は、
 data/watch.json の due（見直し待ち）か、alerts（人への知らせ。report.py が Issue にする）に入れる。
@@ -21,6 +22,7 @@ import sangiin as S  # noqa: E402
 import sources as SRC  # noqa: E402
 import people  # noqa: E402
 import bills  # noqa: E402
+import questions  # noqa: E402
 import watch_sources as W  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -251,6 +253,12 @@ def main():
             say("[bills] " + c)
     except Exception as e:  # noqa: BLE001
         say(f"[bills] 衆議院の議案の一覧を読めませんでした: {e}")
+    try:
+        lim = json.load(open(os.path.join(DATA, "config.json"), encoding="utf-8")).get("questions", {}).get("detail_limit", 400)
+        for c in questions.update(lim)[:50]:  # 質問主意書と答弁書の一覧（ルールD-12）
+            say("[questions] " + c)
+    except Exception as e:  # noqa: BLE001
+        say(f"[questions] 質問主意書の一覧を読めませんでした: {e}")
     W.save_watch(watch)
     if not LOG:
         print("機械で更新するものはありませんでした")

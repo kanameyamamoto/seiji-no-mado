@@ -22,8 +22,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 LEVELS = {"es", "hs", "std", "univ"}
 # 種類と、並べる順（検索の結果で、同じくらい合っているときに使う。ルール D：機械で決まる順）
-TYPES = ["law", "bill", "party", "kaiha", "member", "governor", "org", "page", "term"]
-TYPE_NAME = {"law": "国会で決まったこと（法律・予算・条約・否決された法律案）", "bill": "審議中・採決されなかった法律案", "party": "政党",
+TYPES = ["law", "bill", "question", "party", "kaiha", "member", "governor", "org", "page", "term"]
+TYPE_NAME = {"law": "国会で決まったこと（法律・予算・条約・否決された法律案）", "bill": "審議中・採決されなかった法律案", "question": "質問主意書と答弁書", "party": "政党",
              "kaiha": "会派（国会の中のグループ）", "member": "国会議員", "governor": "知事", "org": "政府・国会の組織",
              "page": "解説・データのページ（学ぶ・つながり・メディア）", "term": "ことば"}
 MAX_BODY = 6000
@@ -190,6 +190,18 @@ def build():
             B.link("bill", b["id"], "提出会派", "kaiha", kaiha_id("衆議院", gname))
         if b.get("submitter") == "内閣":
             B.link("bill", b["id"], "提出", "org", "cabinet")
+
+    # 質問主意書と答弁書（D-12）
+    qs = load("questions") if os.path.exists(os.path.join(DATA, "questions.json")) else {}
+    for x in qs.get("items", []):
+        B.add("question", x["id"], x["title"], summary=f"{x['house']} {x['session']} {x['number']}号・提出 {x['submitter']}・{x['status']}",
+              url=base + "questions/", api=api + "questions.json", checked=qs.get("checked"),
+              data={k: x.get(k) for k in ("house", "session", "number", "submitter", "kaiha", "status", "submitted", "forwarded", "answered", "withdrawn",
+                                          "question_url", "answer_url", "detail_url") if x.get(k)})
+        if x.get("member") and ("member", x["member"]) in B.keys:
+            B.link("member", x["member"], "質問主意書を提出", "question", x["id"])
+        if x.get("answered"):
+            B.link("question", x["id"], "答弁", "org", "cabinet", x["answered"])
 
     # 会派
     for house, name in sorted(kaiha_names):
