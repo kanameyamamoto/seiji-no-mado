@@ -1,0 +1,28 @@
+# せいじのまど 検索API・MCP（ルール S-1〜S-3）
+# 公開は GitHub Actions（.github/workflows/api.yml）が行う。database_id は、その時に自動で入れる。
+name = "seijinomado-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+# 使う人ごとの記録をとらない（S-2）：ログ・トレースを残さない
+[observability]
+enabled = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "seijinomado"
+database_id = "__D1_ID__"
+
+# 使いすぎを防ぐ：接続元ごとに1分あたり60回（S-3。上限は公開）
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 60
+  period = 60
+
+[[routes]]
+pattern = "api.seijinomado.com"
+custom_domain = true

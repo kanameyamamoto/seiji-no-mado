@@ -1,0 +1,87 @@
+# 検索API・MCP（https://api.seijinomado.com）を公開する（ルール S-1〜S-3）。
+# データ（data/*.json）が変わったら、データの箱（Cloudflare D1）を作り直し、Worker を公開する。
+# 必要なもの：リポジトリの Secrets に CLOUDFLARE_API_TOKEN と CLOUDFLARE_ACCOUNT_ID（手順は docs/運用.md）。
+# まだ入っていないときは、何もせずに終わる。
+name: 検索APIとMCPの公開
+
+on:
+  push:
+    branches: [main]
+    paths: ["data/*.json", "pipeline/db.py", "worker/**", ".github/workflows/api.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WRANGLER: npx -y wrangler@4.151.3
+    steps:
+      - name: 設定があるか確かめる
+        id: ready
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::notice::Cloudflare の設定（Secrets）がまだないので、公開しません。"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.ready.outputs.ok == 'true'
+        uses: actions/checkout@v5
+        with:
+          ref: main
+      - if: steps.ready.outputs.ok == 'true'
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - if: steps.ready.outputs.ok == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: データの箱（SQL）を作る
+        if: steps.ready.outputs.ok == 'true'
+        run: python pipeline/db.py build/d1.sql
+      - name: D1 を用意する（はじめての時は作る）
+        if: steps.ready.outputs.ok == 'true'
+        working-directory: worker
+        run: |
+          find_id() { $WRANGLER d1 list --json | python3 -c "import json,sys; print(next((d['uuid'] for d in json.load(sys.stdin) if d['name']=='seijinomado'), ''))"; }
+          ID=$(find_id)
+          if [ -z "$ID" ]; then $WRANGLER d1 create seijinomado; ID=$(find_id); fi
+          test -n "$ID"
+          sed -i "s/__D1_ID__/$ID/" wrangler.toml
+      - name: 中身が変わっていたら、D1 を入れ替える
+        if: steps.ready.outputs.ok == 'true'
+        working-directory: worker
+        run: |
+          NEW=$(cat ../build/d1.hash)
+          OLD=$($WRANGLER d1 execute seijinomado --remote --json --command "SELECT value FROM meta WHERE key='hash'" 2>/dev/null | python3 -c "import json,sys
+          try:
+              print(json.load(sys.stdin)[0]['results'][0]['value'])
+          except Exception:
+              print('')" || true)
+          echo "前回 ${OLD:-なし} → 今回 $NEW"
+          if [ "$OLD" != "$NEW" ]; then
+            $WRANGLER d1 execute seijinomado --remote --file ../build/d1.sql --yes
+          fi
+      - name: Worker を公開する
+        if: steps.ready.outputs.ok == 'true'
+        working-directory: worker
+        run: $WRANGLER deploy
+      - name: 動いているか確かめる
+        if: steps.ready.outputs.ok == 'true'
+        run: |
+          for i in 1 2 3 4 5 6; do
+            if curl -sf "https://api.seijinomado.com/v1/search?q=%E5%9B%BD%E4%BC%9A&limit=1&t=$GITHUB_RUN_ID" > /dev/null; then echo "OK"; exit 0; fi
+            sleep 20
+          done
+          echo "::warning::api.seijinomado.com にまだつながりません（はじめての公開では、証明書の発行に数分かかることがあります）"

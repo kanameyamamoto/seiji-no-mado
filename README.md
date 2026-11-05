@@ -36,6 +36,7 @@
 | `work/` | Claude（スケジュール）への依頼と答えの受け渡し（[docs/claude-writer.md](docs/claude-writer.md)） |
 | `prompts/` | AIへの指示文（そのまま公開） |
 | `.github/workflows/` | 毎日の更新・公開・チェック |
+| `pipeline/db.py`・`worker/` | 検索API・MCP（api.seijinomado.com）。公開データを読むだけの Cloudflare Workers と D1（ルール S-1〜S-3） |
 
 ## 間違いを見つけたら・ルールを変えたいとき
 
