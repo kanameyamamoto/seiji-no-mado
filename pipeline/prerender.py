@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -187,6 +187,25 @@ def main():
     cfg = load("config")
     site = Site(out, cfg.get("site_url", "https://seijinomado.com/"))
     feed, learn, links, parties, media = load("feed"), load("learn"), load("links"), load("parties"), load("media")
+    acc = load("accounts")
+    acc_order = acc.get("order", [])
+    acc_rows = [x for g in acc.get("groups", []) for x in g.get("items", [])]
+
+    def sns_html(x, with_site=True):
+        """公式サイト・SNS（ルール D-11）。"""
+        if not x:
+            return ""
+        items = []
+        if with_site and x.get("url"):
+            items.append(f"<li>公式サイト：{link(x['url'], x['url'])}</li>")
+        for k in acc_order:
+            lst_ = (x.get("sns") or {}).get(k) or []
+            if lst_:
+                n = (x.get("counts") or {}).get(k, len(lst_))
+                items.append(f"<li>{e(k)}：" + "、".join(link(y["url"], y["id"]) for y in lst_[:10]) + (f" ほか{n - 10}件" if n > 10 else "") + "</li>")
+        if len(items) == (1 if with_site and x.get("url") else 0):
+            items.append("<li>公式サイトのトップページとSNSの一覧ページに、SNSへのリンクは見つかりませんでした。</li>")
+        return "<h2>公式サイト・SNS</h2><ul>" + "".join(items) + "</ul>"
 
     # 国会で決まったこと
     for it in feed["items"]:
@@ -252,6 +271,8 @@ def main():
                 if p.get("summary"):
                     body += f"<p class=\"lead\">{e(p['summary'])}</p>"
                 body += "".join(block(b) for b in p.get("blocks", []) if b.get("type") != "hook")
+                if name == "links":
+                    body += sns_html(next((x for x in acc_rows if x.get("page") == p["id"]), None))
                 body += sources_html(p.get("sources")) + hist_html(p)
                 site.page(f"{name}/{p['id']}/", p["title"], p.get("summary") or p["title"], body, f"pg-{name}-{p['id']}", p.get("checked"),
                           {"@type": "LearningResource" if name == "learn" else "Article", "articleSection": s["name"],
@@ -283,6 +304,7 @@ def main():
             body += f"<h2>代表の決め方</h2><p>{e(pr['leader_rule'])}</p>"
         if pr.get("near"):
             body += f"<h2>あなたの暮らしでは</h2><p>{e(pr['near'])}</p>"
+        body += sns_html(next((x for x in acc_rows if x.get("party") == key), None))
         body += sources_html(pr.get("sources")) + hist_html(p)
         site.page(f"party/{key}/", p["name"], pr.get("catch") or p.get("summary") or p.get("detail") or p["name"], body, route, p.get("checked") or parties.get("checked"),
                   {"@type": "ProfilePage", "mainEntity": {"@type": "PoliticalParty", "name": p["name"], **({"url": p["url"]} if p.get("url") else {}),
@@ -395,6 +417,10 @@ def main():
             + (f' <a href="a/{b["article"]}/">記事</a>' if b.get("article") else "") + "</li>" for b in rows) + "</ul>"
     body += sources_html([bl["source"]]) if bl.get("source") else ""
     tabs.append(("bills/", "審議中・採決されなかった法律案", "国会で審議中の法律案と、採決されずに終わった法律案（審議未了・継続審査・撤回）のすべて。題名・提出者・提出会派・結果を、衆議院の議案情報の表記のまま。", body, "bills", bl.get("checked")))
+    body = f"<h1>公式サイト・SNSの一覧</h1><p>{e(acc.get('criteria'))}</p><p>{e(acc.get('rule'))}</p>"
+    for g in acc.get("groups", []):
+        body += f"<h2>{e(g['name'])}（{len(g['items'])}）</h2>" + "".join(f"<h3>{e(x['name'])}</h3>" + sns_html(x).replace("<h2>公式サイト・SNS</h2>", "") for x in g["items"])
+    tabs.append(("accounts/", "公式サイト・SNSの一覧", "政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウントの一覧。機械で集め、人は選ばない。", body, "accounts", max([x.get("checked", "") for x in acc_rows] or [""])))
     for args in tabs:
         site.page(*args)
 

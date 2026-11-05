@@ -1,5 +1,6 @@
 # 週に1回、すべてのページの出典（約700）を見に行き、変わったものを「見直し待ち」にする。
 # 実際の見直しは、毎日の更新（update.yml）が少しずつ行う。
+# あわせて、政府・国会・政党の公式サイトとSNSのリンクを集め直す（accounts.py・ルール D-11）。
 name: 出典の見張り
 
 on:
@@ -34,6 +35,9 @@ jobs:
       - run: pip install -r requirements.txt && (command -v pdftotext || sudo apt-get install -y -q poppler-utils)
       - name: 出典を見に行く
         run: python pipeline/watch_sources.py ${{ inputs.rebaseline && '--rebaseline' || '' }}
+      - name: 公式サイト・SNSを集め直す（D-11）
+        continue-on-error: true   # 失敗しても、前回の結果のまま出典の見張りは保存する
+        run: pip install -q playwright && python -m playwright install --with-deps chromium && python pipeline/accounts.py
       - name: 人が見る必要があるものを知らせる
         env:
           GH_TOKEN: ${{ github.token }}

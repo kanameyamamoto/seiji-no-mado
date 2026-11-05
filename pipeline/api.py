@@ -7,6 +7,7 @@
   {サイト}/api/v1/members.json, members/<id>.json（参議院議員は1件ずつの賛否つき）
   {サイト}/api/v1/governors.json
   {サイト}/api/v1/bills.json        … 審議中・採決されなかった法律案（審議中・継続審査・審議未了・撤回）
+  {サイト}/api/v1/accounts.json     … 政府・国会・政党の公式サイトとSNS（ルール D-11）
   {サイト}/api/v1/learn.json, learn/<id>.json、links.json, links/<id>.json
   {サイト}/api/v1/glossary.json, rules.json
 
@@ -94,7 +95,9 @@ def main():
     put("rules.json", wrap(rules))
     bl = load("bills")
     put("bills.json", wrap(bl.get("items", []), criteria=bl.get("criteria"), status_rule=bl.get("status_rule"), order=bl.get("order"), source=bl.get("source")))
-    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "parties", "members", "governors", "learn", "links", "glossary", "rules")}
+    ac = load("accounts")
+    put("accounts.json", wrap(ac.get("groups", []), criteria=ac.get("criteria"), rule=ac.get("rule"), order=ac.get("order")))
+    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "parties", "members", "governors", "accounts", "learn", "links", "glossary", "rules")}
     put("index.json", wrap(eps, about="せいじのまど（政治の情報を、どの党にもメディアにも偏らずに届けるサイト）の公開データ。サーバーを使わない静的な JSON で、登録やキーは不要。毎日自動で更新される。",
                            levels={"es": "かんたん", "hs": "やさしい", "std": "ふつう", "univ": "くわしく"}, docs=f"{base}api/"))
 
@@ -113,6 +116,7 @@ def main():
         "## 主なページ",
         f"- [国会で決まったこと]({base}laws/)：成立した法律・予算・条約と否決された法律案の一覧と、1件ずつの事実・会派ごとの賛否",
         f"- [審議中・採決されなかった法律案]({base}bills/)：審議中・継続審査・審議未了・撤回の法律案すべて（衆議院の議案情報の表記のまま）",
+        f"- [公式サイト・SNSの一覧]({base}accounts/)：政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウント（機械で集め、人は選ばない）",
         f"- [学ぶ]({base}learn/)：政治のしくみの解説",
         f"- [政党・選挙]({base}parties/)：政党の成り立ち・考え方・政策・国会での賛否",
         f"- [国会議員]({base}members/)・[知事]({base}governors/)",
