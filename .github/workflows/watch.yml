@@ -44,6 +44,9 @@ jobs:
       - name: 国の審議会を集め直す（D-18。審議会総覧の一覧が変わっていなければ何もしない）
         continue-on-error: true
         run: python pipeline/councils.py
+      - name: 組織の写真を選び直す（D-20。ウィキデータとコモンズから）
+        continue-on-error: true
+        run: python pipeline/images.py
       - name: 人が見る必要があるものを知らせる
         env:
           GH_TOKEN: ${{ github.token }}
@@ -52,5 +55,5 @@ jobs:
         run: |
           git config user.name "seiji-no-mado-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          git add data assets/img/org
           git diff --cached --quiet || { git commit -m "出典の見張り $(TZ=Asia/Tokyo date +%Y-%m-%d)"; git pull --rebase -q origin main; git push; }

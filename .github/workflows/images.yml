@@ -1,0 +1,28 @@
+# 組織のページの写真を、ウィキデータとウィキメディア・コモンズから選び直す（ルール D-20・pipeline/images.py）。
+# 週1回の見張り（watch.yml）でも動くが、すぐに選び直したいときに手で動かす。
+name: 組織の写真を選び直す（手動）
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python pipeline/images.py
+      - name: 保存する
+        run: |
+          git config user.name "seiji-no-mado-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/images.json assets/img/org
+          git diff --cached --quiet || { git commit -m "組織の写真 $(TZ=Asia/Tokyo date +%Y-%m-%d)"; git pull --rebase -q origin main; git push; }

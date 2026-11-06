@@ -1,5 +1,5 @@
 {
- "note": "公式サイト・SNSを集める組織の一覧（pipeline/accounts.py が使う）。政府は、内閣・内閣府・各省と、それらの外局（庁・委員会）を建制順に並べる。url はその組織の公式サイトのトップページ。sns_page は、その組織が自分で出している公式SNSの一覧ページ（トップページにSNSのリンクがないときに使う）。政党は data/parties.json の url を使うので、ここには書かない。page は「つながり」の省庁ページのID（そのページにも表示する）。 parent は、その組織が置かれている府省（外局・内閣府の機関の親）。about は、その組織のしくみを説明しているこのサイトのページ（[タブ, ページID]）。",
+ "note": "公式サイト・SNSを集める組織の一覧（pipeline/accounts.py が使う）。政府は、内閣・内閣府・各省と、それらの外局（庁・委員会）を建制順に並べる。url はその組織の公式サイトのトップページ。sns_page は、その組織が自分で出している公式SNSの一覧ページ（トップページにSNSのリンクがないときに使う）。政党は data/parties.json の url を使うので、ここには書かない。page は「つながり」の省庁ページのID（そのページにも表示する）。 parent は、その組織が置かれている府省（外局・内閣府の機関の親）。about は、その組織のしくみを説明しているこのサイトのページ（[タブ, ページID]）。 wikidata は、ウィキデータでのその組織の番号（写真を探すときに使う。公式サイトの住所が一致するものを選んだ）。",
  "groups": [
   {
    "id": "gov",
@@ -9,42 +9,49 @@
      "id": "kantei",
      "name": "首相官邸",
      "url": "https://www.kantei.go.jp/",
-     "sns_page": "https://www.kantei.go.jp/jp/headline/kantei_sns.html"
+     "sns_page": "https://www.kantei.go.jp/jp/headline/kantei_sns.html",
+     "wikidata": "Q659013"
     },
     {
      "id": "cas",
      "name": "内閣官房",
-     "url": "https://www.cas.go.jp/"
+     "url": "https://www.cas.go.jp/",
+     "wikidata": "Q1142254"
     },
     {
      "id": "clb",
      "name": "内閣法制局",
-     "url": "https://www.clb.go.jp/"
+     "url": "https://www.clb.go.jp/",
+     "wikidata": "Q1062966"
     },
     {
      "id": "jinji",
      "name": "人事院",
-     "url": "https://www.jinji.go.jp/"
+     "url": "https://www.jinji.go.jp/",
+     "wikidata": "Q178314"
     },
     {
      "id": "cabinet-office",
      "name": "内閣府",
      "url": "https://www.cao.go.jp/",
      "sns_page": "https://www.cao.go.jp/about/list.html",
-     "page": "cabinet-office"
+     "page": "cabinet-office",
+     "wikidata": "Q6005"
     },
     {
      "id": "kunaicho",
      "name": "宮内庁",
      "url": "https://www.kunaicho.go.jp/",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q1143602"
     },
     {
      "id": "jftc",
      "name": "公正取引委員会",
      "url": "https://www.jftc.go.jp/",
      "page": "jftc",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q842043"
     },
     {
      "id": "npsc",
@@ -56,195 +63,226 @@
        "links",
        "npsc-npa"
       ]
-     ]
+     ],
+     "wikidata": "Q905830"
     },
     {
      "id": "npa",
      "name": "警察庁",
      "url": "https://www.npa.go.jp/",
      "page": "npsc-npa",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q154200"
     },
     {
      "id": "ppc",
      "name": "個人情報保護委員会",
      "url": "https://www.ppc.go.jp/",
      "page": "ppc",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q17221586"
     },
     {
      "id": "jcrc",
      "name": "カジノ管理委員会",
      "url": "https://www.jcrc.go.jp/",
      "page": "jcrc",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q85870678"
     },
     {
      "id": "fsa",
      "name": "金融庁",
      "url": "https://www.fsa.go.jp/",
      "page": "fsa",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q615316"
     },
     {
      "id": "caa",
      "name": "消費者庁",
      "url": "https://www.caa.go.jp/",
      "page": "caa",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q5164637"
     },
     {
      "id": "cfa",
      "name": "こども家庭庁",
      "url": "https://www.cfa.go.jp/",
      "page": "cfa",
-     "parent": "cabinet-office"
+     "parent": "cabinet-office",
+     "wikidata": "Q112598832"
     },
     {
      "id": "digital-agency",
      "name": "デジタル庁",
      "url": "https://www.digital.go.jp/",
-     "page": "digital-agency"
+     "page": "digital-agency",
+     "wikidata": "Q107291492"
     },
     {
      "id": "reconstruction-agency",
      "name": "復興庁",
      "url": "https://www.reconstruction.go.jp/",
-     "page": "reconstruction-agency"
+     "page": "reconstruction-agency",
+     "wikidata": "Q1056221"
     },
     {
      "id": "disaster-management-agency",
      "name": "防災庁",
      "url": "https://www.bousai.go.jp/",
-     "page": "disaster-management-agency"
+     "page": "disaster-management-agency",
+     "wikidata": "Q134892398"
     },
     {
      "id": "mic",
      "name": "総務省",
      "url": "https://www.soumu.go.jp/",
-     "page": "mic"
+     "page": "mic",
+     "wikidata": "Q1322293"
     },
     {
      "id": "kouchoi",
      "name": "公害等調整委員会",
      "url": "https://www.soumu.go.jp/kouchoi/",
-     "parent": "mic"
+     "parent": "mic",
+     "wikidata": "Q11392007"
     },
     {
      "id": "fdma",
      "name": "消防庁",
      "url": "https://www.fdma.go.jp/",
-     "parent": "mic"
+     "parent": "mic",
+     "wikidata": "Q6477686"
     },
     {
      "id": "moj",
      "name": "法務省",
      "url": "https://www.moj.go.jp/",
-     "page": "moj"
+     "page": "moj",
+     "wikidata": "Q1031145"
     },
     {
      "id": "isa",
      "name": "出入国在留管理庁",
      "url": "https://www.moj.go.jp/isa/",
-     "parent": "moj"
+     "parent": "moj",
+     "wikidata": "Q11388879"
     },
     {
      "id": "kouanshin",
      "name": "公安審査委員会",
      "url": "https://www.moj.go.jp/kouanshin/kouanshinsa_index.html",
-     "parent": "moj"
+     "parent": "moj",
+     "wikidata": "Q11391993"
     },
     {
      "id": "psia",
      "name": "公安調査庁",
      "url": "https://www.moj.go.jp/psia/",
-     "parent": "moj"
+     "parent": "moj",
+     "wikidata": "Q1346667"
     },
     {
      "id": "mofa",
      "name": "外務省",
      "url": "https://www.mofa.go.jp/mofaj/",
-     "page": "mofa"
+     "page": "mofa",
+     "wikidata": "Q222241"
     },
     {
      "id": "mof",
      "name": "財務省",
      "url": "https://www.mof.go.jp/",
-     "page": "mof"
+     "page": "mof",
+     "wikidata": "Q1322605"
     },
     {
      "id": "nta",
      "name": "国税庁",
      "url": "https://www.nta.go.jp/",
-     "parent": "mof"
+     "parent": "mof",
+     "wikidata": "Q11421205"
     },
     {
      "id": "mext",
      "name": "文部科学省",
      "url": "https://www.mext.go.jp/",
-     "page": "mext"
+     "page": "mext",
+     "wikidata": "Q1054379"
     },
     {
      "id": "sports",
      "name": "スポーツ庁",
      "url": "https://www.mext.go.jp/sports/",
-     "parent": "mext"
+     "parent": "mext",
+     "wikidata": "Q17994569"
     },
     {
      "id": "bunka",
      "name": "文化庁",
      "url": "https://www.bunka.go.jp/",
-     "parent": "mext"
+     "parent": "mext",
+     "wikidata": "Q1009519"
     },
     {
      "id": "mhlw",
      "name": "厚生労働省",
      "url": "https://www.mhlw.go.jp/",
      "sns_page": "https://www.mhlw.go.jp/stf/SNSpage.html",
-     "page": "mhlw"
+     "page": "mhlw",
+     "wikidata": "Q1191238"
     },
     {
      "id": "churoi",
      "name": "中央労働委員会",
      "url": "https://www.mhlw.go.jp/churoi/",
-     "parent": "mhlw"
+     "parent": "mhlw",
+     "wikidata": "Q11363620"
     },
     {
      "id": "maff",
      "name": "農林水産省",
      "url": "https://www.maff.go.jp/",
-     "page": "maff"
+     "page": "maff",
+     "wikidata": "Q1376786"
     },
     {
      "id": "rinya",
      "name": "林野庁",
      "url": "https://www.rinya.maff.go.jp/",
-     "parent": "maff"
+     "parent": "maff",
+     "wikidata": "Q54419115"
     },
     {
      "id": "jfa",
      "name": "水産庁",
      "url": "https://www.jfa.maff.go.jp/",
-     "parent": "maff"
+     "parent": "maff",
+     "wikidata": "Q11548989"
     },
     {
      "id": "meti",
      "name": "経済産業省",
      "url": "https://www.meti.go.jp/",
      "sns_page": "https://www.meti.go.jp/sns/index.html",
-     "page": "meti"
+     "page": "meti",
+     "wikidata": "Q1197264"
     },
     {
      "id": "enecho",
      "name": "資源エネルギー庁",
      "url": "https://www.enecho.meti.go.jp/",
-     "parent": "meti"
+     "parent": "meti",
+     "wikidata": "Q4692014"
     },
     {
      "id": "jpo",
      "name": "特許庁",
      "url": "https://www.jpo.go.jp/",
-     "parent": "meti"
+     "parent": "meti",
+     "wikidata": "Q1141991"
     },
     {
      "id": "chusho",
@@ -256,13 +294,15 @@
      "id": "mlit",
      "name": "国土交通省",
      "url": "https://www.mlit.go.jp/",
-     "page": "mlit"
+     "page": "mlit",
+     "wikidata": "Q1376196"
     },
     {
      "id": "kankocho",
      "name": "観光庁",
      "url": "https://www.mlit.go.jp/kankocho/",
-     "parent": "mlit"
+     "parent": "mlit",
+     "wikidata": "Q6157871"
     },
     {
      "id": "jma",
@@ -274,38 +314,44 @@
      "id": "jtsb",
      "name": "運輸安全委員会",
      "url": "https://jtsb.mlit.go.jp/",
-     "parent": "mlit"
+     "parent": "mlit",
+     "wikidata": "Q6157874"
     },
     {
      "id": "kaiho",
      "name": "海上保安庁",
      "url": "https://www.kaiho.mlit.go.jp/",
-     "parent": "mlit"
+     "parent": "mlit",
+     "wikidata": "Q565418"
     },
     {
      "id": "env",
      "name": "環境省",
      "url": "https://www.env.go.jp/",
-     "page": "env"
+     "page": "env",
+     "wikidata": "Q1125558"
     },
     {
      "id": "nra",
      "name": "原子力規制委員会",
      "url": "https://www.nra.go.jp/",
-     "parent": "env"
+     "parent": "env",
+     "wikidata": "Q1502596"
     },
     {
      "id": "mod",
      "name": "防衛省",
      "url": "https://www.mod.go.jp/",
      "sns_page": "https://www.mod.go.jp/j/info/sns.html",
-     "page": "mod"
+     "page": "mod",
+     "wikidata": "Q1062689"
     },
     {
      "id": "atla",
      "name": "防衛装備庁",
      "url": "https://www.mod.go.jp/atla/",
-     "parent": "mod"
+     "parent": "mod",
+     "wikidata": "Q18339248"
     }
    ]
   },
@@ -321,12 +367,14 @@
     {
      "id": "sangiin",
      "name": "参議院",
-     "url": "https://www.sangiin.go.jp/"
+     "url": "https://www.sangiin.go.jp/",
+     "wikidata": "Q548911"
     },
     {
      "id": "ndl",
      "name": "国立国会図書館",
-     "url": "https://www.ndl.go.jp/"
+     "url": "https://www.ndl.go.jp/",
+     "wikidata": "Q477675"
     }
    ]
   },
@@ -351,7 +399,8 @@
        "learn",
        "lay-judge"
       ]
-     ]
+     ],
+     "wikidata": "Q1142255"
     }
    ]
   },
@@ -368,7 +417,8 @@
        "links",
        "audit-and-settlement"
       ]
-     ]
+     ],
+     "wikidata": "Q615225"
     },
     {
      "id": "boj",
@@ -383,7 +433,8 @@
        "learn",
        "money-monetary-policy"
       ]
-     ]
+     ],
+     "wikidata": "Q333101"
     }
    ]
   }
