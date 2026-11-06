@@ -8,7 +8,14 @@ on:
     types: [completed]
   schedule:
     - cron: "17 3 * * *"   # 毎日 日本時間 12:17（公開のあとに出しそびれたものを拾う）
+    - cron: "3 3 * * *"    # 毎日 日本時間 12:03 データの数字のポスト（pipeline/social_facts.py）
+    - cron: "3 12 * * *"   # 毎日 日本時間 21:03 データの数字のポスト
   workflow_dispatch:
+    inputs:
+      facts:
+        description: "データの数字のポストを1本出す"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -37,7 +44,14 @@ jobs:
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
-        run: python pipeline/social.py
+        run: |
+          if [ "${{ github.event.schedule }}" = "3 3 * * *" ] || [ "${{ github.event.schedule }}" = "3 12 * * *" ] || [ "${{ inputs.facts }}" = "true" ]; then
+            sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
+            pip install -q matplotlib
+            python pipeline/social.py --facts
+          else
+            python pipeline/social.py
+          fi
       - name: 投稿の記録を保存する
         run: |
           git config user.name "seiji-no-mado-bot"
