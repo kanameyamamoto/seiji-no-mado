@@ -22,6 +22,215 @@
  },
  "sessions": [
   {
+   "name": "第201回国会",
+   "kind": "常会",
+   "start": "2020-01-20",
+   "end": "2020-06-17",
+   "note": "会期150日（当初150日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第202回国会",
+   "kind": "臨時会",
+   "start": "2020-09-16",
+   "end": "2020-09-18",
+   "note": "会期3日（当初3日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第203回国会",
+   "kind": "臨時会",
+   "start": "2020-10-26",
+   "end": "2020-12-05",
+   "note": "会期41日（当初41日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第204回国会",
+   "kind": "常会",
+   "start": "2021-01-18",
+   "end": "2021-06-16",
+   "note": "会期150日（当初150日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第205回国会",
+   "kind": "臨時会",
+   "start": "2021-10-04",
+   "end": "2021-10-14",
+   "note": "会期11日（当初11日）。衆議院解散で閉会。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第206回国会",
+   "kind": "特別会",
+   "start": "2021-11-10",
+   "end": "2021-11-12",
+   "note": "会期3日（当初3日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第207回国会",
+   "kind": "臨時会",
+   "start": "2021-12-06",
+   "end": "2021-12-21",
+   "note": "会期16日（当初16日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第208回国会",
+   "kind": "常会",
+   "start": "2022-01-17",
+   "end": "2022-06-15",
+   "note": "会期150日（当初150日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第209回国会",
+   "kind": "臨時会",
+   "start": "2022-08-03",
+   "end": "2022-08-05",
+   "note": "会期3日（当初3日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第210回国会",
+   "kind": "臨時会",
+   "start": "2022-10-03",
+   "end": "2022-12-10",
+   "note": "会期69日（当初69日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第211回国会",
+   "kind": "常会",
+   "start": "2023-01-23",
+   "end": "2023-06-21",
+   "note": "会期150日（当初150日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第212回国会",
+   "kind": "臨時会",
+   "start": "2023-10-20",
+   "end": "2023-12-13",
+   "note": "会期55日（当初55日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第213回国会",
+   "kind": "常会",
+   "start": "2024-01-26",
+   "end": "2024-06-23",
+   "note": "会期150日（当初150日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第214回国会",
+   "kind": "臨時会",
+   "start": "2024-10-01",
+   "end": "2024-10-09",
+   "note": "会期9日（当初9日）。衆議院解散で閉会。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第215回国会",
+   "kind": "特別会",
+   "start": "2024-11-11",
+   "end": "2024-11-14",
+   "note": "会期4日（当初4日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第216回国会",
+   "kind": "臨時会",
+   "start": "2024-11-28",
+   "end": "2024-12-24",
+   "note": "会期27日（当初24日、延長3日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第217回国会",
+   "kind": "常会",
+   "start": "2025-01-24",
+   "end": "2025-06-22",
+   "note": "会期150日（当初150日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第218回国会",
+   "kind": "臨時会",
+   "start": "2025-08-01",
+   "end": "2025-08-05",
+   "note": "会期5日（当初5日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
+   "name": "第219回国会",
+   "kind": "臨時会",
+   "start": "2025-10-21",
+   "end": "2025-12-17",
+   "note": "会期58日（当初58日）。",
+   "source": {
+    "label": "衆議院 国会会期一覧",
+    "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm"
+   }
+  },
+  {
    "name": "第220回国会",
    "kind": "常会",
    "start": "2026-01-23",
