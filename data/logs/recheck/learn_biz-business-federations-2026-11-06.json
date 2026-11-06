@@ -1,0 +1,76 @@
+{
+ "unit": "learn:biz-business-federations",
+ "title": "経済団体と政策提言",
+ "date": "2026-11-06",
+ "reasons": [
+  "出典「全国中小企業団体中央会」の内容が変わった",
+  "出典「経済同友会」の内容が変わった",
+  "出典「日本商工会議所」の内容が変わった",
+  "出典「日本経済団体連合会」の内容が変わった",
+  "出典「全国商工会連合会」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "経済同友会",
+   "url": "https://www.doyukai.or.jp/",
+   "chars": 762,
+   "error": null
+  },
+  {
+   "label": "全国商工会連合会",
+   "url": "https://www.shokokai.or.jp/",
+   "chars": 683,
+   "error": null
+  },
+  {
+   "label": "全国中小企業団体中央会",
+   "url": "https://www.chuokai.or.jp/",
+   "chars": 1775,
+   "error": null
+  },
+  {
+   "label": "日本経済団体連合会",
+   "url": "https://www.keidanren.or.jp/",
+   "chars": 1187,
+   "error": null
+  },
+  {
+   "label": "日本商工会議所",
+   "url": "https://www.jcci.or.jp/",
+   "chars": 2066,
+   "error": null
+  },
+  {
+   "label": "経団連「経団連とは」",
+   "url": "https://www.keidanren.or.jp/profile/pro001.html",
+   "chars": 2224,
+   "error": null
+  },
+  {
+   "label": "日本商工会議所「組織概要」",
+   "url": "https://www.jcci.or.jp/about/profile/",
+   "chars": 599,
+   "error": null
+  },
+  {
+   "label": "日本商工会議所「日本商工会議所とは」",
+   "url": "https://www.jcci.or.jp/about/jcci/",
+   "chars": 1876,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "経団連「経団連とは」（企業1,580社・業種別全国団体103団体・地方別経済団体47団体、2026年4月1日現在、設立1946年8月16日、会長 筒井義信）と日本商工会議所「組織概要」「日本商工会議所とは」（516商工会議所、設立1922年6月29日、会頭 小林健、商工会議所法に基づく民間の地域総合経済団体）を確かめ、ページの文と食い違いはなく、経済同友会・全国商工会連合会・全国中小企業団体中央会のトップページの本文にもページの記述と食い違う数字・名前はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

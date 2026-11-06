@@ -1,0 +1,72 @@
+{
+ "unit": "learn:biz-corporate-donations",
+ "title": "企業・団体献金のルール",
+ "date": "2026-11-06",
+ "reasons": [
+  "出典「衆議院「第222回国会 議案の一覧」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "衆議院「第222回国会 議案の一覧」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/kaiji222.htm",
+   "chars": 4095,
+   "error": null
+  },
+  {
+   "label": "衆議院「政治資金規正法の一部を改正する法律案要綱」（第221回国会 衆法第1号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105001.htm",
+   "chars": 1753,
+   "error": null
+  },
+  {
+   "label": "衆議院「政治資金規正法の一部を改正する法律案要綱」（第221回国会 衆法第14号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105014.htm",
+   "chars": 933,
+   "error": null
+  },
+  {
+   "label": "衆議院「政党等の政治資金の収入に関する制度の在り方に係る措置に関する法律案要綱」（第221回国会 衆法第12号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105012.htm",
+   "chars": 1037,
+   "error": null
+  },
+  {
+   "label": "政治資金規正法 第21条・第21条の3・第22条の3〜第22条の5（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「令和6年分政治資金収支報告の概要（総務大臣届出分）」令和7年11月28日",
+   "url": "https://www.soumu.go.jp/main_content/001042676.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院 議案審議経過（第221回国会 衆法第1号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D1E.htm",
+   "chars": 1264,
+   "error": null
+  },
+  {
+   "label": "衆議院 議案審議経過（第221回国会 衆法第12号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D22.htm",
+   "chars": 1187,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "衆議院「第222回国会 議案の一覧」で、第221回国会提出の衆法第1号・第12号・第14号がいずれも「衆議院で審議中」であることを確かめ、ページの「衆議院で審議中」の記述と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

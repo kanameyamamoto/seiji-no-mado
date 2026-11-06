@@ -59,52 +59,20 @@
    "date": "2026-11-06",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/12",
    "title": "リンク切れ：公的な情報源：e-Govパブリック・コメント"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/15",
+   "title": "リンク切れ：財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/16",
+   "title": "リンク切れ：政府広報オンライン「2026年1月から下請法が「取適法」に！」"
   }
  ],
  "alerts": [],
  "due": {
-  "elections": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「Wikipedia日本語版「衆議院議員総選挙」（一覧表）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「nippon.com「2025年参院選」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「nippon.com「衆院選2026」」の内容が変わった"
-   }
-  ],
-  "learn:biz-business-federations": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「全国中小企業団体中央会」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「経済同友会」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「日本商工会議所」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「日本経済団体連合会」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「全国商工会連合会」の内容が変わった"
-   }
-  ],
-  "learn:biz-corporate-donations": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「衆議院「第222回国会 議案の一覧」」の内容が変わった"
-   }
-  ],
   "learn:biz-labor-unions": [
    {
     "date": "2026-11-06",
@@ -3119,6 +3087,7 @@
    "since": "2026-11-06"
   },
   "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx": {
+   "alerted": "2026-11-06",
    "broken": "2026-11-06",
    "checked": "2026-11-06",
    "fails": 3,
@@ -3682,6 +3651,7 @@
    "since": "2026-11-01"
   },
   "https://www.gov-online.go.jp/article/202511/entry-9983.html": {
+   "alerted": "2026-11-06",
    "broken": "2026-11-06",
    "checked": "2026-11-06",
    "fails": 3,
