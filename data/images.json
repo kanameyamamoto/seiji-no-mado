@@ -3,6 +3,16 @@
  "rule": "人は選ばない。自由に使えるライセンス（パブリックドメイン・CC0・CC BY・CC BY-SA）のものだけを使い、ロゴ・紋章や人が写っている写真は使わない。撮った人・ライセンス・元のページを写真の下に書く。",
  "checked": "2026-11-06",
  "orgs": {
+  "kantei": {
+   "file": "assets/img/org/kantei.jpg",
+   "title": "Kantei PM Japan Residence.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kantei_PM_Japan_Residence.jpg",
+   "author": "内閣官房内閣広報室",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "what": "組織",
+   "wikidata": "Q659013"
+  },
   "cas": {
    "file": "assets/img/org/cas.jpg",
    "title": "内閣府庁舎.JPG",
