@@ -69,6 +69,12 @@ jobs:
           CHECKER_MODEL: ${{ vars.CHECKER_MODEL }}
         run: python pipeline/enrich.py
 
+      - name: 「かんたん」「やさしい」を書き直す（小学生・中学生向け＋ふりがな。ルール L-5。1日の上限は data/config.json）
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL }}
+        run: python pipeline/easy.py
+
       - name: 公開中のページを見直す（出典が変わった・日数がたったページ。1日の上限は data/config.json）
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

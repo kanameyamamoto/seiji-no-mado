@@ -37,5 +37,8 @@
   "note": "パブリックコメントと閣議の案件（pipeline/steps.py）。kakugi_from_year＝閣議をさかのぼる年。kakugi_limit＝1回に読む閣議のページの数。",
   "kakugi_from_year": 2025,
   "kakugi_limit": 250
+ },
+ "easy": {
+  "daily_limit": 30
  }
 }

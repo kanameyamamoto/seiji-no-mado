@@ -46,7 +46,7 @@ jobs:
         run: python pipeline/councils.py
       - name: 組織の写真を選び直す（D-20。ウィキデータとコモンズから）
         continue-on-error: true
-        run: python pipeline/images.py
+        run: pip install -q pillow && python pipeline/images.py
       - name: 人が見る必要があるものを知らせる
         env:
           GH_TOKEN: ${{ github.token }}

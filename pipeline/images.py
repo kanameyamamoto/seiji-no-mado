@@ -34,7 +34,8 @@ WD = "https://www.wikidata.org/w/api.php"
 COMMONS = "https://commons.wikimedia.org/w/api.php"
 BUILDING = {"Q41176", "Q1021645", "Q16831714", "Q11303", "Q811979", "Q1497364", "Q1081138", "Q24354", "Q16560", "Q2977", "Q19844914", "Q12819564"}
 FREE = re.compile(r"^(public domain|pd|cc0|cc[- ]by(-sa)?([- ]\d(\.\d)?)?)", re.I)
-NG_WORDS = re.compile(r"logo|emblem|seal|flag|mark|symbol|portrait|people|person|politician|minister|meeting|conference|signing|ceremony|visit|press|会見|ロゴ|紋章|記章|首相|大臣", re.I)
+NG_TITLE = re.compile(r"logo|emblem|seal|flag|symbol|portrait|people|person|politician|meeting|conference|signing|ceremony|visit|press| and |会見|ロゴ|紋章|記章", re.I)
+NG_CATS = re.compile(r"logos|emblems|seals of|flags of|portraits|people|politicians|meetings|conferences|ceremonies|signings|press conferences|visits", re.I)
 WIDTH = 960
 
 
@@ -119,11 +120,24 @@ def ok(fi):
         return "画像でない"
     if not FREE.match(fi["license"]):
         return f"ライセンス（{fi['license']}）"
-    if NG_WORDS.search(fi["title"]) or NG_WORDS.search(fi["cats"]):
+    if NG_TITLE.search(fi["title"]) or NG_CATS.search(fi["cats"]):
         return "ロゴや人の写真の分類"
     if depicts_people(fi["pageid"]):
         return "人が写っている"
     return ""
+
+
+def shrink(path):
+    """ページを軽くするため、幅960ピクセル・JPEG の画質80にする（Pillow があるとき）。"""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    im = Image.open(path)
+    im = im.convert("RGB")
+    if im.width > WIDTH:
+        im = im.resize((WIDTH, round(im.height * WIDTH / im.width)))
+    im.save(path, "JPEG", quality=80, optimize=True, progressive=True)
 
 
 def main():
@@ -177,6 +191,7 @@ def main():
         if prev.get("title") != fi["title"] or not os.path.exists(path):
             with urllib.request.urlopen(urllib.request.Request(fi["thumb"], headers=UA), timeout=120) as r:
                 open(path, "wb").write(r.read())
+            shrink(path)
             time.sleep(1)
         res[o["id"]] = {"file": f"assets/img/org/{o['id']}.jpg", "title": fi["title"], "page": fi["page"], "author": fi["author"] or "（コモンズのページを見てください）",
                         "license": fi["license"], "license_url": fi["license_url"], "what": kind, "wikidata": item}

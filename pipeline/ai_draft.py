@@ -19,6 +19,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import ai  # noqa: E402
 import numcheck  # noqa: E402
+import furigana  # noqa: E402
 import sangiin as S  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -166,6 +167,10 @@ def shape_problems(draft):
         for l in LEVELS:
             if not f.get(l):
                 p.append(f"facts[{i}].{l} がありません")
+    # ふりがなと漢字の範囲（L-5）：かんたんはすべての漢字、やさしいは小学校で習わない漢字に、ふりがな
+    for where, t in [("lead", draft.get("lead", {}))] + [(f"facts[{i}]", f) for i, f in enumerate(facts)]:
+        for l in ("es", "hs"):
+            p += [f"{where}.{l}：{x}" for x in furigana.problems((t or {}).get(l, ""), l)]
     return p
 
 

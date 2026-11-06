@@ -25,6 +25,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
 <style>
+ruby { ruby-position: over; ruby-align: center; }
+rt { font-size: .5em; font-weight: 500; letter-spacing: 0; line-height: 1; opacity: .85; user-select: none; }
+.no-ruby rt, .no-ruby rp { display: none; }
+.org-photo { margin: 4px 0 20px; }
+.hero-il { display: block; width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; border-radius: 14px; margin: 4px 0 18px; }
+.card-il { float: right; width: 84px; height: 56px; object-fit: cover; border-radius: 10px; margin: 0 0 6px 10px; }
+.feat-il { display: block; width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; border-radius: 12px; margin: 2px 0 12px; }
+.org-photo img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: var(--line, #e5e7eb); }
+.org-photo figcaption { margin-top: 6px; font-size: 12px; line-height: 1.6; color: var(--muted, #6b7280); }
+.org-photo figcaption a { color: inherit; }
 /* Layout: fixed navy header + content column (max 1040px) + fixed navy bottom tabs on phones / tabs in header on desktop. Institutional navy (紺) with white cards; party colors never used (rule D-2). */
 :root {
   --bg: #EEF1F6;
@@ -864,6 +874,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   if (savedLevel === 'standard') savedLevel = 'std';
   if (LEVELS.some(function (l) { return l[0] === savedLevel; })) state.level = savedLevel;
   state.party = store('sh-party') || '';
+  state.ruby = store('sh-ruby') || 'on';
+  if (state.ruby === 'off') document.documentElement.classList.add('no-ruby');
   state.persona = store('sh-persona') || '';
   state.courseIdx = Number(store('sh-course') || 0) || 0;
   var READ = {}; try { READ = JSON.parse(store('sm-read') || '{}') || {}; } catch (e) { READ = {}; }
@@ -886,7 +898,33 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     TERM_RE = new RegExp(keys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|'), 'g');
   }
   function termBtn(t) { return '<button class="term" data-term="' + esc(t) + '">' + esc(t) + '</button>'; }
+  /* ふりがな（L-5）：漢字《かんじ》・｜ことば《ことば》 を <ruby> にする */
+  var RUBY_RE = /｜([^｜《》\n]+)《([^《》\n]*)》|([\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF々〆ヶ]+)《([^《》\n]*)》/g;
+  function rubyTag(base, rt) { return '<ruby>' + esc(base) + '<rp>（</rp><rt>' + esc(rt) + '</rt><rp>）</rp></ruby>'; }
+  function noRuby(s) { return String(s == null ? '' : s).replace(RUBY_RE, function (m, b1, r1, b2) { return b1 || b2; }); }
+  function applyRuby(root) {
+    if (!root || String(root.textContent).indexOf('《') < 0) return;
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [], n;
+    while ((n = w.nextNode())) if (n.nodeValue.indexOf('《') >= 0 && !(n.parentNode && /^(SCRIPT|STYLE|TEXTAREA|RT)$/.test(n.parentNode.nodeName))) nodes.push(n);
+    nodes.forEach(function (t) {
+      RUBY_RE.lastIndex = 0;
+      if (!RUBY_RE.test(t.nodeValue)) return;
+      var span = document.createElement('span');
+      span.innerHTML = esc(t.nodeValue).replace(RUBY_RE, function (m, b1, r1, b2, r2) { return '<ruby>' + (b1 || b2) + '<rp>（</rp><rt>' + (b1 ? r1 : r2) + '</rt><rp>）</rp></ruby>'; });
+      var f = document.createDocumentFragment(); while (span.firstChild) f.appendChild(span.firstChild);
+      t.parentNode.replaceChild(f, t);
+    });
+  }
   function rich(s) {
+    s = String(s == null ? '' : s);
+    if (s.indexOf('《') >= 0) {
+      var out = '', i = 0, m; RUBY_RE.lastIndex = 0;
+      while ((m = RUBY_RE.exec(s))) { out += richPlain(s.slice(i, m.index)) + rubyTag(m[1] || m[3], m[1] ? m[2] : m[4]); i = RUBY_RE.lastIndex; }
+      return out + richPlain(s.slice(i));
+    }
+    return richPlain(s);
+  }
+  function richPlain(s) {
     return String(s == null ? '' : s).split(/(\{\{[^}]+\}\})/).map(function (part) {
       var m = part.match(/^\{\{([^}]+)\}\}$/);
       if (m) { var t = m[1]; if ((D.glossary && D.glossary[t]) || PARTY_BY_NAME[t]) { seenTerms[t] = 1; return termBtn(t); } return esc(t); }
@@ -895,7 +933,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
       return e.replace(TERM_RE, function (w) { if (seenTerms[w]) return w; seenTerms[w] = 1; return termBtn(w); });
     }).join('');
   }
-  function plain(s) { return String(s || '').replace(/\{\{([^}]+)\}\}/g, '$1'); }
+  function plain(s) { return noRuby(String(s || '').replace(/\{\{([^}]+)\}\}/g, '$1')); }
   function date(s) { if (!s) return ''; var p = String(s).split('-'); if (p.length < 3) return s; return p[0] + '年' + Number(p[1]) + '月' + Number(p[2]) + '日'; }
   function sdate(s) { if (!s) return '—'; var p = String(s).split('-'); return p[0] + '/' + Number(p[1]) + '/' + Number(p[2]); }
   function a(url, label, cls) { return url ? '<a' + (cls ? ' class="' + cls + '"' : '') + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : '<span>' + esc(label) + '</span>'; }
@@ -1327,9 +1365,10 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var back = tab;
     return '<div class="view">' + backBtn(back, TAB_TITLE[tab] + '・' + hit.section.name) +
       '<div class="page-head"><h1>' + esc(p.title) + '</h1><div class="meta">' + checked(p.checked) + ruleChips(pageRules(p)) + '</div></div>' + 
+      (tab === 'links' && accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; }) && D.images && D.images.orgs && D.images.orgs[accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; }).id] ? '' : ilImg(IL_SEC[hit.section.id] || (tab === 'learn' ? 'basics' : 'ministry'), 'hero-il')) + 
       (p.blocks || []).filter(function (b) { return b.type === 'hook'; }).map(block).join('') +
       (p.summary ? '<p class="lead-l">' + rich(lv(p.summary)) + '</p>' : '') +
-      '<div class="learn-body">' + bodyBlocks(p.blocks).map(block).join('') + (tab === 'links' ? snsSection(accFind(function (x) { return x.page === p.id; }), true) + orgChildren(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) + ministryActivity(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) : '') + src(p.sources) + hist(p) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
+      '<div class="learn-body">' + (tab === 'links' ? orgPhoto(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) : '') + bodyBlocks(p.blocks).map(block).join('') + (tab === 'links' ? snsSection(accFind(function (x) { return x.page === p.id; }), true) + orgChildren(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) + ministryActivity(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) : '') + src(p.sources) + hist(p) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
@@ -1389,7 +1428,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   function card(it) {
     var t = it.votes && it.votes.totals;
     return '<button class="card" data-go="a-' + esc(it.id) + '"><div class="head"><span class="chip accent">' + esc(it.kind) + '</span>' + (it.topic ? '<span class="chip">' + esc(it.topic) + '</span>' : '') + '</div>' +
-      '<h3>' + esc(it.title) + '</h3><p class="lead">' + esc(plain(lv(it.lead))) + '</p><div class="meta"><span>' + date(it.date) + '</span>' +
+      ilImg(ilArticle(it), 'card-il') + '<h3>' + esc(it.title) + '</h3><p class="lead">' + esc(unterm(lv(it.lead))) + '</p><div class="meta"><span>' + date(it.date) + '</span>' +
       (isRej(it) ? '<span>' + esc(it.number || '') + '・' + rejWhere(it) + '</span>' : '') +
       (t ? '<span>賛成 ' + t['for'] + '・反対 ' + t.against + '</span>' : '') + '</div></button>';
   }
@@ -1409,7 +1448,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   function poolCard(x, big) {
     var q = x.hookText ? lv(x.hookText) : x.hook ? hookOf(x.hook) : '';
     return '<button class="card' + (big ? ' feat' : '') + '" data-go="' + esc(x.go) + '"><div class="head"><span class="chip accent">' + esc(x.cat) + '</span>' + (x.meta ? '<span class="chip">' + esc(x.meta) + '</span>' : '') + '</div>' +
-      (q ? '<p class="cq">' + esc(plain(q)) + '</p>' : '') + '<h3>' + esc(x.title) + '</h3>' + (x.lead ? '<p class="lead">' + esc(plain(lv(x.lead))) + '</p>' : '') + (big && x.more ? '<p class="lead">' + esc(plain(lv(x.more))) + '</p>' : '') + '</button>';
+      ilImg(ilOf(x.go), big ? 'feat-il' : 'card-il') + (q ? '<p class="cq">' + esc(unterm(q)) + '</p>' : '') + '<h3>' + esc(x.title) + '</h3>' + (x.lead ? '<p class="lead">' + esc(unterm(lv(x.lead))) + '</p>' : '') + (big && x.more ? '<p class="lead">' + esc(unterm(lv(x.more))) + '</p>' : '') + '</button>';
   }
   var TODAY_CATS = ['国会で決まったこと', '学ぶ', '政党', 'つながり', '学ぶ'];
   function todayPicks() {
@@ -1509,6 +1548,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
       '<div class="page-head"><div class="meta"><span class="chip accent">' + esc(it.kind) + '</span>' + (it.topic ? '<span class="chip">' + esc(it.topic) + '</span>' : '') + checked(it.checked) + '</div>' +
       '<h1>' + esc(it.title) + '</h1><div class="meta">' + (it.formal && it.formal !== it.title ? '<span>正式名 ' + esc(it.formal) + '</span>' : '') + '</div>' +
       '<div class="meta"><span>' + date(it.date) + (isRej(it) ? ' ' + rejWhere(it) : it.kind === '条約を承認' ? ' 承認' : ' 成立') + '</span>' + (it.session ? '<span>' + esc(it.session) + '</span>' : '') + (it.number ? '<span>' + esc(it.number) + '</span>' : '') + (it.submitter ? '<span>提出 ' + esc(it.submitter) + (it.submitter_groups && it.submitter_groups.length ? '（' + esc(it.submitter_groups.join('、')) + '）' : '') + '</span>' : '') + '</div></div>' +
+       ilImg(ilArticle(it), 'hero-il') +
        (isRej(it) ? '<p class="rej-note">' + rich('この法律案は' + rejWhere(it).replace('否決', '{{否決}}') + 'され、成立していません。') + '</p>' : '') +
        (it.lead ? '<p class="lead-l">' + rich(lv(it.lead)) + '</p>' : '');
     if (it.facts && it.facts.length) {
@@ -1755,6 +1795,29 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (!kids.length) return '';
     return '<section class="sec"><h2>' + esc(x.name) + 'に置かれている組織（' + kids.length + '）</h2><div class="list">' + kids.map(function (k) { return '<button class="row-item" data-go="' + esc(accRoute(k)) + '"><span class="grow"><span class="t">' + esc(k.name) + '</span></span>' + ICON.chev + '</button>'; }).join('') + '</div></section>';
   }
+  /* ---------- 分野ごとの絵（D-20：このサイトで描いた絵。政党の色は使わない） ---------- */
+  var IL_TOPIC = { '国会（議員立法）': 'diet', '財務省': 'money', '外務省（条約）': 'world', '外務省': 'world', '農林水産省': 'farm', '法務省': 'law', '国土交通省': 'transport', '厚生労働省': 'life', '内閣官房': 'cabinet', '内閣': 'cabinet', '内閣府本府': 'cabinet', '内閣府': 'cabinet', '総務省': 'local', '環境省': 'env', '文部科学省': 'school', '経済産業省': 'industry', '金融庁': 'money', '防衛省': 'defense', '警察庁': 'defense', '個人情報保護委員会': 'law', 'デジタル庁': 'industry', 'こども家庭庁': 'life', '復興庁': 'local', '消費者庁': 'life', '防災庁': 'defense' };
+  var IL_SEC = { basics: 'basics', diet: 'diet', cabinet: 'cabinet', courts: 'courts', local: 'local', participate: 'vote', elections: 'vote', 'seito-shikumi': 'vote', 'senkyo-yomikata': 'vote', tax: 'money', 'money-politics': 'money', 'biz-politics': 'work', 'work-politics': 'work', industry: 'industry', social: 'life', 'world-basics': 'world', 'media-guide': 'media',
+    't-budget': 'money', 't-ministries': 'ministry', 't-life': 'life', 't-local': 'local', 't-world': 'world', 't-industry': 'industry', 't-biz': 'work', 't-money': 'money' };
+  function ilArticle(it) { if (it.kind === '予算が成立') return 'money'; if (it.kind === '条約を承認') return 'world'; return IL_TOPIC[it.topic] || 'ministry'; }
+  function ilOf(go) {
+    if (!go) return '';
+    if (go.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === go.slice(2); })[0]; return it ? ilArticle(it) : 'diet'; }
+    if (go.indexOf('pg-') === 0) { var r = go.slice(3), i = r.indexOf('-'), hit = findPage(r.slice(0, i), r.slice(i + 1)); return hit ? (IL_SEC[hit.section.id] || 'basics') : 'basics'; }
+    if (go.indexOf('p-') === 0) return 'vote';
+    return '';
+  }
+  function ilImg(key, cls) { return key ? '<img class="' + cls + '" src="assets/img/illust/' + key + '.svg" alt="" loading="lazy" decoding="async">' : ''; }
+  function unterm(s) { return String(s || '').replace(/\{\{([^}]+)\}\}/g, '$1'); }
+  /* ---------- 組織の写真（D-20：ウィキメディア・コモンズの自由に使える写真。撮った人とライセンスを必ず書く） ---------- */
+  function orgPhoto(x) {
+    if (!x) return '';
+    needFile('images', 'data/images.json');
+    var im = D.images && D.images.orgs && D.images.orgs[x.id];
+    if (!im) return '';
+    return '<figure class="org-photo"><img src="' + esc(im.file) + '" alt="' + esc(x.name + (im.what === '本部の建物' ? 'が入っている建物' : '')) + '" loading="lazy" decoding="async">' +
+      '<figcaption>' + esc(im.what === '本部の建物' ? x.name + 'が入っている建物' : x.name) + '・写真：' + esc(im.author) + '（' + (im.license_url ? a(im.license_url, im.license) : esc(im.license)) + '）・' + a(im.page, 'ウィキメディア・コモンズ') + ruleChips(['D-20']) + '</figcaption></figure>';
+  }
   /* ---------- 組織のページ（D-19：ほかのページの中身を機械で集めるだけ） ---------- */
   function vOrg(id) {
     var g = null, x = null;
@@ -1762,7 +1825,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (!x) return '<div class="view">' + backBtn('accounts', '公式サイト・SNSの一覧') + '<p class="muted">' + (D.accounts ? '見つかりませんでした。' : '読み込み中') + '</p></div>';
     var par = x.parent ? accFind(function (y) { return y.id === x.parent && !y.party; }) : null;
     var h = '<div class="view">' + backBtn('accounts', '公式サイト・SNSの一覧') + '<div class="page-head"><h1>' + esc(x.name) + '</h1><div class="meta"><span>' + esc(g.name) + '</span>' + ruleChips(['D-19', 'D-11']) + '</div></div>';
-    h += '<section class="sec learn-body"><p>このページは、このサイトのほかのページに載っているもののうち、この組織のものを機械で集めたものです。新しい文は書いていません。</p></section>';
+    h += orgPhoto(x) + '<section class="sec learn-body"><p>このページは、このサイトのほかのページに載っているもののうち、この組織のものを機械で集めたものです。新しい文は書いていません。</p></section>';
     h += orgChildren(x);
     if (par) h += '<section class="sec"><h2>置かれている府省</h2><div class="list"><button class="row-item" data-go="' + esc(accRoute(par)) + '"><span class="grow"><span class="t">' + esc(par.name) + '</span><span class="s">' + esc(x.name) + 'は、' + esc(par.name) + 'に置かれています</span></span>' + ICON.chev + '</button></div></section>';
     var ab = (x.about || []).map(function (t) { return findPage(t[0], t[1]); }).filter(Boolean);
@@ -2386,6 +2449,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var parties = D.parties.national.map(function (p) { return p.name; });
     sheet('個人設定', '<div class="sec"><div class="set-h"><h3>読むレベル</h3><p class="meta"><span>どのレベルでも、事実の数と中身は同じです。</span>' + ruleChips(['L-1']) + '</p></div><div class="opt-group">' +
       LEVELS.map(function (o) { return '<button class="opt lvl" data-set-level="' + o[0] + '" aria-pressed="' + (state.level === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div></div>' +
+      '<div class="sec"><div class="set-h"><h3>ふりがな</h3><p class="meta"><span>「かんたん」はすべての漢字、「やさしい」は小学校で習わない漢字に、ふりがながつきます。</span>' + ruleChips(['L-5']) + '</p></div><div class="opt-group">' +
+      [['on', 'つける'], ['off', 'つけない']].map(function (o) { return '<button class="opt" data-set-ruby="' + o[0] + '" aria-pressed="' + ((state.ruby || 'on') === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div></div>' +
       '<div class="sec" id="persona-sec"><div class="set-h"><h3>あなたの立場</h3><p class="meta"><span>各ページの「あなたの暮らしでは」に、この立場の例が出ます。</span>' + ruleChips(['L-4']) + '</p></div><div class="opt-group">' +
       PERSONAS.map(function (o) { return '<button class="opt" data-set-persona="' + o[0] + '" aria-pressed="' + ((state.persona || 'std') === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div></div>' +
       '<div class="sec"><div class="set-h"><h3>支持政党</h3><p class="meta"><span>ホームに近道が出るだけで、中身や並び順は変わりません。</span>' + ruleChips(['D-3']) + '</p></div><div class="opt-group">' +
@@ -2430,6 +2495,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     else if (h === 'terms') html = vTerms();
     else html = vHome();
     app.innerHTML = html;
+    applyRuby(app);
     tocSetup();
     navs();
     if (state.afterJump) { var aj = document.getElementById(state.afterJump); state.afterJump = ''; if (aj) setTimeout(function () { aj.scrollIntoView({ block: 'start' }); }, 30); }
@@ -2516,6 +2582,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (t.dataset.fsort) { state.feedSort = t.dataset.fsort; state.feedShown = PAGE_SIZE; store('sh-sort', state.feedSort); return render(); }
     if (t.dataset.fkind !== undefined) { state.feedKind = t.dataset.fkind; state.feedShown = PAGE_SIZE; return render(); }
     if (t.hasAttribute('data-more')) { var y2 = window.scrollY; state.feedShown += PAGE_SIZE; render(); window.scrollTo(0, y2); return; }
+    if (t.dataset.setRuby) { state.ruby = t.dataset.setRuby; store('sh-ruby', state.ruby); document.documentElement.classList.toggle('no-ruby', state.ruby === 'off'); settingsSheet(); return; }
     if (t.dataset.setLevel) { var y6 = window.scrollY; state.level = t.dataset.setLevel; store('sh-level', state.level); settingsSheet(); render(); window.scrollTo(0, y6); return; }
     if (t.dataset.setPersona) { var y5 = window.scrollY; state.persona = t.dataset.setPersona; store('sh-persona', state.persona); settingsSheet(); var ps = document.getElementById('persona-sec'); render(); window.scrollTo(0, y5); return; }
     if (t.hasAttribute('data-persona-open')) { settingsSheet(); var sec = document.getElementById('persona-sec'); if (sec) sec.scrollIntoView({ block: 'start' }); return; }

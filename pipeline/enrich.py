@@ -22,6 +22,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import ai  # noqa: E402
 import deliberation as DL  # noqa: E402
 import numcheck  # noqa: E402
+import furigana  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -101,6 +102,14 @@ def shape_problems(d, mats):
         p.append(f"views の std の文字数の差が2割を超えています（{min(lens)}〜{max(lens)}字）。同じくらいの分量にしてください（V-1）")
     if views and d.get("no_debate"):
         p.append("views があるのに no_debate が true です")
+    # ふりがなと漢字の範囲（L-5）
+    for k in ("reason", "who", "committee"):
+        if isinstance(d.get(k), dict):
+            for l in ("es", "hs"):
+                p += [f"{k}.{l}：{x}" for x in furigana.problems(d[k].get(l, ""), l)]
+    for i, v in enumerate(views):
+        for l in ("es", "hs"):
+            p += [f"views[{i}].text.{l}：{x}" for x in furigana.problems((v.get("text") or {}).get(l, ""), l)]
     return p
 
 
