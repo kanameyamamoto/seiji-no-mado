@@ -801,7 +801,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
 .hn { text-align: left; background: var(--nav-weak); border-radius: 12px; padding: 12px 14px; color: #fff; display: flex; flex-direction: column; gap: 2px; }
 .hn-v { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .hn-v small { font-size: 13px; margin-left: 2px; font-weight: 700; }
-.hn-l { font-size: 12px; color: var(--nav-muted); line-height: 1.5; }
+.hn-l { font-size: 12px; color: var(--nav-muted); line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (min-width: 720px) { .entry-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1000px) { .entry-grid { grid-template-columns: repeat(4, 1fr); } }
@@ -1594,7 +1594,7 @@ br.pc { display: none; }
     var laws = S.laws || FD.filter(function (x) { return x.kind === '法律が成立'; }).length;
     var mem = S.members || (D.members && D.members.members || []).length;
     var since = S.questions_since ? S.questions_since.slice(0, 4) + '〜' : '';
-    var nums = [[nf(laws), '件', '国会で決まった法律', 'laws'], [S.questions ? nf(S.questions) : '—', '件', '質問主意書（' + since + '）', 'questions'],
+    var nums = [[nf(laws), '件', '国会で決まった法律', 'laws'], [S.questions ? nf(S.questions) : '—', '件', '質問主意書' + (since ? '（' + since + '）' : ''), 'questions'],
       [nf(mem), '人', '国会議員', 'members'], [S.budget_projects ? nf(S.budget_projects) : '—', '件', '国の予算事業', 'budget'],
       [S.councils ? nf(S.councils) : '—', '', '国の審議会', 'councils'], [S.pubcom_open != null ? nf(S.pubcom_open) : '—', '件', '募集中のパブコメ', 'pubcom']];
     var ex = ['予算', '消費税', '選挙', '年金', '防衛', '子ども'];
