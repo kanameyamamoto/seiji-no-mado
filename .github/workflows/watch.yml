@@ -38,6 +38,9 @@ jobs:
       - name: 公式サイト・SNSを集め直す（D-11）
         continue-on-error: true   # 失敗しても、前回の結果のまま出典の見張りは保存する
         run: pip install -q playwright && python -m playwright install --with-deps chromium && python pipeline/accounts.py
+      - name: 国の予算事業と支出先を集め直す（D-13。変わっていなければ何もしない）
+        continue-on-error: true
+        run: python pipeline/rs.py
       - name: 人が見る必要があるものを知らせる
         env:
           GH_TOKEN: ${{ github.token }}

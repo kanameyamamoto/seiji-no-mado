@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -437,6 +437,16 @@ def main():
             + (f"・{jdate(q['submitted'])}" if q.get("submitted") else "") + f"・{e(q['status'])}" + (f"・{link(q['answer_url'], '答弁書')}" if q.get("answer_url") else "") + "）</li>" for q in rows) + "</ul>"
     body += sources_html(qs.get("sources"))
     tabs.append(("questions/", "質問主意書と答弁書", "国会議員が内閣に文書で出した質問主意書と、内閣の答弁書のすべて。件名・提出者・日付は衆議院・参議院のページの表記のまま。", body, "questions", qs.get("checked")))
+    rsp = os.path.join(ROOT, "data", "rs", "projects.json")
+    if os.path.exists(rsp):
+        R = json.load(open(rsp, encoding="utf-8"))
+        body = f"<h1>国の予算事業と支出先（{R['year']}年度 行政事業レビュー）</h1><p>{e(R['criteria'])}</p><p>{e(R['rule'])}</p>"
+        for m in R["ministries"]:
+            rows = [x for x in R["items"] if x["ministry"] == m["name"]]
+            body += f"<h2>{e(m['name'])}（{m['count']}事業）</h2><ul>" + "".join(
+                f'<li><a href="budget/{html.escape(x["id"])}/">{html.escape(x["name"])}</a>（当初予算 {x["budget"].get("initial", 0):,}円）</li>' for x in rows) + "</ul>"
+        body += sources_html(R.get("sources"))
+        tabs.append(("budget/", "国の予算事業と支出先", "行政事業レビューにある国の事業すべての予算と、お金の支払い先（法人番号のある支出先）。府省庁ごと・金額順に見られる。", body, "budget", R.get("checked")))
     body = f"<h1>公式サイト・SNSの一覧</h1><p>{e(acc.get('criteria'))}</p><p>{e(acc.get('rule'))}</p>"
     for g in acc.get("groups", []):
         body += f"<h2>{e(g['name'])}（{len(g['items'])}）</h2>" + "".join(f"<h3>{e(x['name'])}</h3>" + sns_html(x).replace("<h2>公式サイト・SNS</h2>", "") for x in g["items"])
