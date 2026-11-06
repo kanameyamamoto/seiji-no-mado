@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2343,
-  "参議院": 1871
+  "参議院": 1875
  },
  "count_by_status": {
-  "答弁あり": 4110,
-  "答弁待ち": 104,
+  "答弁あり": 4113,
+  "答弁待ち": 105,
   "撤回": 0
  },
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "items": [
   {
    "id": "shu-222-1",
@@ -564,9 +564,10 @@
    "title": "避難所の環境整備等に関する質問主意書",
    "submitter": "奥田 ふみよ",
    "member": "san-7025012",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-10-23",
    "forwarded": "2026-11-02",
+   "answered": "2026-11-06",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222012.htm"
   },
@@ -578,9 +579,10 @@
    "title": "大阪拘置所における女性被収容者の監視カメラによる監視とプライバシー保護に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-10-23",
    "forwarded": "2026-11-02",
+   "answered": "2026-11-06",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222013.htm"
   },
@@ -592,9 +594,10 @@
    "title": "村山談話における「国策を誤り」との認識及び植民地支配の対象に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-10-27",
    "forwarded": "2026-11-02",
+   "answered": "2026-11-06",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222014.htm"
   },
@@ -691,6 +694,58 @@
    "submitted": "2026-11-05",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222021.htm"
+  },
+  {
+   "id": "san-222-22",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 22,
+   "title": "奨学金債務免除の必要性に関する質問主意書",
+   "submitter": "奥田 ふみよ",
+   "member": "san-7025012",
+   "status": "答弁待ち",
+   "submitted": "2026-11-06",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222022.htm"
+  },
+  {
+   "id": "san-222-23",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 23,
+   "title": "サイバー攻撃による不正売買が証券市場全体に及ぼす影響と投資家保護に関する質問主意書",
+   "submitter": "石垣 のりこ",
+   "member": "san-7019003",
+   "status": "答弁待ち",
+   "submitted": "2026-11-06",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222023.htm"
+  },
+  {
+   "id": "san-222-24",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 24,
+   "title": "証券取引所が定める約定取消し制度の法的根拠及びサイバー攻撃による不正注文への同制度の適用に関する質問主意書",
+   "submitter": "石垣 のりこ",
+   "member": "san-7019003",
+   "status": "答弁待ち",
+   "submitted": "2026-11-06",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222024.htm"
+  },
+  {
+   "id": "san-222-25",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 25,
+   "title": "サイバー攻撃による不正売買に伴う連鎖的な取引及び信用取引の損失処理及び被害者救済に関する質問主意書",
+   "submitter": "石垣 のりこ",
+   "member": "san-7019003",
+   "status": "答弁待ち",
+   "submitted": "2026-11-06",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222025.htm"
   },
   {
    "id": "shu-221-1",

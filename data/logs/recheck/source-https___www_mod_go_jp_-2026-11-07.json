@@ -1,0 +1,20 @@
+{
+ "unit": "source-https___www_mod_go_jp_",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「防衛省」が3回続けて開けない"
+ ],
+ "writer_prompt": "prompts/replace_source.md",
+ "rounds": [
+  {
+   "mode": "代わりの出典",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "found": false,
+    "why": "検索で防衛省の新しいURL（移転先）は見つからず、トップページ（https://www.mod.go.jp/）が検索結果に同じURLのまま出ている。代わりのページの中身をこちらで開いて確かめられなかったため、無理に選ばない。任務の文は既にある防衛省設置法（e-Gov法令検索）で確かめられる。"
+   },
+   "result": "見つからない：検索で防衛省の新しいURL（移転先）は見つからず、トップページ（https://www.mod.go.jp/）が検索結果に同じURLのまま出ている。代わりのページの中身をこちらで開いて確かめられなかったため、無理に選ばない。任務の文は既にある防衛省設置法（e-Gov法令検索）で確かめられる。"
+  }
+ ],
+ "path": "data/logs/recheck/source-https___www_mod_go_jp_-2026-11-07.json"
+}

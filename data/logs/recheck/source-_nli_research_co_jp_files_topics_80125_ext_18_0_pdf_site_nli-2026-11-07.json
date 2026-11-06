@@ -1,0 +1,20 @@
+{
+ "unit": "source-_nli_research_co_jp_files_topics_80125_ext_18_0_pdf_site_nli",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「ニッセイ基礎研究所 井出真吾「「選挙は買い」は本当か」年金ストラテジー Vol.341（2024年11月）」が3回続けて開けない"
+ ],
+ "writer_prompt": "prompts/replace_source.md",
+ "rounds": [
+  {
+   "mode": "代わりの出典",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "found": false,
+    "why": "検索ではニッセイ基礎研究所の同じPDF（同じURL）しか見つからず、移転先や同じ内容を載せた公的機関のページは見つからなかった。"
+   },
+   "result": "見つからない：検索ではニッセイ基礎研究所の同じPDF（同じURL）しか見つからず、移転先や同じ内容を載せた公的機関のページは見つからなかった。"
+  }
+ ],
+ "path": "data/logs/recheck/source-_nli_research_co_jp_files_topics_80125_ext_18_0_pdf_site_nli-2026-11-07.json"
+}
