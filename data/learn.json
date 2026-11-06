@@ -2580,7 +2580,7 @@
        "url": "https://www.mof.go.jp/public_relations/finance/202604/202604c.pdf"
       }
      ],
-     "checked": "2026-11-01",
+     "checked": "2026-11-07",
      "easy": {
       "rule": "L-5",
       "date": "2026-11-07",
@@ -3153,7 +3153,7 @@
        "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/newpage_21060.html"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-07"
     },
     {
      "id": "pm-selection",
@@ -18146,7 +18146,7 @@
        "url": "https://www.soumu.go.jp/soutsu/hokkaido/K/giteki.html"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-07"
     },
     {
      "id": "nhk-and-fee",

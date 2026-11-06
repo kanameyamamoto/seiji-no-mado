@@ -1,0 +1,72 @@
+{
+ "unit": "learn:budget",
+ "title": "予算ができるまで",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「財務省「令和８年度予算」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "財務省「令和８年度予算」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/index.html",
+   "chars": 2297,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第60条・第73条・第86条・第90条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財政法 第27条・第29条・第30条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000034",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "義務教育諸学校の教科用図書の無償措置に関する法律 第3条",
+   "url": "https://laws.e-gov.go.jp/law/338AC0000000182",
+   "chars": 10386,
+   "error": null
+  },
+  {
+   "label": "文部科学省「学校給食費の抜本的な負担軽減」",
+   "url": "https://www.mext.go.jp/a_menu/sports/syokuiku/kyu-lighten.html",
+   "chars": 2045,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高校生等への修学支援」",
+   "url": "https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm",
+   "chars": 5237,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正の解説」令和8年度税制改正について",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/explanation/PDF/p0003-0010.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省「令和８年度予算」の今の本文（概算要求基準の閣議了解・概算要求・政府案の閣議決定・財政演説・本予算・暫定予算・補正予算の日付、新たに載った予備費使用の記録）と、歳入歳出概算の金額を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

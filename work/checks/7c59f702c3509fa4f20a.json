@@ -1,5 +1,0 @@
-{
- "for": "more:r7-law-073",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"事実の誤り\",\n      \"where\": \"no_debate\",\n      \"detail\": \"参議院環境委員会において日本共産党およびれいわ新選組による討論が行われたことが委員長報告に記載されているため、no_debate を true にすることは誤りです。\",\n      \"fix\": \"\\\"no_debate\\\": false に修正してください。\"\n    }\n  ]\n}",
- "model": "gemini-3.8-flash"
-}
