@@ -1,0 +1,397 @@
+{
+ "criteria": "公式サイト・SNSの一覧にある国の機関の写真。ウィキデータで、その組織の本部の建物の画像、なければ組織の画像を、ウィキメディア・コモンズから使う。",
+ "rule": "人は選ばない。自由に使えるライセンス（パブリックドメイン・CC0・CC BY・CC BY-SA）のものだけを使い、ロゴ・紋章や人が写っている写真は使わない。撮った人・ライセンス・元のページを写真の下に書く。",
+ "checked": "2026-11-06",
+ "orgs": {
+  "cas": {
+   "file": "assets/img/org/cas.jpg",
+   "title": "内閣府庁舎.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%86%85%E9%96%A3%E5%BA%9C%E5%BA%81%E8%88%8E.JPG",
+   "author": "Yuukokusya",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q1142254"
+  },
+  "clb": {
+   "file": "assets/img/org/clb.jpg",
+   "title": "Kinyucho3.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kinyucho3.jpg",
+   "author": "っ",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q1062966"
+  },
+  "jinji": {
+   "file": "assets/img/org/jinji.jpg",
+   "title": "Jinjiin2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Jinjiin2.jpg",
+   "author": "っ",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q178314"
+  },
+  "cabinet-office": {
+   "file": "assets/img/org/cabinet-office.jpg",
+   "title": "Cabinet Office Government Buildings.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cabinet_Office_Government_Buildings.jpg",
+   "author": "Yuukokusya",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q6005"
+  },
+  "kunaicho": {
+   "file": "assets/img/org/kunaicho.jpg",
+   "title": "Imperial Household Agency.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Imperial_Household_Agency.jpg",
+   "author": "nattou",
+   "license": "Public domain",
+   "license_url": "",
+   "what": "組織",
+   "wikidata": "Q1143602"
+  },
+  "jftc": {
+   "file": "assets/img/org/jftc.jpg",
+   "title": "Japan government office no6b.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Japan_government_office_no6b.jpg",
+   "author": "Horocassi234",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "what": "組織",
+   "wikidata": "Q842043"
+  },
+  "npsc": {
+   "file": "assets/img/org/npsc.jpg",
+   "title": "Government Office Complex 2 of Japan 2009.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Government_Office_Complex_2_of_Japan_2009.jpg",
+   "author": "Wiiii",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q905830"
+  },
+  "npa": {
+   "file": "assets/img/org/npa.jpg",
+   "title": "Government Office Complex 2 of Japan 2009.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Government_Office_Complex_2_of_Japan_2009.jpg",
+   "author": "Wiiii",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q154200"
+  },
+  "fsa": {
+   "file": "assets/img/org/fsa.jpg",
+   "title": "Kasumigaseki-Common-Gate-02.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kasumigaseki-Common-Gate-02.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q11363653"
+  },
+  "caa": {
+   "file": "assets/img/org/caa.jpg",
+   "title": "Sanno-Park-Tower-03.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sanno-Park-Tower-03.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q1101096"
+  },
+  "cfa": {
+   "file": "assets/img/org/cfa.jpg",
+   "title": "Kasumigaseki Building.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kasumigaseki_Building.jpg",
+   "author": "Joe Jones from Tokyo, Japan",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "what": "本部の建物",
+   "wikidata": "Q844780"
+  },
+  "digital-agency": {
+   "file": "assets/img/org/digital-agency.jpg",
+   "title": "Tokyo Garden Terrace 4.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tokyo_Garden_Terrace_4.jpg",
+   "author": "Kakidai",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "what": "本部の建物",
+   "wikidata": "Q20025054"
+  },
+  "mic": {
+   "file": "assets/img/org/mic.jpg",
+   "title": "Somusho.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Somusho.jpg",
+   "author": "っ",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q1322293"
+  },
+  "fdma": {
+   "file": "assets/img/org/fdma.jpg",
+   "title": "Government Office Complex 2 of Japan 2009.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Government_Office_Complex_2_of_Japan_2009.jpg",
+   "author": "Wiiii",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q6477686"
+  },
+  "moj": {
+   "file": "assets/img/org/moj.jpg",
+   "title": "Ministry of Justice Japan04s3200.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ministry_of_Justice_Japan04s3200.jpg",
+   "author": "663highland",
+   "license": "CC BY 2.5",
+   "license_url": "https://creativecommons.org/licenses/by/2.5",
+   "what": "組織",
+   "wikidata": "Q1031145"
+  },
+  "mof": {
+   "file": "assets/img/org/mof.jpg",
+   "title": "Ministry-of-Finance-Japan-03.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ministry-of-Finance-Japan-03.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q1322605"
+  },
+  "mext": {
+   "file": "assets/img/org/mext.jpg",
+   "title": "Kasumigaseki-Common-Gate-02.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kasumigaseki-Common-Gate-02.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q11363653"
+  },
+  "sports": {
+   "file": "assets/img/org/sports.jpg",
+   "title": "Kasumigaseki-Common-Gate-02.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kasumigaseki-Common-Gate-02.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q11363653"
+  },
+  "bunka": {
+   "file": "assets/img/org/bunka.jpg",
+   "title": "Agency for Cultural Affairs Kyoto Buildings 20230413.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agency_for_Cultural_Affairs_Kyoto_Buildings_20230413.jpg",
+   "author": "Agency for Cultural Affairs, Government of Japan",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "what": "組織",
+   "wikidata": "Q1009519"
+  },
+  "mhlw": {
+   "file": "assets/img/org/mhlw.jpg",
+   "title": "GovernmentOfficeComplexNo5.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:GovernmentOfficeComplexNo5.jpg",
+   "author": "BlackRiver",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q11363650"
+  },
+  "maff": {
+   "file": "assets/img/org/maff.jpg",
+   "title": "Central Gov't Bldg 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Central_Gov%27t_Bldg_1.jpg",
+   "author": "（コモンズのページを見てください）",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q1376786"
+  },
+  "rinya": {
+   "file": "assets/img/org/rinya.jpg",
+   "title": "Central Gov't Bldg 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Central_Gov%27t_Bldg_1.jpg",
+   "author": "（コモンズのページを見てください）",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q54419115"
+  },
+  "jfa": {
+   "file": "assets/img/org/jfa.jpg",
+   "title": "Central Gov't Bldg 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Central_Gov%27t_Bldg_1.jpg",
+   "author": "（コモンズのページを見てください）",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q11548989"
+  },
+  "meti": {
+   "file": "assets/img/org/meti.jpg",
+   "title": "経済産業省総合庁舎.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%E7%B5%8C%E6%B8%88%E7%94%A3%E6%A5%AD%E7%9C%81%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E.jpg",
+   "author": "文部乱",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "what": "組織",
+   "wikidata": "Q1197264"
+  },
+  "enecho": {
+   "file": "assets/img/org/enecho.jpg",
+   "title": "経済産業省総合庁舎（別館）.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%E7%B5%8C%E6%B8%88%E7%94%A3%E6%A5%AD%E7%9C%81%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E%EF%BC%88%E5%88%A5%E9%A4%A8%EF%BC%89.jpg",
+   "author": "文部乱",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "what": "組織",
+   "wikidata": "Q4692014"
+  },
+  "jpo": {
+   "file": "assets/img/org/jpo.jpg",
+   "title": "Japan-Patent-Office-01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Japan-Patent-Office-01.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q1141991"
+  },
+  "mlit": {
+   "file": "assets/img/org/mlit.jpg",
+   "title": "Kokudokotsusho.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kokudokotsusho.jpg",
+   "author": "っ",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q1376196"
+  },
+  "jma": {
+   "file": "assets/img/org/jma.jpg",
+   "title": "Kisyoucho-building-200512.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kisyoucho-building-200512.jpg",
+   "author": "Suisui",
+   "license": "Public domain",
+   "license_url": "",
+   "what": "組織",
+   "wikidata": "Q860935"
+  },
+  "jtsb": {
+   "file": "assets/img/org/jtsb.jpg",
+   "title": "Government Office Complex 2 of Japan 2009.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Government_Office_Complex_2_of_Japan_2009.jpg",
+   "author": "Wiiii",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q6157874"
+  },
+  "kaiho": {
+   "file": "assets/img/org/kaiho.jpg",
+   "title": "Central Gov't Bldg 3.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Central_Gov%27t_Bldg_3.jpg",
+   "author": "（コモンズのページを見てください）",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "what": "組織",
+   "wikidata": "Q565418"
+  },
+  "env": {
+   "file": "assets/img/org/env.jpg",
+   "title": "GovernmentOfficeComplexNo5.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:GovernmentOfficeComplexNo5.jpg",
+   "author": "BlackRiver",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q11363650"
+  },
+  "nra": {
+   "file": "assets/img/org/nra.jpg",
+   "title": "Roppongi-First-Building-01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Roppongi-First-Building-01.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q1502596"
+  },
+  "mod": {
+   "file": "assets/img/org/mod.jpg",
+   "title": "Japan Defense Agency.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Japan_Defense_Agency.jpg",
+   "author": "Lombroso",
+   "license": "Public domain",
+   "license_url": "",
+   "what": "組織",
+   "wikidata": "Q1062689"
+  },
+  "shugiin": {
+   "file": "assets/img/org/shugiin.jpg",
+   "title": "Chamber of the House of Representatives of Japan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chamber_of_the_House_of_Representatives_of_Japan.jpg",
+   "author": "Kimtaro",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "what": "組織",
+   "wikidata": "Q659587"
+  },
+  "sangiin": {
+   "file": "assets/img/org/sangiin.jpg",
+   "title": "Japanese diet inside.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Japanese_diet_inside.jpg",
+   "author": "Photo taken by Chris 73",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q548911"
+  },
+  "ndl": {
+   "file": "assets/img/org/ndl.jpg",
+   "title": "NDL Tokyo01st3200.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:NDL_Tokyo01st3200.jpg",
+   "author": "663highland",
+   "license": "CC BY 2.5",
+   "license_url": "https://creativecommons.org/licenses/by/2.5",
+   "what": "組織",
+   "wikidata": "Q477675"
+  },
+  "courts": {
+   "file": "assets/img/org/courts.jpg",
+   "title": "Supreme Court of Japan 2010.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Supreme_Court_of_Japan_2010.jpg",
+   "author": "Wiiii",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "組織",
+   "wikidata": "Q1142255"
+  },
+  "jbaudit": {
+   "file": "assets/img/org/jbaudit.jpg",
+   "title": "Kasumigaseki-Common-Gate-02.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kasumigaseki-Common-Gate-02.jpg",
+   "author": "Rs1421",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "what": "本部の建物",
+   "wikidata": "Q11363653"
+  },
+  "boj": {
+   "file": "assets/img/org/boj.jpg",
+   "title": "Bank of Japan 20190223.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bank_of_Japan_20190223.jpg",
+   "author": "Suicasmo",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "what": "組織",
+   "wikidata": "Q333101"
+  }
+ }
+}
