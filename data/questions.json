@@ -12,12 +12,12 @@
   }
  ],
  "count": {
-  "衆議院": 69,
+  "衆議院": 71,
   "参議院": 137
  },
  "count_by_status": {
   "答弁あり": 182,
-  "答弁待ち": 24,
+  "答弁待ち": 26,
   "撤回": 0
  },
  "checked": "2026-11-06",
@@ -351,6 +351,36 @@
    "submitted": "2026-10-30",
    "question_url": "",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222019.htm"
+  },
+  {
+   "id": "shu-222-20",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 20,
+   "title": "石垣市の台湾定期航路事業「やいま丸」に関する質問主意書",
+   "submitter": "西村智奈美",
+   "member": "shu-584250a0",
+   "kaiha": "中道",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-05",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222020.htm"
+  },
+  {
+   "id": "shu-222-21",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 21,
+   "title": "核兵器禁止条約第一回再検討会議国会議員会合に関する質問主意書",
+   "submitter": "山本ジョージ",
+   "member": "shu-babc0620",
+   "kaiha": "無所属",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-05",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222021.htm"
   },
   {
    "id": "san-222-1",
