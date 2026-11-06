@@ -775,6 +775,50 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
 .foot-links button, .foot-links a { color: var(--fg); text-decoration: none; padding: 4px 0; }
 .foot-links button:hover, .foot-links a:hover { color: var(--accent); }
 @media (max-width: 560px) { .api-card { flex-direction: column; align-items: flex-start; } }
+
+/* トップの入口（hero） */
+.hero { background: var(--nav-bg); color: #fff; border-radius: 18px; padding: 32px 28px 26px; margin: 4px 0 8px; display: flex; flex-direction: column; gap: 14px; }
+.hero-k { margin: 0; font-size: 13px; letter-spacing: .12em; color: var(--nav-muted); font-weight: 700; }
+.hero-h { margin: 0; font-size: 34px; line-height: 1.35; color: #fff; }
+.hero-s { margin: 0; font-size: 16px; line-height: 1.8; color: #DCE4F2; max-width: 760px; }
+.hero-q { display: flex; gap: 8px; margin-top: 6px; max-width: 640px; }
+.hero-q input { flex: 1; min-width: 0; height: 50px; border-radius: 999px; border: 0; padding: 0 20px; font-size: 16px; color: var(--fg); background: #fff; }
+.hero-q button { height: 50px; padding: 0 22px; border-radius: 999px; background: #A9B6CF; color: var(--nav-bg); font-weight: 700; }
+.hero-ex { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-ex .chip { background: var(--nav-weak); color: #fff; border: 0; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-p, .btn-s { height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-size: 15px; }
+.btn-p { background: #fff; color: var(--nav-bg); }
+.btn-s { background: transparent; color: #fff; border: 1.5px solid var(--nav-muted); }
+.hero-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+@media (min-width: 900px) { .hero-nums { grid-template-columns: repeat(6, 1fr); } .hero { padding: 44px 44px 34px; } .hero-h { font-size: 42px; } }
+.hn { text-align: left; background: var(--nav-weak); border-radius: 12px; padding: 12px 14px; color: #fff; display: flex; flex-direction: column; gap: 2px; }
+.hn-v { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hn-v small { font-size: 13px; margin-left: 2px; font-weight: 700; }
+.hn-l { font-size: 12px; color: var(--nav-muted); line-height: 1.5; }
+.entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (min-width: 720px) { .entry-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .entry-grid { grid-template-columns: repeat(4, 1fr); } }
+.entry { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-height: 84px; }
+.entry:hover { border-color: var(--accent); }
+.entry .et { font-weight: 700; color: var(--fg); }
+.entry .es { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.home-ai { background: var(--surface); border: 2px solid var(--accent); border-radius: 18px; padding: 22px 24px; }
+.home-ai p { line-height: 1.8; }
+.ha-ex { margin: 6px 0 10px; padding-left: 1.2em; line-height: 1.9; color: var(--fg); }
+.home-ai code { word-break: break-all; background: var(--accent-weak); padding: 2px 8px; border-radius: 6px; }
+.home-ai .btn-p { background: var(--accent); color: #fff; }
+.trust { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 720px) { .trust { grid-template-columns: 1fr 1fr; } }
+.tr { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
+.tr b { display: block; margin-bottom: 4px; color: var(--accent); }
+.tr p { margin: 0; font-size: 14px; line-height: 1.75; color: var(--fg); }
+.more-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; color: var(--accent); font-weight: 700; }
+.more-link svg { width: 16px; height: 16px; }
+.h2like { font-size: 22px; }
+br.pc { display: none; }
+@media (min-width: 720px) { br.pc { display: inline; } }
+@media (max-width: 480px) { .hero { padding: 24px 18px 20px; border-radius: 14px; } .hero-h { font-size: 26px; } .hero-s { font-size: 15px; } .hero-nums { grid-template-columns: 1fr 1fr; } .hn-v { font-size: 22px; } .hero-q input { font-size: 15px; padding: 0 16px; } .hero-q button { padding: 0 16px; } }
 </style>
 </head>
 <body>
@@ -1466,11 +1510,58 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     for (var j = n - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)); var tmp = a[j]; a[j] = a[r]; a[r] = tmp; }
     state.order = a; return a;
   }
+  // トップの入口（@edinetdb のトップと同じ組み立て：ひとこと → 検索 → 数 → 入口 → AIから使う → データの確かさ）
+  function nf(n) { return (n || 0).toLocaleString('ja-JP'); }
+  function homeHero() {
+    var S = D.stats || {};
+    var FD = D.feed && D.feed.items || [];
+    var laws = S.laws || FD.filter(function (x) { return x.kind === '法律が成立'; }).length;
+    var mem = S.members || (D.members && D.members.members || []).length;
+    var since = S.questions_since ? S.questions_since.slice(0, 4) + '年から' : '';
+    var nums = [[nf(laws), '件', '国会で決まった法律', 'laws'], [S.questions ? nf(S.questions) : '—', '件', '質問主意書（' + since + '）', 'questions'],
+      [nf(mem), '人', '国会議員', 'members'], [S.budget_projects ? nf(S.budget_projects) : '—', '件', '国の予算事業', 'budget'],
+      [S.councils ? nf(S.councils) : '—', '', '国の審議会', 'councils'], [S.pubcom_open != null ? nf(S.pubcom_open) : '—', '件', '募集中のパブコメ', 'pubcom']];
+    var ex = ['予算', '消費税', '選挙', '年金', '防衛', '子ども'];
+    var h = '<section class="hero"><p class="hero-k">政治の公開データベース</p>' +
+      '<h1 class="hero-h"><span class="nw">日本の政治の</span><span class="nw">公開データを、</span><br class="pc"><span class="nw">人にも、AIにも。</span></h1>' +
+      '<p class="hero-s">国会で決まった法律、質問主意書、国会議員の投票、審議会、国の予算事業などを、毎日自動で集めて出典つきで整理。<span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
+      '<form class="hero-q" id="heroq" role="search"><input id="hq" type="search" placeholder="ことばでさがす" autocomplete="off" aria-label="ことばでさがす"><button type="submit">さがす</button></form>' +
+      '<div class="hero-ex">' + ex.map(function (w) { return '<button class="chip" data-hq="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') + '</div>' +
+      '<div class="hero-cta"><button class="btn-p" data-go="api">AIから使う（MCP・API）</button><button class="btn-s" data-go="laws">国会で決まったことを見る</button></div>' +
+      '<div class="hero-nums">' + nums.map(function (n) { return '<button class="hn" data-go="' + n[3] + '"><span class="hn-v">' + n[0] + '<small>' + n[1] + '</small></span><span class="hn-l">' + esc(n[2]) + '</span></button>'; }).join('') + '</div></section>';
+    var ent = [['laws', '国会で決まったこと', '法律・予算・条約と、だれが賛成・反対したか'], ['bills', '審議中の法律案', 'いまの国会で話し合っている案'], ['questions', '質問主意書', '議員が内閣に文書で聞いたことと答え'],
+      ['members', '国会議員', '711人の会派・選挙区・投票'], ['budget', '予算と支出先', '国の予算事業と、お金を受け取った先'], ['councils', '審議会', '役所が専門家の意見を聞く会議'],
+      ['pubcom', 'パブリックコメント', 'だれでも意見を出せる募集'], ['kakugi', '閣議', '大臣全員の会議で決まったこと'], ['diary', '国会と政府のうごき', '日付ごとにまとめて見る'],
+      ['parties', '政党', '各党の公式の主張と、国会での投票'], ['learn', '政治のしくみを学ぶ', '国会・選挙・税金などの基本'], ['api', 'AIから使う', 'Claude などにつなぐ・無料API']];
+    h += '<section class="sec"><h2>さがす・見る</h2><div class="entry-grid">' + ent.map(function (e) { return '<button class="entry" data-go="' + e[0] + '"><span class="et">' + e[1] + '</span><span class="es">' + e[2].replace('711人', nf(mem) + '人') + '</span></button>'; }).join('') + '</div></section>';
+    var live = homeApiLive();
+    h += '<section class="sec home-ai"><div class="ha-text"><h2>AIから、そのまま使う</h2>' +
+      '<p>MCP（AIにデータをつなぐしくみ）に対応しています。Claude などに「せいじのまど」をつなぐと、AIがこのサイトのデータと出典をもとに答えます。登録もログインもいりません。</p>' +
+      '<ul class="ha-ex"><li>「いまの国会で話し合っている法律の案は？」</li><li>「この1年で国会で決まった、子育ての法律を教えて」</li><li>「厚生労働省の予算事業で、一番大きいものは？」</li></ul>' +
+      '<p class="meta"><span>MCP の住所</span><code>' + esc(API_HOST + 'mcp') + '</code>' + (live === null ? '' : live ? '<span class="b-res">使えます</span>' : '<span class="b-res wait">準備中（まもなく公開）</span>') + '</p>' +
+      '<div class="hero-cta"><button class="btn-p" data-go="api">つなぎ方を見る</button></div></div></section>';
+    h += '<section class="sec"><h2>データの確かさ</h2><div class="trust">' +
+      [['数字は機械で取る', '日付・番号・賛成と反対・金額は、国会や役所のページからプログラムで取ります。AIは数字をつくりません。'],
+       ['AIが書き、別のAIが確かめる', '文は Claude が書き、別の会社の AI（Gemini）とプログラムが、出典との食いちがいや意見の混じりを確かめます。'],
+       ['すべてに出典', '法律の文・会議の記録・官報など、もとの資料へのリンクをつけています。'],
+       ['ルールも記録も公開', '書き方のルール' + (S.rules ? '（' + S.rules + '項目）' : '') + 'と、記事ごとの作成と更新の記録を公開しています。']]
+        .map(function (t) { return '<div class="tr"><b>' + t[0] + '</b><p>' + t[1] + '</p></div>'; }).join('') +
+      '</div><button class="more-link" data-go="about">このサイトのルールを見る' + ICON.chev + '</button></section>';
+    return h;
+  }
+  function homeApiLive() {
+    if (state.apiLive === undefined) {
+      state.apiLive = null;
+      fetch(API_HOST + 'v1/types').then(function (r) { return r.ok; }).catch(function () { return false; })
+        .then(function (ok) { state.apiLive = !!ok; if (curR() === 'home' || curR() === 'api') render(); });
+    }
+    return state.apiLive;
+  }
   function vHome() {
     var P = pool(), picks = todayPicks(), day = todayStr();
     var terms = Object.keys(D.glossary || {}).sort();
     var term = terms[hashStr(day + '|term') % terms.length];
-    var h = '<div class="view"><div class="page-head inline"><h1>今日のトピック</h1><div class="meta"><span>' + date(day) + '</span><button class="xp" data-explain="lottery" aria-label="選び方">?</button></div></div>';
+    var h = '<div class="view">' + homeHero() + '<div class="page-head inline"><h1 class="h2like">今日のトピック</h1><div class="meta"><span>' + date(day) + '</span><button class="xp" data-explain="lottery" aria-label="選び方">?</button></div></div>';
     if (state.party) {
       var pid = PARTY_BY_NAME[state.party];
       if (pid) h += '<button class="row-item shortcut" data-go="p-' + pid + '"><span class="grow"><span class="s">設定した政党</span><span class="t">' + esc(state.party) + '</span></span>' + ICON.chev + '</button>';
@@ -2543,6 +2634,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var t = e.target.closest('button, a');
     if (!t) { if (e.target.id === 'scrim') closeSheet(); if (!e.target.closest('#pop')) hidePop(); return; }
     if (t.hasAttribute('data-close')) return closeSheet();
+    if (t.dataset.hq) { state.q = t.dataset.hq; return go('search'); }
     if (t.dataset.back !== undefined) { e.preventDefault(); hidePop(); if (navStack.length) { popping = true; history.back(); } else go(t.dataset.back); return; }
     if (t.dataset.go) { e.preventDefault(); hidePop(); if (t.dataset.ctx) state.ctx = t.dataset.ctx; if (t.dataset.lcatGo) state.learnCat = t.dataset.lcatGo; if (t.dataset.courseGo) { state.courseIdx = Number(t.dataset.courseGo); store('sh-course', t.dataset.courseGo); } if (t.dataset.after) state.afterJump = t.dataset.after; if (t.dataset.go === 'parties') state.partiesSeg = 'parties'; if (t.dataset.rsminGo !== undefined) { state.rsMin = t.dataset.rsminGo; state.rsMax = 100; } return go(t.dataset.go); }
     if (t.dataset.jump) { var el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
@@ -2621,6 +2713,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     res.sort(function (a, b) { return (b.title.indexOf(q) >= 0) - (a.title.indexOf(q) >= 0); });
     document.getElementById('results').innerHTML = resultsHtml(q, res);
   });
+  document.addEventListener('submit', function (e) { if (e.target.id !== 'heroq') return; e.preventDefault(); var v = document.getElementById('hq').value.trim(); state.q = v; go('search'); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSheet(); hidePop(); } });
   window.addEventListener('scroll', function () { if (!document.querySelector('#pop:hover')) hidePop(); }, { passive: true });
   var curRoute = curR(), navStack = [], popping = false;
@@ -2635,7 +2728,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   var files = ['rules', 'feed', 'parties', 'media', 'learn', 'links', 'glossary', 'members', 'governors', 'member_votes', 'bills', 'accounts'];  // questions は大きいので、使うときに読む（needQ）
   app.innerHTML = '<p class="meta" style="padding:40px 0"><span>読み込み中</span></p>';
   Promise.all(files.map(function (f) { return fetch('data/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }))
-    .then(function (res) { files.forEach(function (f, i) { D[f] = res[i]; }); buildTerms(); render(); if (!store('sm-tour')) showTour(0); })
+    .then(function (res) { files.forEach(function (f, i) { D[f] = res[i]; }); buildTerms(); render(); if (!store('sm-tour')) showTour(0);
+      fetch('data/stats.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j) { D.stats = j; if (curR() === 'home') render(); } }).catch(function () {}); })
     .catch(function (err) { app.innerHTML = '<p style="padding:40px 0">データを読み込めませんでした（' + esc(err.message) + '）。ページを再読み込みしてください。</p>'; });
 })();
 </script>

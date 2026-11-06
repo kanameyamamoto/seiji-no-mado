@@ -10,6 +10,7 @@ mkdir -p _site/data/rs && cp data/rs/*.json _site/data/rs/ 2>/dev/null || true  
 rm -f _site/data/watch.json  # 見張りの記録はサイトでは使わない（リポジトリでは公開している）
 cp -r data/logs/. _site/data/logs/ 2>/dev/null || true
 cp prompts/*.md _site/prompts/
+python3 pipeline/stats.py _site/data/stats.json  # トップページの数
 python3 pipeline/prerender.py _site
 python3 pipeline/api.py _site
 echo "公開するファイル: $(find _site -type f | wc -l) 件"
