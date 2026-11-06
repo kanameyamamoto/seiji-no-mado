@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:constitution-principles",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdの内容（選挙や国民投票の投票時間）と、hsの内容（授業料を払わずに勉強できる場所）がまったく異なっています。\",\n      \"fix\": \"stdの「仕事がある日に選挙や国民投票があったら、投票する時間はとれる？」という内容に合わせてhsを書き直してください。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
