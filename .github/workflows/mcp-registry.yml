@@ -1,0 +1,47 @@
+# AI からの入口（MCP）を、MCP の公式一覧（registry.modelcontextprotocol.io）に載せる。中身は server.json。
+# 入口（api.seijinomado.com/mcp）が動いていて、server.json の version がまだ載っていないときだけ載せる。
+# 中身を変えて載せ直すときは、server.json の version を上げる（同じ version は2回載せられない）。
+# ログインは GitHub の OIDC なので、鍵（Secrets）はいらない。
+name: MCPの一覧に載せる
+
+on:
+  workflow_run:
+    workflows: ["検索APIとMCPの公開"]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: ["server.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: 入口が動いているか、まだ載っていないかを確かめる
+        id: check
+        run: |
+          if ! curl -sf -X POST https://api.seijinomado.com/mcp -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' \
+               -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"check","version":"1"}}}' | grep -q '"serverInfo"'; then
+            echo "入口がまだ動いていないので、載せません"; echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          name=$(jq -r .name server.json); ver=$(jq -r .version server.json)
+          if curl -sf "https://registry.modelcontextprotocol.io/v0/servers?search=$name" | jq -e --arg n "$name" --arg v "$ver" '[.servers[]? | (.server // .) | select(.name==$n and .version==$v)] | length > 0' >/dev/null; then
+            echo "$name $ver はもう載っています"; echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "go=true" >> "$GITHUB_OUTPUT"
+      - name: 載せる
+        if: steps.check.outputs.go == 'true'
+        run: |
+          curl -sSL "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.7/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher validate server.json
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish server.json

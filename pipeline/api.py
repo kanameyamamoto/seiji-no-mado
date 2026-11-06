@@ -125,6 +125,7 @@ def main():
         f"- [審議中・採決されなかった法律案]({base}bills/)：審議中・継続審査・審議未了・撤回の法律案すべて（衆議院の議案情報の表記のまま）",
         f"- [質問主意書と答弁書]({base}questions/)：国会議員が内閣に文書で出した質問と、内閣の答弁書のすべて（両院のページの表記のまま）",
         f"- [パブリックコメント]({base}pubcom/)：政令・省令などの案への意見募集と、その結果（e-Gov の表記のまま）",
+        f"- [国会と政府のうごき]({base}diary/)：国会で決まったこと・閣議・質問主意書・パブリックコメントを、起きた日ごとに並べたもの",
         f"- [閣議の案件]({base}kakugi/)：閣議で決まった法律案・政令・方針など（人事を除く。首相官邸のページの表記のまま）",
         f"- [国の予算事業と支出先]({base}budget/)：行政事業レビューにある国の事業すべての予算と、法人番号のある支出先（データ：{base}data/rs/projects.json・{base}data/rs/corps.json）",
         f"- [公式サイト・SNSの一覧]({base}accounts/)：政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウント（機械で集め、人は選ばない）",
@@ -139,6 +140,10 @@ def main():
         "## データ（公開API・JSON・キー不要）",
         f"- [API の一覧]({base}api/v1/index.json)・[使い方]({base}api/)",
     ] + [f"- [{k}]({v})" for k, v in eps.items()]
+    if cfg.get("api_live"):
+        lines += ["", "## AI から使う（MCP）・検索API（キー不要・無料・1分60回まで）",
+                  "- MCP（Streamable HTTP・ログインなし）：https://api.seijinomado.com/mcp （道具：search・get・list・about）",
+                  "- 検索API：https://api.seijinomado.com/v1/search?q=ことば ・使い方：https://api.seijinomado.com/"]
     open(os.path.join(out, "llms.txt"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
     print(f"公開API {n} ファイルと llms.txt を書き出しました")
 

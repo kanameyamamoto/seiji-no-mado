@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kanameyamamoto/seiji-no-mado",
+  "title": "せいじのまど (Seiji no Mado)",
+  "description": "Neutral Japanese politics data: laws, Diet bills, votes, parties, members, questions. All sourced.",
+  "version": "1.0.0",
+  "websiteUrl": "https://seijinomado.com/",
+  "repository": {
+    "url": "https://github.com/kanameyamamoto/seiji-no-mado",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.seijinomado.com/mcp"
+    }
+  ]
+}

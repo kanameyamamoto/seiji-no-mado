@@ -2241,6 +2241,28 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   }
 
   /* ---------- about ---------- */
+  /* ---------- AI から使う（MCP）・検索API（S-1〜S-3） ---------- */
+  var API_HOST = 'https://api.seijinomado.com/';
+  function apiLiveSection() {
+    if (state.apiLive === undefined) {
+      state.apiLive = null;
+      var ctl = window.AbortController ? new AbortController() : null;
+      if (ctl) setTimeout(function () { ctl.abort(); }, 6000);
+      fetch(API_HOST + 'v1/types', ctl ? { signal: ctl.signal } : {}).then(function (r) { return r.ok; }).catch(function () { return false; })
+        .then(function (ok) { state.apiLive = !!ok; if (curR() === 'api') render(); });
+    }
+    var st = state.apiLive === null ? '<span>たしかめ中</span>' : (state.apiLive ? '<span class="b-res">使えます</span>' : '<span class="b-res wait">準備中（まもなく公開）</span>');
+    var mcp = API_HOST + 'mcp';
+    return '<section class="sec learn-body"><h2>AI から使う（MCP）・検索API</h2><div class="meta">' + st + ruleChips(['S-1', 'S-2', 'S-3']) + '</div>' +
+      '<p>Claude などの AI に、このサイトのデータを直接引かせることができます。AI は、ここから返ってきた事実と出典のページをもとに答えます。返す中身は、だれが使っても同じです。</p>' +
+      '<p><b>MCP の住所</b><br><code style="word-break:break-all">' + esc(mcp) + '</code></p>' +
+      '<p><b>検索API</b><br><code style="word-break:break-all">' + esc(API_HOST) + 'v1/search?q=ことば</code></p>' +
+      '<p><b>使い方</b><br>' + a(API_HOST, API_HOST) + '</p>' +
+      '<h3>Claude に足す</h3><p>Claude の「設定」→「コネクタ」→「カスタムコネクタを追加」で、名前に「せいじのまど」、URL に上の MCP の住所を入れます。ログインはいりません。</p>' +
+      '<h3>ほかの AI・プログラムから</h3><p>MCP（Streamable HTTP）に対応したものなら、上の住所を入れるだけで使えます。使える道具は、search（ことばでさがす）・get（1件を取る）・list（種類ごとの一覧）・about（このサイトのルール）の4つです。</p>' +
+      '<p>無料で、申し込みはいりません。1分に60回までです。たくさん使う人のための有料枠を準備しています（中身・並び順は同じで、変わるのは回数だけです）。使う人ごとの記録はとりません。</p>' +
+      '<pre class="code">curl \'' + esc(API_HOST) + 'v1/search?q=' + encodeURIComponent('子ども') + '\'</pre></section>';
+  }
   function vApi() {
     var base = new URL('api/v1/', document.baseURI).href;
     var eps = [['index.json', '一覧（ここから全部たどれる）'], ['laws.json', '国会で決まったこと（一覧）'], ['laws/<id>.json', '1件（事実・審議の経過・会派ごとの賛否・出典・更新の記録）'],
@@ -2251,7 +2273,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     return '<div class="view">' + backBtn('about', 'このサイトについて') + '<div class="page-head"><h1>データを使う（公開API）</h1><div class="meta">' + ruleChips(['P-3', 'C-4']) + '</div></div>' +
       '<section class="sec learn-body"><p>このサイトのデータは、登録やキーなしで、無料で使えます。研究・授業・記事・アプリなどに自由に使ってください。毎日自動で更新されます。</p>' +
       '<p>文章は4つの読むレベル（es＝かんたん・hs＝やさしい・std＝ふつう・univ＝くわしく）をすべて含みます。すべての事実に出典がついています。</p></section>' +
-      '<section class="sec"><h2>どこにあるか</h2><p class="meta"><span>はじまりの住所：' + esc(base) + '</span></p><div class="table-wrap"><table><thead><tr><th>ファイル</th><th>中身</th></tr></thead><tbody>' +
+      apiLiveSection() +
+      '<section class="sec"><h2>どこにあるか（ファイル）</h2><p class="meta"><span>はじまりの住所：' + esc(base) + '</span></p><div class="table-wrap"><table><thead><tr><th>ファイル</th><th>中身</th></tr></thead><tbody>' +
       eps.map(function (x) { return '<tr><th>' + (x[0].indexOf('<') < 0 && x[0].indexOf('・') < 0 ? a(base + x[0], x[0]) : esc(x[0])) + '</th><td>' + esc(x[1]) + '</td></tr>'; }).join('') + '</tbody></table></div></section>' +
       '<section class="sec learn-body"><h2>使うときの決まり</h2><p>ライセンスは CC BY 4.0 です。使うときは、出典として「せいじのまど」の名前と、使ったページか API の住所を示してください。</p>' +
       '<p>出典の官公庁などの資料は、それぞれの出典の利用条件に従います。間違いを見つけたら、GitHub の「訂正の依頼」から知らせてください。</p></section>' +
@@ -2265,7 +2288,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
       '<p>載せる話題は人が選ばず、決めた範囲をすべて載せます。読むレベルは「かんたん・やさしい・ふつう・くわしく」の4つから選べます。</p>' +
       '<p>読むレベルや支持政党の設定は、この端末の中だけに保存し、外には送りません。</p></section>' +
       '<button class="row-item" data-tour-open><span class="grow"><span class="t">使い方をもう一度見る</span></span>' + ICON.chev + '</button>' +
-      '<button class="row-item" data-go="api"><span class="grow"><span class="t">データを使う（公開API）</span><span class="s">このサイトのデータを、登録なし・無料で使えます</span></span>' + ICON.chev + '</button>' +
+      '<button class="row-item" data-go="api"><span class="grow"><span class="t">データを使う（公開API）</span><span class="s">このサイトのデータを、登録なし・無料で使えます。AI（MCP）からも</span></span>' + ICON.chev + '</button>' +
       '<section class="sec learn-body"><h2>ホームの並べ方</h2><p>「今日のトピック」は、日本時間の日付と分類名（国会で決まったこと・学ぶ・政党・つながり）をつなげた文字列から、FNV-1aハッシュで番号を計算し、その分類の中から1つずつ選びます。同じ日なら、だれが見ても同じものが出ます。</p><p>「フィード」は、全コンテンツを、開くたびにブラウザの乱数でランダムに並べます。閲覧履歴や支持政党の設定は使いません。</p></section>' +
       '<section class="sec"><h2>書き方のルール v' + esc(R.version) + '</h2><div class="meta"><span>更新日 ' + date(R.updated) + '</span>' + ruleChips(['T-1']) + '</div>' +
       R.groups.map(function (g) {
