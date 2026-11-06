@@ -1,0 +1,5 @@
+{
+ "for": "easy:learn:constitution-amendment",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「国民投票の日に仕事や出張があったら、どうやって投票する？」という内容であるのに対し、hsでは「憲法を変えるかどうかを決める投票には、何歳から参加できるでしょう？」と全く異なる質問になってしまっています。\",\n      \"fix\": \"stdの内容に合わせて、hsの文を「国民投票の日に仕事や出張があったら、どうやって投票するのでしょうか？」などの内容に直す。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}
