@@ -1,0 +1,60 @@
+{
+ "unit": "learn:biz-public-procurement",
+ "title": "公共事業と入札のしくみ",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「調達ポータル（政府の入札情報）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "調達ポータル（政府の入札情報）",
+   "url": "https://www.p-portal.go.jp/",
+   "chars": 2433,
+   "error": null
+  },
+  {
+   "label": "会計法 第29条の3・第29条の6（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000035",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公共工事の入札及び契約の適正化の促進に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/412AC0000000127",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "入札談合等関与行為の排除及び防止並びに職員による入札等の公正を害すべき行為の処罰に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/414AC1000000101",
+   "chars": 8555,
+   "error": null
+  },
+  {
+   "label": "私的独占の禁止及び公正取引の確保に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000054",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第234条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "調達ポータル（https://www.p-portal.go.jp/）の今の本文では調達情報の検索やオンライン入札ができることが確かめられ、会計法第29条の3・第29条の6、入札契約適正化法第4条・第5条・第7条・第8条、官製談合防止法、地方自治法第234条の本文ともあわせて、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

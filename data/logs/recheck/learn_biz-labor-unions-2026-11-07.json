@@ -1,0 +1,74 @@
+{
+ "unit": "learn:biz-labor-unions",
+ "title": "労働組合と政治",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「連合」の内容が変わった",
+  "出典「全労連」の内容が変わった",
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "連合",
+   "url": "https://www.jtuc-rengo.or.jp/",
+   "chars": 1973,
+   "error": null
+  },
+  {
+   "label": "全労連",
+   "url": "https://www.zenroren.gr.jp/",
+   "chars": 3493,
+   "error": null
+  },
+  {
+   "label": "金属労協",
+   "url": "https://www.jcmetal.jp/",
+   "chars": 3341,
+   "error": null
+  },
+  {
+   "label": "厚生労働省 令和7年労働組合基礎調査の概況",
+   "url": "https://www.mhlw.go.jp/toukei/itiran/roudou/roushi/kiso/25/index.html",
+   "chars": 1108,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「令和7年労働組合基礎調査 5 主要団体への加盟状況」",
+   "url": "https://www.mhlw.go.jp/toukei/itiran/roudou/roushi/kiso/25/dl/05.pdf",
+   "chars": 2872,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「令和7年労働組合基礎調査 1 労働組合及び労働組合員の状況」",
+   "url": "https://www.mhlw.go.jp/toukei/itiran/roudou/roushi/kiso/25/dl/01.pdf",
+   "chars": 2481,
+   "error": null
+  },
+  {
+   "label": "労働組合法 第2条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/324AC0000000174",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "政治資金規正法 第21条・第21条の3（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "連合・全労連の公式サイトの今の本文、厚生労働省「令和7年労働組合基礎調査」、e-Gov の政治資金規正法の今の本文（第21条：労働組合の寄附は政党及び政治資金団体に限る、第21条の3第2項：組合員等15万人以上の加算）を確かめたが、ページの団体名・組合員数・寄附先の制限・総枠制限の記述と食い違うところはなかった（抜粋には第21条の3第1項の表の金額が含まれていなかったため、750万円・1,500万円・3,000万円の各額はこの出典では確かめていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

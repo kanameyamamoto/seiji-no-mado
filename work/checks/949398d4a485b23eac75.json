@@ -1,5 +1,0 @@
-{
- "for": "more:r7-law-062",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"事実の誤り\",\n      \"where\": \"committee.es, committee.hs, committee.std, committee.univ など\",\n      \"detail\": \"元の資料で与えられた本会議の討論等の内容は「老朽化マンション等の管理及び再生の円滑化等を図るための建物の区分所有等に関する法律等の一部を改正する法律案」に関するものであるのに対し、「足した説明」の committee や reason, who では「公益通報者保護法の改正」についての説明や審査経過が記載されており、元の資料と食い違っている。\",\n      \"fix\": \"元の資料に合わせた正しい法律案（公益通報者保護法の一部を改正する法律）の内容、理由、委員会審議の記述に修正する。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
