@@ -1,0 +1,43 @@
+# 一度だけ、まとめて読み直すための手動のワークフロー（毎日の更新では、1回に読む量に上限があるため）。
+# 例：質問主意書の明細（提出日・答弁日など）を、上限なしで一気に読む。
+name: まとめて読み直す（手動）
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "読み直すもの（questions＝質問主意書の明細）"
+        required: true
+        default: questions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backfill
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: 質問主意書の明細を、上限なしで読む
+        if: github.event.inputs.job == 'questions'
+        run: python pipeline/questions.py
+      - name: 変更を保存する
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet && exit 0
+          git commit -m "まとめて読み直し（${{ github.event.inputs.job }}）$(TZ=Asia/Tokyo date +%F)"
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep 10; done
+          exit 1
