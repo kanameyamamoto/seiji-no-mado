@@ -1,0 +1,49 @@
+# このサイトの SNS（Bluesky・X）に、新しく公開した記事を、決まった形で投稿する（ルール D-17・pipeline/social.py）。
+# 鍵（Secrets）がないSNSには何もしないので、アカウントを作る前から置いておける。
+name: SNSに投稿
+
+on:
+  workflow_run:
+    workflows: ["毎日の更新", "公開"]
+    types: [completed]
+  schedule:
+    - cron: "17 3 * * *"   # 毎日 日本時間 12:17（公開のあとに出しそびれたものを拾う）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: social
+  cancel-in-progress: false
+
+jobs:
+  post:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: 投稿する（鍵のないSNSは飛ばす）
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: python pipeline/social.py
+      - name: 投稿の記録を保存する
+        run: |
+          git config user.name "seiji-no-mado-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add work/social.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "SNSに投稿した記録 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+            git pull --rebase -q origin main && git push
+          fi
