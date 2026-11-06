@@ -30,7 +30,7 @@ rt { font-size: .5em; font-weight: 500; letter-spacing: 0; line-height: 1; opaci
 .no-ruby rt, .no-ruby rp { display: none; }
 .org-photo { margin: 4px 0 20px; }
 .hero-il { display: block; width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; border-radius: 14px; margin: 4px 0 18px; }
-.card-il { float: right; width: 84px; height: 56px; object-fit: cover; border-radius: 10px; margin: 0 0 6px 10px; }
+.card-il { display: block; width: 100%; aspect-ratio: 3 / 1; object-fit: cover; border-radius: 10px; margin: 2px 0 10px; }
 .feat-il { display: block; width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; border-radius: 12px; margin: 2px 0 12px; }
 .org-photo img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: var(--line, #e5e7eb); }
 .org-photo figcaption { margin-top: 6px; font-size: 12px; line-height: 1.6; color: var(--muted, #6b7280); }
@@ -819,6 +819,76 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
 br.pc { display: none; }
 @media (min-width: 720px) { br.pc { display: inline; } }
 @media (max-width: 480px) { .hero { padding: 24px 18px 20px; border-radius: 14px; } .hero-h { font-size: 26px; } .hero-s { font-size: 15px; } .hero-nums { grid-template-columns: 1fr 1fr; } .hn-v { font-size: 22px; } .hero-q input { font-size: 15px; padding: 0 16px; } .hero-q button { padding: 0 16px; } }
+
+/* スマホ：1つのものが画面を占めないように、つめて、横にすべらせる */
+.sp-only { display: none; }
+@media (max-width: 600px) {
+  .pc-only { display: none !important; }
+  .sp-only { display: block; }
+  .view { gap: 22px; }
+  .sec { gap: 10px; }
+  .sec > h2, .h2like { font-size: 18px; }
+  .page-head h1 { font-size: 22px; }
+  .hero { padding: 18px 16px 16px; gap: 10px; margin: 0; }
+  .hero-k, .hero-ex, .hero-cta .btn-s { display: none; }
+  .hero-h { font-size: 21px; line-height: 1.4; }
+  .hero-s { font-size: 13.5px; line-height: 1.7; }
+  .hero-q { margin-top: 2px; }
+  .hero-q input, .hero-q button { height: 42px; }
+  .hero-cta .btn-p { height: 40px; font-size: 14px; padding: 0 16px; }
+  .hero-nums { display: flex; overflow-x: auto; gap: 8px; margin: 2px -16px 0; padding: 0 16px 2px; scrollbar-width: none; }
+  .hero-nums::-webkit-scrollbar { display: none; }
+  .hn { flex: 0 0 auto; min-width: 104px; padding: 8px 10px; }
+  .hn-v { font-size: 18px; }
+  .hn-l { font-size: 11px; white-space: nowrap; }
+  /* 今日のトピック：横にすべらせる */
+  .today-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -16px; padding: 0 16px 4px; scrollbar-width: none; }
+  .today-cards::-webkit-scrollbar { display: none; }
+  .today-cards > .card { flex: 0 0 80%; scroll-snap-align: start; }
+  .card { padding: 14px; gap: 6px; }
+  .card h3 { font-size: 17px; line-height: 1.45; }
+  .card .lead { font-size: 13.5px; -webkit-line-clamp: 2; }
+  .card .cq { font-size: 13px; }
+  .card .lead + .lead { display: none; }
+  .card .meta { font-size: 12px; }
+  .feat-il, .card-il { aspect-ratio: 3.6 / 1; margin: 0 0 4px; border-radius: 8px; }
+  /* 一覧のカードは、絵を右の小さな四角にして、高さをへらす（今日のトピックは横長の絵のまま） */
+  .cards:not(.today-cards) > .card:has(> .card-il) { display: grid; grid-template-columns: 1fr 72px; column-gap: 12px; row-gap: 6px; align-items: start; }
+  .cards:not(.today-cards) > .card:has(> .card-il) > * { grid-column: 1; }
+  .cards:not(.today-cards) > .card > .card-il { grid-column: 2; grid-row: 1 / span 3; width: 72px; height: 72px; aspect-ratio: auto; margin: 0; object-position: center; }
+  .cards { gap: 10px; }
+  /* 入口：名前だけの小さなタイル */
+  .entry-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .entry { min-height: 0; padding: 10px 8px; border-radius: 10px; justify-content: center; text-align: center; }
+  .entry .et { font-size: 12.5px; line-height: 1.4; }
+  .entry .es { display: none; }
+  .home-ai { padding: 14px; border-radius: 14px; }
+  .home-ai p { font-size: 13.5px; line-height: 1.7; }
+  .home-ai .meta { flex-wrap: wrap; }
+  /* データの確かさ：横にすべらせる */
+  .trust { display: flex; overflow-x: auto; gap: 8px; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
+  .trust::-webkit-scrollbar { display: none; }
+  .tr { flex: 0 0 72%; padding: 12px; }
+  .tr p { font-size: 12.5px; line-height: 1.65; }
+  /* ルールの印は、記事の中ではスマホでは出さない（ページの上と「このサイトについて」には出す） */
+  .foot .rule, .fact .rule, .cards .rule { display: none; }
+  .tool { padding: 10px 12px; gap: 10px; }
+  .tool .ic { width: 32px; height: 32px; }
+  .tool .t { font-size: 14px; }
+  .tool .s { display: none; }
+  .law-tools { gap: 8px; }
+  /* 一覧ページのはじめの説明は、3行だけ見せる（押すと全部） */
+  .intro { gap: 6px; }
+  .intro > p { font-size: 13.5px; line-height: 1.75; }
+  .intro:not(.open) > p:first-child { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .intro:not(.open) > p + p, .intro:not(.open) > :not(p) { display: none; }
+  .intro:not(.open)::after { content: "続きを読む"; color: var(--accent); font-size: 13px; font-weight: 700; cursor: pointer; }
+  .toolbar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+  .toolbar::-webkit-scrollbar { display: none; }
+  .toolbar > * { flex: 0 0 auto; }
+  .hero-il { aspect-ratio: 4 / 1; margin: 0 0 8px; border-radius: 10px; }
+  .fact p { font-size: 15px; line-height: 1.8; }
+}
 </style>
 </head>
 <body>
@@ -1524,11 +1594,17 @@ br.pc { display: none; }
     var ex = ['予算', '消費税', '選挙', '年金', '防衛', '子ども'];
     var h = '<section class="hero"><p class="hero-k">政治の公開データベース</p>' +
       '<h1 class="hero-h"><span class="nw">日本の政治の</span><span class="nw">公開データを、</span><br class="pc"><span class="nw">人にも、AIにも。</span></h1>' +
-      '<p class="hero-s">国会で決まった法律、質問主意書、国会議員の投票、審議会、国の予算事業などを、毎日自動で集めて出典つきで整理。<span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
+      '<p class="hero-s pc-only">国会で決まった法律、質問主意書、国会議員の投票、審議会、国の予算事業などを、毎日自動で集めて出典つきで整理。<span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
+      '<p class="hero-s sp-only">国会・政府の公開データを、出典つきで。無料のAPI・MCPでAIからも使えます。</p>' +
       '<form class="hero-q" id="heroq" role="search"><input id="hq" type="search" placeholder="ことばでさがす" autocomplete="off" aria-label="ことばでさがす"><button type="submit">さがす</button></form>' +
       '<div class="hero-ex">' + ex.map(function (w) { return '<button class="chip" data-hq="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') + '</div>' +
       '<div class="hero-cta"><button class="btn-p" data-go="api">AIから使う（MCP・API）</button><button class="btn-s" data-go="laws">国会で決まったことを見る</button></div>' +
       '<div class="hero-nums">' + nums.map(function (n) { return '<button class="hn" data-go="' + n[3] + '"><span class="hn-v">' + n[0] + '<small>' + n[1] + '</small></span><span class="hn-l">' + esc(n[2]) + '</span></button>'; }).join('') + '</div></section>';
+    return h;
+  }
+  function homeRest() {
+    var S = D.stats || {}, h = '';
+    var mem = S.members || (D.members && D.members.members || []).length;
     var ent = [['laws', '国会で決まったこと', '法律・予算・条約と、だれが賛成・反対したか'], ['bills', '審議中の法律案', 'いまの国会で話し合っている案'], ['questions', '質問主意書', '議員が内閣に文書で聞いたことと答え'],
       ['members', '国会議員', '711人の会派・選挙区・投票'], ['budget', '予算と支出先', '国の予算事業と、お金を受け取った先'], ['councils', '審議会', '役所が専門家の意見を聞く会議'],
       ['pubcom', 'パブリックコメント', 'だれでも意見を出せる募集'], ['kakugi', '閣議', '大臣全員の会議で決まったこと'], ['diary', '国会と政府のうごき', '日付ごとにまとめて見る'],
@@ -1537,7 +1613,7 @@ br.pc { display: none; }
     var live = homeApiLive();
     h += '<section class="sec home-ai"><div class="ha-text"><h2>AIから、そのまま使う</h2>' +
       '<p>MCP（AIにデータをつなぐしくみ）に対応しています。Claude などに「せいじのまど」をつなぐと、AIがこのサイトのデータと出典をもとに答えます。登録もログインもいりません。</p>' +
-      '<ul class="ha-ex"><li>「いまの国会で話し合っている法律の案は？」</li><li>「この1年で国会で決まった、子育ての法律を教えて」</li><li>「厚生労働省の予算事業で、一番大きいものは？」</li></ul>' +
+      '<ul class="ha-ex pc-only"><li>「いまの国会で話し合っている法律の案は？」</li><li>「この1年で国会で決まった、子育ての法律を教えて」</li><li>「厚生労働省の予算事業で、一番大きいものは？」</li></ul>' +
       '<p class="meta"><span>MCP の住所</span><code>' + esc(API_HOST + 'mcp') + '</code>' + (live === null ? '' : live ? '<span class="b-res">使えます</span>' : '<span class="b-res wait">準備中（まもなく公開）</span>') + '</p>' +
       '<div class="hero-cta"><button class="btn-p" data-go="api">つなぎ方を見る</button></div></div></section>';
     h += '<section class="sec"><h2>データの確かさ</h2><div class="trust">' +
@@ -1569,6 +1645,7 @@ br.pc { display: none; }
     h += '<div class="cards today-cards">' + picks.map(function (x, i) { return poolCard(x, i === 0); }).join('') +
       '<button class="card term-card" data-term="' + esc(term) + '"><div class="head"><span class="chip accent">今日のことば</span></div><h3>' + esc(term) + '</h3><p class="lead">' + esc(String(D.glossary[term]).slice(0, 80)) + (String(D.glossary[term]).length > 80 ? '…' : '') + '</p></button></div>';
     h += '<div class="law-tools"><button class="tool" data-go="diary"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h3M8 17h6"/></svg></span><span class="grow"><span class="t">国会と政府のうごき</span><span class="s">法律・閣議・質問主意書・パブコメを<span class="nw">日付ごとに</span></span></span>' + ICON.chev + '</button></div>';
+    h += homeRest();
     h += askBox('AIに質問する');
     var order = randomOrder(), shown = order.slice(0, state.homeShown);
     h += '<section class="sec"><div class="feed-head"><h2>フィード</h2><button class="shuffle" data-shuffle>並べ直す</button></div>' +
@@ -1733,7 +1810,7 @@ br.pc { display: none; }
     var list = items.filter(function (q) { return (!state.qHouse || q.house === state.qHouse) && (!state.qSt || q.status === state.qSt) && (!state.qSes || q.session === state.qSes); });
     var max = state.qMax || 100;
     var h = '<div class="view">' + backBtn('laws', '国会で決まったこと') + '<div class="page-head"><h1>質問主意書と答弁書</h1><div class="meta">' + ruleChips(['D-12', 'C-6']) + checked(Q.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + rich('{{質問主意書}}は、国会議員が内閣に文書で出す質問です。内閣は閣議で決めた答弁書で答えます（ふつう7日以内）。ここでは、出された質問主意書と答弁書を、両院のページの表記のまま、すべて並べます。') + '</p><p>' + esc(Q.criteria || '') + '</p></section>';
+      '<section class="sec learn-body intro"><p>' + rich('{{質問主意書}}は、国会議員が内閣に文書で出す質問です。内閣は閣議で決めた答弁書で答えます（ふつう7日以内）。ここでは、出された質問主意書と答弁書を、両院のページの表記のまま、すべて並べます。') + '</p><p>' + esc(Q.criteria || '') + '</p></section>';
     h += '<div class="toolbar"><div class="seg" role="group" aria-label="院">' + [['', 'すべて'], ['衆議院', '衆議院'], ['参議院', '参議院']].map(function (x) { return '<button data-qhouse="' + x[0] + '" aria-pressed="' + ((state.qHouse || '') === x[0]) + '">' + x[1] + '</button>'; }).join('') + '</div>' +
       '<select id="qst" class="pill-select" aria-label="状況"><option value="">状況：すべて</option>' + Q_ST.map(function (x) { return '<option value="' + x + '"' + (state.qSt === x ? ' selected' : '') + '>' + x + '</option>'; }).join('') + '</select>' +
       '<select id="qses" class="pill-select" aria-label="国会"><option value="">国会：すべて</option>' + sess.map(function (x) { return '<option value="' + esc(x) + '"' + (state.qSes === x ? ' selected' : '') + '>' + esc(x) + '</option>'; }).join('') + '</select>' +
@@ -1781,7 +1858,7 @@ br.pc { display: none; }
     if (state.rsSort === 'amount') list = list.slice().sort(function (a, b) { return ((b.budget && b.budget.initial) || 0) - ((a.budget && a.budget.initial) || 0); });
     var max = state.rsMax || 100;
     var h = '<div class="view">' + backBtn('links', 'つながり') + '<div class="page-head"><h1>国の予算事業と支出先</h1><div class="meta">' + ruleChips(['D-13', 'C-6']) + checked(R.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>国のお金を使う事業は、毎年「行政事業レビュー」で、目的・予算・お金の支払い先（支出先）を公表しています。ここでは ' + R.year + '年度のレビューシートがある事業を、すべて並べます。支出先の会社や団体を選ぶと、その法人がどの事業からお金を受けたかも見られます。</p><p>' + esc(R.criteria) + '</p></section>';
+      '<section class="sec learn-body intro"><p>国のお金を使う事業は、毎年「行政事業レビュー」で、目的・予算・お金の支払い先（支出先）を公表しています。ここでは ' + R.year + '年度のレビューシートがある事業を、すべて並べます。支出先の会社や団体を選ぶと、その法人がどの事業からお金を受けたかも見られます。</p><p>' + esc(R.criteria) + '</p></section>';
     h += '<div class="toolbar"><select id="rsmin" class="pill-select" aria-label="府省庁"><option value="">府省庁：すべて</option>' + mins.map(function (m) { return '<option value="' + esc(m.name) + '"' + (state.rsMin === m.name ? ' selected' : '') + '>' + esc(m.name) + '（' + m.count + '）</option>'; }).join('') + '</select>' +
       '<div class="seg" role="group" aria-label="並び順"><button data-rssort="" aria-pressed="' + (!state.rsSort) + '">府省庁の順</button><button data-rssort="amount" aria-pressed="' + (state.rsSort === 'amount') + '">当初予算の大きい順</button></div>' +
       '<input id="rsq" class="pill-select" type="search" placeholder="事業名でしぼる" value="' + esc(state.rsQ || '') + '" aria-label="事業名でしぼる"><span class="tb-count">' + list.length + '事業</span></div>';
@@ -1833,7 +1910,7 @@ br.pc { display: none; }
     if (!c) return '<div class="view">' + backBtn('budget', '国の予算事業と支出先') + '<p>この法人は見つかりませんでした。</p></div>';
     var total = c.p.reduce(function (s, x) { return s + (x[1] || 0); }, 0);
     var h = '<div class="view">' + backBtn('budget', '国の予算事業と支出先') + '<div class="page-head"><h1>' + esc(c.n) + '</h1><div class="meta"><span>法人番号 ' + esc(no) + '</span>' + ruleChips(['D-13']) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + D.rsProjects.year + '年度の行政事業レビューシートで、この法人が支出先として書かれている事業は ' + c.p.length + ' 件、支出額の合計は ' + yen(total) + 'です（ほかの支出先を通した支払いを含むため、二重に数えている場合があります）。</p>' +
+      '<section class="sec learn-body intro"><p>' + D.rsProjects.year + '年度の行政事業レビューシートで、この法人が支出先として書かれている事業は ' + c.p.length + ' 件、支出額の合計は ' + yen(total) + 'です（ほかの支出先を通した支払いを含むため、二重に数えている場合があります）。</p>' +
       (c.aka ? '<p class="meta"><span>シートでの書かれ方：' + c.aka.map(esc).join('、') + '</span></p>' : '') + '</section>';
     h += '<section class="sec"><h2>支出を受けた事業（支出額の大きい順）</h2><div class="list">' + c.p.map(function (x) {
       var p = rsProject(x[0]); return '<button class="row-item" data-go="rs-' + esc(x[0]) + '"><span class="grow"><span class="t">' + esc(p ? p.name : x[0]) + '</span><span class="s">' + esc(p ? p.ministry : '') + '</span></span><span class="num">' + yen(x[1]) + '</span>' + ICON.chev + '</button>';
@@ -1850,7 +1927,7 @@ br.pc { display: none; }
     var list = P.items.filter(function (x) { return (!state.pcSt || x.status === state.pcSt) && (!state.pcCat || x.category === state.pcCat); });
     var max = state.pcMax || 100;
     var h = '<div class="view">' + backBtn('links', 'つながり') + '<div class="page-head"><h1>パブリックコメント（意見募集）</h1><div class="meta">' + ruleChips(['D-14', 'C-6']) + checked(P.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + rich('{{パブリックコメント}}は、国の役所が政令・省令などを決める前に、案を公表して、だれでも意見を出せるようにする手続きです。締切のあと、出された意見とその考え方を「結果」として公表します。') + '</p><p>' + esc(P.criteria) + '</p></section>';
+      '<section class="sec learn-body intro"><p>' + rich('{{パブリックコメント}}は、国の役所が政令・省令などを決める前に、案を公表して、だれでも意見を出せるようにする手続きです。締切のあと、出された意見とその考え方を「結果」として公表します。') + '</p><p>' + esc(P.criteria) + '</p></section>';
     h += '<div class="toolbar"><div class="seg" role="group" aria-label="状況"><button data-pcst="" aria-pressed="' + (!state.pcSt) + '">すべて</button>' + PC_ST.map(function (x) { return '<button data-pcst="' + x + '" aria-pressed="' + (state.pcSt === x) + '">' + x + '<span class="count">' + ((P.count_by_status || {})[x] || 0) + '</span></button>'; }).join('') + '</div>' +
       '<select id="pccat" class="pill-select" aria-label="カテゴリー"><option value="">カテゴリー：すべて</option>' + cats.map(function (c) { return '<option value="' + esc(c) + '"' + (state.pcCat === c ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select><span class="tb-count">' + list.length + '件</span></div>';
     h += '<div class="list">' + list.slice(0, max).map(function (x) {
@@ -1869,7 +1946,7 @@ br.pc { display: none; }
     var ms = K.meetings.map(function (m) { return { m: m, items: m.items.filter(function (i) { return !state.kgSec || i.section === state.kgSec; }) }; }).filter(function (x) { return x.items.length; });
     var max = state.kgMax || 20;
     var h = '<div class="view">' + backBtn('links', 'つながり') + '<div class="page-head"><h1>閣議の案件</h1><div class="meta">' + ruleChips(['D-15', 'C-6']) + checked(K.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + rich('{{閣議}}は、総理大臣とすべての大臣が集まって、内閣としての方針を決める会議です。国会に出す法律案や、政令、政府の方針などは、閣議で決まります。') + '</p><p>' + esc(K.criteria) + '</p></section>';
+      '<section class="sec learn-body intro"><p>' + rich('{{閣議}}は、総理大臣とすべての大臣が集まって、内閣としての方針を決める会議です。国会に出す法律案や、政令、政府の方針などは、閣議で決まります。') + '</p><p>' + esc(K.criteria) + '</p></section>';
     h += '<div class="toolbar"><select id="kgsec" class="pill-select" aria-label="区分"><option value="">区分：すべて</option>' + secs.map(function (x) { return '<option value="' + esc(x) + '"' + (state.kgSec === x ? ' selected' : '') + '>' + esc(x) + '</option>'; }).join('') + '</select><span class="tb-count">' + ms.reduce(function (s, x) { return s + x.items.length; }, 0) + '件</span></div>';
     h += ms.slice(0, max).map(function (x) {
       var m = x.m;
@@ -1916,7 +1993,7 @@ br.pc { display: none; }
     if (!x) return '<div class="view">' + backBtn('accounts', '公式サイト・SNSの一覧') + '<p class="muted">' + (D.accounts ? '見つかりませんでした。' : '読み込み中') + '</p></div>';
     var par = x.parent ? accFind(function (y) { return y.id === x.parent && !y.party; }) : null;
     var h = '<div class="view">' + backBtn('accounts', '公式サイト・SNSの一覧') + '<div class="page-head"><h1>' + esc(x.name) + '</h1><div class="meta"><span>' + esc(g.name) + '</span>' + ruleChips(['D-19', 'D-11']) + '</div></div>';
-    h += orgPhoto(x) + '<section class="sec learn-body"><p>このページは、このサイトのほかのページに載っているもののうち、この組織のものを機械で集めたものです。新しい文は書いていません。</p></section>';
+    h += orgPhoto(x) + '<section class="sec learn-body intro"><p>このページは、このサイトのほかのページに載っているもののうち、この組織のものを機械で集めたものです。新しい文は書いていません。</p></section>';
     h += orgChildren(x);
     if (par) h += '<section class="sec"><h2>置かれている府省</h2><div class="list"><button class="row-item" data-go="' + esc(accRoute(par)) + '"><span class="grow"><span class="t">' + esc(par.name) + '</span><span class="s">' + esc(x.name) + 'は、' + esc(par.name) + 'に置かれています</span></span>' + ICON.chev + '</button></div></section>';
     var ab = (x.about || []).map(function (t) { return findPage(t[0], t[1]); }).filter(Boolean);
@@ -1936,7 +2013,7 @@ br.pc { display: none; }
     if (!D.councils) return rsLoading('国の審議会');
     var C = D.councils, list = C.items.filter(function (x) { return !state.cnMin || x.ministry === state.cnMin; });
     var h = '<div class="view">' + backBtn('links', 'つながり') + '<div class="page-head"><h1>国の審議会</h1><div class="meta">' + ruleChips(['D-18', 'C-6']) + checked(C.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + rich('{{審議会}}は、大臣などから聞かれたこと（諮問）について、学者や関係する団体の人などが話し合い、意見（答申）を出す会議です。法律や国のしくみを変える前に、ここで話し合われることがよくあります。') + '</p><p>' + esc(C.criteria) + '</p></section>';
+      '<section class="sec learn-body intro"><p>' + rich('{{審議会}}は、大臣などから聞かれたこと（諮問）について、学者や関係する団体の人などが話し合い、意見（答申）を出す会議です。法律や国のしくみを変える前に、ここで話し合われることがよくあります。') + '</p><p>' + esc(C.criteria) + '</p></section>';
     h += '<div class="toolbar"><select id="cnmin" class="pill-select" aria-label="府省"><option value="">府省：すべて</option>' + C.ministries.map(function (m) { return '<option value="' + esc(m.name) + '"' + (state.cnMin === m.name ? ' selected' : '') + '>' + esc(m.name) + '（' + m.count + '）</option>'; }).join('') + '</select><span class="tb-count">' + list.length + 'の審議会</span></div>';
     var groups = [];
     list.forEach(function (x) { var g = x.ministry + (x.agency ? '（' + x.agency + '）' : ''); if (!groups.length || groups[groups.length - 1].g !== g) groups.push({ g: g, xs: [] }); groups[groups.length - 1].xs.push(x); });
@@ -1992,7 +2069,7 @@ br.pc { display: none; }
     days.sort().reverse();
     var max = state.dyMax || 7;
     var h = '<div class="view">' + backBtn('home', 'ホーム') + '<div class="page-head"><h1>国会と政府のうごき</h1><div class="meta">' + ruleChips(['D-16', 'C-6']) + '</div></div>' +
-      '<section class="sec learn-body"><p>国会で決まったこと、閣議、質問主意書、パブリックコメントを、起きた日ごとにまとめています。人は選ばず、それぞれのページに載っているものを、日付の新しい順に並べます。同じ日の中は「国会で決まったこと → 閣議 → 質問主意書 → パブリックコメント」の順です。</p></section>';
+      '<section class="sec learn-body intro"><p>国会で決まったこと、閣議、質問主意書、パブリックコメントを、起きた日ごとにまとめています。人は選ばず、それぞれのページに載っているものを、日付の新しい順に並べます。同じ日の中は「国会で決まったこと → 閣議 → 質問主意書 → パブリックコメント」の順です。</p></section>';
     h += days.slice(0, max).map(function (d) {
       var es = ev.filter(function (e) { return e.d === d; });
       return '<section class="sec"><h2>' + date(d) + '</h2>' + DY_KIND.map(function (kn, k) {
@@ -2032,7 +2109,7 @@ br.pc { display: none; }
     var list = items.filter(function (b) { return (!state.bRes || b.result === state.bRes) && (!state.bWho || b.submitter === state.bWho); });
     var cnt = function (r) { return items.filter(function (b) { return b.result === r; }).length; };
     var h = '<div class="view">' + backBtn('laws', '国会で決まったこと') + '<div class="page-head"><h1>審議中・採決されなかった法律案</h1><div class="meta">' + ruleChips(['D-10', 'C-6']) + checked(B.checked) + '</div></div>' +
-      '<section class="sec learn-body"><p>' + esc(B.criteria || '') + '</p><p>' + rich('国会に出された法律案の多くは、{{審議未了}}や{{継続審査}}で、採決されないまま終わります。ここでは、審議中のものと、採決されずに終わったものを、衆議院の議案情報の表記のまま、すべて並べます。成立したもの・{{否決}}されたものは「国会で決まったこと」に記事として載せています。') + '</p></section>';
+      '<section class="sec learn-body intro"><p>' + esc(B.criteria || '') + '</p><p>' + rich('国会に出された法律案の多くは、{{審議未了}}や{{継続審査}}で、採決されないまま終わります。ここでは、審議中のものと、採決されずに終わったものを、衆議院の議案情報の表記のまま、すべて並べます。成立したもの・{{否決}}されたものは「国会で決まったこと」に記事として載せています。') + '</p></section>';
     h += '<div class="toolbar"><div class="seg" role="group" aria-label="結果"><button data-bres="" aria-pressed="' + (!state.bRes) + '">すべて</button>' +
       res.map(function (r) { return '<button data-bres="' + esc(r) + '" aria-pressed="' + (state.bRes === r) + '">' + esc(r) + ' ' + cnt(r) + '</button>'; }).join('') + '</div>' +
       '<select id="bwho" class="pill-select" aria-label="提出"><option value="">提出：すべて</option>' + ['内閣', '衆議院議員', '参議院議員'].map(function (w) { return '<option value="' + w + '"' + (state.bWho === w ? ' selected' : '') + '>' + w + '</option>'; }).join('') + '</select>' +
@@ -2631,6 +2708,8 @@ br.pc { display: none; }
   function go(v) { closeSheet(); if (curR() === v) { render(); } else { nav(v); } window.scrollTo(0, 0); }
 
   document.addEventListener('click', function (e) {
+    var ir = e.target.closest('.intro:not(.open)');
+    if (ir && !e.target.closest('a, button')) { ir.classList.add('open'); return; }
     var t = e.target.closest('button, a');
     if (!t) { if (e.target.id === 'scrim') closeSheet(); if (!e.target.closest('#pop')) hidePop(); return; }
     if (t.hasAttribute('data-close')) return closeSheet();
