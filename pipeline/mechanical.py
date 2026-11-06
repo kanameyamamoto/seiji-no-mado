@@ -184,8 +184,16 @@ def update_sessions(watch):
                 say(f"[session] {name} の会期が終わった：{end}")
                 changed = True
             continue
+        hist_from = int(cfg.get("history", {}).get("from_session", 9999))
         if int(no) <= max(int(re.search(r"\d+", n).group()) for n in have):
-            continue  # 古い国会は対象外
+            if int(no) >= hist_from and start and end:  # さかのぼって載せる国会（config の history）：一覧には足すが、毎日の確認には入れない
+                feed["sessions"].append({"name": name, "kind": kind, "start": start, "end": end,
+                                         "note": f"会期{r[3]}" + (f"（当初{r[4]}" + (f"、延長{r[5]}" if len(r) > 5 and r[5] else "") + "）" if len(r) > 4 and r[4] else "") + "。"
+                                         + ("衆議院解散で閉会。" if dissolved else ""),
+                                         "source": {"label": "衆議院 国会会期一覧", "url": SHU_KAIKI}})
+                say(f"[session] さかのぼって足す国会：{name}（{kind}、{start}〜{end}）")
+                changed = True
+            continue  # 古い国会は、毎日の確認の対象外
         if start:
             feed["sessions"].append({"name": name, "kind": kind, "start": start, "end": end,
                                      "note": f"会期{r[3]}。", "source": {"label": "衆議院 国会会期一覧", "url": SHU_KAIKI}})

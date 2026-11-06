@@ -20,7 +20,13 @@
   "daily_limit": 30
  },
  "questions": {
-  "from_session": 220,
+  "from_session": 201,
   "detail_limit": 400
+ },
+ "history": {
+  "note": "さかのぼって載せる国会（update_laws.backfill）。新しい国会から順に、1日に per_day 件まで「国会で決まったこと」の下書きを作る。",
+  "from_session": 201,
+  "to_session": 219,
+  "per_day": 3
  }
 }

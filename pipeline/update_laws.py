@@ -112,6 +112,91 @@ def rejected_raw(b, ses, cat, no, k):
     return base
 
 
+HIST = os.path.join(ROOT, "work", "sources", "history-scan.json")
+
+
+def backfill(cfg, feed, have, pending_now):
+    """さかのぼって載せる（config の history）。新しい国会から順に、1回に per_day 件まで下書きを作る。
+
+    下書きがたまっているとき（書く担当が追いついていないとき）は、足さない。
+    一度見て「載せる範囲の外」とわかった議案は work/sources/history-scan.json に残し、二度と読みに行かない。
+    """
+    h = cfg.get("history") or {}
+    if not h:
+        return 0
+    import datetime
+    per_day = int(h.get("per_day", 3))
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).strftime("%Y-%m-%d")
+    waiting = []
+    for f in pending_now:
+        if f.endswith(".json"):
+            try:
+                if json.load(open(os.path.join(PENDING, f), encoding="utf-8")).get("status") != "held":
+                    waiting.append(f)
+            except Exception:  # noqa: BLE001
+                pass
+    if len(waiting) >= per_day:
+        print(f"[history] 下書きが {len(waiting)} 件たまっているので、今回はさかのぼらない")
+        return 0
+    scan = json.load(open(HIST, encoding="utf-8")) if os.path.exists(HIST) else {"skip": [], "done_sessions": []}
+    skip, done = set(scan["skip"]), set(scan["done_sessions"])
+    made_today = scan.get("made", 0) if scan.get("day") == today else 0
+    made = 0
+    per_day = max(0, per_day - made_today)  # 1日の上限（書く担当の答えが届くたびに動いても、1日に per_day 件まで）
+    if not per_day:
+        return 0
+    for ses in range(int(h["to_session"]), int(h["from_session"]) - 1, -1):
+        if str(ses) in done or made >= per_day:
+            continue
+        try:
+            urls = S.list_bills(str(ses))
+        except Exception as e:  # noqa: BLE001
+            print(f"[history] 第{ses}回国会の一覧を読めませんでした: {e}")
+            break
+        left = False
+        for u in urls:
+            page = u.split("/meisai/")[1]
+            if page in have or page in skip:
+                continue
+            if made >= per_day:
+                left = True
+                break
+            r = S.parse_bill(u)
+            typ = r.get("議案審議一覧/種別", "")
+            if not S.is_enacted(r) or typ not in KIND:
+                skip.add(page)
+                continue
+            cat, kind = KIND[typ]
+            no = r.get("議案審議一覧/提出番号", "")
+            k = key_of(ses, cat, no)
+            if f"{k}.json" in pending_now:
+                left = True
+                continue
+            vote = None
+            if r.get("参議院本会議経過/vote"):
+                try:
+                    vote = S.parse_vote(r["参議院本会議経過/vote"])
+                except Exception as e:  # noqa: BLE001
+                    print(f"[warn] 投票結果を読めませんでした {k}: {e}")
+            dates = [S.wdate(r.get("参議院本会議経過/議決日", "")), S.wdate(r.get("衆議院本会議経過/議決日", ""))]
+            raw = {"src_key": page, "key": k, "kind": kind, "category": cat, "session": str(ses),
+                   "number": f"{cat}第{no}号" if cat in ("閣法", "衆法", "参法") else "", "formal": r.get("議案審議一覧/件名", ""),
+                   "date": max(d for d in dates if d) if any(dates) else "", "promulgated": S.wdate(r.get("その他の/公布年月日", "")),
+                   "law_no": r.get("その他の/法律番号", ""), "ministry": (r.get("その他の/所管官庁", "") or "").split("、")[0],
+                   "yoshi": r.get("yoshi", ""), "bill": r, "vote": vote, "history": True,
+                   "source": {"label": f"参議院 議案情報（第{ses}回国会 {cat}第{no}号）", "url": u}, "status": "fetched"}
+            json.dump(raw, open(os.path.join(PENDING, f"{k}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+            made += 1
+            print(f"[history] {k} {raw['formal']}")
+        if not left and made < per_day:
+            done.add(str(ses))  # この国会は、載せる範囲のものをすべて下書きにした
+    scan = {"note": "さかのぼって載せるとき（update_laws.backfill）に、載せる範囲の外とわかった議案と、すべて下書きにした国会。day・made＝その日に作った下書きの数。",
+            "day": today, "made": made_today + made, "skip": sorted(skip), "done_sessions": sorted(done)}
+    os.makedirs(os.path.dirname(HIST), exist_ok=True)
+    json.dump(scan, open(HIST, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return made
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sessions", nargs="*")
@@ -174,6 +259,8 @@ def main():
             new += 1
             print(f"[new] {k} {raw['formal']}")
     new += rejected_drafts(feed, have, pending_now)
+    if not a.sessions:
+        new += backfill(cfg, feed, have, set(os.listdir(PENDING)))
     print(f"新しく見つかった件数: {new}")
     with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as gh:
         gh.write(f"new={new}\n")

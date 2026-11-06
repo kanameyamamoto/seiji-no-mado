@@ -5,6 +5,7 @@
 - 衆議院「質問の一覧」（国会ごと）と、質問ごとの「経過情報」（提出日・内閣転送日・答弁書受領日・会派）
 - 参議院「質問主意書・答弁書一覧」（国会ごと）と、質問ごとの「明細」（提出日・転送日・答弁書受領日）
 載せる：config の questions.from_session（なければ第220回）から後の国会に出された質問主意書を、すべて。
+明細は1回に questions.detail_limit 件まで読む。まだ明細を読めていないものは、一覧の答弁書へのリンクの有無で状況を決め、日付は空のまま（次の回に読む）。
 件名・提出者・日付は、両院のページの表記のまま（日付は西暦にそろえる）。並びは、国会の新しい順 → 衆議院・参議院 → 提出番号の順。
 状況は、答弁書受領日があれば「答弁あり」、撤回の日があれば「撤回」、それ以外は「答弁待ち」と、機械的に決める。
 明細のページは、まだ答弁が出ていないものだけ読み直す（答弁が出たもの・撤回されたものは、それ以上変わらない）。
@@ -27,7 +28,7 @@ SHU = "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/"
 SAN = "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/"
 CRITERIA = "第{frm}回国会から後の国会に、衆議院・参議院の議員が出した質問主意書を、すべて載せる。"
 RULE = ("件名・提出者・日付は、衆議院「質問の一覧」と経過情報、参議院「質問主意書・答弁書一覧」と明細の表記のまま（日付は西暦にそろえる）。"
-        "状況は、答弁書を受け取った日があれば「答弁あり」、撤回された日があれば「撤回」、それ以外は「答弁待ち」と機械的に決める。"
+        "状況は、答弁書を受け取った日があれば「答弁あり」、撤回された日があれば「撤回」、それ以外は「答弁待ち」と機械的に決める（日付をまだ読めていないものは、答弁書が出ていれば「答弁あり」）。"
         "並びは、国会の新しい順、衆議院・参議院の順、提出番号の順。人は選ばない。")
 SOURCES = [{"label": "衆議院 質問主意書・答弁書", "url": SHU + "menu_m.htm"},
            {"label": "参議院 質問主意書・答弁書", "url": SAN + "222/syuisyo.htm"}]
@@ -125,11 +126,17 @@ def san_detail(url):
             "withdrawn": wdate(g("撤回日")), "delayed_until": wdate(g("答弁延期期限"))}
 
 
-def status_of(d):
+def status_of(d, r=None):
+    """日付から決める。明細をまだ読めていないときは、一覧の答弁書へのリンク・経過の表記で決める。"""
     if d.get("answered"):
         return "答弁あり"
     if d.get("withdrawn"):
         return "撤回"
+    if r and not d.get("submitted"):
+        if r.get("answer_url"):
+            return "答弁あり"
+        if "撤回" in (r.get("status_text") or ""):
+            return "撤回"
     return "答弁待ち"
 
 
@@ -165,7 +172,7 @@ def update(limit=None):
                 qid = f"{slug}-{ses}-{r['number']}"
                 p = prev.get(qid, {})
                 d = {k: p.get(k, "") for k in ("kaiha", "submitted", "forwarded", "answered", "withdrawn", "delayed_until")}
-                need = not p or p.get("status") not in FINAL or (r.get("status_text") and r["status_text"] != p.get("status_text"))
+                need = not p or p.get("status") not in FINAL or not p.get("submitted") or (r.get("status_text") and r["status_text"] != p.get("status_text"))
                 if need and r["detail"] and (limit is None or read < limit):
                     try:
                         time.sleep(0.5)
@@ -177,9 +184,9 @@ def update(limit=None):
                 ids = by_name.get((house, key(name)), [])
                 it = {"id": qid, "house": house, "session": f"第{ses}回国会", "number": r["number"], "title": r["title"], "submitter": name, **({"co_submitters": others} if others else {}),
                       **({"member": ids[0]} if len(ids) == 1 else {}), **({"kaiha": d["kaiha"]} if d.get("kaiha") else {}),
-                      "status": status_of(d), **({"status_text": r["status_text"]} if r.get("status_text") else {}),
+                      "status": status_of(d, r), **({"status_text": r["status_text"]} if r.get("status_text") else {}),
                       **{k: d[k] for k in ("submitted", "forwarded", "answered", "withdrawn", "delayed_until") if d.get(k)},
-                      "question_url": r["question_url"], **({"answer_url": r["answer_url"]} if r.get("answer_url") and d.get("answered") else {}),
+                      "question_url": r["question_url"], **({"answer_url": r["answer_url"]} if r.get("answer_url") and status_of(d, r) == "答弁あり" else {}),
                       "detail_url": r["detail"]}
                 if not p:
                     changes.append(f"新しい質問主意書：{house} 第{ses}回 {r['number']}号 {r['title']}（{name}）")
