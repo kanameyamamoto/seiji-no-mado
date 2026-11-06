@@ -1435,7 +1435,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var kinds = [];
     items.forEach(function (i) { var g = KIND_SHORT[i.kind] || i.kind; if (kinds.indexOf(g) < 0) kinds.push(g); });
     var topics = []; items.forEach(function (i) { if (i.topic && topics.indexOf(i.topic) < 0) topics.push(i.topic); }); topics.sort(function (a, b) { return a.localeCompare(b, 'ja'); });
-    var list = items.filter(function (i) { return (!state.feedKind || (KIND_SHORT[i.kind] || i.kind) === state.feedKind) && (!state.feedTopic || i.topic === state.feedTopic); });
+    var sesL = []; items.forEach(function (i) { var n = (i.session || '').replace(/（.*$/, ''); if (n && sesL.indexOf(n) < 0) sesL.push(n); });
+    var list = items.filter(function (i) { return (!state.feedKind || (KIND_SHORT[i.kind] || i.kind) === state.feedKind) && (!state.feedTopic || i.topic === state.feedTopic) && (!state.feedSes || (i.session || '').indexOf(state.feedSes) === 0); });
     if (state.feedSort === 'split') list = list.slice().sort(function (a, b) { return (againstRate(b) - againstRate(a)) || (b.date > a.date ? 1 : b.date < a.date ? -1 : 0); });
     var cur = SORTS.filter(function (s) { return s[0] === state.feedSort; })[0] || SORTS[0];
     var sess = (F.sessions || []).map(function (s) { return s.name + (s.kind ? '（' + s.kind + '）' : '') + (s.start ? ' ' + date(s.start) + '〜' + (s.end ? date(s.end) : '開会中') : ''); }).join('、');
@@ -1444,6 +1445,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var tb = '<div class="seg" role="group" aria-label="並び順">' + SORTS.map(function (s) { return '<button data-fsort="' + s[0] + '" aria-pressed="' + (cur[0] === s[0]) + '">' + s[1] + '</button>'; }).join('') + '</div>';
     tb += '<div class="seg" role="group" aria-label="種類"><button data-fkind="" aria-pressed="' + (!state.feedKind) + '">すべて</button>' + kinds.map(function (k) { return '<button data-fkind="' + esc(k) + '" aria-pressed="' + (state.feedKind === k) + '">' + esc(k) + '</button>'; }).join('') + '</div>';
     tb += '<select id="ftopic" class="pill-select" aria-label="分野（所管）"><option value="">分野：すべて</option>' + topics.map(function (t) { return '<option value="' + esc(t) + '"' + (state.feedTopic === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select>';
+    if (sesL.length > 1) tb += '<select id="fses" class="pill-select" aria-label="国会"><option value="">国会：すべて</option>' + sesL.map(function (t) { return '<option value="' + esc(t) + '"' + (state.feedSes === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select>';
     tb += '<span class="tb-count">' + list.length + '件' + xp('laws') + '</span>';
     var BN = (D.bills && D.bills.items || []).length;
     var IC_LIST = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M9 10h6M9 13.5h6M9 17h4"/></svg>';
@@ -2222,6 +2224,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (e.target.id === 'mregion') { state.mRegion = e.target.value; render(); }
     if (e.target.id === 'garea') { state.gArea = e.target.value; render(); }
     if (e.target.id === 'bwho') { state.bWho = e.target.value; render(); }
+    if (e.target.id === 'fses') { state.feedSes = e.target.value; state.feedShown = PAGE_SIZE; render(); }
     if (e.target.id === 'qst') { state.qSt = e.target.value; state.qMax = 100; render(); }
     if (e.target.id === 'qses') { state.qSes = e.target.value; state.qMax = 100; render(); }
   });
