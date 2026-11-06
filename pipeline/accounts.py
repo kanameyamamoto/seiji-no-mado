@@ -216,14 +216,41 @@ def items():
     return groups + [party]
 
 
+_PARENT_TOP = {}
+
+
+def parent_top(it):
+    """親の府省のサイトの中（同じドメイン）にある組織なら、親のトップページにあるアカウントの集まりを返す。"""
+    par = SRC_BY_ID.get(it.get("parent") or "")
+    if not par or not par.get("url"):
+        return set()
+    h1, h2 = urllib.parse.urlparse(it["url"]).netloc, urllib.parse.urlparse(par["url"]).netloc
+    root = ".".join(h2.split(".")[-3:])
+    if not (h1 == h2 or h1.endswith("." + root) or h1 == root):
+        return set()
+    if par["url"] not in _PARENT_TOP:
+        try:
+            t, _ = fetch(par["url"])
+            _PARENT_TOP[par["url"]] = {(k, x["id"].lower()) for k, v in find(t).items() for x in v}
+        except Exception:  # noqa: BLE001
+            _PARENT_TOP[par["url"]] = set()
+    return _PARENT_TOP[par["url"]]
+
+
+SRC_BY_ID = {}
+
+
 def update():
     old = json.load(open(OUT, encoding="utf-8")) if os.path.exists(OUT) else {}
     prev = {(g["id"], x["id"]): x for g in old.get("groups", []) for x in g.get("items", [])}
     out_groups, changes = [], []
     for g in items():
+        for x in g["items"]:
+            SRC_BY_ID.setdefault(x["id"], x)
+    for g in items():
         rows = []
         for it in g["items"]:
-            row = {k: it[k] for k in ("id", "name", "url", "page", "party") if it.get(k)}
+            row = {k: it[k] for k in ("id", "name", "url", "page", "party", "parent", "about") if it.get(k)}
             p = prev.get((g["id"], it["id"]), {})
             if not it.get("url"):
                 row["sns"] = {}
@@ -232,13 +259,10 @@ def update():
                 continue
             try:
                 sns, used = collect(it)
-                if scope_of(it["url"]) != "/":
-                    # 親の省のサイトの中にある組織：ページの上や下に出ている親の省のアカウントは、親の省のものなので除く
-                    host = urllib.parse.urlparse(it["url"]).netloc
-                    par = [r for gg in out_groups + [{"items": rows}] for r in gg["items"]
-                           if r.get("url") and urllib.parse.urlparse(r["url"]).netloc == host and scope_of(r["url"]) == "/"]
-                    ids = {(k, x["id"].lower()) for r in par for k, v in r.get("sns", {}).items() for x in v}
-                    sns = {k: [x for x in v if (k, x["id"].lower()) not in ids] for k, v in sns.items()}
+                drop = parent_top(it)
+                if drop:
+                    # 親の府省のサイトの中にある組織：ページの上や下に出ている親の府省のアカウント（親のトップページにあるもの）は除く
+                    sns = {k: [x for x in v if (k, x["id"].lower()) not in drop] for k, v in sns.items()}
                     sns = {k: v for k, v in sns.items() if v}
                 # 画面には各SNSの最初の1つを出し、残りは「ほかN件」にたたむ。データは各SNS50件まで（全部の数は counts）
                 row["counts"] = {k: len(v) for k, v in sns.items()}
@@ -256,7 +280,7 @@ def update():
             time.sleep(1)
         out_groups.append({"id": g["id"], "name": g["name"], "items": rows})
     out = {"criteria": "政府（首相官邸・内閣官房・内閣法制局・人事院・内閣府・宮内庁と各省庁、それらの外局〈庁・委員会〉すべて）、国会（衆議院・参議院・国立国会図書館）、裁判所、内閣から独立した機関（会計検査院・日本銀行）、政党（このサイトの政党の一覧のすべて）の公式サイトと、公式サイトのトップページ・SNS一覧ページにリンクされているSNSアカウントを、すべて載せる。",
-           "rule": "アカウントは機械で集め、人は選ばない。親の省のサイトの中にある組織（出入国在留管理庁など）は、その組織のページの中だけをたどり、親の省と同じアカウントは除く。並びは X・YouTube・Instagram・TikTok・Facebook・LINE・note・Threads。各SNSの中は、トップページに載っている順、次にSNS一覧ページに載っている順。画面には各SNSの最初の1つを出し、ほかは「ほかN件」にたたむ。",
+           "rule": "アカウントは機械で集め、人は選ばない。親の府省のサイトの中にある組織（出入国在留管理庁など）は、その組織のページの中だけをたどり、親の府省のトップページにあるアカウント（ページの上や下に共通で出るもの）は除く。並びは X・YouTube・Instagram・TikTok・Facebook・LINE・note・Threads。各SNSの中は、トップページに載っている順、次にSNS一覧ページに載っている順。画面には各SNSの最初の1つを出し、ほかは「ほかN件」にたたむ。",
            "order": ORDER, "groups": out_groups}
     same = json.dumps({**old, "groups": [{**g, "items": [{k: v for k, v in x.items() if k != "checked"} for x in g["items"]]} for g in old.get("groups", [])]}, sort_keys=True, ensure_ascii=False) == \
         json.dumps({**out, "groups": [{**g, "items": [{k: v for k, v in x.items() if k != "checked"} for x in g["items"]]} for g in out_groups]}, sort_keys=True, ensure_ascii=False)

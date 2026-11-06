@@ -134,8 +134,8 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "councils": "国の審議会", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）"}
-    SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "councils": "国の審議会", "org": "公式サイト・SNSの一覧", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）"}
+    SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/", "org": "accounts/"}
 
     def ld(self, path, title, desc, lastmod, extra):
         """構造化データ（schema.org の JSON-LD）。どのページかを、検索エンジンや AI が読める形で書く。"""
@@ -481,6 +481,28 @@ def main():
     tabs.append(("accounts/", "公式サイト・SNSの一覧", "政府（外局まで）・国会・裁判所・会計検査院・日本銀行・政党の公式サイトと、公式サイトにリンクされているSNSアカウントの一覧。機械で集め、人は選ばない。", body, "accounts", max([x.get("checked", "") for x in acc_rows] or [""])))
     for args in tabs:
         site.page(*args)
+    # 組織のページ（D-19）：つながりに自分のページがない国の機関
+    byid = {x["id"]: x for g in acc.get("groups", []) if g["id"] != "party" for x in g["items"]}
+    pg_title = {(tab, p["id"]): p["title"] for tab, src_ in (("learn", learn), ("links", links)) for sec in src_.get("sections", []) for p in sec.get("pages", [])}
+    for g in acc.get("groups", []):
+        if g["id"] == "party":
+            continue
+        for x in g["items"]:
+            if x.get("page"):
+                continue
+            par = byid.get(x.get("parent"))
+            body = f"<h1>{e(x['name'])}</h1><p>{e(g['name'])}。このページは、せいじのまどのほかのページに載っているもののうち、この組織のものを機械で集めたものです。</p>"
+            if par:
+                href = f"links/{par['page']}/" if par.get("page") else f"org/{par['id']}/"
+                body += f'<p>置かれている府省：<a href="{href}">{e(par["name"])}</a></p>'
+            kids = [k for k in byid.values() if k.get("parent") == x["id"]]
+            if kids:
+                body += "<h2>置かれている組織</h2><ul>" + "".join(f'<li><a href="org/{k["id"]}/">{e(k["name"])}</a></li>' for k in kids) + "</ul>"
+            ab = [(t, i) for t, i in x.get("about", []) if (t, i) in pg_title]
+            if ab:
+                body += "<h2>しくみの説明</h2><ul>" + "".join(f'<li><a href="{t}/{i}/">{e(pg_title[(t, i)])}</a></li>' for t, i in ab) + "</ul>"
+            body += sns_html(x)
+            site.page(f"org/{x['id']}/", x["name"], f"{x['name']}（{g['name']}）の公式サイトとSNS、このサイトにある関係のページ。", body, "org-" + x["id"], x.get("checked"))
 
     # サイトマップと robots.txt
     today = datetime.datetime.now(JST).strftime("%Y-%m-%d")

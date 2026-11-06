@@ -807,6 +807,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (r.indexOf('rs-') === 0) return 'budget/' + r.slice(3) + '/';
     if (r.indexOf('corp-') === 0) return 'corp/' + r.slice(5) + '/';
     if (r.indexOf('cn-') === 0) return 'councils/' + r.slice(3) + '/';
+    if (r.indexOf('org-') === 0) return 'org/' + r.slice(4) + '/';
     return '';
   }
   function pathToRoute(path) {
@@ -821,6 +822,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
       if (parts[0] === 'budget') return 'rs-' + parts[1];
       if (parts[0] === 'corp') return 'corp-' + parts[1];
       if (parts[0] === 'councils') return 'cn-' + parts[1];
+      if (parts[0] === 'org') return 'org-' + parts[1];
       if (parts[0] === 'learn' || parts[0] === 'links' || parts[0] === 'media') return 'pg-' + parts[0] + '-' + parts[1];
     }
     return 'home';
@@ -936,7 +938,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (h.indexOf('a-') === 0) return 'home';
     if (h.indexOf('pg-') === 0) return h.slice(3).split('-')[0];
     if (h.indexOf('p-') === 0 || h.indexOf('m-') === 0 || h === 'elections' || h === 'members' || h === 'governors') return 'parties';
-    if (h === 'accounts' || h === 'budget' || h === 'pubcom' || h === 'kakugi' || h === 'councils' || h.indexOf('cn-') === 0 || h.indexOf('rs-') === 0 || h.indexOf('corp-') === 0) return 'links';
+    if (h === 'accounts' || h === 'budget' || h === 'pubcom' || h === 'kakugi' || h === 'councils' || h.indexOf('cn-') === 0 || h.indexOf('org-') === 0 || h.indexOf('rs-') === 0 || h.indexOf('corp-') === 0) return 'links';
     if (h === 'diary') return 'home';
     if (h === 'about' || h === 'search' || h === 'terms' || h === 'api') return '';
     return h;
@@ -1103,7 +1105,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (k === 'LINE') return id.replace(/^line\.me\/R\/ti\/p\//, '').replace(/%40/g, '@');
     return id;
   }
-  function accRoute(x) { if (x.party) return 'p-' + x.party; if (x.page) return 'pg-links-' + x.page; return ''; }
+  function accRoute(x) { if (x.party) return 'p-' + x.party; if (x.page) return 'pg-links-' + x.page; return x.id ? 'org-' + x.id : ''; }
   function accNone(x) {
     if (x.note) return x.note === '公式サイトの住所がまだ登録されていない' ? '公式サイトをまだ確認できていません。' : x.note;
     return '公式サイトのトップページとSNSの一覧ページに、SNSへのリンクが見つかりませんでした（機械で読めないページのときもあります）。';
@@ -1327,11 +1329,11 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
       '<div class="page-head"><h1>' + esc(p.title) + '</h1><div class="meta">' + checked(p.checked) + ruleChips(pageRules(p)) + '</div></div>' + 
       (p.blocks || []).filter(function (b) { return b.type === 'hook'; }).map(block).join('') +
       (p.summary ? '<p class="lead-l">' + rich(lv(p.summary)) + '</p>' : '') +
-      '<div class="learn-body">' + bodyBlocks(p.blocks).map(block).join('') + (tab === 'links' ? snsSection(accFind(function (x) { return x.page === p.id; }), true) + ministryActivity(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) : '') + src(p.sources) + hist(p) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
+      '<div class="learn-body">' + bodyBlocks(p.blocks).map(block).join('') + (tab === 'links' ? snsSection(accFind(function (x) { return x.page === p.id; }), true) + orgChildren(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) + ministryActivity(accFind(function (x, g) { return x.page === p.id && g.id === 'gov'; })) : '') + src(p.sources) + hist(p) + '</div>' + (tab === 'learn' ? pager(p.id) : '') + askBox('AIに質問する') + '</div>';
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
-    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r === 'pubcom') return 'パブリックコメント（意見募集）'; if (r === 'diary') return '国会と政府のうごき'; if (r === 'kakugi') return '閣議の案件'; if (r === 'councils') return '国の審議会'; if (r.indexOf('cn-') === 0) { var cn = cnItem(r.slice(3)); return cn ? cn.name : '審議会'; } if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
+    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r === 'pubcom') return 'パブリックコメント（意見募集）'; if (r === 'diary') return '国会と政府のうごき'; if (r === 'kakugi') return '閣議の案件'; if (r === 'councils') return '国の審議会'; if (r.indexOf('org-') === 0) { var og = accFind(function (x) { return x.id === r.slice(4) && !x.party; }); return og ? og.name : '組織'; } if (r.indexOf('cn-') === 0) { var cn = cnItem(r.slice(3)); return cn ? cn.name : '審議会'; } if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
     if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'about') return 'このサイトについて';
     if (TAB_TITLE[r]) return TAB_TITLE[r];
     if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
@@ -1747,6 +1749,28 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (ms.length > max) h += '<button class="more" data-kgmore>もっと見る（あと' + (ms.length - max) + '回の閣議）</button>';
     return h + '<p class="meta"><span>' + esc(K.rule) + '</span></p>' + src(K.sources) + '</div>';
   }
+  function orgChildren(x) {
+    if (!x) return '';
+    var kids = accOrgs().filter(function (o) { return o.x.parent === x.id; }).map(function (o) { return o.x; });
+    if (!kids.length) return '';
+    return '<section class="sec"><h2>' + esc(x.name) + 'に置かれている組織（' + kids.length + '）</h2><div class="list">' + kids.map(function (k) { return '<button class="row-item" data-go="' + esc(accRoute(k)) + '"><span class="grow"><span class="t">' + esc(k.name) + '</span></span>' + ICON.chev + '</button>'; }).join('') + '</div></section>';
+  }
+  /* ---------- 組織のページ（D-19：ほかのページの中身を機械で集めるだけ） ---------- */
+  function vOrg(id) {
+    var g = null, x = null;
+    accOrgs().forEach(function (o) { if (!x && o.x.id === id && !o.x.party) { x = o.x; g = o.g; } });
+    if (!x) return '<div class="view">' + backBtn('accounts', '公式サイト・SNSの一覧') + '<p class="muted">' + (D.accounts ? '見つかりませんでした。' : '読み込み中') + '</p></div>';
+    var par = x.parent ? accFind(function (y) { return y.id === x.parent && !y.party; }) : null;
+    var h = '<div class="view">' + backBtn('accounts', '公式サイト・SNSの一覧') + '<div class="page-head"><h1>' + esc(x.name) + '</h1><div class="meta"><span>' + esc(g.name) + '</span>' + ruleChips(['D-19', 'D-11']) + '</div></div>';
+    h += '<section class="sec learn-body"><p>このページは、このサイトのほかのページに載っているもののうち、この組織のものを機械で集めたものです。新しい文は書いていません。</p></section>';
+    h += orgChildren(x);
+    if (par) h += '<section class="sec"><h2>置かれている府省</h2><div class="list"><button class="row-item" data-go="' + esc(accRoute(par)) + '"><span class="grow"><span class="t">' + esc(par.name) + '</span><span class="s">' + esc(x.name) + 'は、' + esc(par.name) + 'に置かれています</span></span>' + ICON.chev + '</button></div></section>';
+    var ab = (x.about || []).map(function (t) { return findPage(t[0], t[1]); }).filter(Boolean);
+    if (ab.length) h += '<section class="sec"><h2>しくみの説明</h2><div class="list">' + ab.map(function (hit) { return '<button class="row-item" data-go="pg-' + esc(hit.tab) + '-' + esc(hit.page.id) + '"><span class="grow"><span class="t">' + esc(hit.page.title) + '</span><span class="s">' + esc(hit.tab === 'learn' ? '学ぶ' : 'つながり') + '・' + esc(hit.section.name) + '</span></span>' + ICON.chev + '</button>'; }).join('') + '</div></section>';
+    h += snsSection(x, true) || '';
+    if (g.id === 'gov') h += ministryActivity(x);
+    return h + '</div>';
+  }
   /* ---------- 国の審議会（D-18：審議会総覧のとおりに、すべて） ---------- */
   function cnItem(id) { return D.councils ? D.councils.items.filter(function (x) { return x.id === id; })[0] : null; }
   function cnRow(x) {
@@ -1836,7 +1860,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var alias = { '内閣府': '内閣府本府' }[name] || name;
     var laws = feedItems().filter(function (it) { return (it.ministries || []).indexOf(alias) >= 0 || (it.ministries || []).indexOf(name) >= 0; });
     var kg = []; D.kakugi.meetings.forEach(function (m) { m.items.forEach(function (i) { if (i.offices && (i.offices.indexOf(short) >= 0 || i.offices.indexOf(name) >= 0)) kg.push({ m: m, i: i }); }); });
-    var pc = D.pubcom.items.filter(function (x) { return (x.office || '').indexOf(name) === 0; });
+    var pc = D.pubcom.items.filter(function (x) { var o = x.office || ''; return org.parent ? o.indexOf(name) >= 0 : o.indexOf(name) === 0; });
     var rm = (D.rsProjects.ministries || []).filter(function (x) { return x.name === name; })[0];
     var h = head + '<p class="muted small">ほかのページに載っているものから、担当がこの省庁のものを機械で集めています（法律は参議院の議案情報の「所管官庁」、閣議は首相官邸のページの担当、パブコメは e-Gov の所管、審議会は審議会総覧の主管省、予算は行政事業レビューの府省庁）。</p>';
     h += '<h3 class="dy-k">国会で決まったこと（' + laws.length + '）</h3><div class="list">' + laws.slice(0, 8).map(function (it) { return '<button class="row-item" data-go="a-' + esc(it.id) + '"><span class="grow"><span class="t">' + esc(it.title) + '</span><span class="s">' + date(it.date) + '</span></span>' + ICON.chev + '</button>'; }).join('') + '</div>';
@@ -2399,6 +2423,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     else if (h === 'kakugi') html = vKakugi();
     else if (h === 'councils') html = vCouncils();
     else if (h.indexOf('cn-') === 0) html = vCouncil(h.slice(3));
+    else if (h.indexOf('org-') === 0) html = vOrg(h.slice(4));
     else if (h.indexOf('rs-') === 0) html = vProject(h.slice(3));
     else if (h.indexOf('corp-') === 0) html = vCorp(h.slice(5));
     else if (h === 'search') html = vSearch();

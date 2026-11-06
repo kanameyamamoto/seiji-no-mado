@@ -601,7 +601,8 @@
       "https://www.kunaicho.go.jp/kunaicho/socialmedia/socialmedia.html",
       "https://www.kunaicho.go.jp/info/heads-up-r7.html"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "jftc",
@@ -613,7 +614,8 @@
      "sources": [
       "https://www.jftc.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "npsc",
@@ -624,7 +626,14 @@
      "sources": [
       "https://www.npsc.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office",
+     "about": [
+      [
+       "links",
+       "npsc-npa"
+      ]
+     ]
     },
     {
      "id": "npa",
@@ -652,7 +661,8 @@
      "sources": [
       "https://www.npa.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "ppc",
@@ -687,7 +697,8 @@
      "sources": [
       "https://www.ppc.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "jcrc",
@@ -699,7 +710,8 @@
      "sources": [
       "https://www.jcrc.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "fsa",
@@ -728,7 +740,8 @@
       "https://www.fsa.go.jp/",
       "https://www.fsa.go.jp/receipt/toushisagi_koukoku/shuhou.html"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "caa",
@@ -792,7 +805,8 @@
       "https://www.caa.go.jp/socialmedia_guideline/twitter/",
       "https://www.caa.go.jp/socialmedia_guideline/facebook/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "cfa",
@@ -804,7 +818,8 @@
      "sources": [
       "https://www.cfa.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "cabinet-office"
     },
     {
      "id": "digital-agency",
@@ -1278,12 +1293,22 @@
      "id": "kouchoi",
      "name": "公害等調整委員会",
      "url": "https://www.soumu.go.jp/kouchoi/",
-     "counts": {},
-     "sns": {},
+     "counts": {
+      "X": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "MIC_kouchoi",
+        "url": "https://x.com/MIC_kouchoi"
+       }
+      ]
+     },
      "sources": [
       "https://www.soumu.go.jp/kouchoi/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mic"
     },
     {
      "id": "fdma",
@@ -1317,7 +1342,8 @@
      "sources": [
       "https://www.fdma.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mic"
     },
     {
      "id": "moj",
@@ -1403,7 +1429,8 @@
      "sources": [
       "https://www.moj.go.jp/isa/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "moj"
     },
     {
      "id": "kouanshin",
@@ -1414,7 +1441,8 @@
      "sources": [
       "https://www.moj.go.jp/kouanshin/kouanshinsa_index.html"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "moj"
     },
     {
      "id": "psia",
@@ -1434,7 +1462,8 @@
      "sources": [
       "https://www.moj.go.jp/psia/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "moj"
     },
     {
      "id": "mofa",
@@ -1583,7 +1612,8 @@
      "sources": [
       "https://www.nta.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mof"
     },
     {
      "id": "mext",
@@ -1790,12 +1820,36 @@
      "id": "sports",
      "name": "スポーツ庁",
      "url": "https://www.mext.go.jp/sports/",
-     "counts": {},
-     "sns": {},
+     "counts": {
+      "X": 1,
+      "Facebook": 1,
+      "LINE": 1
+     },
+     "sns": {
+      "X": [
+       {
+        "id": "sports_JSA",
+        "url": "https://x.com/sports_JSA"
+       }
+      ],
+      "Facebook": [
+       {
+        "id": "japansportsagency",
+        "url": "https://www.facebook.com/japansportsagency"
+       }
+      ],
+      "LINE": [
+       {
+        "id": "lin.ee/ShxxU1A",
+        "url": "https://lin.ee/ShxxU1A"
+       }
+      ]
+     },
      "sources": [
       "https://www.mext.go.jp/sports/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mext"
     },
     {
      "id": "bunka",
@@ -1942,7 +1996,8 @@
       "https://www.bunka.go.jp/social_account/index.html",
       "https://www.bunka.go.jp/socialmedia_unyo/index.html"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mext"
     },
     {
      "id": "mhlw",
@@ -2719,7 +2774,8 @@
      "sources": [
       "https://www.mhlw.go.jp/churoi/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mhlw"
     },
     {
      "id": "maff",
@@ -2945,7 +3001,6 @@
      "url": "https://www.rinya.maff.go.jp/",
      "counts": {
       "X": 1,
-      "YouTube": 1,
       "Facebook": 1
      },
      "sns": {
@@ -2953,12 +3008,6 @@
        {
         "id": "rinyajapan",
         "url": "https://x.com/rinyajapan"
-       }
-      ],
-      "YouTube": [
-       {
-        "id": "channel/UCDrlZ0fFFrVkhaV4rFKba9w",
-        "url": "https://www.youtube.com/channel/UCDrlZ0fFFrVkhaV4rFKba9w"
        }
       ],
       "Facebook": [
@@ -2971,31 +3020,18 @@
      "sources": [
       "https://www.rinya.maff.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "maff"
     },
     {
      "id": "jfa",
      "name": "水産庁",
      "url": "https://www.jfa.maff.go.jp/",
      "counts": {
-      "X": 1,
-      "YouTube": 1,
       "Instagram": 1,
       "Facebook": 1
      },
      "sns": {
-      "X": [
-       {
-        "id": "MAFF_JAPAN",
-        "url": "https://x.com/MAFF_JAPAN"
-       }
-      ],
-      "YouTube": [
-       {
-        "id": "channel/UCDrlZ0fFFrVkhaV4rFKba9w",
-        "url": "https://www.youtube.com/channel/UCDrlZ0fFFrVkhaV4rFKba9w"
-       }
-      ],
       "Instagram": [
        {
         "id": "suisan_jp",
@@ -3012,7 +3048,8 @@
      "sources": [
       "https://www.jfa.maff.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "maff"
     },
     {
      "id": "meti",
@@ -3472,7 +3509,8 @@
      "sources": [
       "https://www.enecho.meti.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "meti"
     },
     {
      "id": "jpo",
@@ -3570,7 +3608,8 @@
       "https://www.jpo.go.jp/",
       "https://www.jpo.go.jp/toppage/sns/index.html"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "meti"
     },
     {
      "id": "chusho",
@@ -3590,7 +3629,8 @@
      "sources": [
       "https://www.chusho.meti.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "meti"
     },
     {
      "id": "mlit",
@@ -3669,7 +3709,8 @@
       "https://www.mlit.go.jp/kankocho/",
       "https://www.mlit.go.jp/kankocho/socialmedia.html"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mlit"
     },
     {
      "id": "jma",
@@ -3704,7 +3745,8 @@
      "sources": [
       "https://www.jma.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mlit"
     },
     {
      "id": "jtsb",
@@ -3724,7 +3766,8 @@
      "sources": [
       "https://jtsb.mlit.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mlit"
     },
     {
      "id": "kaiho",
@@ -3758,7 +3801,8 @@
      "sources": [
       "https://www.kaiho.mlit.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mlit"
     },
     {
      "id": "env",
@@ -4120,7 +4164,8 @@
      "sources": [
       "https://www.nra.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "env"
     },
     {
      "id": "mod",
@@ -4216,7 +4261,8 @@
      "sources": [
       "https://www.mod.go.jp/atla/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "parent": "mod"
     }
    ]
   },
@@ -4376,7 +4422,21 @@
      "sources": [
       "https://www.courts.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "about": [
+      [
+       "learn",
+       "courts"
+      ],
+      [
+       "learn",
+       "national-review"
+      ],
+      [
+       "learn",
+       "lay-judge"
+      ]
+     ]
     }
    ]
   },
@@ -4416,7 +4476,13 @@
      "sources": [
       "https://www.jbaudit.go.jp/"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "about": [
+      [
+       "links",
+       "audit-and-settlement"
+      ]
+     ]
     },
     {
      "id": "boj",
@@ -4452,7 +4518,17 @@
       "https://www.boj.or.jp/snspolicy.htm",
       "https://www.boj.or.jp/about/organization/notice/index.htm"
      ],
-     "checked": "2026-11-06"
+     "checked": "2026-11-06",
+     "about": [
+      [
+       "learn",
+       "money-boj-government"
+      ],
+      [
+       "learn",
+       "money-monetary-policy"
+      ]
+     ]
     }
    ]
   },
