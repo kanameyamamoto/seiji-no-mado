@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -437,6 +437,8 @@ def main():
             + (f"・{jdate(q['submitted'])}" if q.get("submitted") else "") + f"・{e(q['status'])}" + (f"・{link(q['answer_url'], '答弁書')}" if q.get("answer_url") else "") + "）</li>" for q in rows) + "</ul>"
     body += sources_html(qs.get("sources"))
     tabs.append(("questions/", "質問主意書と答弁書", "国会議員が内閣に文書で出した質問主意書と、内閣の答弁書のすべて。件名・提出者・日付は衆議院・参議院のページの表記のまま。", body, "questions", qs.get("checked")))
+    tabs.append(("diary/", "国会と政府のうごき", "国会で決まったこと・閣議・質問主意書・パブリックコメントを、起きた日ごとにまとめたページ。人は選ばず、日付の新しい順に並べる。",
+                 "<h1>国会と政府のうごき</h1><p>国会で決まったこと、閣議、質問主意書、パブリックコメントを、起きた日ごとにまとめています。</p>", "diary", ""))
     pc = load("pubcom")
     body = f"<h1>パブリックコメント（意見募集）</h1><p>{e(pc.get('criteria'))}</p><ul>" + "".join(
         f"<li>{link(x.get('url') or x.get('result_url'), x['title'])}（{e(x['status'])}・{e(x.get('category', ''))}・{e(x.get('office', ''))}" + (f"・公示 {jdate(x['published'])}" if x.get("published") else "") + "）</li>" for x in pc.get("items", [])) + "</ul>" + sources_html(pc.get("sources"))
