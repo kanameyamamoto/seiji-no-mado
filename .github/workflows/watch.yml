@@ -41,6 +41,9 @@ jobs:
       - name: 国の予算事業と支出先を集め直す（D-13。変わっていなければ何もしない）
         continue-on-error: true
         run: python pipeline/rs.py
+      - name: 国の審議会を集め直す（D-18。審議会総覧の一覧が変わっていなければ何もしない）
+        continue-on-error: true
+        run: python pipeline/councils.py
       - name: 人が見る必要があるものを知らせる
         env:
           GH_TOKEN: ${{ github.token }}

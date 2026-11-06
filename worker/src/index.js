@@ -15,7 +15,7 @@
  */
 const VERSION = '1.0.0';
 const LIMIT_PER_MIN = 60;
-const TYPES = ['law', 'bill', 'question', 'party', 'kaiha', 'member', 'governor', 'org', 'page', 'term'];
+const TYPES = ['law', 'bill', 'question', 'party', 'kaiha', 'member', 'governor', 'org', 'council', 'page', 'term'];
 const TYPE_ORDER = 'CASE e.type ' + TYPES.map((t, i) => `WHEN '${t}' THEN ${i}`).join(' ') + ' ELSE 99 END';
 const SITE = 'https://seijinomado.com/';
 const LICENSE = { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/deed.ja', attribution: '出典として「せいじのまど」の名前と、使ったページか API の URL を示してください。' };
@@ -110,7 +110,7 @@ async function get(env, type, id) {
 
 /* ---------- MCP（Model Context Protocol） ---------- */
 const PROTOCOLS = ['2025-06-18', '2025-03-26', '2024-11-05'];
-const TYPE_ENUM = { type: 'string', enum: TYPES, description: 'law＝国会で決まったこと（成立した法律・予算・条約と否決された法律案）、bill＝審議中・採決されなかった法律案、question＝質問主意書と答弁書、party＝政党、kaiha＝会派、member＝国会議員、governor＝知事、org＝政府・国会の組織、page＝解説・データのページ、term＝ことば' };
+const TYPE_ENUM = { type: 'string', enum: TYPES, description: 'law＝国会で決まったこと（成立した法律・予算・条約と否決された法律案）、bill＝審議中・採決されなかった法律案、question＝質問主意書と答弁書、party＝政党、kaiha＝会派、member＝国会議員、governor＝知事、org＝政府・国会の組織、council＝国の審議会、page＝解説・データのページ、term＝ことば' };
 const TOOLS = [
   {
     name: 'search',

@@ -100,10 +100,13 @@ def main():
     put("questions.json", wrap(qs.get("items", []), criteria=qs.get("criteria"), rule=qs.get("rule"), sources=qs.get("sources")))
     pc, kg = load("pubcom"), load("kakugi")
     put("pubcom.json", wrap(pc.get("items", []), criteria=pc.get("criteria"), rule=pc.get("rule"), sources=pc.get("sources")))
+    if os.path.exists(os.path.join(ROOT, "data", "councils.json")):
+        cn = load("councils")
+        put("councils.json", wrap(cn.get("items", []), criteria=cn.get("criteria"), rule=cn.get("rule"), sources=cn.get("sources")))
     put("kakugi.json", wrap(kg.get("meetings", []), criteria=kg.get("criteria"), rule=kg.get("rule"), sources=kg.get("sources")))
     ac = load("accounts")
     put("accounts.json", wrap(ac.get("groups", []), criteria=ac.get("criteria"), rule=ac.get("rule"), order=ac.get("order")))
-    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "questions", "pubcom", "kakugi", "parties", "members", "governors", "accounts", "learn", "links", "glossary", "rules")}
+    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "questions", "pubcom", "kakugi", "councils", "parties", "members", "governors", "accounts", "learn", "links", "glossary", "rules")}
     eps.update({"budget_projects": f"{base}data/rs/projects.json", "budget_detail": f"{base}data/rs/detail-{{府省庁のslug}}.json", "budget_corps": f"{base}data/rs/corps.json"})
     put("index.json", wrap(eps, about="せいじのまど（政治の情報を、どの党にもメディアにも偏らずに届けるサイト）の公開データ。サーバーを使わない静的な JSON で、登録やキーは不要。毎日自動で更新される。",
                            levels={"es": "かんたん", "hs": "やさしい", "std": "ふつう", "univ": "くわしく"}, docs=f"{base}api/"))
@@ -126,6 +129,7 @@ def main():
         f"- [質問主意書と答弁書]({base}questions/)：国会議員が内閣に文書で出した質問と、内閣の答弁書のすべて（両院のページの表記のまま）",
         f"- [パブリックコメント]({base}pubcom/)：政令・省令などの案への意見募集と、その結果（e-Gov の表記のまま）",
         f"- [国会と政府のうごき]({base}diary/)：国会で決まったこと・閣議・質問主意書・パブリックコメントを、起きた日ごとに並べたもの",
+        f"- [国の審議会]({base}councils/)：国の審議会等（内閣人事局「審議会総覧」に載っているもの）すべての根拠法令・所掌事務・委員の定数・諮問と答申（総覧の表記のまま。委員の氏名は載せない）",
         f"- [閣議の案件]({base}kakugi/)：閣議で決まった法律案・政令・方針など（人事を除く。首相官邸のページの表記のまま）",
         f"- [国の予算事業と支出先]({base}budget/)：行政事業レビューにある国の事業すべての予算と、法人番号のある支出先（データ：{base}data/rs/projects.json・{base}data/rs/corps.json）",
         f"- [公式サイト・SNSの一覧]({base}accounts/)：政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウント（機械で集め、人は選ばない）",

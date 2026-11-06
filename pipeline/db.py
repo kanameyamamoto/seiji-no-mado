@@ -22,9 +22,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 LEVELS = {"es", "hs", "std", "univ"}
 # 種類と、並べる順（検索の結果で、同じくらい合っているときに使う。ルール D：機械で決まる順）
-TYPES = ["law", "bill", "question", "party", "kaiha", "member", "governor", "org", "page", "term"]
+TYPES = ["law", "bill", "question", "party", "kaiha", "member", "governor", "org", "council", "page", "term"]
 TYPE_NAME = {"law": "国会で決まったこと（法律・予算・条約・否決された法律案）", "bill": "審議中・採決されなかった法律案", "question": "質問主意書と答弁書", "party": "政党",
-             "kaiha": "会派（国会の中のグループ）", "member": "国会議員", "governor": "知事", "org": "政府・国会の組織",
+             "kaiha": "会派（国会の中のグループ）", "member": "国会議員", "governor": "知事", "org": "政府・国会の組織", "council": "国の審議会",
              "page": "解説・データのページ（学ぶ・つながり・メディア）", "term": "ことば"}
 MAX_BODY = 6000
 
@@ -202,6 +202,17 @@ def build():
             B.link("member", x["member"], "質問主意書を提出", "question", x["id"])
         if x.get("answered"):
             B.link("question", x["id"], "答弁", "org", "cabinet", x["answered"])
+
+    # 国の審議会（D-18。委員の氏名は入れない）
+    cn = load("councils") if os.path.exists(os.path.join(DATA, "councils.json")) else {}
+    for x in cn.get("items", []):
+        qa = x.get("qa", [])
+        B.add("council", x["id"], x["name"], summary=f"{x['ministry']}" + (f"（{x['agency']}）" if x.get("agency") else "") + f"・{x.get('basis', '')}",
+              body=(x.get("duties", "") + "\n" + "\n".join(q["text"] for q in qa))[:MAX_BODY], url=base + "councils/", api=api + "councils.json", checked=cn.get("checked"),
+              data={k: x.get(k) for k in ("ministry", "agency", "office", "homepage", "basis", "established", "established_text", "seats", "fulltime", "term", "subcommittees", "qa", "pdf") if x.get(k)})
+        oid = org_id(x.get("agency") or x["ministry"]) or org_id(x["ministry"])
+        if oid:
+            B.link("org", oid, "審議会", "council", x["id"])
 
     # 会派
     for house, name in sorted(kaiha_names):

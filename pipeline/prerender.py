@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "councils": "国の審議会", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -447,6 +447,23 @@ def main():
     body = f"<h1>閣議の案件</h1><p>{e(kg.get('criteria'))}</p>" + "".join(
         f"<h2>{jdate(m['date'])}（{e(m['kind'])}）</h2><ul>" + "".join(f"<li>{e(i['section'])}：{html.escape(i['title'])}" + (f"（{html.escape(i['offices'])}）" if i.get("offices") else "") + "</li>" for i in m["items"]) + "</ul>"
         for m in kg.get("meetings", [])[:60] if m["items"]) + sources_html(kg.get("sources"))
+    cnp = os.path.join(ROOT, "data", "councils.json")
+    if os.path.exists(cnp):
+        C = json.load(open(cnp, encoding="utf-8"))
+        body = f"<h1>国の審議会</h1><p>{e(C['criteria'])}</p><p>{e(C['rule'])}</p>"
+        cur = None
+        for x in C["items"]:
+            g = x["ministry"] + (f"（{x['agency']}）" if x.get("agency") else "")
+            if g != cur:
+                body += ("</dl>" if cur else "") + f"<h2>{e(g)}</h2><dl>"
+                cur = g
+            qa = x.get("qa", [])
+            body += (f"<dt>{link(x.get('homepage') or x['pdf'], x['name'])}</dt><dd>根拠法令：{e(x.get('basis', ''))}・設置：{e(x.get('established_text', ''))}・委員の定数：{e(x.get('seats', ''))}"
+                     f"<br>{html.escape(x.get('duties', '')).replace(chr(10), '<br>')}"
+                     + (f"<br>諮問と答申など（{len(qa)}件）：" + "／".join(html.escape(q['text']) for q in qa[:8]) + ("ほか" if len(qa) > 8 else "") if qa else "")
+                     + f"<br>{link(x['pdf'], '審議会総覧（PDF）')}</dd>")
+        body += ("</dl>" if cur else "") + sources_html(C.get("sources"))
+        tabs.append(("councils/", "国の審議会", "国の審議会等（審議会総覧に載っているもの）のすべて。根拠法令・所掌事務・委員の定数・諮問と答申。総覧の表記のまま。", body, "councils", C.get("checked")))
     tabs.append(("kakugi/", "閣議の案件", "閣議で決まった法律案・政令・方針などのすべて（人事を除く）。首相官邸のページの表記のまま。", body, "kakugi", kg.get("checked")))
     rsp = os.path.join(ROOT, "data", "rs", "projects.json")
     if os.path.exists(rsp):
