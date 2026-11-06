@@ -795,7 +795,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   'use strict';
   // ---- 住所（URL）とページの対応。例：学ぶの「政治とは」＝ learn/what-is-politics/ ----
   var BASE = new URL('.', document.baseURI).pathname;
-  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'members', 'governors', 'laws', 'match', 'bills', 'questions', 'accounts', 'budget', 'elections', 'about', 'search', 'terms', 'api'];
+  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'members', 'governors', 'laws', 'match', 'bills', 'questions', 'accounts', 'budget', 'pubcom', 'kakugi', 'elections', 'about', 'search', 'terms', 'api'];
   function routeToPath(r) {
     if (!r || r === 'home') return '';
     if (TAB_ROUTES.indexOf(r) >= 0) return r + '/';
@@ -933,7 +933,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (h.indexOf('a-') === 0) return 'home';
     if (h.indexOf('pg-') === 0) return h.slice(3).split('-')[0];
     if (h.indexOf('p-') === 0 || h.indexOf('m-') === 0 || h === 'elections' || h === 'members' || h === 'governors') return 'parties';
-    if (h === 'accounts' || h === 'budget' || h.indexOf('rs-') === 0 || h.indexOf('corp-') === 0) return 'links';
+    if (h === 'accounts' || h === 'budget' || h === 'pubcom' || h === 'kakugi' || h.indexOf('rs-') === 0 || h.indexOf('corp-') === 0) return 'links';
     if (h === 'about' || h === 'search' || h === 'terms' || h === 'api') return '';
     return h;
   }
@@ -1237,7 +1237,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     var T = D.links.sections;
     var h = '<div class="view">';
     var IC_AT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>';
-    h += '<div class="law-tools"><button class="tool" data-go="budget"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9 8.5l3 4 3-4M12 12.5V17M9.5 13.5h5M9.5 15.5h5"/></svg></span><span class="grow"><span class="t">国の予算事業と支出先</span><span class="s">事業ごとの予算と、<span class="nw">お金の支払い先</span></span></span>' + ICON.chev + '</button><button class="tool" data-go="accounts"><span class="ic" aria-hidden="true">' + IC_AT + '</span><span class="grow"><span class="t">公式サイト・SNSの一覧</span><span class="s">政府・国会・政党の<span class="nw">' + accOrgs().length + 'の組織</span></span></span>' + ICON.chev + '</button></div>';
+    h += '<div class="law-tools"><button class="tool" data-go="budget"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9 8.5l3 4 3-4M12 12.5V17M9.5 13.5h5M9.5 15.5h5"/></svg></span><span class="grow"><span class="t">国の予算事業と支出先</span><span class="s">事業ごとの予算と、<span class="nw">お金の支払い先</span></span></span>' + ICON.chev + '</button><button class="tool" data-go="kakugi"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="9" rx="2"/><path d="M8 9V6h8v3M8 13h8"/></svg></span><span class="grow"><span class="t">閣議の案件</span><span class="s">内閣が決めた<span class="nw">法律案・政令・方針</span></span></span>' + ICON.chev + '</button><button class="tool" data-go="pubcom"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v10H10l-5 4z"/><path d="M9 9h6M9 12h4"/></svg></span><span class="grow"><span class="t">パブリックコメント</span><span class="s">役所が決める前の<span class="nw">意見募集</span></span></span>' + ICON.chev + '</button><button class="tool" data-go="accounts"><span class="ic" aria-hidden="true">' + IC_AT + '</span><span class="grow"><span class="t">公式サイト・SNSの一覧</span><span class="s">政府・国会・政党の<span class="nw">' + accOrgs().length + 'の組織</span></span></span>' + ICON.chev + '</button></div>';
     h += '<div class="jump" role="navigation" aria-label="テーマ"><span class="jl">このページ内</span>' + T.map(function (t) { return '<button data-jump="sec-' + esc(t.id) + '">' + esc(t.name) + '</button>'; }).join('') + '</div><div class="panels">';
     h += T.map(function (t) {
       var x = '<section class="panel" id="sec-' + esc(t.id) + '"><div class="panel-head"><h2>' + esc(t.name) + '</h2></div><p class="muted small">' + esc(t.lead || '') + '</p>';
@@ -1327,7 +1327,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
-    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
+    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r === 'pubcom') return 'パブリックコメント（意見募集）'; if (r === 'kakugi') return '閣議の案件'; if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
     if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'about') return 'このサイトについて';
     if (TAB_TITLE[r]) return TAB_TITLE[r];
     if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
@@ -1701,6 +1701,46 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
       var p = rsProject(x[0]); return '<button class="row-item" data-go="rs-' + esc(x[0]) + '"><span class="grow"><span class="t">' + esc(p ? p.name : x[0]) + '</span><span class="s">' + esc(p ? p.ministry : '') + '</span></span><span class="num">' + yen(x[1]) + '</span>' + ICON.chev + '</button>';
     }).join('') + '</div></section>';
     return h + src([{ label: '国税庁 法人番号公表サイト（' + no + '）', url: 'https://www.houjin-bangou.nta.go.jp/henkorireki-johoto.html?selHouzinNo=' + no }].concat(D.rsProjects.sources)) + '</div>';
+  }
+  /* ---------- 法律や政令ができる前の手続き（D-14 パブコメ・D-15 閣議） ---------- */
+  var PC_ST = ['意見募集中', '結果待ち', '結果公示'];
+  function vPubcom() {
+    needFile('pubcom', 'data/pubcom.json');
+    if (!D.pubcom) return rsLoading('パブリックコメント（意見募集）');
+    var P = D.pubcom, cats = [];
+    P.items.forEach(function (x) { if (x.category && cats.indexOf(x.category) < 0) cats.push(x.category); }); cats.sort(function (a, b) { return a.localeCompare(b, 'ja'); });
+    var list = P.items.filter(function (x) { return (!state.pcSt || x.status === state.pcSt) && (!state.pcCat || x.category === state.pcCat); });
+    var max = state.pcMax || 100;
+    var h = '<div class="view">' + backBtn('links', 'つながり') + '<div class="page-head"><h1>パブリックコメント（意見募集）</h1><div class="meta">' + ruleChips(['D-14', 'C-6']) + checked(P.checked) + '</div></div>' +
+      '<section class="sec learn-body"><p>' + rich('{{パブリックコメント}}は、国の役所が政令・省令などを決める前に、案を公表して、だれでも意見を出せるようにする手続きです。締切のあと、出された意見とその考え方を「結果」として公表します。') + '</p><p>' + esc(P.criteria) + '</p></section>';
+    h += '<div class="toolbar"><div class="seg" role="group" aria-label="状況"><button data-pcst="" aria-pressed="' + (!state.pcSt) + '">すべて</button>' + PC_ST.map(function (x) { return '<button data-pcst="' + x + '" aria-pressed="' + (state.pcSt === x) + '">' + x + '<span class="count">' + ((P.count_by_status || {})[x] || 0) + '</span></button>'; }).join('') + '</div>' +
+      '<select id="pccat" class="pill-select" aria-label="カテゴリー"><option value="">カテゴリー：すべて</option>' + cats.map(function (c) { return '<option value="' + esc(c) + '"' + (state.pcCat === c ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select><span class="tb-count">' + list.length + '件</span></div>';
+    h += '<div class="list">' + list.slice(0, max).map(function (x) {
+      return '<div class="b-row"><span class="t">' + esc(x.title) + '</span><span class="s"><span class="b-res' + (x.status === '意見募集中' ? ' rej' : x.status === '結果待ち' ? ' wait' : '') + '">' + esc(x.status) + '</span>' + (x.category ? '<span>' + esc(x.category) + '</span>' : '') + (x.office ? '<span>' + esc(x.office) + '</span>' : '') +
+        (x.published ? '<span>公示 ' + date(x.published) + '</span>' : '') + (x.deadline ? '<span>締切 ' + date(x.deadline) + '</span>' : '') + (x.result_date ? '<span>結果 ' + date(x.result_date) + '</span>' : '') + (x.opinions !== undefined ? '<span>出された意見 ' + x.opinions + '件</span>' : '') + '</span>' +
+        '<span class="s">' + (x.url && x.url.indexOf('PCMMSTDETAIL') >= 0 ? a(x.url, '案と意見の出し方') : '') + (x.result_url ? a(x.result_url, '結果') : '') + '</span></div>';
+    }).join('') + '</div>';
+    if (list.length > max) h += '<button class="more" data-pcmore>もっと見る（あと' + (list.length - max) + '件）</button>';
+    return h + '<p class="meta"><span>' + esc(P.rule) + '</span></p>' + src(P.sources) + '</div>';
+  }
+  function vKakugi() {
+    needFile('kakugi', 'data/kakugi.json');
+    if (!D.kakugi) return rsLoading('閣議の案件');
+    var K = D.kakugi, secs = [];
+    K.meetings.forEach(function (m) { m.items.forEach(function (i) { if (secs.indexOf(i.section) < 0) secs.push(i.section); }); });
+    var ms = K.meetings.map(function (m) { return { m: m, items: m.items.filter(function (i) { return !state.kgSec || i.section === state.kgSec; }) }; }).filter(function (x) { return x.items.length; });
+    var max = state.kgMax || 20;
+    var h = '<div class="view">' + backBtn('links', 'つながり') + '<div class="page-head"><h1>閣議の案件</h1><div class="meta">' + ruleChips(['D-15', 'C-6']) + checked(K.checked) + '</div></div>' +
+      '<section class="sec learn-body"><p>' + rich('{{閣議}}は、総理大臣とすべての大臣が集まって、内閣としての方針を決める会議です。国会に出す法律案や、政令、政府の方針などは、閣議で決まります。') + '</p><p>' + esc(K.criteria) + '</p></section>';
+    h += '<div class="toolbar"><select id="kgsec" class="pill-select" aria-label="区分"><option value="">区分：すべて</option>' + secs.map(function (x) { return '<option value="' + esc(x) + '"' + (state.kgSec === x ? ' selected' : '') + '>' + esc(x) + '</option>'; }).join('') + '</select><span class="tb-count">' + ms.reduce(function (s, x) { return s + x.items.length; }, 0) + '件</span></div>';
+    h += ms.slice(0, max).map(function (x) {
+      var m = x.m;
+      return '<section class="sec"><h2>' + date(m.date) + '（' + esc(m.kind) + '）</h2><div class="list">' + x.items.map(function (i) {
+        return '<div class="b-row"><span class="t">' + esc(i.title) + '</span><span class="s"><span class="b-res">' + esc(i.section) + '</span>' + (i.decision ? '<span>' + esc(i.decision) + '</span>' : '') + (i.offices ? '<span>' + esc(i.offices) + '</span>' : '') + '</span></div>';
+      }).join('') + '</div><p class="meta">' + a(m.url, '首相官邸のページ') + (m.minutes ? a(m.minutes, '議事録') : '') + '</p></section>';
+    }).join('');
+    if (ms.length > max) h += '<button class="more" data-kgmore>もっと見る（あと' + (ms.length - max) + '回の閣議）</button>';
+    return h + '<p class="meta"><span>' + esc(K.rule) + '</span></p>' + src(K.sources) + '</div>';
   }
   function vBills() {
     var B = D.bills || { items: [] }, items = B.items || [];
@@ -2111,7 +2151,7 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
   function entrances() {
     function btn(label, go, sub, extra) { return '<button class="tile sm" data-go="' + go + '"' + (extra || '') + '><span class="tt">' + esc(label) + '</span>' + (sub ? '<span class="ts">' + esc(sub) + '</span>' : '') + '<span class="ti">' + ICON.chev + '</span></button>'; }
     var cats = (D.learn.courses || []).map(function (c, i) { return btn(c.name, 'learn', c.steps.length + 'ステップ', ' data-course-go="' + i + '"'); }).join('');
-    var themes = D.links.sections.map(function (t) { return btn(t.name, 'links', '', ' data-after="sec-' + t.id + '"'); }).join('') + btn('公式サイト・SNSの一覧', 'accounts', accOrgs().length + 'の組織') + btn('国の予算事業と支出先', 'budget', '');
+    var themes = D.links.sections.map(function (t) { return btn(t.name, 'links', '', ' data-after="sec-' + t.id + '"'); }).join('') + btn('公式サイト・SNSの一覧', 'accounts', accOrgs().length + 'の組織') + btn('国の予算事業と支出先', 'budget', '') + btn('パブリックコメント', 'pubcom', '') + btn('閣議の案件', 'kakugi', '');
     var media = D.media.sections.filter(function (s) { return s.directory; }).slice(0, 6).map(function (s) { return btn(s.name, 'media', s.directory.length + '件', ' data-after="sec-' + s.id + '"'); }).join('');
     function grp(title, inner) { return '<section class="panel"><div class="panel-head"><h2>' + title + '</h2></div><div class="tiles">' + inner + '</div></section>'; }
     return '<div class="panels">' +
@@ -2226,6 +2266,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     else if (h === 'accounts') html = vAccounts();
     else if (h === 'questions') html = vQuestions();
     else if (h === 'budget') html = vBudget();
+    else if (h === 'pubcom') html = vPubcom();
+    else if (h === 'kakugi') html = vKakugi();
     else if (h.indexOf('rs-') === 0) html = vProject(h.slice(3));
     else if (h.indexOf('corp-') === 0) html = vCorp(h.slice(5));
     else if (h === 'search') html = vSearch();
@@ -2306,6 +2348,9 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (t.hasAttribute('data-mclear-cancel')) { state.mClearArm = false; return render(); }
     if (t.hasAttribute('data-mclear')) { if (state.mClearArm) { MATCH = {}; saveMatch(); state.mClearArm = false; } else state.mClearArm = true; return render(); }
     if (t.dataset.bres !== undefined) { state.bRes = t.dataset.bres; return render(); }
+    if (t.dataset.pcst !== undefined) { state.pcSt = t.dataset.pcst; state.pcMax = 100; return render(); }
+    if (t.hasAttribute('data-pcmore')) { var yp = window.scrollY; state.pcMax = (state.pcMax || 100) + 100; render(); window.scrollTo(0, yp); return; }
+    if (t.hasAttribute('data-kgmore')) { var yk = window.scrollY; state.kgMax = (state.kgMax || 20) + 20; render(); window.scrollTo(0, yk); return; }
     if (t.dataset.rssort !== undefined) { state.rsSort = t.dataset.rssort; state.rsMax = 100; return render(); }
     if (t.hasAttribute('data-rsmore')) { var yr = window.scrollY; state.rsMax = (state.rsMax || 100) + 100; render(); window.scrollTo(0, yr); return; }
     if (t.dataset.qhouse !== undefined) { state.qHouse = t.dataset.qhouse; state.qMax = 100; return render(); }
@@ -2332,6 +2377,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
     if (e.target.id === 'garea') { state.gArea = e.target.value; render(); }
     if (e.target.id === 'bwho') { state.bWho = e.target.value; render(); }
     if (e.target.id === 'fses') { state.feedSes = e.target.value; state.feedShown = PAGE_SIZE; render(); }
+    if (e.target.id === 'pccat') { state.pcCat = e.target.value; state.pcMax = 100; render(); }
+    if (e.target.id === 'kgsec') { state.kgSec = e.target.value; state.kgMax = 20; render(); }
     if (e.target.id === 'rsmin') { state.rsMin = e.target.value; state.rsMax = 100; render(); }
     if (e.target.id === 'rsq') { state.rsQ = e.target.value.trim(); state.rsMax = 100; render(); }
     if (e.target.id === 'corpq') { state.corpQ = e.target.value.trim(); render(); }

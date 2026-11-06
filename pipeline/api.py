@@ -98,9 +98,12 @@ def main():
     put("bills.json", wrap(bl.get("items", []), criteria=bl.get("criteria"), status_rule=bl.get("status_rule"), order=bl.get("order"), source=bl.get("source")))
     qs = load("questions")
     put("questions.json", wrap(qs.get("items", []), criteria=qs.get("criteria"), rule=qs.get("rule"), sources=qs.get("sources")))
+    pc, kg = load("pubcom"), load("kakugi")
+    put("pubcom.json", wrap(pc.get("items", []), criteria=pc.get("criteria"), rule=pc.get("rule"), sources=pc.get("sources")))
+    put("kakugi.json", wrap(kg.get("meetings", []), criteria=kg.get("criteria"), rule=kg.get("rule"), sources=kg.get("sources")))
     ac = load("accounts")
     put("accounts.json", wrap(ac.get("groups", []), criteria=ac.get("criteria"), rule=ac.get("rule"), order=ac.get("order")))
-    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "questions", "parties", "members", "governors", "accounts", "learn", "links", "glossary", "rules")}
+    eps = {k: f"{base}api/v1/{k}.json" for k in ("laws", "bills", "questions", "pubcom", "kakugi", "parties", "members", "governors", "accounts", "learn", "links", "glossary", "rules")}
     eps.update({"budget_projects": f"{base}data/rs/projects.json", "budget_detail": f"{base}data/rs/detail-{{府省庁のslug}}.json", "budget_corps": f"{base}data/rs/corps.json"})
     put("index.json", wrap(eps, about="せいじのまど（政治の情報を、どの党にもメディアにも偏らずに届けるサイト）の公開データ。サーバーを使わない静的な JSON で、登録やキーは不要。毎日自動で更新される。",
                            levels={"es": "かんたん", "hs": "やさしい", "std": "ふつう", "univ": "くわしく"}, docs=f"{base}api/"))
@@ -121,6 +124,8 @@ def main():
         f"- [国会で決まったこと]({base}laws/)：成立した法律・予算・条約と否決された法律案の一覧と、1件ずつの事実・会派ごとの賛否",
         f"- [審議中・採決されなかった法律案]({base}bills/)：審議中・継続審査・審議未了・撤回の法律案すべて（衆議院の議案情報の表記のまま）",
         f"- [質問主意書と答弁書]({base}questions/)：国会議員が内閣に文書で出した質問と、内閣の答弁書のすべて（両院のページの表記のまま）",
+        f"- [パブリックコメント]({base}pubcom/)：政令・省令などの案への意見募集と、その結果（e-Gov の表記のまま）",
+        f"- [閣議の案件]({base}kakugi/)：閣議で決まった法律案・政令・方針など（人事を除く。首相官邸のページの表記のまま）",
         f"- [国の予算事業と支出先]({base}budget/)：行政事業レビューにある国の事業すべての予算と、法人番号のある支出先（データ：{base}data/rs/projects.json・{base}data/rs/corps.json）",
         f"- [公式サイト・SNSの一覧]({base}accounts/)：政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウント（機械で集め、人は選ばない）",
         f"- [学ぶ]({base}learn/)：政治のしくみの解説",

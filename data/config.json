@@ -32,5 +32,10 @@
  "rs": {
   "note": "国の予算事業と支出先（pipeline/rs.py）。year＝使う行政事業レビューの年度（新しい年度のCSVが出たら変える）。",
   "year": 2025
+ },
+ "steps": {
+  "note": "パブリックコメントと閣議の案件（pipeline/steps.py）。kakugi_from_year＝閣議をさかのぼる年。kakugi_limit＝1回に読む閣議のページの数。",
+  "kakugi_from_year": 2025,
+  "kakugi_limit": 250
  }
 }
