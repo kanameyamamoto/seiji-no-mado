@@ -8,7 +8,7 @@
   {サイト}/api/v1/governors.json
   {サイト}/api/v1/bills.json        … 審議中・採決されなかった法律案（審議中・継続審査・審議未了・撤回）
   {サイト}/api/v1/questions.json    … 質問主意書と答弁書（ルール D-12）
-  {サイト}/api/v1/accounts.json     … 政府・国会・政党の公式サイトとSNS（ルール D-11）
+  {サイト}/api/v1/accounts.json     … 政府・国会・裁判所・日本銀行・政党の公式サイトとSNS（ルール D-11）
   {サイト}/api/v1/learn.json, learn/<id>.json、links.json, links/<id>.json
   {サイト}/api/v1/glossary.json, rules.json
 
@@ -132,7 +132,7 @@ def main():
         f"- [国の審議会]({base}councils/)：国の審議会等（内閣人事局「審議会総覧」に載っているもの）すべての根拠法令・所掌事務・委員の定数・諮問と答申（総覧の表記のまま。委員の氏名は載せない）",
         f"- [閣議の案件]({base}kakugi/)：閣議で決まった法律案・政令・方針など（人事を除く。首相官邸のページの表記のまま）",
         f"- [国の予算事業と支出先]({base}budget/)：行政事業レビューにある国の事業すべての予算と、法人番号のある支出先（データ：{base}data/rs/projects.json・{base}data/rs/corps.json）",
-        f"- [公式サイト・SNSの一覧]({base}accounts/)：政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウント（機械で集め、人は選ばない）",
+        f"- [公式サイト・SNSの一覧]({base}accounts/)：政府（外局まで）・国会・裁判所・会計検査院・日本銀行・政党の公式サイトと、公式サイトにリンクされているSNSアカウント（機械で集め、人は選ばない）",
         f"- [学ぶ]({base}learn/)：政治のしくみの解説",
         f"- [政党・選挙]({base}parties/)：政党の成り立ち・考え方・政策・国会での賛否",
         f"- [国会議員]({base}members/)・[知事]({base}governors/)",

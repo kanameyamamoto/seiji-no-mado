@@ -1,36 +1,326 @@
 {
- "note": "公式サイト・SNSを集める組織の一覧（pipeline/accounts.py が使う）。url はその組織の公式サイトのトップページ。sns_page は、その組織が自分で出している公式SNSの一覧ページ（トップページにSNSのリンクがないときに使う）。政党は data/parties.json の url を使うので、ここには書かない。page は「つながり」の省庁ページのID（そのページにも表示する）。",
+ "note": "公式サイト・SNSを集める組織の一覧（pipeline/accounts.py が使う）。政府は、内閣・内閣府・各省と、それらの外局（庁・委員会）を建制順に並べる。url はその組織の公式サイトのトップページ。sns_page は、その組織が自分で出している公式SNSの一覧ページ（トップページにSNSのリンクがないときに使う）。政党は data/parties.json の url を使うので、ここには書かない。page は「つながり」の省庁ページのID（そのページにも表示する）。",
  "groups": [
-  {"id": "gov", "name": "政府", "items": [
-   {"id": "kantei", "name": "首相官邸", "url": "https://www.kantei.go.jp/", "sns_page": "https://www.kantei.go.jp/jp/headline/kantei_sns.html"},
-   {"id": "cas", "name": "内閣官房", "url": "https://www.cas.go.jp/"},
-   {"id": "cabinet-office", "name": "内閣府", "url": "https://www.cao.go.jp/", "sns_page": "https://www.cao.go.jp/about/list.html", "page": "cabinet-office"},
-   {"id": "reconstruction-agency", "name": "復興庁", "url": "https://www.reconstruction.go.jp/", "page": "reconstruction-agency"},
-   {"id": "digital-agency", "name": "デジタル庁", "url": "https://www.digital.go.jp/", "page": "digital-agency"},
-   {"id": "disaster-management-agency", "name": "防災庁", "url": "https://www.bousai.go.jp/", "page": "disaster-management-agency"},
-   {"id": "mic", "name": "総務省", "url": "https://www.soumu.go.jp/", "page": "mic"},
-   {"id": "moj", "name": "法務省", "url": "https://www.moj.go.jp/", "page": "moj"},
-   {"id": "mofa", "name": "外務省", "url": "https://www.mofa.go.jp/mofaj/", "page": "mofa"},
-   {"id": "mof", "name": "財務省", "url": "https://www.mof.go.jp/", "page": "mof"},
-   {"id": "mext", "name": "文部科学省", "url": "https://www.mext.go.jp/", "page": "mext"},
-   {"id": "mhlw", "name": "厚生労働省", "url": "https://www.mhlw.go.jp/", "sns_page": "https://www.mhlw.go.jp/stf/SNSpage.html", "page": "mhlw"},
-   {"id": "maff", "name": "農林水産省", "url": "https://www.maff.go.jp/", "page": "maff"},
-   {"id": "meti", "name": "経済産業省", "url": "https://www.meti.go.jp/", "sns_page": "https://www.meti.go.jp/sns/index.html", "page": "meti"},
-   {"id": "mlit", "name": "国土交通省", "url": "https://www.mlit.go.jp/", "page": "mlit"},
-   {"id": "env", "name": "環境省", "url": "https://www.env.go.jp/", "page": "env"},
-   {"id": "mod", "name": "防衛省", "url": "https://www.mod.go.jp/", "sns_page": "https://www.mod.go.jp/j/info/sns.html", "page": "mod"},
-   {"id": "jftc", "name": "公正取引委員会", "url": "https://www.jftc.go.jp/", "page": "jftc"},
-   {"id": "npa", "name": "警察庁", "url": "https://www.npa.go.jp/", "page": "npsc-npa"},
-   {"id": "ppc", "name": "個人情報保護委員会", "url": "https://www.ppc.go.jp/", "page": "ppc"},
-   {"id": "jcrc", "name": "カジノ管理委員会", "url": "https://www.jcrc.go.jp/", "page": "jcrc"},
-   {"id": "fsa", "name": "金融庁", "url": "https://www.fsa.go.jp/", "page": "fsa"},
-   {"id": "caa", "name": "消費者庁", "url": "https://www.caa.go.jp/", "page": "caa"},
-   {"id": "cfa", "name": "こども家庭庁", "url": "https://www.cfa.go.jp/", "page": "cfa"}
-  ]},
-  {"id": "diet", "name": "国会", "items": [
-   {"id": "shugiin", "name": "衆議院", "url": "https://www.shugiin.go.jp/internet/index.nsf/html/index.htm"},
-   {"id": "sangiin", "name": "参議院", "url": "https://www.sangiin.go.jp/"},
-   {"id": "ndl", "name": "国立国会図書館", "url": "https://www.ndl.go.jp/"}
-  ]}
+  {
+   "id": "gov",
+   "name": "政府",
+   "items": [
+    {
+     "id": "kantei",
+     "name": "首相官邸",
+     "url": "https://www.kantei.go.jp/",
+     "sns_page": "https://www.kantei.go.jp/jp/headline/kantei_sns.html"
+    },
+    {
+     "id": "cas",
+     "name": "内閣官房",
+     "url": "https://www.cas.go.jp/"
+    },
+    {
+     "id": "clb",
+     "name": "内閣法制局",
+     "url": "https://www.clb.go.jp/"
+    },
+    {
+     "id": "jinji",
+     "name": "人事院",
+     "url": "https://www.jinji.go.jp/"
+    },
+    {
+     "id": "cabinet-office",
+     "name": "内閣府",
+     "url": "https://www.cao.go.jp/",
+     "sns_page": "https://www.cao.go.jp/about/list.html",
+     "page": "cabinet-office"
+    },
+    {
+     "id": "kunaicho",
+     "name": "宮内庁",
+     "url": "https://www.kunaicho.go.jp/"
+    },
+    {
+     "id": "jftc",
+     "name": "公正取引委員会",
+     "url": "https://www.jftc.go.jp/",
+     "page": "jftc"
+    },
+    {
+     "id": "npsc",
+     "name": "国家公安委員会",
+     "url": "https://www.npsc.go.jp/"
+    },
+    {
+     "id": "npa",
+     "name": "警察庁",
+     "url": "https://www.npa.go.jp/",
+     "page": "npsc-npa"
+    },
+    {
+     "id": "ppc",
+     "name": "個人情報保護委員会",
+     "url": "https://www.ppc.go.jp/",
+     "page": "ppc"
+    },
+    {
+     "id": "jcrc",
+     "name": "カジノ管理委員会",
+     "url": "https://www.jcrc.go.jp/",
+     "page": "jcrc"
+    },
+    {
+     "id": "fsa",
+     "name": "金融庁",
+     "url": "https://www.fsa.go.jp/",
+     "page": "fsa"
+    },
+    {
+     "id": "caa",
+     "name": "消費者庁",
+     "url": "https://www.caa.go.jp/",
+     "page": "caa"
+    },
+    {
+     "id": "cfa",
+     "name": "こども家庭庁",
+     "url": "https://www.cfa.go.jp/",
+     "page": "cfa"
+    },
+    {
+     "id": "digital-agency",
+     "name": "デジタル庁",
+     "url": "https://www.digital.go.jp/",
+     "page": "digital-agency"
+    },
+    {
+     "id": "reconstruction-agency",
+     "name": "復興庁",
+     "url": "https://www.reconstruction.go.jp/",
+     "page": "reconstruction-agency"
+    },
+    {
+     "id": "disaster-management-agency",
+     "name": "防災庁",
+     "url": "https://www.bousai.go.jp/",
+     "page": "disaster-management-agency"
+    },
+    {
+     "id": "mic",
+     "name": "総務省",
+     "url": "https://www.soumu.go.jp/",
+     "page": "mic"
+    },
+    {
+     "id": "kouchoi",
+     "name": "公害等調整委員会",
+     "url": "https://www.soumu.go.jp/kouchoi/"
+    },
+    {
+     "id": "fdma",
+     "name": "消防庁",
+     "url": "https://www.fdma.go.jp/"
+    },
+    {
+     "id": "moj",
+     "name": "法務省",
+     "url": "https://www.moj.go.jp/",
+     "page": "moj"
+    },
+    {
+     "id": "isa",
+     "name": "出入国在留管理庁",
+     "url": "https://www.moj.go.jp/isa/"
+    },
+    {
+     "id": "kouanshin",
+     "name": "公安審査委員会",
+     "url": "https://www.moj.go.jp/kouanshin/kouanshinsa_index.html"
+    },
+    {
+     "id": "psia",
+     "name": "公安調査庁",
+     "url": "https://www.moj.go.jp/psia/"
+    },
+    {
+     "id": "mofa",
+     "name": "外務省",
+     "url": "https://www.mofa.go.jp/mofaj/",
+     "page": "mofa"
+    },
+    {
+     "id": "mof",
+     "name": "財務省",
+     "url": "https://www.mof.go.jp/",
+     "page": "mof"
+    },
+    {
+     "id": "nta",
+     "name": "国税庁",
+     "url": "https://www.nta.go.jp/"
+    },
+    {
+     "id": "mext",
+     "name": "文部科学省",
+     "url": "https://www.mext.go.jp/",
+     "page": "mext"
+    },
+    {
+     "id": "sports",
+     "name": "スポーツ庁",
+     "url": "https://www.mext.go.jp/sports/"
+    },
+    {
+     "id": "bunka",
+     "name": "文化庁",
+     "url": "https://www.bunka.go.jp/"
+    },
+    {
+     "id": "mhlw",
+     "name": "厚生労働省",
+     "url": "https://www.mhlw.go.jp/",
+     "sns_page": "https://www.mhlw.go.jp/stf/SNSpage.html",
+     "page": "mhlw"
+    },
+    {
+     "id": "churoi",
+     "name": "中央労働委員会",
+     "url": "https://www.mhlw.go.jp/churoi/"
+    },
+    {
+     "id": "maff",
+     "name": "農林水産省",
+     "url": "https://www.maff.go.jp/",
+     "page": "maff"
+    },
+    {
+     "id": "rinya",
+     "name": "林野庁",
+     "url": "https://www.rinya.maff.go.jp/"
+    },
+    {
+     "id": "jfa",
+     "name": "水産庁",
+     "url": "https://www.jfa.maff.go.jp/"
+    },
+    {
+     "id": "meti",
+     "name": "経済産業省",
+     "url": "https://www.meti.go.jp/",
+     "sns_page": "https://www.meti.go.jp/sns/index.html",
+     "page": "meti"
+    },
+    {
+     "id": "enecho",
+     "name": "資源エネルギー庁",
+     "url": "https://www.enecho.meti.go.jp/"
+    },
+    {
+     "id": "jpo",
+     "name": "特許庁",
+     "url": "https://www.jpo.go.jp/"
+    },
+    {
+     "id": "chusho",
+     "name": "中小企業庁",
+     "url": "https://www.chusho.meti.go.jp/"
+    },
+    {
+     "id": "mlit",
+     "name": "国土交通省",
+     "url": "https://www.mlit.go.jp/",
+     "page": "mlit"
+    },
+    {
+     "id": "kankocho",
+     "name": "観光庁",
+     "url": "https://www.mlit.go.jp/kankocho/"
+    },
+    {
+     "id": "jma",
+     "name": "気象庁",
+     "url": "https://www.jma.go.jp/"
+    },
+    {
+     "id": "jtsb",
+     "name": "運輸安全委員会",
+     "url": "https://jtsb.mlit.go.jp/"
+    },
+    {
+     "id": "kaiho",
+     "name": "海上保安庁",
+     "url": "https://www.kaiho.mlit.go.jp/"
+    },
+    {
+     "id": "env",
+     "name": "環境省",
+     "url": "https://www.env.go.jp/",
+     "page": "env"
+    },
+    {
+     "id": "nra",
+     "name": "原子力規制委員会",
+     "url": "https://www.nra.go.jp/"
+    },
+    {
+     "id": "mod",
+     "name": "防衛省",
+     "url": "https://www.mod.go.jp/",
+     "sns_page": "https://www.mod.go.jp/j/info/sns.html",
+     "page": "mod"
+    },
+    {
+     "id": "atla",
+     "name": "防衛装備庁",
+     "url": "https://www.mod.go.jp/atla/"
+    }
+   ]
+  },
+  {
+   "id": "diet",
+   "name": "国会",
+   "items": [
+    {
+     "id": "shugiin",
+     "name": "衆議院",
+     "url": "https://www.shugiin.go.jp/internet/index.nsf/html/index.htm"
+    },
+    {
+     "id": "sangiin",
+     "name": "参議院",
+     "url": "https://www.sangiin.go.jp/"
+    },
+    {
+     "id": "ndl",
+     "name": "国立国会図書館",
+     "url": "https://www.ndl.go.jp/"
+    }
+   ]
+  },
+  {
+   "id": "court",
+   "name": "裁判所",
+   "items": [
+    {
+     "id": "courts",
+     "name": "裁判所",
+     "url": "https://www.courts.go.jp/"
+    }
+   ]
+  },
+  {
+   "id": "independent",
+   "name": "内閣から独立した機関",
+   "items": [
+    {
+     "id": "jbaudit",
+     "name": "会計検査院",
+     "url": "https://www.jbaudit.go.jp/"
+    },
+    {
+     "id": "boj",
+     "name": "日本銀行",
+     "url": "https://www.boj.or.jp/"
+    }
+   ]
+  }
  ]
 }

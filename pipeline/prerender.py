@@ -478,7 +478,7 @@ def main():
     body = f"<h1>公式サイト・SNSの一覧</h1><p>{e(acc.get('criteria'))}</p><p>{e(acc.get('rule'))}</p>"
     for g in acc.get("groups", []):
         body += f"<h2>{e(g['name'])}（{len(g['items'])}）</h2>" + "".join(f"<h3>{e(x['name'])}</h3>" + sns_html(x).replace("<h2>公式サイト・SNS</h2>", "") for x in g["items"])
-    tabs.append(("accounts/", "公式サイト・SNSの一覧", "政府・国会・政党の公式サイトと、公式サイトにリンクされているSNSアカウントの一覧。機械で集め、人は選ばない。", body, "accounts", max([x.get("checked", "") for x in acc_rows] or [""])))
+    tabs.append(("accounts/", "公式サイト・SNSの一覧", "政府（外局まで）・国会・裁判所・会計検査院・日本銀行・政党の公式サイトと、公式サイトにリンクされているSNSアカウントの一覧。機械で集め、人は選ばない。", body, "accounts", max([x.get("checked", "") for x in acc_rows] or [""])))
     for args in tabs:
         site.page(*args)
 

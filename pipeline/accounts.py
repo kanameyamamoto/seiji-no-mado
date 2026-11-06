@@ -1,4 +1,4 @@
-"""政府・国会・政党の「公式サイト・SNS」を、機械で集める（AIは使わない：ルールC-6・D-11）。
+"""政府・国会・裁判所・独立した機関・政党の「公式サイト・SNS」を、機械で集める（AIは使わない：ルールC-6・D-11）。
 
 - 載せるのは、その組織の公式サイトのトップページと、その組織が自分で出している「SNS一覧」ページに
   リンクされているアカウントだけ。人は選ばない（偽物やファンのアカウントを入れないため）。
@@ -115,6 +115,16 @@ def find(text):
     return out
 
 
+def scope_of(top_url):
+    """親の省のサイトの中にある組織（www.moj.go.jp/isa/ など）は、その組織のフォルダの中だけをたどる（親の省のSNSを混ぜないため）。"""
+    path = urllib.parse.urlparse(top_url).path
+    return path.rsplit("/", 1)[0] + "/" if path.strip("/") else "/"
+
+
+def in_scope(u, top_url):
+    return urllib.parse.urlparse(u).path.startswith(scope_of(top_url))
+
+
 def sns_pages(top_url, text):
     """トップページの中の「SNS一覧」らしいリンク（同じサイトの中だけ）。"""
     host = urllib.parse.urlparse(top_url).netloc
@@ -124,7 +134,7 @@ def sns_pages(top_url, text):
         if not (SNS_WORDS.search(lab) or re.search(r"/sns[/_.]|sns\.html|snspage|socialmedia|social-media|/social/", href, re.I)):
             continue
         u = urllib.parse.urljoin(top_url, html.unescape(href)).split("#")[0]
-        if urllib.parse.urlparse(u).netloc == host and u not in out and u.rstrip("/") != top_url.rstrip("/"):
+        if urllib.parse.urlparse(u).netloc == host and in_scope(u, top_url) and u not in out and u.rstrip("/") != top_url.rstrip("/"):
             out.append(u)
     return out[:3]
 
@@ -143,7 +153,8 @@ def hop_links(page_url, text, top_url):
     out = []
     for href in re.findall(r'<a[^>]+href=["\']([^"\']+)["\']', text, flags=re.I):
         u = urllib.parse.urljoin(page_url, html.unescape(href)).split("#")[0]
-        if gov_host(u, top_url) and HOP.search(urllib.parse.urlparse(u).path) and u != page_url and u not in out:
+        if gov_host(u, top_url) and (scope_of(top_url) == "/" or urllib.parse.urlparse(u).netloc != urllib.parse.urlparse(top_url).netloc or in_scope(u, top_url)) \
+                and HOP.search(urllib.parse.urlparse(u).path) and u != page_url and u not in out:
             out.append(u)
     return out[:40]
 
@@ -221,6 +232,14 @@ def update():
                 continue
             try:
                 sns, used = collect(it)
+                if scope_of(it["url"]) != "/":
+                    # 親の省のサイトの中にある組織：ページの上や下に出ている親の省のアカウントは、親の省のものなので除く
+                    host = urllib.parse.urlparse(it["url"]).netloc
+                    par = [r for gg in out_groups + [{"items": rows}] for r in gg["items"]
+                           if r.get("url") and urllib.parse.urlparse(r["url"]).netloc == host and scope_of(r["url"]) == "/"]
+                    ids = {(k, x["id"].lower()) for r in par for k, v in r.get("sns", {}).items() for x in v}
+                    sns = {k: [x for x in v if (k, x["id"].lower()) not in ids] for k, v in sns.items()}
+                    sns = {k: v for k, v in sns.items() if v}
                 # 画面には各SNSの最初の1つを出し、残りは「ほかN件」にたたむ。データは各SNS50件まで（全部の数は counts）
                 row["counts"] = {k: len(v) for k, v in sns.items()}
                 sns = {k: v[:50] for k, v in sns.items()}
@@ -236,8 +255,8 @@ def update():
             rows.append(row)
             time.sleep(1)
         out_groups.append({"id": g["id"], "name": g["name"], "items": rows})
-    out = {"criteria": "政府（首相官邸・内閣官房・内閣府と各省庁）、国会（衆議院・参議院・国立国会図書館）、政党（このサイトの政党の一覧のすべて）の公式サイトと、公式サイトのトップページ・SNS一覧ページにリンクされているSNSアカウントを、すべて載せる。",
-           "rule": "アカウントは機械で集め、人は選ばない。並びは X・YouTube・Instagram・TikTok・Facebook・LINE・note・Threads。各SNSの中は、トップページに載っている順、次にSNS一覧ページに載っている順。画面には各SNSの最初の1つを出し、ほかは「ほかN件」にたたむ。",
+    out = {"criteria": "政府（首相官邸・内閣官房・内閣法制局・人事院・内閣府・宮内庁と各省庁、それらの外局〈庁・委員会〉すべて）、国会（衆議院・参議院・国立国会図書館）、裁判所、内閣から独立した機関（会計検査院・日本銀行）、政党（このサイトの政党の一覧のすべて）の公式サイトと、公式サイトのトップページ・SNS一覧ページにリンクされているSNSアカウントを、すべて載せる。",
+           "rule": "アカウントは機械で集め、人は選ばない。親の省のサイトの中にある組織（出入国在留管理庁など）は、その組織のページの中だけをたどり、親の省と同じアカウントは除く。並びは X・YouTube・Instagram・TikTok・Facebook・LINE・note・Threads。各SNSの中は、トップページに載っている順、次にSNS一覧ページに載っている順。画面には各SNSの最初の1つを出し、ほかは「ほかN件」にたたむ。",
            "order": ORDER, "groups": out_groups}
     same = json.dumps({**old, "groups": [{**g, "items": [{k: v for k, v in x.items() if k != "checked"} for x in g["items"]]} for g in old.get("groups", [])]}, sort_keys=True, ensure_ascii=False) == \
         json.dumps({**out, "groups": [{**g, "items": [{k: v for k, v in x.items() if k != "checked"} for x in g["items"]]} for g in out_groups]}, sort_keys=True, ensure_ascii=False)
