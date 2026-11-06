@@ -15,6 +15,7 @@
 import argparse
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -115,6 +116,30 @@ def rejected_raw(b, ses, cat, no, k):
 HIST = os.path.join(ROOT, "work", "sources", "history-scan.json")
 
 
+def history_rejected(ses, checked):
+    """さかのぼる国会で、本会議で否決された法律案（bills.py と同じ形）。一度確かめた議案は checked に入れて読み直さない。"""
+    import bills as BL
+    out = []
+    for r in H.list_bills(ses):
+        if r["session"] != str(ses) or not r["keika"] or r["status"] in ("成立", "撤回", "衆議院で閉会中審査"):
+            continue
+        rid = f"{r['session']}-{BL.SLUG[r['cat']]}-{r['no']}"
+        if rid in checked:
+            continue
+        checked.add(rid)
+        k = H.parse_keika(r["keika"])
+        res = BL.result_of(r["status"], {"衆議院審議結果": k.get("衆議院審議結果", ""), "参議院審議結果": k.get("参議院審議結果", "")}, False)
+        if res not in ("衆議院で否決", "参議院で否決"):
+            continue
+        b = {"id": rid, "category": r["cat"], "title": r["title"], "result": res,
+             "proposer": re.sub(r"\s+", "", k.get("議案提出者", "")) if r["cat"] != "閣法" else "", "groups": H.groups(k.get("議案提出会派", "")),
+             "shugiin": BL.chamber_of(k, "衆議院"), "sangiin": BL.chamber_of(k, "参議院"),
+             "votes": {"for": H.groups(k.get("衆議院審議時賛成会派")), "against": H.groups(k.get("衆議院審議時反対会派"))},
+             "source": {"url": r["keika"]}, "outline": H.youkou_url(r["honbun"])}
+        out.append(b)
+    return out
+
+
 def backfill(cfg, feed, have, pending_now):
     """さかのぼって載せる（config の history）。新しい国会から順に、1回に per_day 件まで下書きを作る。
 
@@ -140,6 +165,8 @@ def backfill(cfg, feed, have, pending_now):
         return 0
     scan = json.load(open(HIST, encoding="utf-8")) if os.path.exists(HIST) else {"skip": [], "done_sessions": []}
     skip, done = set(scan["skip"]), set(scan["done_sessions"])
+    rej_checked = set(scan.get("rej_checked", []))
+    feed_bill_ids = {it.get("bill_id") for it in feed.get("items", [])}
     made_today = scan.get("made", 0) if scan.get("day") == today else 0
     made = 0
     per_day = max(0, per_day - made_today)  # 1日の上限（書く担当の答えが届くたびに動いても、1日に per_day 件まで）
@@ -154,6 +181,21 @@ def backfill(cfg, feed, have, pending_now):
             print(f"[history] 第{ses}回国会の一覧を読めませんでした: {e}")
             break
         left = False
+        try:  # 否決された法律案（さかのぼる国会の分）
+            for b in history_rejected(ses, rej_checked):
+                no = b["id"].split("-")[-1]
+                k = key_of(str(ses), b["category"], no)
+                if b["id"] in feed_bill_ids or f"{k}.json" in pending_now:
+                    continue
+                raw = rejected_raw(b, str(ses), b["category"], no, k)
+                raw["history"] = True
+                if raw.get("src_key", "") in have:
+                    continue
+                json.dump(raw, open(os.path.join(PENDING, f"{k}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+                made += 1
+                print(f"[history] {k} {raw['formal']}（{b['result']}）")
+        except Exception as e:  # noqa: BLE001
+            print(f"[history] 第{ses}回国会の否決された法律案を確かめられませんでした: {e}")
         for u in urls:
             page = u.split("/meisai/")[1]
             if page in have or page in skip:
@@ -191,7 +233,7 @@ def backfill(cfg, feed, have, pending_now):
         if not left and made < per_day:
             done.add(str(ses))  # この国会は、載せる範囲のものをすべて下書きにした
     scan = {"note": "さかのぼって載せるとき（update_laws.backfill）に、載せる範囲の外とわかった議案と、すべて下書きにした国会。day・made＝その日に作った下書きの数。",
-            "day": today, "made": made_today + made, "skip": sorted(skip), "done_sessions": sorted(done)}
+            "day": today, "made": made_today + made, "skip": sorted(skip), "done_sessions": sorted(done), "rej_checked": sorted(rej_checked)}
     os.makedirs(os.path.dirname(HIST), exist_ok=True)
     json.dump(scan, open(HIST, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return made
