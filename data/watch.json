@@ -1,5 +1,66 @@
 {
- "alerted": [],
+ "alerted": [
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/1",
+   "title": "リンク切れ：都道府県の地方紙：函館新聞社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/2",
+   "title": "リンク切れ：都道府県の地方紙：北羽新報社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/3",
+   "title": "リンク切れ：都道府県の地方紙：神奈川新聞社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/4",
+   "title": "リンク切れ：都道府県の地方紙：静岡新聞社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/5",
+   "title": "リンク切れ：都道府県の地方紙：山口新聞社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/6",
+   "title": "リンク切れ：都道府県の地方紙：高知新聞社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/7",
+   "title": "リンク切れ：経済紙・専門紙：日刊工業新聞社"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/8",
+   "title": "リンク切れ：独立局：テレビ神奈川"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/9",
+   "title": "リンク切れ：独立局：テレビ和歌山"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/10",
+   "title": "リンク切れ：公的な情報源：政府広報オンライン"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/11",
+   "title": "リンク切れ：公的な情報源：e-Govポータル"
+  },
+  {
+   "date": "2026-11-06",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/12",
+   "title": "リンク切れ：公的な情報源：e-Govパブリック・コメント"
+  }
+ ],
  "alerts": [],
  "due": {
   "elections": [
@@ -729,51 +790,51 @@
  },
  "links": {
   "https://digital.hakoshin.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://public-comment.e-gov.go.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://www.at-s.com/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 405: Not Allowed"
   },
   "https://www.e-gov.go.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://www.gov-online.go.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://www.hokuu.co.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://www.kanaloco.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 307: Temporary Redirect"
   },
   "https://www.kochinews.co.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://www.nikkan.co.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 404: Not Found"
   },
   "https://www.tv-wakayama.co.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "https://www.tvk-yokohama.com/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 307: Temporary Redirect"
   },
   "https://yama.minato-yamaguchi.co.jp/": {
-   "fails": 2,
+   "fails": 3,
    "last_error": "HTTPError: HTTP Error 403: Forbidden"
   }
  },
@@ -989,7 +1050,7 @@
   "https://inochinoto.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "f94bac897d5740bc3b26",
+   "fp": "33c085aaaade40b347b2",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -1234,42 +1295,42 @@
   "https://kumanichi.com/articles/1950284": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "0bdece4bd0f46b9bab95",
+   "fp": "294fb5f861b626273884",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://kumanichi.com/articles/1993149": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "44dbcf77085d0c3f57da",
+   "fp": "001b1e6220bb529f4619",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://kumanichi.com/articles/2022801": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "84cb6df27fcb8e6cc7fc",
+   "fp": "8ff27462f3c85b2e8c43",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://kumanichi.com/articles/2036690": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "f49be8f46989bbcf5488",
+   "fp": "b9abb04cca6dfea658ce",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://kumanichi.com/articles/2042589": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "e5c2d1d32758cf6492a5",
+   "fp": "66df39d14069ca427469",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://kumanichi.com/articles/2044798": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "60fc02ec5f2af6d24b7a",
+   "fp": "4018503f2ff6408320d1",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -2542,6 +2603,7 @@
   },
   "https://mushozoku.jp/": {
    "checked": "2026-11-06",
+   "fails": 0,
    "fp": "12fbd74244c152d602a4",
    "kind": "html",
    "since": "2026-11-06"
@@ -2556,7 +2618,7 @@
   "https://new-kokumin.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "db7467da98ecb9a2c00a",
+   "fp": "add3b2279a1b9d515f84",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -2591,12 +2653,13 @@
   "https://news.web.nhk/newsweb/na/nd-20261007de55905": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "424928b5e21dbdf69e32",
+   "fp": "0ea6d48553bdb60e113d",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://nipponseishinkai.jp/": {
    "checked": "2026-11-06",
+   "fails": 0,
    "fp": "2539c421e0b8d211f136",
    "kind": "html",
    "since": "2026-11-06"
@@ -2604,7 +2667,7 @@
   "https://note.com/drp_japan2026": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "16f7fbd1fe53a4d77086",
+   "fp": "1cd8bd48f41204b8e04f",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -2693,14 +2756,16 @@
    "since": "2026-11-06"
   },
   "https://public-comment.e-gov.go.jp/": {
+   "broken": "2026-11-06",
    "checked": "2026-11-06",
-   "fails": 2,
+   "fails": 3,
+   "label": "e-Govパブリック・コメント",
    "last_error": "HTTP 403"
   },
   "https://query1.finance.yahoo.com/v8/finance/chart/%5EN225?period1=946684800&period2=1793404800&interval=1d": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "e71a685bb3f23068264b",
+   "fp": "220498bf00169bedca5b",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -2866,10 +2931,12 @@
    "since": "2026-11-06"
   },
   "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx": {
+   "broken": "2026-11-06",
    "checked": "2026-11-06",
-   "fails": 2,
+   "fails": 3,
    "fp": "c5454e17051a5dee0fe3",
    "kind": "html",
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
    "last_error": "HTTP 404",
    "since": "2026-11-01"
   },
@@ -3044,7 +3111,7 @@
   "https://www.caa.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "7d55208c00c39e573f93",
+   "fp": "1ea6a28bbf18a5b78d70",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3331,7 +3398,7 @@
   "https://www.digital.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "0706b8ef252b79969c95",
+   "fp": "f440a43865e544cb530f",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3427,14 +3494,16 @@
    "since": "2026-11-01"
   },
   "https://www.gov-online.go.jp/article/202511/entry-9983.html": {
+   "broken": "2026-11-06",
    "checked": "2026-11-06",
-   "fails": 2,
+   "fails": 3,
+   "label": "政府広報オンライン「2026年1月から下請法が「取適法」に！」",
    "last_error": "HTTP 403"
   },
   "https://www.gpif.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "619967ad571d9affa2d2",
+   "fp": "c5f69102105fe3d510a2",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3454,6 +3523,7 @@
   },
   "https://www.hellowork.mhlw.go.jp/insurance/insurance_basicbenefit.html": {
    "checked": "2026-11-06",
+   "fails": 0,
    "fp": "d2ed82fbeb19d66a8ca1",
    "kind": "html",
    "since": "2026-11-06"
@@ -3665,21 +3735,21 @@
   "https://www.jiji.com/jc/article?k=2026090900156": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "0f5345d97c4f0def7aba",
+   "fp": "bdce50cb87d5d6d2845a",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://www.jiji.com/jc/article?k=2026091600098": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "a4470bf0f6caf3332e51",
+   "fp": "34b09bbb962c1f696728",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://www.jiji.com/jc/article?k=2026092400831": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "8a99942be93e2766ae85",
+   "fp": "9b8a31c94c3efb82a5af",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3749,7 +3819,7 @@
   "https://www.jpx.co.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "5e6f7d93b32bc4058786",
+   "fp": "e43313e6c5276d2863d1",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3819,7 +3889,7 @@
   "https://www.keidanren.or.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "f9a8035f442d01b51b4a",
+   "fp": "fb21baa01a87c4fca735",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3896,7 +3966,7 @@
   "https://www.maff.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "f1b0bb3b53e5165f4182",
+   "fp": "43a614a0ebba68ab5363",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3958,7 +4028,7 @@
   "https://www.mext.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "4bd5851c806949c08d3f",
+   "fp": "2c125e3e332a667e89c8",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -3993,7 +4063,7 @@
   "https://www.mhlw.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "589bbb580cfd6299fe10",
+   "fp": "3a26829d54d272d9ffd8",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -4182,7 +4252,7 @@
   "https://www.mlit.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "0a8fe7e043719a86acc3",
+   "fp": "56f415b61f7e417d8689",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -4201,10 +4271,12 @@
    "since": "2026-11-01"
   },
   "https://www.mod.go.jp/": {
+   "broken": "2026-11-06",
    "checked": "2026-11-06",
-   "fails": 2,
+   "fails": 3,
    "fp": "d618550fe97983ff05eb",
    "kind": "html",
+   "label": "防衛省",
    "last_error": "HTTP 403",
    "since": "2026-11-01"
   },
@@ -4218,7 +4290,7 @@
   "https://www.mof.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "445a0ef749190f0d5d78",
+   "fp": "6b9336205e379d3a3258",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -4734,6 +4806,7 @@
   },
   "https://www.nihonkaikaku.com/": {
    "checked": "2026-11-06",
+   "fails": 0,
    "fp": "45c2c7d4ab10b9776088",
    "kind": "html",
    "since": "2026-11-06"
@@ -4760,8 +4833,10 @@
    "since": "2026-11-06"
   },
   "https://www.nli-research.co.jp/files/topics/80125_ext_18_0.pdf?site=nli": {
+   "broken": "2026-11-06",
    "checked": "2026-11-06",
-   "fails": 2,
+   "fails": 3,
+   "label": "ニッセイ基礎研究所 井出真吾「「選挙は買い」は本当か」年金ストラテジー Vol.341（2024年11月）",
    "last_error": "HTTP 403"
   },
   "https://www.npa.go.jp/": {
@@ -4963,14 +5038,14 @@
   "https://www.reconstruction.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "be8c25707c29608214b1",
+   "fp": "e87e4c9894bebc0b8720",
    "kind": "html",
    "since": "2026-11-06"
   },
   "https://www.sakigake.jp/news/article/20250926CO0129/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "151ef4d889dab525ff64",
+   "fp": "dfa5ab366b105aa1bec4",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -5068,7 +5143,7 @@
   "https://www.shugiin.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "60689633953f38fb13fd",
+   "fp": "26a3f1e8a05276a43725",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -5313,7 +5388,7 @@
   "https://www.soumu.go.jp/": {
    "checked": "2026-11-06",
    "fails": 0,
-   "fp": "f629a3d76e89b4baddc3",
+   "fp": "98c7963d1992d2cb2938",
    "kind": "html",
    "since": "2026-11-06"
   },
@@ -5641,7 +5716,7 @@
   },
   "https://www.syoha.jp/": {
    "checked": "2026-11-06",
-   "fails": 1,
+   "fails": 2,
    "last_error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
   },
   "https://www.unic.or.jp/info/un/": {
