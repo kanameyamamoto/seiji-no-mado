@@ -780,11 +780,15 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
 .hero { background: var(--nav-bg); color: #fff; border-radius: 18px; padding: 32px 28px 26px; margin: 4px 0 8px; display: flex; flex-direction: column; gap: 14px; }
 .hero-k { margin: 0; font-size: 13px; letter-spacing: .12em; color: var(--nav-muted); font-weight: 700; }
 .hero-h { margin: 0; font-size: 34px; line-height: 1.35; color: #fff; }
-.hero-s { margin: 0; font-size: 16px; line-height: 1.8; color: #DCE4F2; max-width: 760px; }
+.hero-s { margin: 0; font-size: 16px; line-height: 1.8; color: #DCE4F2; max-width: 900px; }
 .hero-q { display: flex; gap: 8px; margin-top: 6px; max-width: 640px; }
 .hero-q input { flex: 1; min-width: 0; height: 50px; border-radius: 999px; border: 0; padding: 0 20px; font-size: 16px; color: var(--fg); background: #fff; }
 .hero-q button { height: 50px; padding: 0 22px; border-radius: 999px; background: #A9B6CF; color: var(--nav-bg); font-weight: 700; }
 .hero-ex { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-ai { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--nav-muted); margin-top: -4px; }
+.hero-ai .chip { background: #fff; color: var(--nav-bg); border: 0; cursor: pointer; }
+.hero-ai-note { font-size: 12px; }
+@media (max-width: 600px) { .hero-ai-note { display: none; } .hero-ai { margin-top: 0; } }
 .hero-ex .chip { background: var(--nav-weak); color: #fff; border: 0; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn-p, .btn-s { height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-size: 15px; }
@@ -1587,16 +1591,17 @@ br.pc { display: none; }
     var FD = D.feed && D.feed.items || [];
     var laws = S.laws || FD.filter(function (x) { return x.kind === '法律が成立'; }).length;
     var mem = S.members || (D.members && D.members.members || []).length;
-    var since = S.questions_since ? S.questions_since.slice(0, 4) + '年から' : '';
+    var since = S.questions_since ? S.questions_since.slice(0, 4) + '〜' : '';
     var nums = [[nf(laws), '件', '国会で決まった法律', 'laws'], [S.questions ? nf(S.questions) : '—', '件', '質問主意書（' + since + '）', 'questions'],
       [nf(mem), '人', '国会議員', 'members'], [S.budget_projects ? nf(S.budget_projects) : '—', '件', '国の予算事業', 'budget'],
       [S.councils ? nf(S.councils) : '—', '', '国の審議会', 'councils'], [S.pubcom_open != null ? nf(S.pubcom_open) : '—', '件', '募集中のパブコメ', 'pubcom']];
     var ex = ['予算', '消費税', '選挙', '年金', '防衛', '子ども'];
     var h = '<section class="hero"><p class="hero-k">政治の公開データベース</p>' +
       '<h1 class="hero-h"><span class="nw">日本の政治の</span><span class="nw">公開データを、</span><br class="pc"><span class="nw">人にも、AIにも。</span></h1>' +
-      '<p class="hero-s pc-only">国会で決まった法律、質問主意書、国会議員の投票、審議会、国の予算事業などを、毎日自動で集めて出典つきで整理。<span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
-      '<p class="hero-s sp-only">国会・政府の公開データを、出典つきで。無料のAPI・MCPでAIからも使えます。</p>' +
+      '<p class="hero-s pc-only"><span class="nw">法律・質問主意書・議員の投票・審議会・予算事業などを、</span><span class="nw">毎日自動で集めて出典つきで整理。</span><br><span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
+      '<p class="hero-s sp-only"><span class="nw">国会・政府の公開データを、</span><span class="nw">出典つきで。</span><span class="nw">無料のAPI・MCPで</span><span class="nw">AIからも使えます。</span></p>' +
       '<form class="hero-q" id="heroq" role="search"><input id="hq" type="search" placeholder="ことばでさがす" autocomplete="off" aria-label="ことばでさがす"><button type="submit">さがす</button></form>' +
+      '<div class="hero-ai"><span>AIに聞く：</span><button class="chip" data-askai="claude">Claude</button><button class="chip" data-askai="chatgpt">ChatGPT</button><span class="hero-ai-note">上の箱の文で、このサイトのデータをもとに答えてもらいます</span></div>' +
       '<div class="hero-ex">' + ex.map(function (w) { return '<button class="chip" data-hq="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') + '</div>' +
       '<div class="hero-cta"><button class="btn-p" data-go="api">AIから使う（MCP・API）</button><button class="btn-s" data-go="laws">国会で決まったことを見る</button></div>' +
       '<div class="hero-nums">' + nums.map(function (n) { return '<button class="hn" data-go="' + n[3] + '"><span class="hn-v">' + n[0] + '<small>' + n[1] + '</small></span><span class="hn-l">' + esc(n[2]) + '</span></button>'; }).join('') + '</div></section>';
@@ -2714,6 +2719,13 @@ br.pc { display: none; }
     if (!t) { if (e.target.id === 'scrim') closeSheet(); if (!e.target.closest('#pop')) hidePop(); return; }
     if (t.hasAttribute('data-close')) return closeSheet();
     if (t.dataset.hq) { state.q = t.dataset.hq; return go('search'); }
+    if (t.dataset.askai) {
+      var qq = (document.getElementById('hq') || {}).value || '';
+      qq = qq.trim() || 'いまの国会で話し合っている法律の案を教えて';
+      var pr = 'せいじのまど（https://seijinomado.com/）の公開データと出典をもとに、意見を入れずに事実だけで答えてください。出典のページのリンクもつけてください。質問：' + qq;
+      window.open((t.dataset.askai === 'claude' ? 'https://claude.ai/new?q=' : 'https://chatgpt.com/?q=') + encodeURIComponent(pr), '_blank', 'noopener');
+      return;
+    }
     if (t.dataset.back !== undefined) { e.preventDefault(); hidePop(); if (navStack.length) { popping = true; history.back(); } else go(t.dataset.back); return; }
     if (t.dataset.go) { e.preventDefault(); hidePop(); if (t.dataset.ctx) state.ctx = t.dataset.ctx; if (t.dataset.lcatGo) state.learnCat = t.dataset.lcatGo; if (t.dataset.courseGo) { state.courseIdx = Number(t.dataset.courseGo); store('sh-course', t.dataset.courseGo); } if (t.dataset.after) state.afterJump = t.dataset.after; if (t.dataset.go === 'parties') state.partiesSeg = 'parties'; if (t.dataset.rsminGo !== undefined) { state.rsMin = t.dataset.rsminGo; state.rsMax = 100; } return go(t.dataset.go); }
     if (t.dataset.jump) { var el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
