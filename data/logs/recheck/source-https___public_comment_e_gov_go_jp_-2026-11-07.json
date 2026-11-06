@@ -1,0 +1,22 @@
+{
+ "unit": "source-https___public_comment_e_gov_go_jp_",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「e-Govパブリック・コメント」が3回続けて開けない"
+ ],
+ "writer_prompt": "prompts/replace_source.md",
+ "rounds": [
+  {
+   "mode": "代わりの出典",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "found": true,
+    "label": "e-Govパブリック・コメント「パブリック・コメント制度について」",
+    "url": "https://public-comment.e-gov.go.jp/contents/about-public-comment/",
+    "why": "元の出典（e-Govパブリック・コメントのトップページ）と同じサイトの制度説明ページ。行政手続法（第38条〜第45条）に基づく制度であること、意見提出期間が原則として公示日から30日以上であること、結果の公示、例外の場合は実施しなくてよいこと、e-GovのWebサイト等で意見を提出できることを確認できる。案件一覧は https://public-comment.e-gov.go.jp/pcm/list にある。"
+   },
+   "result": "候補が開けない：HTTP Error 403: Forbidden"
+  }
+ ],
+ "path": "data/logs/recheck/source-https___public_comment_e_gov_go_jp_-2026-11-07.json"
+}

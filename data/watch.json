@@ -69,6 +69,11 @@
    "date": "2026-11-06",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/16",
    "title": "リンク切れ：政府広報オンライン「2026年1月から下請法が「取適法」に！」"
+  },
+  {
+   "date": "2026-11-07",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/20",
+   "title": "リンク切れ：e-Govパブリック・コメント"
   }
  ],
  "alerts": [],
@@ -2912,6 +2917,7 @@
    "since": "2026-11-06"
   },
   "https://public-comment.e-gov.go.jp/": {
+   "alerted": "2026-11-07",
    "broken": "2026-11-06",
    "checked": "2026-11-06",
    "fails": 3,
