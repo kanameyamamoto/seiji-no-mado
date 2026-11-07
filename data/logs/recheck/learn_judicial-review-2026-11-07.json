@@ -1,0 +1,68 @@
+{
+ "unit": "learn:judicial-review",
+ "title": "違憲審査",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「NHK「去年7月の参院選の1票の格差めぐる裁判 最高裁大法廷で弁論」」の内容が変わった",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "NHK「去年7月の参院選の1票の格差めぐる裁判 最高裁大法廷で弁論」",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261007de55905",
+   "chars": 1093,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第76条・第81条・第98条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "裁判所法 第9条・第10条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000059",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "最高裁判所「最高裁判所の裁判官」",
+   "url": "https://www.courts.go.jp/saikosai/about/saibankan/index.html",
+   "chars": 238,
+   "error": null
+  },
+  {
+   "label": "最高裁判所裁判官国民審査法 第4条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000136",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第204条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "法務省「民法の一部が改正されました」",
+   "url": "https://www.moj.go.jp/MINJI/minji07_00143.html",
+   "chars": 3248,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "NHKの記事（2025年7月の参院選の1票の格差が最大3.13倍、2026年10月7日に最高裁大法廷で弁論）を確かめ、ページの記述との食い違いはなかった。公職選挙法の改正（選挙運動用自動車・ポスター）は、ページが引く第204条（選挙の効力に関する訴訟）の記述にかかわらない。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

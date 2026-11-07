@@ -1,5 +1,0 @@
-{
- "for": "easy:links:reconstruction-agency",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdは「所得税と一緒に課されている「復興特別所得税」は、いつまで続くのか。」という疑問文・テーマだが、hsでは「東日本大震災からの復興のお金は、どこから来ているのでしょう？」と内容がずれている。\",\n      \"fix\": \"stdに合わせて「所得税と一緒に集められる「復興特別所得税」は、いつまで続くのでしょうか？」などに修正する。\"\n    },\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/1/text の hs\",\n      \"detail\": \"stdにない「原子力発電所の事故からの」という情報が追加されている。\",\n      \"fix\": \"「原子力発電所の事故からの」を削除する。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

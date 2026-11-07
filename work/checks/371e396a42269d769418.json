@@ -1,5 +1,0 @@
-{
- "for": "easy:links:digital-agency",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"std が「病院の受付で『マイナ保険証』を出すようになったのはなぜか。」であるのに対し、hs が「マイナンバーって、何けたの番号なのでしょう？」となっており、全く異なる内容になっている。\",\n      \"fix\": \"std の内容に合わせて、病院の受付でマイナ保険証を出すようになった理由について書いた文に直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
