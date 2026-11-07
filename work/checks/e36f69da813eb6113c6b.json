@@ -1,0 +1,5 @@
+{
+ "for": "easy:learn:biz-corporate-donations",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/3/items/2/hs\",\n      \"detail\": \"stdには「3事業年度以上継続して欠損の会社は寄附禁止」とあるのに対し、hsでは「赤字がうまるまで寄附できない」と表現されており、法律上の要件と異なる意味（赤字補填の条件）が含まれている。\",\n      \"fix\": \"「3年以上続けて赤字の会社は、寄附《きふ》できない」などに直す。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,5 @@
+{
+ "for": "easy:learn:money-fx-intervention",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"summary の hs\",\n      \"detail\": \"stdにあった「2026年は4月30日〜5月6日に11兆7,349億円、7月30日〜8月26日の期間に15兆3,993億円」という具体的な金額と期間のデータが、hsで完全に抜け落ちています。\",\n      \"fix\": \"hsに近年の介入実績の数字（2026年の期間と金額）を追加する。\"\n    },\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/3/text の hs\",\n      \"detail\": \"stdにあった「7〜9月期5兆5,348億円」の情報が、hsで抜けています。\",\n      \"fix\": \"hsに「7〜9月期5兆5,348億円」の情報を補う。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}
