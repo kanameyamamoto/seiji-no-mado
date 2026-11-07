@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:consumption-tax",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"std は「テイクアウト、出前、新聞の消費税率はそれぞれ何％か。」という問題提起であるのに対し、hs は「おかしを買うとき、消費税はいくらかかるのでしょう？」となっており、内容や例示が大きくずれている。\",\n      \"fix\": \"hs の文を、テイクアウトや新聞などを含めた内容に修正する。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

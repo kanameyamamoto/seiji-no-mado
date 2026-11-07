@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:biz-fundraising-parties",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"summary の hs\",\n      \"detail\": \"std に含まれている具体的な数値（1回150万円まで、20万円超、2027年1月から5万円超）が hs からすべて抜け落ちている。\",\n      \"fix\": \"hs に「1人が1回に払える額の制限や、2027年1月から5万円超で名前を公開するルール」などの具体的な事実を追加する。\"\n    },\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"std が問うている具体的な制度の疑問（いくらまで買えるか、いくらを超えると公開されるか）が hs に含まれていない。\",\n      \"fix\": \"hs の内容を std の問いに合わせたものに修正する。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
