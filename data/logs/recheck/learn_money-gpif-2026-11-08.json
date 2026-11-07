@@ -1,0 +1,74 @@
+{
+ "unit": "learn:money-gpif",
+ "title": "GPIF（年金積立金の運用）",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「GPIF（年金積立金管理運用独立行政法人）」の内容が変わった",
+  "出典「厚生労働省「育児期間の国民年金保険料免除制度」」の内容が変わった",
+  "出典「日本年金機構「国民年金保険料の学生納付特例制度」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "GPIF（年金積立金管理運用独立行政法人）",
+   "url": "https://www.gpif.go.jp/",
+   "chars": 2020,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料の学生納付特例制度」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html",
+   "chars": 5267,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「育児期間の国民年金保険料免除制度」",
+   "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000143356_00038.html",
+   "chars": 1109,
+   "error": null
+  },
+  {
+   "label": "GPIF「基本ポートフォリオの考え方」",
+   "url": "https://www.gpif.go.jp/gpif/portfolio.html",
+   "chars": 4212,
+   "error": null
+  },
+  {
+   "label": "GPIF「2026年度第1四半期運用状況（速報）」",
+   "url": "https://www.gpif.go.jp/operation/38371785gpif/2026_1Q_0807_jp.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "年金積立金管理運用独立行政法人法 第3条・第18条・第20条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/416AC0000000105",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国民年金法 第7条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/334AC0000000141",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html",
+   "chars": 2423,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "GPIFのトップページ（平均収益率年率+4.95％、累積収益額+221.0兆円）、日本年金機構「国民年金保険料の学生納付特例制度」（所得基準128万円+扶養親族等の数×38万円+社会保険料控除等、家族の所得の多寡は問わない、20歳から被保険者）、厚生労働省「育児期間の国民年金保険料免除制度」（令和8年10月1日開始、1歳未満の子と同一住所の第1号被保険者の父母、所得要件なし、最大12か月）を確かめ、ページの文との食い違いはなかった（GPIFは2026年度第2四半期の速報を掲載したが、ページは第1四半期末の数値として明記しており、抜粋に第2四半期の数値はない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

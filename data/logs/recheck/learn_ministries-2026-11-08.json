@@ -1,0 +1,73 @@
+{
+ "unit": "learn:ministries",
+ "title": "省庁のしくみ（1府12省庁）",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「文部科学省「高等教育の修学支援新制度」」の内容が変わった",
+  "出典「日本年金機構「国民年金保険料の学生納付特例制度」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "文部科学省「高等教育の修学支援新制度」",
+   "url": "https://www.mext.go.jp/a_menu/koutou/hutankeigen/index.htm",
+   "chars": 2421,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料の学生納付特例制度」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html",
+   "chars": 5267,
+   "error": null
+  },
+  {
+   "label": "内閣官房「国の行政機関の組織図」（令和8年8月1日時点）",
+   "url": "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/kikouzu_202610/300.pdf",
+   "chars": 2008,
+   "error": null
+  },
+  {
+   "label": "内閣官房「行政機構図」",
+   "url": "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/satei_01_05.html",
+   "chars": 883,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府設置法 第64条",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000089",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国土交通省「平成13年度 国土交通白書」",
+   "url": "https://www.mlit.go.jp/hakusyo/mlit/h13/html/D0111100.html",
+   "chars": 858,
+   "error": null
+  },
+  {
+   "label": "防災庁設置法",
+   "url": "https://laws.e-gov.go.jp/law/508AC0000000061",
+   "chars": 9903,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "文部科学省「高等教育の修学支援新制度」（文部科学省が令和2年4月から実施）と日本年金機構「国民年金保険料の学生納付特例制度」（申請先は市区町村の国民年金担当窓口・年金事務所・許認可を受けた在学中の学校等）の今の本文を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
