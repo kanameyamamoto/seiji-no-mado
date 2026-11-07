@@ -1,0 +1,73 @@
+{
+ "unit": "learn:how-to-read-news",
+ "title": "ニュースの読み方（一次情報の確かめ方）",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「官報」の内容が変わった",
+  "出典「首相官邸」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "官報",
+   "url": "https://www.kanpo.go.jp/",
+   "chars": 6617,
+   "error": null
+  },
+  {
+   "label": "首相官邸",
+   "url": "https://www.kantei.go.jp/",
+   "chars": 747,
+   "error": null
+  },
+  {
+   "label": "e-Gov法令検索",
+   "url": "https://laws.e-gov.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "日本法令索引",
+   "url": "https://hourei.ndl.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "国会会議録検索システム",
+   "url": "https://kokkai.ndl.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "衆議院インターネット審議中継",
+   "url": "https://www.shugiintv.go.jp/",
+   "chars": 108,
+   "error": null
+  },
+  {
+   "label": "参議院インターネット審議中継",
+   "url": "https://www.webtv.sangiin.go.jp/",
+   "chars": 3,
+   "error": null
+  },
+  {
+   "label": "政府統計の総合窓口（e-Stat）",
+   "url": "https://www.e-stat.go.jp/",
+   "chars": 3631,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典「官報」（官報発行サイト）と「首相官邸」のトップページの今の本文を確かめたが、ページに書かれている窓口の名称・役割（法律などの公布は官報、内閣の発表は首相官邸）と食い違う記載はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

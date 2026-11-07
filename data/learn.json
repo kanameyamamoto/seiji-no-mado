@@ -6355,7 +6355,7 @@
        "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/deduction.html"
       }
      ],
-     "checked": "2026-11-01",
+     "checked": "2026-11-07",
      "easy": {
       "rule": "L-5",
       "date": "2026-11-07",
@@ -19856,7 +19856,7 @@
        "url": "https://litmus-factcheck.jp/about/"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-07"
     },
     {
      "id": "how-to-read-news",
@@ -20063,7 +20063,7 @@
        "url": "https://www.e-stat.go.jp/"
       }
      ],
-     "checked": "2026-11-01"
+     "checked": "2026-11-07"
     }
    ]
   }
