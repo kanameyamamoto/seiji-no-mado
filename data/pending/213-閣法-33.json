@@ -49,5 +49,7 @@
   "label": "参議院 議案情報（第213回国会 閣法第33号）",
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/213/meisai/m213080213033.htm"
  },
- "status": "fetched"
+ "status": "held",
+ "held_reason": "3回書き直してもチェックに通らなかったため、公開しない（C-3）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/26"
 }
