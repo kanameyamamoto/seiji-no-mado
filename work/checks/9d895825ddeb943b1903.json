@@ -1,5 +1,0 @@
-{
- "for": "easy:links:jcrc",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「入場料はいくらかかるのか」という料金についての問いであるのに対し、hsが「何歳からでしょう？」という年齢についての問いになっており、中身が全くずれています。\",\n      \"fix\": \"hsを「カジノに入るとき、入場料はいくらかかるのでしょう？」など、stdの意味に合わせた文に直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

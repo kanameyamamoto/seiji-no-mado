@@ -1,5 +1,0 @@
-{
- "for": "easy:links:un-contributions",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「日本の国連分担率は、3年ごとにどう変わってきたのか。」という推移や変動に着目した問いであるのに対し、hsは「国連のお金は、どの国がどれだけ出しているのでしょう？」と一般的な問いに変えられており、中身がずれています。\",\n      \"fix\": \"hsを「日本が国連に出す割合は、3年ごとにどう変わってきたのでしょう？」などに直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
