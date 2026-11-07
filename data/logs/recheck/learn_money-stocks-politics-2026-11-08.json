@@ -1,0 +1,72 @@
+{
+ "unit": "learn:money-stocks-politics",
+ "title": "株価と政治",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「日本取引所グループ（JPX）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本取引所グループ（JPX）",
+   "url": "https://www.jpx.co.jp/",
+   "chars": 2193,
+   "error": null
+  },
+  {
+   "label": "Bernanke & Kuttner (2005) What Explains the Stock Market's Reaction to Federal Reserve Policy?",
+   "url": "https://doi.org/10.1111/j.1540-6261.2005.00746.x",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "Baker, Bloom & Davis (2016) Measuring Economic Policy Uncertainty",
+   "url": "https://doi.org/10.1093/qje/qjw024",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "Pástor & Veronesi (2012) Uncertainty about Government Policy and Stock Prices",
+   "url": "https://doi.org/10.1111/j.1540-6261.2012.01746.x",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "Białkowski, Gottschalk & Wisniewski (2008) Stock market volatility around national elections",
+   "url": "https://doi.org/10.1016/j.jbankfin.2007.12.021",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "Santa-Clara & Valkanov (2003) The Presidential Puzzle",
+   "url": "https://doi.org/10.1111/1540-6261.00594",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "日本銀行「当面の金融政策運営について」2026年10月30日",
+   "url": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
+   "chars": 2195,
+   "error": null
+  },
+  {
+   "label": "日本銀行「ETFの売却ペースの見直しに関する決定（2026年10月）」",
+   "url": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030c.pdf",
+   "chars": 1004,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本取引所グループ（JPX）のトップページ、日本銀行「当面の金融政策運営について」（2026年10月30日）とETFの売却ペースの見直し（年間3,300億円程度から2027年1月に8,600億円程度へ、簿価）を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
