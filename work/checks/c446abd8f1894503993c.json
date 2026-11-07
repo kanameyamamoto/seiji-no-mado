@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:national-review",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdの内容（国民審査の用紙に何も書かずに投票箱に入れるとどう数えられるか）と異なり、全く別の質問になっている。\",\n      \"fix\": \"stdの内容に合わせて、何も書かずに投票箱に入れた場合の扱いについての文にする。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

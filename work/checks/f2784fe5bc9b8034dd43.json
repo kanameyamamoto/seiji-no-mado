@@ -1,0 +1,5 @@
+{
+ "for": "easy:learn:no-confidence-dissolution",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"名前と数字\",\n      \"where\": \"summary の es\",\n      \"detail\": \"std の「承認」が es では「みとめ」に訳されていますが、法律用語としての「承認」という重要語句が変更・正確に反映されていません。また、その直後の「助言とみとめ」という表現も不正確です。\",\n      \"fix\": \"「助言と承認《しょうにん》」としてください。\"\n    },\n    {\n      \"type\": \"名前と数字\",\n      \"where\": \"blocks/3/text の es\",\n      \"detail\": \"std の「承認」が「みとめ」に翻訳されており、法律用語の一致という点で不適切です。\",\n      \"fix\": \"「助言と承認《しょうにん》」と直してください。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}
