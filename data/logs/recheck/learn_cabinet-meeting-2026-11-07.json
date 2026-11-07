@@ -1,0 +1,72 @@
+{
+ "unit": "learn:cabinet-meeting",
+ "title": "閣議と閣議決定",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「首相官邸「閣議」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "首相官邸「閣議」",
+   "url": "https://www.kantei.go.jp/jp/kakugi/index.html",
+   "chars": 2956,
+   "error": null
+  },
+  {
+   "label": "内閣法 第4条〜第6条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000005",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第73条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "文部科学省「学校給食費の抜本的な負担軽減」",
+   "url": "https://www.mext.go.jp/a_menu/sports/syokuiku/kyu-lighten.html",
+   "chars": 2045,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高校生等への修学支援」",
+   "url": "https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm",
+   "chars": 5237,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正の解説」令和8年度税制改正について",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/explanation/PDF/p0003-0010.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正について」（広報誌「ファイナンス」2026年4月号）",
+   "url": "https://www.mof.go.jp/public_relations/finance/202604/202604c.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正の大綱の概要」",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.htm",
+   "chars": 3681,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "首相官邸「閣議」の今の本文を確かめ、定例閣議（毎週火曜日と金曜日、午前10時、国会開会中は午前9時から）・臨時閣議・持ち回り閣議の説明と、閣議の案件・議事録の公開についての記述に食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

@@ -1,0 +1,5 @@
+{
+ "for": "easy:learn:national-treasury-disbursements",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"summary の hs\",\n      \"detail\": \"std に存在しない「学校の先生の給料や、生活保護、道路づくりなどに使われます」という具体例が勝手に追加されています。\",\n      \"fix\": \"std の内容に合わせて、使途を特定した国から地方への支出であるという説明に直します。\"\n    },\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"std は「生活保護費のうち、国はどれだけ負担しているのか。」ですが、hs は「学校の先生の給料は、だれが出しているのでしょう？」となっており、中身が全く異なっています。\",\n      \"fix\": \"std の内容（生活保護費の国の負担割合について）に合わせます。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}
