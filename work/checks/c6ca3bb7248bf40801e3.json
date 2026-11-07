@@ -1,0 +1,5 @@
+{
+ "for": "easy:learn:civil-servants",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdの内容「国家公務員の給与は、だれがどうやって決めている？」に対して、hsは「公立の学校の先生も、「公務員」なのでしょうか？」となっており、中身が全く異なっています。\",\n      \"fix\": \"stdの内容に沿った文に書き直してください。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}

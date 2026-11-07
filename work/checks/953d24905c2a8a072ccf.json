@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:diet-sessions",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdの内容（仕事に関係する法律案が成立しなかった場合どうなるか）と、hsの内容（国会は1年中開いているのか）がまったく異なっており、中身のずれがある。\",\n      \"fix\": \"stdの内容に合わせて、国会の会期と法律案のゆくえについての中学生向けの文に書き直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

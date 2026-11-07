@@ -12,12 +12,62 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 18,
+  "意見募集中": 23,
   "結果待ち": 0,
-  "結果公示": 20
+  "結果公示": 22
  },
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "items": [
+  {
+   "id": "860202606",
+   "title": "危険物の規制に関する規則の一部を改正する省令（案）等に対する意見公募について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=860202606&Mode=0",
+   "published": "2026-11-07",
+   "deadline": "2026-12-07",
+   "category": "消防",
+   "office": "総務省消防庁予防課危険物保安室(",
+   "status": "意見募集中"
+  },
+  {
+   "id": "145210795",
+   "title": "「移動系通信事業者が提供するインターネット接続サービスの実効速度計測手法及び利用者への情報提供手法等に関するガイドライン」の改正案に対する意見募集",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=145210795&Mode=0",
+   "published": "2026-11-07",
+   "deadline": "2026-12-07",
+   "category": "電気通信",
+   "office": "総合通信基盤局電気通信事業部データ通信課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "595320122",
+   "title": "電気工事士法施行令の一部を改正する政令（案）に対する意見公募について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=595320122&Mode=0",
+   "published": "2026-11-06",
+   "deadline": "2026-12-06",
+   "category": "工業",
+   "office": "経済産業省産業保安・安全グループ電力安全課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260255",
+   "title": "予防接種法施行規則及び予防接種実施規則の一部を改正する省令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260255&Mode=0",
+   "published": "2026-11-06",
+   "deadline": "2026-12-06",
+   "category": "厚生",
+   "office": "厚生労働省健康・生活衛生局感染症対策部予防接種課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260253",
+   "title": "再生医療等の安全性の確保等に関する法律施行令の一部を改正する政令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260253&Mode=0",
+   "published": "2026-11-06",
+   "deadline": "2026-12-05",
+   "category": "厚生",
+   "office": "厚生労働省医政局研究開発政策課",
+   "status": "意見募集中"
+  },
   {
    "id": "120260029",
    "title": "「風俗営業等の規制及び業務の適正化等に関する法律施行令の一部を改正する政令案」に対する意見の募集について",
@@ -199,6 +249,19 @@
    "status": "意見募集中"
   },
   {
+   "id": "145210775",
+   "title": "電波有効利用委員会報告（案）に対する意見募集の結果",
+   "result_title": "電波有効利用委員会報告（案）に対する意見募集の結果",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=145210775&Mode=1",
+   "result_date": "2026-11-06",
+   "published": "2026-09-19",
+   "deadline": "2026-10-19",
+   "category": "電気通信",
+   "office": "総務省総合通信基盤局電波部移動通信課",
+   "opinions": 27,
+   "status": "結果公示"
+  },
+  {
    "id": "155260204",
    "title": "小笠原諸島振興開発特別措置法施行規則の一部を改正する省令案",
    "result_title": "小笠原諸島振興開発特別措置法施行規則の一部を改正する省令案に関する意見募集の結果について",
@@ -279,6 +342,20 @@
    "category": "電気通信",
    "office": "総務省総合通信基盤局電気通信事業部",
    "opinions": 24,
+   "status": "結果公示"
+  },
+  {
+   "id": "225026055",
+   "title": "「主要行等向けの総合的な監督指針」等の一部改正（案）に対するパブリックコメントの結果等の公表について",
+   "result_title": "「主要行等向けの総合的な監督指針」等の一部改正（案）に対するパブリックコメントの結果等の公表について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=225026055&Mode=1",
+   "result_date": "2026-11-06",
+   "published": "2026-07-30",
+   "deadline": "2026-08-31",
+   "category": "金融、保険",
+   "office": "金融庁",
+   "opinions": 9,
+   "promulgated": "2026-11-06",
    "status": "結果公示"
   },
   {
