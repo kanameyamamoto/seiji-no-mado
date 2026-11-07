@@ -1,0 +1,72 @@
+{
+ "unit": "learn:income-tax",
+ "title": "所得税・住民税のしくみ",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典の「地方税法」を改正する法律が成立した（地方税法等の改正、2025-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "地方税法",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000226",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "所得税法 第89条",
+   "url": "https://laws.e-gov.go.jp/law/340AC0000000033",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度税制改正の大綱の概要」（令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.pdf",
+   "chars": 4281,
+   "error": null
+  },
+  {
+   "label": "財務省「第221回国会における財務省関連法律」",
+   "url": "https://www.mof.go.jp/about_mof/bills/221diet/index.html",
+   "chars": 1039,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.2020 確定申告」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2020.htm",
+   "chars": 2555,
+   "error": null
+  },
+  {
+   "label": "財務省「特集 令和8年度 税制改正（国税）等について」",
+   "url": "https://www.mof.go.jp/public_relations/finance/202604/202604c.html",
+   "chars": 9811,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.1177 特定親族特別控除」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1177.htm",
+   "chars": 2187,
+   "error": null
+  },
+  {
+   "label": "中央区「配偶者控除・配偶者特別控除」（個人住民税）",
+   "url": "https://www.city.chuo.lg.jp/kurasi/zeikin/zyuminzei/syotokukozyo/haigusya.html",
+   "chars": 6536,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "地方税法の今の本文（抜粋）を確かめたが、ページの個人住民税の標準税率や控除の記述と食い違う箇所は見つからなかった（税率の条文は抜粋に含まれず、根拠にして直すことはしない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

@@ -1,0 +1,72 @@
+{
+ "unit": "learn:human-rights",
+ "title": "基本的人権",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「日本年金機構「国民年金保険料の学生納付特例制度」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本年金機構「国民年金保険料の学生納付特例制度」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html",
+   "chars": 5267,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第11条〜第40条・第97条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "外務省「児童の権利条約（児童の権利に関する条約）」",
+   "url": "https://www.mofa.go.jp/mofaj/gaiko/jido/seka.html",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "労働基準法 第15条・第56条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "介護保険法 第3条・第9条",
+   "url": "https://laws.e-gov.go.jp/law/409AC0000000123",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金の保険料はいくらですか。」",
+   "url": "https://www.nenkin.go.jp/section/faq/kokunen/seido/hokenryo/seidosetsumei/20150331.html",
+   "chars": 749,
+   "error": null
+  },
+  {
+   "label": "文京区「国民年金の保険料」",
+   "url": "https://www.city.bunkyo.lg.jp/b021/p000659.html",
+   "chars": 1771,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「年金から介護保険料等を特別徴収されるのはどのような人ですか」",
+   "url": "https://www.nenkin.go.jp/section/faq/jukyu/seido/kyotsu/tenbiki/20140421-03.html",
+   "chars": 1695,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本年金機構「国民年金保険料の学生納付特例制度」（2026年11月5日更新）を確かめ、20歳から納付が義務づけられること、申請により在学中の納付が猶予されること、審査は本人の前年所得で家族の所得の多寡は問わないことの記述に食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

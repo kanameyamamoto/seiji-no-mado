@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:health-insurance",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「家族を健康保険の扶養に入れられる収入の要件はいくらか。」と問いかけているのに対し、hsは「病院でお金をはらうとき、子どもは何割をはらっているのでしょう？」と全く異なる内容の質問になっている。\",\n      \"fix\": \"stdに合わせて、家族を健康保険の扶養に入れられる収入の要件についての質問に書き直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

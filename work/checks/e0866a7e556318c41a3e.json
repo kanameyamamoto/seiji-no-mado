@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:diplomacy-basics",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「海外へ出張や旅行に行くとき、外務省のどんな登録サービスがあるのか。」であるのに対し、hsは「外国にいる日本人が困ったとき、だれが手助けしてくれるのでしょう？」となっており、中身が大きくずれています。\",\n      \"fix\": \"hsをstdの内容に合わせて、外国への出張や旅行の際の登録サービスに関する文に書き直してください。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
