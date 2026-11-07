@@ -1,0 +1,5 @@
+{
+ "for": "easy:links:defense-spending",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"summary の hs\",\n      \"detail\": \"stdにある「三文書改定をめぐる視点」という要素がhsのsummaryから抜け落ちている。\",\n      \"fix\": \"2026年度の国の防衛の予算は9兆353億円です。2022年に決めた国家安全保障戦略の目標と、三文書の改定をめぐる見方です。\"\n    },\n    {\n      \"type\": \"名前と数字\",\n      \"where\": \"blocks/3/text の hs\",\n      \"detail\": \"stdにない「高市早苗内閣総理大臣」という特定の首相の名前が追加されており、名前と数字（人名）のL-2違反にあたる。\",\n      \"fix\": \"総理大臣は2025年10月24日の演説で、...\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}

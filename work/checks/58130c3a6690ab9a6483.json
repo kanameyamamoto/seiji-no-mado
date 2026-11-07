@@ -1,5 +1,0 @@
-{
- "for": "easy:links:mlit",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「賃貸住宅の退去時の原状回復費用の負担」について述べているのに対し、hsが「天気予報や大雨の警報は、どこが出しているのでしょう？」と全く関係のない内容になっている。\",\n      \"fix\": \"hsの文章を、賃貸住宅を退去するときの原状回復費用の負担についての説明に書き直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
