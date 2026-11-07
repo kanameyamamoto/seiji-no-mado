@@ -1,0 +1,75 @@
+{
+ "unit": "learn:diet",
+ "title": "国会とは",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「参議院」の内容が変わった",
+  "出典「衆議院」の内容が変わった",
+  "出典「衆議院 議案情報（条約を含む）」の内容が変わった",
+  "出典の「国会法」を改正する法律が成立した（国会法などの改正、2025-05-09）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "衆議院",
+   "url": "https://www.shugiin.go.jp/",
+   "chars": 6643,
+   "error": null
+  },
+  {
+   "label": "参議院",
+   "url": "https://www.sangiin.go.jp/",
+   "chars": 1248,
+   "error": null
+  },
+  {
+   "label": "国会法",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院 議案情報",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm",
+   "chars": 4095,
+   "error": null
+  },
+  {
+   "label": "国会会議録検索システム（国立国会図書館）",
+   "url": "https://kokkai.ndl.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第41条・第42条・第57条〜第64条・第67条・第96条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「国会の権限」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_kengen2.htm",
+   "chars": 938,
+   "error": null
+  },
+  {
+   "label": "衆議院「国会の構成」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_kousei.htm",
+   "chars": 585,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "衆議院・参議院のトップページ、衆議院「議案情報」（第222回国会 議案の一覧）、国会法（e-Gov）の今の抜粋を確かめ、国会の権限・構成・会議の公開や会議録などのページの記述と食い違うところは見当たらなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

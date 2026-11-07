@@ -1,0 +1,60 @@
+{
+ "unit": "learn:decentralization",
+ "title": "地方分権と道州制の議論",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「内閣府「地方分権改革」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "内閣府「地方分権改革」",
+   "url": "https://www.cao.go.jp/bunken-suishin/",
+   "chars": 807,
+   "error": null
+  },
+  {
+   "label": "全国町村長大会「特別決議」（埼玉県町村会資料に収録）",
+   "url": "https://www.pref.saitama.lg.jp/documents/18220/h25tyousonnkai.pdf",
+   "chars": 721,
+   "error": null
+  },
+  {
+   "label": "日本維新の会「日本維新の会について」",
+   "url": "https://o-ishin.jp/about/",
+   "chars": 1239,
+   "error": null
+  },
+  {
+   "label": "日本維新の会「道州制導入等の統治機構抜本改革法案」概要",
+   "url": "https://o-ishin.jp/news/bill/pdf/030_1.pdf",
+   "chars": 743,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第1条の2",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府「地方分権改革・提案募集方式 取組・成果事例集（令和２年２月）」",
+   "url": "https://www.cao.go.jp/bunken-suishin/jirei/jirei_r2.html",
+   "chars": 3768,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "内閣府「地方分権改革」の今のページでは、提案募集方式と「令和7年の地方からの提案等に関する対応方針（令和7年12月23日閣議決定）」の掲載が確認でき、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

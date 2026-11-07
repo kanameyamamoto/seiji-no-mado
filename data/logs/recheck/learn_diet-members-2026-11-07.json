@@ -1,0 +1,76 @@
+{
+ "unit": "learn:diet-members",
+ "title": "国会議員の仕事と待遇（歳費など）",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「参議院 議員一覧」の内容が変わった",
+  "出典の「国会議員の歳費、旅費及び手当等に関する法律」を改正する法律が成立した（国会議員の歳費、旅費及び手当等に関する法律の改正、2025-12-16）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）",
+  "出典の「国会法」を改正する法律が成立した（国会法などの改正、2025-05-09）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "参議院 議員一覧",
+   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giin.htm",
+   "chars": 8655,
+   "error": null
+  },
+  {
+   "label": "衆議院 議員一覧",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/syu/1giin.htm",
+   "chars": 3174,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第49条〜第51条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国会法 第35条・第38条・第132条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国会議員の歳費、旅費及び手当等に関する法律 第1条・第9条〜第11条の2",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000080",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国会における各会派に対する立法事務費の交付に関する法律",
+   "url": "https://laws.e-gov.go.jp/law/328AC1000000052",
+   "chars": 3189,
+   "error": null
+  },
+  {
+   "label": "参議院「国会の地位と権能」",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/kiso_1.html",
+   "chars": 1726,
+   "error": null
+  },
+  {
+   "label": "衆議院「国会議員の地位」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_giin.htm",
+   "chars": 412,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "国会議員の歳費、旅費及び手当等に関する法律（e-Gov）の抜粋で、第1条の歳費月額（議長217万円・副議長158万4千円・議員129万4千円）、第9条の調査研究広報滞在費（月額100万円、報告書・領収書等の写しの提出と公開、残余の返還）、第10条の特殊乗車券、第11条の2の期末手当（6月1日・12月1日）、立法事務費法第3条の月額65万円、国会法第35条・第38条を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
