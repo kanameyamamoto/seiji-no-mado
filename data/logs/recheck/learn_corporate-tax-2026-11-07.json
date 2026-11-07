@@ -1,0 +1,60 @@
+{
+ "unit": "learn:corporate-tax",
+ "title": "法人税のしくみ",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典の「地方税法」を改正する法律が成立した（地方税法等の改正、2025-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "法人税法 第66条",
+   "url": "https://laws.e-gov.go.jp/law/340AC0000000034",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "我が国の防衛力の抜本的な強化等のために必要な財源の確保に関する特別措置法",
+   "url": "https://laws.e-gov.go.jp/law/505AC0000000069",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度租税及び印紙収入概算」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/24.pdf",
+   "chars": 2248,
+   "error": null
+  },
+  {
+   "label": "財務省「税の種類に関する資料」",
+   "url": "https://www.mof.go.jp/tax_policy/summary/condition/a01.htm",
+   "chars": 480,
+   "error": null
+  },
+  {
+   "label": "地方税法 第52条・第701条の2",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000226",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.2020 確定申告」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2020.htm",
+   "chars": 2555,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "地方税法（e-Gov）の抜粋では法人の均等割と第52条の規定が引き続き確認でき、法人税法第66条（年800万円以下の所得部分の軽減税率）、防衛財源確保法、財務省「令和８年度租税及び印紙収入概算」（法人税206,960億円、防衛特別法人税5,760億円）の抜粋もページの記述と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:tax-types",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"stdが「住民税といっしょに納めている『森林環境税』とは何か。」であるのに対し、hsが温泉にかかる税金の話題になっており、中身がまったく一致していません。\",\n      \"fix\": \"stdに合わせて「住民税といっしょに納める『森林環境税』とは何かについて見ます。」のように直してください。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

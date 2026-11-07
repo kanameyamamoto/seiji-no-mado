@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:seito-yoken",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"ふりがなの読み\",\n      \"where\": \"blocks/2/text の hs\",\n      \"detail\": \"「項」の読みに対するふりがなですが、｜の使い方が誤っています。正しくは「第86条の2第4｜項《こう》」ではなく「第86条の2第4項《こう》」とするか、送りがながないため単に「項《こう》」とします。\",\n      \"fix\": \"「第86条の2第4項《こう》」に直す\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

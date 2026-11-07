@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:money-nisa-ideco",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/0/text の hs\",\n      \"detail\": \"std は「NISAとiDeCoでは、税金の扱いや使える人がどう違うのでしょうか？」という問いかけであるのに対し、hs は「2027年1月から、子どももNISAという制度で…」とまったく異なる内容になっている。\",\n      \"fix\": \"std の内容に合わせて、「NISAとiDeCoでは、税金の扱いや使える人がどう違うのでしょうか？」という意味の文に書き直す。\"\n    },\n    {\n      \"type\": \"中身のずれ\",\n      \"where\": \"blocks/4/text の hs\",\n      \"detail\": \"std は「iDeCoプラスは届出により最長70歳まで加入可能となる（2026年12月から）。」であるのに対し、hs は「iDeCoは、65歳になると国民年金の資格がなくなるため入れなくなっていましたが…」と対象が「iDeCoプラス」から「iDeCo」に変わり、std にない背景説明が追加されている。\",\n      \"fix\": \"std の内容（iDeCoプラス、70歳まで加入可能、2026年12月から）に合わせて正しく書き直す。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}

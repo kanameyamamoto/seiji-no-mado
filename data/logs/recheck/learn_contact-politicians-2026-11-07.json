@@ -1,0 +1,72 @@
+{
+ "unit": "learn:contact-politicians",
+ "title": "政治家や行政への意見の伝え方",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「参議院 議員一覧」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "参議院 議員一覧",
+   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giin.htm",
+   "chars": 8655,
+   "error": null
+  },
+  {
+   "label": "衆議院 議員一覧",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/syu/1giin.htm",
+   "chars": 3174,
+   "error": null
+  },
+  {
+   "label": "衆議院「行政に関する苦情受付窓口について」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/tetuzuki/kessan-kujo.htm",
+   "chars": 919,
+   "error": null
+  },
+  {
+   "label": "e-Gov パブリック・コメント",
+   "url": "https://public-comment.e-gov.go.jp/",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "日本国憲法 第16条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第99条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「請願・陳情書・意見書の手続」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/tetuzuki/seigan.htm",
+   "chars": 2892,
+   "error": null
+  },
+  {
+   "label": "参議院「請願・地方議会からの意見書の提出」",
+   "url": "https://www.sangiin.go.jp/jpn/annai/seigan_ikenn/seigan_ikenn_index.html",
+   "chars": 196,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "参議院「議員一覧」（令和8年11月6日現在、第222回国会）は議員一覧の公開ページとして引き続き掲載されており、ページの「国会議員の一覧は各議院の公式ページで公開されている」との記述と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
