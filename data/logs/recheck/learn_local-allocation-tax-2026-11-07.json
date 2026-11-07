@@ -1,0 +1,55 @@
+{
+ "unit": "learn:local-allocation-tax",
+ "title": "地方交付税",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典の「地方交付税法」を改正する法律が成立した（地方交付税法等の改正、2025-12-16）",
+  "出典の「地方交付税法」を改正する法律が成立した（地方交付税法及び特別会計に関する法律の改正、2024-12-17）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "地方交付税法 第1条・第6条・第6条の2",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000211",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「令和８年度地方財政計画のポイント」（令和8年2月）",
+   "url": "https://www.soumu.go.jp/main_content/001056680.pdf",
+   "chars": 3962,
+   "error": null
+  },
+  {
+   "label": "総務省「令和８年度地方財政対策のポイント」（令和7年12月26日）",
+   "url": "https://www.soumu.go.jp/main_content/001048684.pdf",
+   "chars": 3861,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "東京都「令和8年度 東京都普通交付税の算定結果について」（2026年7月24日）",
+   "url": "https://www.metro.tokyo.lg.jp/information/press/2026/07/2026072406",
+   "chars": 2752,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "地方交付税法第1条、総務省の令和8年度地方財政計画・地方財政対策のポイント（地方交付税総額20.2兆円・対前年度比＋1.2兆円、臨時財政対策債の新規発行額ゼロ、交付税特別会計の借入金残高2.9兆円縮減）、財務省の主要経費別内訳（地方交付税交付金等208,778億円）、東京都の算定結果（不交付団体、財源超過額2兆1,895億円・1,978億円増）を確かめ、ページの文と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
