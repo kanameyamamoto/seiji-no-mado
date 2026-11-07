@@ -1,0 +1,75 @@
+{
+ "unit": "learn:constitution-principles",
+ "title": "日本国憲法の三原則",
+ "date": "2026-11-07",
+ "reasons": [
+  "出典「文部科学省「高等教育の修学支援新制度」」の内容が変わった",
+  "出典の「大学等における修学の支援に関する法律」を改正する法律が成立した（大学等における修学の支援に関する法律の改正、2025-03-31）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "文部科学省「高等教育の修学支援新制度」",
+   "url": "https://www.mext.go.jp/a_menu/koutou/hutankeigen/index.htm",
+   "chars": 2421,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 前文・第1条・第3条・第4条・第7条・第9条・第11条・第97条〜第100条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "義務教育諸学校の教科用図書の無償措置に関する法律 第3条",
+   "url": "https://laws.e-gov.go.jp/law/338AC0000000182",
+   "chars": 10386,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第21条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本国憲法の改正手続に関する法律 第22条・第60条",
+   "url": "https://laws.e-gov.go.jp/law/419AC1000000051",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "労働基準法 第7条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "大学等における修学の支援に関する法律 第1条",
+   "url": "https://laws.e-gov.go.jp/law/501AC0000000008",
+   "chars": 11853,
+   "error": null
+  },
+  {
+   "label": "文部科学省「学校給食費の抜本的な負担軽減」",
+   "url": "https://www.mext.go.jp/a_menu/sports/syokuiku/kyu-lighten.html",
+   "chars": 2045,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "文部科学省「高等教育の修学支援新制度」と大学等における修学の支援に関する法律第1条（教育費の負担軽減を図るための授業料等の減免）、公職選挙法第9条を確かめましたが、ページの記述と食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
