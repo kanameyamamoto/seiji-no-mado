@@ -1,5 +1,0 @@
-{
- "for": "easy:learn:bpo",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"名前と数字\",\n      \"where\": \"blocks/3/items/0/text の es および hs\",\n      \"detail\": \"std では「BPO」となっている組織名が、誤って「BRO」になっています。\",\n      \"fix\": \"「BRO」を「BPO」に直す\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
