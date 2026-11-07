@@ -84,6 +84,11 @@
    "date": "2026-11-07",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/22",
    "title": "リンク切れ：ニッセイ基礎研究所 井出真吾「「選挙は買い」は本当か」年金ストラテジー Vol.341（2024年11月）"
+  },
+  {
+   "date": "2026-11-08",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/27",
+   "title": "リンク切れ：NHK党"
   }
  ],
  "alerts": [],
@@ -6228,6 +6233,7 @@
    "since": "2026-11-01"
   },
   "https://www.syoha.jp/": {
+   "alerted": "2026-11-08",
    "broken": "2026-11-08",
    "checked": "2026-11-08",
    "fails": 3,

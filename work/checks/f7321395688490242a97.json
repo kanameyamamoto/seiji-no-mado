@@ -1,5 +1,0 @@
-{
- "for": "more:r6-law-075",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"レベルのずれ\",\n      \"where\": \"reason.hs\",\n      \"detail\": \"「国家公務員」のふりがなが「こくかこうむいん」となっており、促音（っ）が抜けています。\",\n      \"fix\": \"「国家公務員《こっかこうむいん》」に修正します。\"\n    }\n  ]\n}",
- "model": "gemini-3.8-flash"
-}
