@@ -1,0 +1,75 @@
+{
+ "unit": "links:mext",
+ "title": "文部科学省",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「文部科学省」の内容が変わった",
+  "出典「文部科学省「高等教育の修学支援新制度」」の内容が変わった",
+  "出典の「スポーツ基本法」を改正する法律が成立した（スポーツ基本法等の改正、2025-06-13）",
+  "出典の「学校教育法」を改正する法律が成立した（学校教育法の改正、2024-06-07）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "文部科学省",
+   "url": "https://www.mext.go.jp/",
+   "chars": 666,
+   "error": null
+  },
+  {
+   "label": "学校教育法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000026",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "スポーツ基本法",
+   "url": "https://laws.e-gov.go.jp/law/423AC1000000078",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高等教育の修学支援新制度」",
+   "url": "https://www.mext.go.jp/a_menu/koutou/hutankeigen/index.htm",
+   "chars": 2421,
+   "error": null
+  },
+  {
+   "label": "文部科学省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000096",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "文部科学省公式サイト、学校教育法、スポーツ基本法、文部科学省「高等教育の修学支援新制度」、文部科学省設置法（第3条・外局）、財務省「令和８年度一般会計歳入歳出概算」（所管別内訳）、行政機関職員定員令の今の本文を確かめ、任務・予算額（5兆8,809億円）・定員（2,256人）・外局（スポーツ庁・文化庁）・修学支援新制度の内容に食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
