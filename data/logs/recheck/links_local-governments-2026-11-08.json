@@ -1,0 +1,76 @@
+{
+ "unit": "links:local-governments",
+ "title": "都道府県と市町村の数",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典の「住民基本台帳法」を改正する法律が成立した（行政手続における特定の個人を識別するための番号の利用等に関する法律及び住民基本台帳法の改正、2025-05-16）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）",
+  "出典の「学校教育法」を改正する法律が成立した（学校教育法の改正、2024-06-07）",
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2024-06-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省「市町村合併」（本日の市町村数）",
+   "url": "https://www.soumu.go.jp/kouiki/kouiki.html",
+   "chars": 1474,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年版 地方財政白書」第1部 2 地方財政の概況",
+   "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/chihou/r08data/2026data/r08czb01-02.html",
+   "chars": 8528,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年版 地方財政白書」第1部 1 地方財政の役割",
+   "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/chihou/r08data/2026data/r08czb01-01.html",
+   "chars": 2230,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第1条の2・第1条の3",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "学校教育法 第38条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000026",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "住民基本台帳法 第22条",
+   "url": "https://laws.e-gov.go.jp/law/342AC0000000081",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第48条の2・第49条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "和歌山県「児童手当」",
+   "url": "https://www.pref.wakayama.lg.jp/prefg/040200/jidoteate.html",
+   "chars": 1822,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "総務省「市町村合併」の本日の市町村数（1，718市町村、市 792 町 743 村 183、北方領土の6村を含めると1,724）と住民基本台帳法・公職選挙法の今の本文（抜粋）を確かめたが、示された改正はポスター・選挙運動用自動車や個人番号関係のもので、ページに書いた転入届の期限や選挙権の住所要件と食い違う記述は見つからなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

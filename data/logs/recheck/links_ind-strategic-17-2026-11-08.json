@@ -1,0 +1,36 @@
+{
+ "unit": "links:ind-strategic-17",
+ "title": "戦略17分野（日本成長戦略）",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「内閣官房 日本成長戦略本部／日本成長戦略会議」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "内閣官房 日本成長戦略本部／日本成長戦略会議",
+   "url": "https://www.cas.go.jp/jp/seisaku/nipponseichosenryaku/index.html",
+   "chars": 4676,
+   "error": null
+  },
+  {
+   "label": "「日本成長戦略」本文（PDF）",
+   "url": "https://www.cas.go.jp/jp/seisaku/nipponseichosenryaku/pdf/jgs2026.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "内閣官房「日本成長戦略本部／日本成長戦略会議」の今の本文（抜粋）を確かめたが、変わっていたのは新着情報と会議の開催状況の追加で、日本成長戦略本部の設置（令和７年１１月４日閣議決定）や「日本成長戦略」の閣議決定（令和８年７月２１日）などページの文と食い違う記述は見つからなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
