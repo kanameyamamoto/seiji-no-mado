@@ -1,0 +1,54 @@
+{
+ "unit": "learn:treaties",
+ "title": "条約の結び方と国会承認",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「衆議院 議案情報（条約を含む）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "衆議院 議案情報（条約を含む）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm",
+   "chars": 4095,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第7条・第60条・第61条・第73条・第98条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「国会の権限」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_kengen2.htm",
+   "chars": 938,
+   "error": null
+  },
+  {
+   "label": "参議院「両議院の関係」",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/kiso_4.html",
+   "chars": 571,
+   "error": null
+  },
+  {
+   "label": "外務省「児童の権利条約（児童の権利に関する条約）」",
+   "url": "https://www.mofa.go.jp/mofaj/gaiko/jido/seka.html",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典「衆議院 議案情報（条約を含む）」の今の本文は第222回国会の議案一覧で、ページが書いている条約の締結・承認の手続（憲法第61条・第73条など）と食い違う記載はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

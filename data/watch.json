@@ -99,6 +99,11 @@
    "date": "2026-11-08",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/31",
    "title": "要確認：政党要件（政党助成法・公職選挙法）（learn:seito-yoken）"
+  },
+  {
+   "date": "2026-11-08",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/32",
+   "title": "要確認：衆議院と参議院の違い（learn:two-houses）"
   }
  ],
  "alerts": [],
@@ -549,26 +554,6 @@
    {
     "date": "2026-11-07",
     "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
-   }
-  ],
-  "learn:toshu-erabikata": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「熊本日日新聞（共同通信配信）「公明党大会、体制刷新で再出発」（2026年10月3日の党大会）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「参政党「参政党について」（理念・綱領・規約）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-08",
-    "reason": "出典「チームみらい「党規約」」の内容が変わった"
-   }
-  ],
-  "learn:treaties": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「衆議院 議案情報（条約を含む）」の内容が変わった"
    }
   ],
   "learn:two-houses": [
@@ -1177,6 +1162,11 @@
   "learn:sengo-seito": {
    "date": "2026-11-08",
    "log": "data/logs/recheck/learn_sengo-seito-2026-11-08.json",
+   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+  },
+  "learn:two-houses": {
+   "date": "2026-11-08",
+   "log": "data/logs/recheck/learn_two-houses-2026-11-08.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   }
  },
