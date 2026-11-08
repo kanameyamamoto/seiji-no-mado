@@ -1,0 +1,72 @@
+{
+ "unit": "links:mof",
+ "title": "財務省",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「財務省」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "財務省",
+   "url": "https://www.mof.go.jp/",
+   "chars": 1609,
+   "error": null
+  },
+  {
+   "label": "財務省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000095",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財政法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000034",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "会計法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000035",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省の公式サイト（https://www.mof.go.jp/）の今の本文には、ページに書いた任務・所管法・令和8年度予算額・定員・外局と食い違う記載はなく、財務省設置法第3条・第19条、令和8年度一般会計歳出概算所管別内訳（財務省326,116億円、うち国債費312,758億円）、行政機関職員定員令（財務省73,196人、附則で令和8年12月31日までの間73,242人）とも一致していた。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
