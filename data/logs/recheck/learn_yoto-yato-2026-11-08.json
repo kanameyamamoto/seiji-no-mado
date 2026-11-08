@@ -1,0 +1,61 @@
+{
+ "unit": "learn:yoto-yato",
+ "title": "与党と野党、連立政権",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「熊本日日新聞（共同通信配信）「第２次高市改造、維新入閣」」の内容が変わった",
+  "出典「nippon.com「第2次高市改造内閣の顔ぶれ」（2026年9月17日）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "熊本日日新聞（共同通信配信）「第２次高市改造、維新入閣」",
+   "url": "https://kumanichi.com/articles/2036690",
+   "chars": 3108,
+   "error": null
+  },
+  {
+   "label": "nippon.com「第2次高市改造内閣の顔ぶれ」（2026年9月17日）",
+   "url": "https://www.nippon.com/ja/japan-data/h02906/",
+   "chars": 3300,
+   "error": null
+  },
+  {
+   "label": "日本国憲法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「連立政権」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E9%80%A3%E7%AB%8B%E6%94%BF%E6%A8%A9",
+   "chars": 10183,
+   "error": null
+  },
+  {
+   "label": "日本維新の会「コア・マニフェスト」（自民党との連立合意「12本の矢」を掲載）",
+   "url": "https://o-ishin.jp/coalition2025/img/index/core_manifesto_2026.pdf",
+   "chars": 6,
+   "error": null
+  },
+  {
+   "label": "公明党「沿革」",
+   "url": "https://www.komei.or.jp/about/history/",
+   "chars": 3959,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "共同通信（熊本日日新聞）とnippon.comの今の本文で、第2次高市改造内閣が2026年9月17日に発足し、閣外協力だった日本維新の会から中司宏氏が初入閣したことを確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

@@ -1,0 +1,67 @@
+{
+ "unit": "learn:work-employment-insurance",
+ "title": "雇用保険と失業給付",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「雇用保険法施行規則 第3条の2（e-Gov法令検索）」の法令が改正された：雇用保険法施行規則の一部を改正する省令（令和八年厚生労働省令第百四十九号、施行 2026-10-22）",
+  "出典「厚生労働省「令和７年４月１日から高年齢雇用継続給付の支給率を変更します」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "雇用保険法施行規則 第3条の2（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/350M50002000003",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「令和７年４月１日から高年齢雇用継続給付の支給率を変更します」",
+   "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00043.html",
+   "chars": 1003,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「令和８（2026）年度 雇用保険料率のご案内」",
+   "url": "https://www.mhlw.go.jp/content/001692566.pdf",
+   "chars": 1493,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「雇用保険法等の一部を改正する法律（令和６年法律第26号）の概要」",
+   "url": "https://www.mhlw.go.jp/content/11600000/001255172.pdf",
+   "chars": 11730,
+   "error": null
+  },
+  {
+   "label": "雇用保険法 第6条・第13条・第22条・第33条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/349AC0000000116",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「育児休業を取得される方へ 2025年4月から出生後休業支援給付制度が始まっています」",
+   "url": "https://www.mhlw.go.jp/content/11900000/001599643.pdf",
+   "chars": 1663,
+   "error": null
+  },
+  {
+   "label": "ハローワークインターネットサービス「基本手当について」（高年齢求職者給付金）",
+   "url": "https://www.hellowork.mhlw.go.jp/insurance/insurance_basicbenefit.html",
+   "chars": 7318,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "厚生労働省「令和７年４月１日から高年齢雇用継続給付の支給率を変更します」で令和7年4月1日以降に60歳に達した方は賃金の10％を限度とすることを確かめ、ページと食い違いはなかった（雇用保険法施行規則の抜粋は第3条の2の本文が読み取れないため、根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
