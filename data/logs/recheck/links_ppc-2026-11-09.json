@@ -1,0 +1,67 @@
+{
+ "unit": "links:ppc",
+ "title": "個人情報保護委員会",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「個人情報保護委員会」の内容が変わった",
+  "出典の「行政手続における特定の個人を識別するための番号の利用等に関する法律」を改正する法律が成立した（行政手続における特定の個人を識別するための番号の利用等に関する法律及び住民基本台帳法の改正、2025-05-16）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "個人情報保護委員会",
+   "url": "https://www.ppc.go.jp/",
+   "chars": 3502,
+   "error": null
+  },
+  {
+   "label": "行政手続における特定の個人を識別するための番号の利用等に関する法律",
+   "url": "https://laws.e-gov.go.jp/law/425AC0000000027",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "個人情報の保護に関する法律",
+   "url": "https://laws.e-gov.go.jp/law/415AC0000000057",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "内閣府設置法 第64条",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000089",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典「個人情報保護委員会」のトップページと番号利用法・個人情報保護法（第26条・第131条）・行政機関職員定員令（事務局242人）の今の本文を確かめ、ページの記述と食い違う内容はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
