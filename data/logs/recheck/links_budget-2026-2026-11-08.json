@@ -1,0 +1,72 @@
+{
+ "unit": "links:budget-2026",
+ "title": "2026年度（令和8年度）一般会計予算",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「財務省「令和８年度予算」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "財務省「令和８年度予算」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/index.html",
+   "chars": 2297,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度予算フレーム」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/02.pdf",
+   "chars": 5179,
+   "error": null
+  },
+  {
+   "label": "参議院 議案情報「令和八年度一般会計予算」（第221回国会）",
+   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/221/meisai/m221150221001.htm",
+   "chars": 412,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度暫定予算について」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/R8zantei_01.pdf",
+   "chars": 792,
+   "error": null
+  },
+  {
+   "label": "財政法 第30条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000034",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度租税及び印紙収入概算」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/24.pdf",
+   "chars": 2248,
+   "error": null
+  },
+  {
+   "label": "所得税法 第2条第1項第32号・第82条・第183条",
+   "url": "https://laws.e-gov.go.jp/law/340AC0000000033",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省「令和８年度予算」の今の本文で、令和８年２月20日の財政演説、令和８年４月７日に政府案どおり成立したことを確かめ、変わったのは予備費使用の掲載が増えた点で、ページの記述（当初予算）との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
