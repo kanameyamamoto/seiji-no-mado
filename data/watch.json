@@ -615,12 +615,6 @@
     "reason": "出典「厚生労働省「働き方改革を推進するための関係法律の整備に関する法律について」」の内容が変わった"
    }
   ],
-  "links:disaster-management-agency": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「内閣府 防災情報のページ」の内容が変わった"
-   }
-  ],
   "links:elections-and-stocks": [
    {
     "date": "2026-11-06",
@@ -1084,6 +1078,11 @@
    "date": "2026-11-08",
    "log": "data/logs/recheck/learn_upper-house-election-2026-11-08.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+  },
+  "links:disaster-management-agency": {
+   "date": "2026-11-08",
+   "log": "data/logs/recheck/links_disaster-management-agency-2026-11-08.json",
+   "reason": "直した版をプルリクエストで提案中"
   }
  },
  "kaiha": {

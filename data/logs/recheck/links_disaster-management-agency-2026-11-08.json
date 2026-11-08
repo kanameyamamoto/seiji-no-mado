@@ -1,0 +1,132 @@
+{
+ "unit": "links:disaster-management-agency",
+ "title": "防災庁",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「内閣府 防災情報のページ」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "内閣府 防災情報のページ",
+   "url": "https://www.bousai.go.jp/",
+   "chars": 3615,
+   "error": null
+  },
+  {
+   "label": "防災庁設置法",
+   "url": "https://laws.e-gov.go.jp/law/508AC0000000061",
+   "chars": 9903,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "災害対策基本法",
+   "url": "https://laws.e-gov.go.jp/law/336AC0000000223",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "防災庁組織令 附則（施行日）",
+   "url": "https://laws.e-gov.go.jp/law/508CO0000000304",
+   "chars": 1939,
+   "error": null
+  },
+  {
+   "label": "首相官邸「災害への備え 事前にできること」（防災の手引き、令和8年10月更新）",
+   "url": "https://www.kantei.go.jp/jp/headline/bousai/sonae.html",
+   "chars": 3077,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "needs_human",
+    "note": "内閣府 防災情報のページ（https://www.bousai.go.jp/）は「令和8年11月2日 防災庁が発足しました」と載せ、防災庁のサイトになっている。また行政機関職員定員令第1条第1項の表の今の本文に「防災庁　三五二人」がある。ページの blocks[6] の注（確認日2026年11月1日時点で発足前・定員令に防災庁の定員はない・公式サイト未確認）と、blocks[7] のリンクの説明「防災庁発足前の防災情報」が今の出典と合わない。直すには、stats に定員の項目を足し、注を書きかえ（または消し）、公式サイトのリンクの名前と説明を変える必要があり、形を変えるため人の判断が要る。"
+   },
+   "result": "形を変える直しが必要"
+  },
+  {
+   "round": 1,
+   "mode": "形を変える直し",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "changes": [
+    {
+     "path": "blocks[2].items[1].label",
+     "before": null,
+     "after": "定員"
+    },
+    {
+     "path": "blocks[2].items[1].unit",
+     "before": null,
+     "after": "人"
+    },
+    {
+     "path": "blocks[2].items[1].value",
+     "before": null,
+     "after": "352"
+    },
+    {
+     "path": "blocks[6].text.es",
+     "before": "確《たし》かめた日《ひ》（2026年《ねん》11月《がつ》｜1日《ついたち》）の時点《じてん》では、防災庁《ぼうさいちょう》はまだできていませんでした。定員令《ていいんれい》に防災庁《ぼうさいちょう》の定員《ていいん》はなく、職員《しょくいん》の数《かず》は確《たし》かめられていません。公式《こうしき》サイトも確《たし》かめられていないため、内閣府《ないかくふ》の「防災情報《ぼうさいじょうほう》のページ」をのせています。",
+     "after": "職員《しょくいん》の数《かず》は、行政機関職員定員令《ぎょうせいきかんしょくいんていいんれい》で決《き》められた定員《ていいん》です。"
+    },
+    {
+     "path": "blocks[6].text.hs",
+     "before": "確認日（2026年11月1日）の時点では発足前でした。定員令に防災庁の定員はなく、職員数は確認できていません。公式サイトも確認できていないため、内閣府の「防災情報のページ」を示します。",
+     "after": "職員数は、行政機関職員定員令で定められた定員です。"
+    },
+    {
+     "path": "blocks[6].text.std",
+     "before": "確認日（2026年11月1日）時点では発足前。定員令に防災庁の定員はなく職員数は未確認。公式サイトは未確認のため内閣府「防災情報のページ」を示す。",
+     "after": "職員数は行政機関職員定員令上の定員。"
+    },
+    {
+     "path": "blocks[6].text.univ",
+     "before": "確認日（2026年11月1日）時点で防災庁設置法の本則は未施行。現行の行政機関職員定員令に防災庁の定員規定はなく、職員数は確認できない。公式サイトも確認できず、内閣府「防災情報のページ」を示す。災害対策基本法は防災庁の任務規定（第3条）で基本理念が参照される法律として掲げた。",
+     "after": "職員数は行政機関職員定員令第1条第1項の表の定員。災害対策基本法は防災庁の任務規定（第3条）で基本理念が参照される法律として掲げた。"
+    },
+    {
+     "path": "blocks[7].items[0].label",
+     "before": "内閣府 防災情報のページ",
+     "after": "防災庁"
+    },
+    {
+     "path": "blocks[7].items[0].note",
+     "before": "防災庁発足前の防災情報",
+     "after": "公式サイト"
+    }
+   ],
+   "numcheck": [],
+   "checker_model": "gemini-3.5-flash-lite",
+   "check": {
+    "pass": true,
+    "problems": []
+   },
+   "result": "合格（提案にする）"
+  }
+ ],
+ "final": "直した版をプルリクエストで提案",
+ "path": "data/logs/recheck/links_disaster-management-agency-2026-11-08.json"
+}
