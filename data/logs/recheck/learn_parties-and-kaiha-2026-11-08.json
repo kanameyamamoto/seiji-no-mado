@@ -1,0 +1,33 @@
+{
+ "unit": "learn:parties-and-kaiha",
+ "title": "会派と政党",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「参議院「会派別所属議員数一覧」（令和8年10月31日現在）」の内容が変わった",
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）",
+  "出典の「国会法」を改正する法律が成立した（国会法などの改正、2025-05-09）"
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "mode": "形を変える直し",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "changes": [
+    {
+     "path": "blocks[4].title",
+     "before": "参議院の会派別所属議員数（令和8年10月31日現在）",
+     "after": "参議院の会派別所属議員数（令和8年11月7日現在）"
+    }
+   ],
+   "numcheck": [],
+   "checker_model": "gemini-3.5-flash-lite",
+   "check": {
+    "pass": true,
+    "problems": []
+   },
+   "result": "合格（提案にする）"
+  }
+ ],
+ "path": "data/logs/recheck/learn_parties-and-kaiha-2026-11-08.json",
+ "final": "直した版をプルリクエストで提案"
+}

@@ -1,0 +1,74 @@
+{
+ "unit": "learn:pension",
+ "title": "年金のしくみ",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「厚生労働省「育児期間の国民年金保険料免除制度」」の内容が変わった",
+  "出典「厚生労働省「将来の公的年金の財政見通し（財政検証）」」の内容が変わった",
+  "出典「日本年金機構「国民年金保険料の学生納付特例制度」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "厚生労働省「将来の公的年金の財政見通し（財政検証）」",
+   "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/nenkin/nenkin/zaisei-kensyo/index.html",
+   "chars": 2088,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料の学生納付特例制度」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html",
+   "chars": 5267,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「育児期間の国民年金保険料免除制度」",
+   "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000143356_00038.html",
+   "chars": 1109,
+   "error": null
+  },
+  {
+   "label": "国民年金法 第4条の3・第7条・第26条",
+   "url": "https://laws.e-gov.go.jp/law/334AC0000000141",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "厚生年金保険法 第9条",
+   "url": "https://laws.e-gov.go.jp/law/329AC0000000115",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「制度変更（令和８年４月）」",
+   "url": "https://www.mhlw.go.jp/stf/newpage_71570.html",
+   "chars": 4771,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度 社会保障関係予算のポイント」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/13.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "iDeCo公式サイト「iDeCoの加入資格・掛金・受取方法等」",
+   "url": "https://www.ideco-koushiki.jp/guide/structure.html",
+   "chars": 3055,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "厚生労働省「育児期間の国民年金保険料免除制度」（2026年10月1日開始・1歳未満の子・最大12か月）、厚生労働省「財政検証」（少なくとも5年ごと）、日本年金機構「学生納付特例制度」（所得基準128万円+扶養親族等の数×38万円+社会保険料控除等、追納10年以内、3年度目以降の加算額、申請先）を確かめ、ページの文との食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
