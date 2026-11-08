@@ -1,0 +1,72 @@
+{
+ "unit": "learn:tax-types",
+ "title": "税の種類（国税と地方税）",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典の「地方税法」を改正する法律が成立した（地方税法等の改正、2025-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "財務省「税の種類に関する資料」",
+   "url": "https://www.mof.go.jp/tax_policy/summary/condition/a01.htm",
+   "chars": 480,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度租税及び印紙収入概算」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/24.pdf",
+   "chars": 2248,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第84条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 8475,
+   "error": null
+  },
+  {
+   "label": "地方税法 第52条・第701条の2",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000226",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "森林環境税及び森林環境譲与税に関する法律 第5条・第7条",
+   "url": "https://laws.e-gov.go.jp/law/431AC0000000003",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国際観光旅客税法 第15条（令和8年法律第12号による改正後、2026年7月1日施行）",
+   "url": "https://laws.e-gov.go.jp/law/430AC0000000016",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.2020 確定申告」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2020.htm",
+   "chars": 2555,
+   "error": null
+  },
+  {
+   "label": "財務省「特集 令和8年度 税制改正（国税）等について」",
+   "url": "https://www.mof.go.jp/public_relations/finance/202604/202604c.html",
+   "chars": 9811,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省「税の種類に関する資料」の税目、財務省「令和８年度租税及び印紙収入概算」の税目別の額・一般会計分計837,350億円を確かめ、ページの文との食い違いはなかった（地方税法の抜粋には第701条の2の本文がなく、入湯税の額は確かめられないため直していない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
