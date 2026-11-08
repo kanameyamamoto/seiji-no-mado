@@ -1,0 +1,72 @@
+{
+ "unit": "links:mhlw",
+ "title": "厚生労働省",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「厚生労働省」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "厚生労働省",
+   "url": "https://www.mhlw.go.jp/",
+   "chars": 2922,
+   "error": null
+  },
+  {
+   "label": "厚生労働省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000097",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "健康保険法",
+   "url": "https://laws.e-gov.go.jp/law/211AC0000000070",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "労働基準法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典「厚生労働省」（https://www.mhlw.go.jp/）のトップページの今の本文は新着情報・案内の一覧で、ページの任務・予算（35兆433億円）・定員（33,093人）・外局（中央労働委員会）などの記述と食い違う内容はなく、設置法第3条・財務省概算の所管別内訳・行政機関職員定員令・国家行政組織法別表第一の本文とも一致していた。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

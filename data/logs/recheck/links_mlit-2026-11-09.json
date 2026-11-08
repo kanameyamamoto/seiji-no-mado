@@ -1,0 +1,73 @@
+{
+ "unit": "links:mlit",
+ "title": "国土交通省",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「国土交通省」の内容が変わった",
+  "出典の「気象業務法」を改正する法律が成立した（気象業務法及び水防法の改正、2025-12-05）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "国土交通省",
+   "url": "https://www.mlit.go.jp/",
+   "chars": 3719,
+   "error": null
+  },
+  {
+   "label": "気象業務法",
+   "url": "https://laws.e-gov.go.jp/law/327AC0000000165",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国土交通省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "海上保安庁法",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000028",
+   "chars": 11221,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "国土交通省公式サイト、気象業務法、国土交通省設置法第3条、財務省「令和８年度一般会計歳入歳出概算」、行政機関職員定員令の今の本文を確かめ、任務・所管別予算（61,993億円）・定員（60,443人）・外局・気象庁の警報に関する記述と食い違いはなかった（予算書データベースは開けず、国家行政組織法別表第一は抜粋に含まれないため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
