@@ -1,0 +1,73 @@
+{
+ "unit": "learn:what-is-politics",
+ "title": "政治とは",
+ "date": "2026-11-08",
+ "reasons": [
+  "出典「文部科学省「高等教育の修学支援新制度」」の内容が変わった",
+  "出典の「大学等における修学の支援に関する法律」を改正する法律が成立した（大学等における修学の支援に関する法律の改正、2025-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "文部科学省「高等教育の修学支援新制度」",
+   "url": "https://www.mext.go.jp/a_menu/koutou/hutankeigen/index.htm",
+   "chars": 2421,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 前文・第15条・第41条・第60条・第61条・第73条・第94条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 選挙の意義」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo01.html",
+   "chars": 1789,
+   "error": null
+  },
+  {
+   "label": "学校給食法 第11条",
+   "url": "https://laws.e-gov.go.jp/law/329AC0000000160",
+   "chars": 6574,
+   "error": null
+  },
+  {
+   "label": "文部科学省「学校給食費の抜本的な負担軽減」",
+   "url": "https://www.mext.go.jp/a_menu/sports/syokuiku/kyu-lighten.html",
+   "chars": 2045,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高校生等への修学支援」",
+   "url": "https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm",
+   "chars": 5237,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正について」（広報誌「ファイナンス」2026年4月号）",
+   "url": "https://www.mof.go.jp/public_relations/finance/202604/202604c.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正の解説」令和8年度税制改正について",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/explanation/PDF/p0003-0010.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "文部科学省「高等教育の修学支援新制度」の今の本文（令和2年4月開始、令和7年度から多子世帯の学生は所得制限なく国が定める一定額まで授業料・入学金を減免）をはじめ、憲法・総務省・学校給食・高校生等への修学支援・財務省の各出典と照らし、ページの文との食い違いはなかった（大学等における修学の支援に関する法律の本文は抜粋になく、確かめていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

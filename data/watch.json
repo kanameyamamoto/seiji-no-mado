@@ -104,6 +104,11 @@
    "date": "2026-11-08",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/32",
    "title": "要確認：衆議院と参議院の違い（learn:two-houses）"
+  },
+  {
+   "date": "2026-11-08",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/33",
+   "title": "要確認：参議院の選挙制度（learn:upper-house-election）"
   }
  ],
  "alerts": [],
@@ -588,28 +593,6 @@
     "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
    }
   ],
-  "learn:vote-disparity": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「熊本日日新聞（共同通信）「2月衆院選「合憲」3件目 高裁那覇、1票の格差訴訟」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「NHK「去年7月の参院選の1票の格差めぐる裁判 最高裁大法廷で弁論」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「秋田魁新報（共同通信）「昨年の衆院選、1票の格差は合憲 最高裁「新方式に合理性」」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-07",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）"
-   },
-   {
-    "date": "2026-11-07",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
-   }
-  ],
   "learn:voting-age-18": [
    {
     "date": "2026-11-07",
@@ -618,16 +601,6 @@
    {
     "date": "2026-11-07",
     "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
-   }
-  ],
-  "learn:what-is-politics": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「文部科学省「高等教育の修学支援新制度」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典の「大学等における修学の支援に関する法律」を改正する法律が成立した（大学等における修学の支援に関する法律の改正、2025-03-31）"
    }
   ],
   "learn:work-employment-insurance": [
@@ -1167,6 +1140,11 @@
   "learn:two-houses": {
    "date": "2026-11-08",
    "log": "data/logs/recheck/learn_two-houses-2026-11-08.json",
+   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+  },
+  "learn:upper-house-election": {
+   "date": "2026-11-08",
+   "log": "data/logs/recheck/learn_upper-house-election-2026-11-08.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   }
  },
