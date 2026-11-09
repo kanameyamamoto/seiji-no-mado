@@ -1,0 +1,49 @@
+{
+ "unit": "learn:biz-subsidies",
+ "title": "補助金と企業",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）",
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-06-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "jGrants（補助金申請システム）",
+   "url": "https://www.jgrants-portal.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "補助金等に係る予算の執行の適正化に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/330AC0000000179",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "政治資金規正法 第22条の3（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本政策金融公庫「国民生活事業の業務の概要」",
+   "url": "https://www.jfc.go.jp/n/company/national/summary.html",
+   "chars": 1015,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "e-Gov法令検索の補助金適正化法（第3条・第5〜7条・第14条・第15条・第17条・第18条・第29条）と政治資金規正法第22条の3（第1項・第3項）、日本政策金融公庫の国民生活事業の概要を確かめ、ページの文との食い違いはなかった（jGrantsは本文が読み取れないため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
