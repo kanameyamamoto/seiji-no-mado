@@ -1,0 +1,54 @@
+{
+ "unit": "party:o2",
+ "title": "再生の道",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「再生の道」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "再生の道",
+   "url": "https://saiseinomichi-official.jp/",
+   "chars": 913,
+   "error": null
+  },
+  {
+   "label": "再生の道「国政に臨む基本方針」（目的・綱領・政策基本方針）",
+   "url": "https://saiseinomichi-official.jp/national-politics/",
+   "chars": 594,
+   "error": null
+  },
+  {
+   "label": "再生の道「地方政治に臨む基本方針」",
+   "url": "https://saiseinomichi-official.jp/local-politics/",
+   "chars": 249,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「再生の道」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E5%86%8D%E7%94%9F%E3%81%AE%E9%81%93",
+   "chars": 9935,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」党派別得票数（比例代表）",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "再生の道の公式サイト・「国政に臨む基本方針」・「地方政治に臨む基本方針」・Wikipedia日本語版（2026年9月 和田裕行が代表）・総務省の速報結果の今の本文を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

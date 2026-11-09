@@ -1,0 +1,70 @@
+{
+ "unit": "party:mirai",
+ "title": "チームみらい",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「Wikipedia日本語版「チームみらい」（二次資料）」の内容が変わった",
+  "出典「チームみらい「政策マニフェスト2026」（2026年衆院選）」の内容が変わった",
+  "出典「チームみらい」の内容が変わった",
+  "出典「チームみらい「私たちのチーム」」の内容が変わった",
+  "出典「チームみらい「党規約」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "チームみらい",
+   "url": "https://team-mir.ai/",
+   "chars": 4490,
+   "error": null
+  },
+  {
+   "label": "チームみらい「私たちのチーム」",
+   "url": "https://team-mir.ai/about",
+   "chars": 2825,
+   "error": null
+  },
+  {
+   "label": "チームみらい「政策マニフェスト2026」（2026年衆院選）",
+   "url": "https://policy.team-mir.ai",
+   "chars": 2740,
+   "error": null
+  },
+  {
+   "label": "チームみらい「党規約」",
+   "url": "https://team-mir.ai/policies/rules",
+   "chars": 8041,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「チームみらい」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%BC%E3%83%A0%E3%81%BF%E3%82%89%E3%81%84",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年2月8日執行 衆議院議員総選挙・最高裁判所裁判官国民審査 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html",
+   "chars": 1680,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "チームみらいの公式サイト・「私たちのチーム」（党首 安野貴博、衆議院議員11人）・「政策マニフェスト2026」・「党規約」第10条（党首の任期と選出方法）・Wikipedia日本語版の今の本文を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

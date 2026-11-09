@@ -1,0 +1,73 @@
+{
+ "unit": "party:ldp",
+ "title": "自由民主党",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「熊本日日新聞（共同通信配信）「第２次高市改造、維新入閣」」の内容が変わった",
+  "出典「nippon.com「衆院選2026」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "熊本日日新聞（共同通信配信）「第２次高市改造、維新入閣」",
+   "url": "https://kumanichi.com/articles/2036690",
+   "chars": 3001,
+   "error": null
+  },
+  {
+   "label": "自由民主党",
+   "url": "https://www.jimin.jp/",
+   "chars": 350,
+   "error": null
+  },
+  {
+   "label": "自由民主党「自民党の歴史」（第29代総裁 令和7年10月4日〜）",
+   "url": "https://www.jimin.jp/aboutus/history/",
+   "chars": 7233,
+   "error": null
+  },
+  {
+   "label": "自由民主党「立党宣言・綱領」（平成22年綱領を含む）",
+   "url": "https://www.jimin.jp/aboutus/declaration/",
+   "chars": 7939,
+   "error": null
+  },
+  {
+   "label": "自由民主党「政権公約2026」（第51回衆院選）",
+   "url": "https://www.jimin.jp/election/results/sen_shu51/political_promise/",
+   "chars": 334,
+   "error": null
+  },
+  {
+   "label": "自由民主党「政権公約2026」4 すべての世代の安心と次世代への責任",
+   "url": "https://www.jimin.jp/election/results/sen_shu51/political_promise/manifesto/04/",
+   "chars": 1462,
+   "error": null
+  },
+  {
+   "label": "自由民主党「政権公約2026」5 時代にふさわしい新しい憲法を、私たちの手で",
+   "url": "https://www.jimin.jp/election/results/sen_shu51/political_promise/manifesto/05/",
+   "chars": 585,
+   "error": null
+  },
+  {
+   "label": "自由民主党「党則」（総裁公選規程を含む）",
+   "url": "https://storage.jimin.jp/pdf/aboutus/organization.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "熊本日日新聞（共同通信配信）の記事本文（2026年9月17日の第2次高市改造内閣発足と日本維新の会からの初入閣）と自由民主党の各出典の今の本文を確かめ、ページの文との食い違いはなかった（nippon.com「衆院選2026」は本文の抜粋が渡されていないため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
