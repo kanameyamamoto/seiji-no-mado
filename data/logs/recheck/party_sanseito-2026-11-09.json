@@ -1,0 +1,73 @@
+{
+ "unit": "party:sanseito",
+ "title": "参政党",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「Wikipedia日本語版「参政党」（二次資料）」の内容が変わった",
+  "出典「参政党「参政党について」（理念・綱領・規約）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "参政党",
+   "url": "https://sanseito.jp/",
+   "chars": 1309,
+   "error": null
+  },
+  {
+   "label": "参政党「参政党について」（理念・綱領・規約）",
+   "url": "https://sanseito.jp/about/",
+   "chars": 5709,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「参政党」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E5%8F%82%E6%94%BF%E5%85%9A",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "参政党「概要」（代表者）",
+   "url": "https://sanseito.jp/2020/outline",
+   "chars": 684,
+   "error": null
+  },
+  {
+   "label": "参政党「参政党の政策カタログ」（2026年1月31日更新）",
+   "url": "https://sanseito.jp/political_measures_2026/",
+   "chars": 548,
+   "error": null
+  },
+  {
+   "label": "参政党「2026 衆議院選挙公約」（日本経済新聞社のサイトに掲載されたPDF）",
+   "url": "https://partsa.nikkei.com/parts/ds/shuin2026/pdf/sansei_b.pdf",
+   "chars": 2347,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年2月8日執行 衆議院議員総選挙・最高裁判所裁判官国民審査 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html",
+   "chars": 1680,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "参政党「参政党について」（理念・綱領・規約第14条、ボードメンバー）とWikipedia日本語版「参政党」（代表・成立年月日・衆参の議員数）の今の本文を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

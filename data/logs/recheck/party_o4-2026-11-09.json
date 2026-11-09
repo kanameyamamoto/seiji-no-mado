@@ -1,0 +1,42 @@
+{
+ "unit": "party:o4",
+ "title": "日本誠真会",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「Wikipedia日本語版「吉野敏明」（二次資料）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "Wikipedia日本語版「吉野敏明」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E5%90%89%E9%87%8E%E6%95%8F%E6%98%8E",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本誠真会",
+   "url": "https://nipponseishinkai.jp/",
+   "chars": 7010,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」党派別得票数（比例代表）",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "Wikipedia日本語版「吉野敏明」の今の本文（2024年10月17日の日本誠真会設立と党首就任、2025年の都議選・参院選、2026年1月24日の表明と2月8日の落選・得票率2.83%）を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
