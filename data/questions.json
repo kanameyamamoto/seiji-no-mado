@@ -272,6 +272,7 @@
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222014.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222014.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222014.htm"
   },
   {
@@ -350,7 +351,7 @@
    "status": "答弁待ち",
    "status_text": "質問受理",
    "submitted": "2026-10-30",
-   "question_url": "",
+   "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222019.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222019.htm"
   },
   {
