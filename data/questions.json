@@ -16,11 +16,11 @@
   "参議院": 1875
  },
  "count_by_status": {
-  "答弁あり": 4113,
-  "答弁待ち": 105,
+  "答弁あり": 4114,
+  "答弁待ち": 104,
   "撤回": 0
  },
- "checked": "2026-11-07",
+ "checked": "2026-11-09",
  "items": [
   {
    "id": "shu-222-1",
@@ -266,10 +266,11 @@
    "submitter": "緒方林太郎",
    "member": "shu-46baebb4",
    "kaiha": "志士の会",
-   "status": "答弁待ち",
-   "status_text": "内閣転送",
+   "status": "答弁あり",
+   "status_text": "答弁受理",
    "submitted": "2026-10-27",
    "forwarded": "2026-11-02",
+   "answered": "2026-11-06",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222014.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222014.htm"
   },

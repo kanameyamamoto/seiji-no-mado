@@ -2,13 +2,13 @@
  "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、審議中・継続審査・審議未了・撤回のものを、すべて載せる。成立したもの・否決されたものは「国会で決まったこと」に載せる。",
  "status_rule": "結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める：衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、国会が開いている間のそのほかの状況→「審議中」。",
  "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
- "count": 67,
+ "count": 66,
  "count_by_result": {
-  "審議中": 44,
+  "審議中": 43,
   "撤回": 3,
   "審議未了": 20
  },
- "checked": "2026-11-05",
+ "checked": "2026-11-09",
  "source": {
   "label": "衆議院 議案の一覧・議案審議経過情報",
   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm"
@@ -20,14 +20,30 @@
    "category": "閣法",
    "number": "閣法第1号",
    "title": "租税及び社会保険料による負担の軽減のための飲食料品に係る消費税率の臨時的な引下げ及び就業者負担軽減支援金の支給に関する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "財務金融"
+    "committee": "財務金融",
+    "result": "可決",
+    "date": "2026-11-06"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "日本維新の会"
+    ],
+    "against": [
+     "中道",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ]
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第1号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE342E.htm"
@@ -286,14 +302,29 @@
    "category": "閣法",
    "number": "閣法第8号",
    "title": "公立学校の学校医、学校歯科医及び学校薬剤師の公務災害補償に関する法律の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "文部科学"
+    "committee": "文部科学",
+    "result": "可決",
+    "date": "2026-11-06"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第8号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34BA.htm"
@@ -311,14 +342,29 @@
    "category": "閣法",
    "number": "閣法第9号",
    "title": "特定Ｂ型肝炎ウイルス感染者給付金等の支給に関する特別措置法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-09",
    "shugiin": {
-    "committee": "厚生労働"
+    "committee": "厚生労働",
+    "result": "可決",
+    "date": "2026-11-06"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第9号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34CE.htm"
@@ -449,14 +495,29 @@
    "category": "閣法",
    "number": "閣法第14号",
    "title": "公害健康被害の補償等に関する法律の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-13",
    "shugiin": {
-    "committee": "環境"
+    "committee": "環境",
+    "result": "可決",
+    "date": "2026-11-06"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第14号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3532.htm"
@@ -659,32 +720,6 @@
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3706.htm"
    },
    "outline": "",
-   "_keika_ok": true,
-   "result": "審議中",
-   "listed": [
-    "第222回国会"
-   ]
-  },
-  {
-   "id": "222-shuho-1",
-   "session": "第222回国会",
-   "category": "衆法",
-   "number": "衆法第1号",
-   "title": "就業者の租税及び社会保険料による負担の軽減のために講ずべき措置に関する法律案",
-   "status": "衆議院で審議中",
-   "submitter": "衆議院議員",
-   "proposer": "浅野哲君外三名",
-   "groups": [
-    "国民民主党・無所属クラブ"
-   ],
-   "submitted": "2026-10-20",
-   "shugiin": {},
-   "sangiin": {},
-   "source": {
-    "label": "衆議院 議案審議経過情報（第222回国会 衆法第1号）",
-    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE36B6.htm"
-   },
-   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22205001.htm",
    "_keika_ok": true,
    "result": "審議中",
    "listed": [
@@ -1886,6 +1921,50 @@
   }
  ],
  "rejected": [
+  {
+   "id": "222-shuho-1",
+   "session": "第222回国会",
+   "category": "衆法",
+   "number": "衆法第1号",
+   "title": "就業者の租税及び社会保険料による負担の軽減のために講ずべき措置に関する法律案",
+   "status": "本院議了",
+   "submitter": "衆議院議員",
+   "proposer": "浅野哲君外三名",
+   "groups": [
+    "国民民主党・無所属クラブ"
+   ],
+   "submitted": "2026-10-20",
+   "shugiin": {
+    "committee": "財務金融",
+    "result": "否決",
+    "date": "2026-11-06"
+   },
+   "sangiin": {},
+   "votes": {
+    "for": [
+     "国民民主党・無所属クラブ"
+    ],
+    "against": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ]
+   },
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 衆法第1号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE36B6.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22205001.htm",
+   "_keika_ok": true,
+   "result": "衆議院で否決",
+   "listed": [
+    "第222回国会"
+   ]
+  },
   {
    "id": "221-shuho-3",
    "session": "第221回国会",
