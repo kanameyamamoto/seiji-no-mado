@@ -1,0 +1,49 @@
+{
+ "unit": "learn:lay-judge",
+ "title": "裁判員制度",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "裁判員の参加する刑事裁判に関する法律 第2条・第6条・第9条・第13条・第15条・第16条",
+   "url": "https://laws.e-gov.go.jp/law/416AC0000000063",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "裁判所「裁判員制度の概要」",
+   "url": "https://www.courts.go.jp/saibanin/introduction/index.html",
+   "chars": 660,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "名古屋地方裁判所「なごや出張裁判所について」",
+   "url": "https://www.courts.go.jp/nagoya/about/koho/18saibanin/index.html",
+   "chars": 1389,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法の改正（選挙運動用自動車・ポスター）はこのページの記述に関係せず、公職選挙法・裁判員法（第2条・第100条など）・裁判所「裁判員制度の概要」・名古屋地方裁判所のページの今の本文を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

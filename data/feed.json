@@ -101520,7 +101520,8 @@
     }
    ],
    "checked": "2026-11-10",
-   "ai_log": "data/logs/211-閣法-32.json"
+   "ai_log": "data/logs/211-閣法-32.json",
+   "more_wait_until": "2026-11-24"
   },
   {
    "id": "r5-law-026",
