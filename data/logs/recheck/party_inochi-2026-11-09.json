@@ -1,0 +1,75 @@
+{
+ "unit": "party:inochi",
+ "title": "いのちの党",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「いのちの党」の内容が変わった",
+  "出典「いのちの党「所属構成員」」の内容が変わった",
+  "出典「Wikipedia日本語版「いのちの党 (2026)」（二次資料）」の内容が変わった",
+  "出典「熊本日日新聞（共同通信配信）「れいわ「いのちの党」に 党名変更、イメージ刷新へ」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "いのちの党",
+   "url": "https://inochinoto.jp/",
+   "chars": 1869,
+   "error": null
+  },
+  {
+   "label": "いのちの党「所属構成員」",
+   "url": "https://inochinoto.jp/member/",
+   "chars": 3434,
+   "error": null
+  },
+  {
+   "label": "熊本日日新聞（共同通信配信）「れいわ「いのちの党」に 党名変更、イメージ刷新へ」",
+   "url": "https://kumanichi.com/articles/2022801",
+   "chars": 2665,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「いのちの党 (2026)」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%AE%E3%81%A1%E3%81%AE%E5%85%9A_%282026%29",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "いのちの党「綱領・規約」",
+   "url": "https://inochinoto.jp/determination/",
+   "chars": 5444,
+   "error": null
+  },
+  {
+   "label": "いのちの党「政策」",
+   "url": "https://inochinoto.jp/policy/",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "れいわ新選組「衆院選2026 マニフェスト」",
+   "url": "https://shu51.reiwa-shinsengumi.com/",
+   "chars": 1705,
+   "error": null
+  },
+  {
+   "label": "いのちの党（れいわ新選組）「「いのちの党」への党名変更について」（2026年8月6日）",
+   "url": "https://reiwa-shinsengumi.com/reiwanews/30344/",
+   "chars": 791,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "いのちの党の公式サイト・「所属構成員」・「綱領・規約」・党名変更の発表、共同通信（熊本日日新聞）の記事、Wikipedia日本語版の今の本文を確かめ、党名・代表・綱領の文・代表の選び方と任期・沿革の記述と食い違う点はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

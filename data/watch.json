@@ -124,6 +124,11 @@
    "date": "2026-11-09",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/42",
    "title": "要確認：民主改革の会（party:drp）"
+  },
+  {
+   "date": "2026-11-09",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/43",
+   "title": "要確認：公明党（party:komei）"
   }
  ],
  "alerts": [],
@@ -790,34 +795,6 @@
     "reason": "出典「時事通信「民主改革の会１８人で船出 公明は復党了承、統一会派「中道」結成」（2026年9月24日）」の内容が変わった"
    }
   ],
-  "party:inochi": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「いのちの党」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「いのちの党「所属構成員」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「Wikipedia日本語版「いのちの党 (2026)」（二次資料）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「熊本日日新聞（共同通信配信）「れいわ「いのちの党」に 党名変更、イメージ刷新へ」」の内容が変わった"
-   }
-  ],
-  "party:ishin": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「Wikipedia日本語版「日本維新の会 (2016-)」（二次資料）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「熊本日日新聞（共同通信配信）「第２次高市改造、維新入閣」」の内容が変わった"
-   }
-  ],
   "party:komei": [
    {
     "date": "2026-11-06",
@@ -960,6 +937,11 @@
   "party:drp": {
    "date": "2026-11-09",
    "log": "data/logs/recheck/party_drp-2026-11-09.json",
+   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+  },
+  "party:komei": {
+   "date": "2026-11-09",
+   "log": "data/logs/recheck/party_komei-2026-11-09.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   }
  },
