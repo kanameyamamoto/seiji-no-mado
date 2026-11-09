@@ -1,0 +1,43 @@
+{
+ "unit": "learn:election-basics",
+ "title": "選挙のしくみ（小選挙区・比例代表・選挙区）",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第14条・第15条・第44条・第47条・第93条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 10640,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第4条・第12条〜第14条・第95条の2・第95条の3",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 選挙の種類」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo03.html",
+   "chars": 2961,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法（第14条・第15条・第44条・第47条など）、公職選挙法の抜粋、総務省「なるほど！選挙 選挙の種類」（衆議院の小選挙区289人・比例代表11ブロック、参議院の半数改選など）を確かめ、今回の公職選挙法の改正（選挙運動用自動車とポスター）に関わる記述はページになく、ページの文との食い違いは見つからなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
