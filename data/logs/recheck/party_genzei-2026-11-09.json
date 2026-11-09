@@ -1,0 +1,48 @@
+{
+ "unit": "party:genzei",
+ "title": "減税日本・ゆうこく連合",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「熊本日日新聞（共同通信配信）「減税・ゆうこく連合結成 総務省が新党届け出発表」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "熊本日日新聞（共同通信配信）「減税・ゆうこく連合結成 総務省が新党届け出発表」",
+   "url": "https://kumanichi.com/articles/1950284",
+   "chars": 2793,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「減税日本・ゆうこく連合」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E6%B8%9B%E7%A8%8E%E6%97%A5%E6%9C%AC%E3%83%BB%E3%82%86%E3%81%86%E3%81%93%E3%81%8F%E9%80%A3%E5%90%88",
+   "chars": 7783,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年2月8日執行 衆議院議員総選挙・最高裁判所裁判官国民審査 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html",
+   "chars": 1680,
+   "error": null
+  },
+  {
+   "label": "国税庁 タックスアンサー No.6303「消費税の税率」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6303.htm",
+   "chars": 1432,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "熊本日日新聞（共同通信配信、2026年1月25日）の本文（総務省が25日に政党としての届け出を発表、原口・河村・鈴木敦・平岩征樹・竹上裕子の計5人、原口・河村両氏が共同代表に就く見通し）を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

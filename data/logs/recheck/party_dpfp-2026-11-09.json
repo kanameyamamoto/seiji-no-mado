@@ -1,0 +1,73 @@
+{
+ "unit": "party:dpfp",
+ "title": "国民民主党",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「Wikipedia日本語版「国民民主党 (日本 2020)」（二次資料）」の内容が変わった",
+  "出典「国民民主党」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "国民民主党",
+   "url": "https://new-kokumin.jp/",
+   "chars": 1323,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「国民民主党 (日本 2020)」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E5%9B%BD%E6%B0%91%E6%B0%91%E4%B8%BB%E5%85%9A_(%E6%97%A5%E6%9C%AC_2020)",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国民民主党「党役員」（2026年10月1日現在）",
+   "url": "https://new-kokumin.jp/about/board-member",
+   "chars": 1663,
+   "error": null
+  },
+  {
+   "label": "国民民主党「綱領」",
+   "url": "https://new-kokumin.jp/about/declaration1",
+   "chars": 1007,
+   "error": null
+  },
+  {
+   "label": "国民民主党「国民民主党の政策2026」",
+   "url": "https://new-kokumin.jp/policies",
+   "chars": 3652,
+   "error": null
+  },
+  {
+   "label": "国民民主党「規約・規則」",
+   "url": "https://new-kokumin.jp/about/protocol1",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年2月8日執行 衆議院議員総選挙・最高裁判所裁判官国民審査 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html",
+   "chars": 1680,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "国民民主党のトップページ・「党役員」（2026年10月1日現在：代表 玉木雄一郎）とWikipedia日本語版の抜粋（党首 玉木雄一郎、成立年月日2020年9月11日）を確かめ、ページの文との食い違いはなかった（Wikipediaの抜粋に選挙区・比例の内訳の部分は含まれず、それらは確かめられなかった）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

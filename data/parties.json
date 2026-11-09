@@ -962,7 +962,8 @@
       "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html"
      }
     ]
-   }
+   },
+   "checked": "2026-11-09"
   },
   {
    "id": "sanseito",
@@ -2003,7 +2004,8 @@
       "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6303.htm"
      }
     ]
-   }
+   },
+   "checked": "2026-11-09"
   },
   {
    "id": "komei",

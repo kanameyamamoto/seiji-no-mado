@@ -119,6 +119,11 @@
    "date": "2026-11-09",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/41",
    "title": "要確認：立憲民主党（party:cdp）"
+  },
+  {
+   "date": "2026-11-09",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/42",
+   "title": "要確認：民主改革の会（party:drp）"
   }
  ],
  "alerts": [],
@@ -767,16 +772,6 @@
     "reason": "出典「時事通信「民主改革の会１８人で船出 公明は復党了承、統一会派「中道」結成」（2026年9月24日）」の内容が変わった"
    }
   ],
-  "party:dpfp": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「Wikipedia日本語版「国民民主党 (日本 2020)」（二次資料）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典「国民民主党」の内容が変わった"
-   }
-  ],
   "party:drp": [
    {
     "date": "2026-11-06",
@@ -793,12 +788,6 @@
    {
     "date": "2026-11-06",
     "reason": "出典「時事通信「民主改革の会１８人で船出 公明は復党了承、統一会派「中道」結成」（2026年9月24日）」の内容が変わった"
-   }
-  ],
-  "party:genzei": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「熊本日日新聞（共同通信配信）「減税・ゆうこく連合結成 総務省が新党届け出発表」」の内容が変わった"
    }
   ],
   "party:inochi": [
@@ -966,6 +955,11 @@
   "party:chudo": {
    "date": "2026-11-09",
    "log": "data/logs/recheck/party_chudo-2026-11-09.json",
+   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+  },
+  "party:drp": {
+   "date": "2026-11-09",
+   "log": "data/logs/recheck/party_drp-2026-11-09.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   }
  },
