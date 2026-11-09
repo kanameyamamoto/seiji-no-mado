@@ -1,0 +1,74 @@
+{
+ "unit": "learn:democracy",
+ "title": "民主主義のしくみ",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）",
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2024-06-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 前文・第1条・第15条・第16条・第56条・第79条・第95条・第96条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 選挙の意義」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo01.html",
+   "chars": 1789,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第74条〜第88条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "行政手続法 第39条",
+   "url": "https://laws.e-gov.go.jp/law/405AC0000000088",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "行政機関の保有する情報の公開に関する法律 第3条",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000042",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第58条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本国憲法の改正手続に関する法律 第3条",
+   "url": "https://laws.e-gov.go.jp/law/419AC1000000051",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "法務省「民法の一部を改正する法律（成年年齢関係）について」",
+   "url": "https://www.moj.go.jp/MINJI/minji07_00218.html",
+   "chars": 2085,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典の公職選挙法（第9条第2項）と地方自治法（第18条・第74条関係）の今の本文を確かめ、ページの選挙権の住所要件（引き続き3箇月以上）や直接請求の記述と食い違いはなかった（公職選挙法第58条の本文は抜粋に含まれず、根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
