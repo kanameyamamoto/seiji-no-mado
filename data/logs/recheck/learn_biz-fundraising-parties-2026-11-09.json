@@ -1,0 +1,43 @@
+{
+ "unit": "learn:biz-fundraising-parties",
+ "title": "政治資金パーティー",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）",
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-06-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "政治資金規正法 第8条の2・第12条・第22条の8（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "青森県選挙管理委員会「改正政治資金規正法等の概要」令和8年4月一部改訂",
+   "url": "https://www.pref.aomori.lg.jp/soshiki/senkan/files2/kisei_gaiyo202604.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「令和6年分政治資金収支報告の概要（総務大臣届出分）」",
+   "url": "https://www.soumu.go.jp/main_content/001042676.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "e-Gov法令検索の政治資金規正法（特定パーティー1,000万円以上、公開基準20万円超）、青森県選管「改正政治資金規正法等の概要」（口座振込みへの制限は令和8年1月1日から、外国人等による対価支払の禁止と公開基準5万円超への引下げは令和9年1月1日から）、総務省の推移表（平成16年14,258百万円など）を確かめたが、ページの記載と食い違う箇所はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

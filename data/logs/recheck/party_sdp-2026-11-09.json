@@ -1,0 +1,73 @@
+{
+ "unit": "party:sdp",
+ "title": "社会民主党",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典「Wikipedia日本語版「社会民主党 (日本 1996-)」（二次資料）」の内容が変わった",
+  "出典「社会民主党」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "社会民主党",
+   "url": "https://sdp.or.jp/",
+   "chars": 919,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「社会民主党 (日本 1996-)」（二次資料）",
+   "url": "https://ja.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E6%B0%91%E4%B8%BB%E5%85%9A_%28%E6%97%A5%E6%9C%AC_1996-%29",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "社民党「平和・自由・平等・共生の理念」",
+   "url": "https://sdp.or.jp/principle/",
+   "chars": 1288,
+   "error": null
+  },
+  {
+   "label": "社民党「第51回衆議院選挙 公約」（2026衆議院総選挙公約）",
+   "url": "https://sdp.or.jp/2026manifesto/",
+   "chars": 437,
+   "error": null
+  },
+  {
+   "label": "社民党「党則」",
+   "url": "https://sdp.or.jp/party_rules/",
+   "chars": 8829,
+   "error": null
+  },
+  {
+   "label": "社民党「2026総選挙 社民党選挙政策」（PDF）",
+   "url": "https://sdp.or.jp/wp-content/uploads/2026/01/71f84bd2f061b86553936e7a1a83f376.pdf",
+   "chars": 7,
+   "error": null
+  },
+  {
+   "label": "首相官邸「歴代内閣」",
+   "url": "https://www.kantei.go.jp/jp/rekidainaikaku/index.html",
+   "chars": 6096,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "社民党公式サイト（https://sdp.or.jp/）とWikipedia日本語版「社会民主党 (日本 1996-)」の今の本文を確かめたが、党首（福島みずほ）、1996年1月の改称、1996年9月28日の土井たか子の党首就任、2003年11月15日の福島瑞穂の党首就任、第51回衆院選0議席などの記載と食い違う箇所はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
