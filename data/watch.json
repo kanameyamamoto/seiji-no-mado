@@ -109,6 +109,16 @@
    "date": "2026-11-08",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/33",
    "title": "要確認：参議院の選挙制度（learn:upper-house-election）"
+  },
+  {
+   "date": "2026-11-09",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/40",
+   "title": "要確認：中道改革連合（party:chudo）"
+  },
+  {
+   "date": "2026-11-09",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/41",
+   "title": "要確認：立憲民主党（party:cdp）"
   }
  ],
  "alerts": [],
@@ -721,28 +731,6 @@
     "reason": "出典の「銃砲刀剣類所持等取締法」を改正する法律が成立した（銃砲刀剣類所持等取締法の改正、2024-06-07）"
    }
   ],
-  "links:special-accounts": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典の「特別会計に関する法律」を改正する法律が成立した（情報処理促進法等の改正、2025-04-25）"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典の「特別会計に関する法律」を改正する法律が成立した（地方交付税法等の改正、2025-12-16）"
-   },
-   {
-    "date": "2026-11-06",
-    "reason": "出典の「特別会計に関する法律」を改正する法律が成立した（特別会計に関する法律の改正、2025-05-16）"
-   },
-   {
-    "date": "2026-11-07",
-    "reason": "出典の「特別会計に関する法律」を改正する法律が成立した（地方交付税法及び特別会計に関する法律の改正、2024-12-17）"
-   },
-   {
-    "date": "2026-11-09",
-    "reason": "出典の「特別会計に関する法律」を改正する法律が成立した（地方交付税法・特別会計法の改正、2023-11-29）"
-   }
-  ],
   "party:cdp": [
    {
     "date": "2026-11-06",
@@ -969,6 +957,16 @@
    "date": "2026-11-08",
    "log": "data/logs/recheck/links_disaster-management-agency-2026-11-08.json",
    "reason": "直した版をプルリクエストで提案中"
+  },
+  "party:cdp": {
+   "date": "2026-11-09",
+   "log": "data/logs/recheck/party_cdp-2026-11-09.json",
+   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+  },
+  "party:chudo": {
+   "date": "2026-11-09",
+   "log": "data/logs/recheck/party_chudo-2026-11-09.json",
+   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   }
  },
  "kaiha": {
