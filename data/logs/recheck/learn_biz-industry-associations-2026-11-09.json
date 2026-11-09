@@ -1,0 +1,55 @@
+{
+ "unit": "learn:biz-industry-associations",
+ "title": "業界団体と政策",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）",
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-06-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省 政治資金収支報告書",
+   "url": "https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/",
+   "chars": 2840,
+   "error": null
+  },
+  {
+   "label": "e-Govパブリック・コメント",
+   "url": "https://public-comment.e-gov.go.jp/",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "経団連「経団連とは」（会員構成）",
+   "url": "https://www.keidanren.or.jp/profile/pro001.html",
+   "chars": 2224,
+   "error": null
+  },
+  {
+   "label": "政治資金規正法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "行政手続法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/405AC0000000088",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "経団連「経団連とは」（1,580社・業種別全国団体103団体・地方別経済団体47団体、2026年4月1日現在）、政治資金規正法（第12条・第20条・第21条）、行政手続法（第39条・第43条）、総務省の政治資金収支報告書のページを確かめ、ページの記述との食い違いは見つからなかった（e-Govパブリック・コメントは開けなかったため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

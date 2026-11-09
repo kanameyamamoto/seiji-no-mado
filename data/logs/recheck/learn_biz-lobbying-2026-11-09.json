@@ -1,0 +1,73 @@
+{
+ "unit": "learn:biz-lobbying",
+ "title": "ロビー活動と政策への意見の伝え方",
+ "date": "2026-11-09",
+ "reasons": [
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）",
+  "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-06-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "e-Govパブリック・コメント",
+   "url": "https://public-comment.e-gov.go.jp/",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "人事院 国家公務員倫理審査会",
+   "url": "https://www.jinji.go.jp/rinri/",
+   "chars": 2051,
+   "error": null
+  },
+  {
+   "label": "OECD Recommendation of the Council on Transparency and Integrity in Lobbying and Influence",
+   "url": "https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0379",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "行政手続法 第39条・第43条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/405AC0000000088",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国家公務員倫理法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/411AC1000000129",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国家公務員法 第106条の4（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "政治資金規正法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第16条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "行政手続法（第39条・第43条）、国家公務員倫理法（第2条・第5条・第6条ほか）、国家公務員法、政治資金規正法、日本国憲法の今の本文と人事院倫理審査会のページを確かめ、ページの記述（政治資金規正法は寄附・パーティーの公開という一般的な記述にとどまる）との食い違いは見つからなかった（e-Govパブリック・コメントとOECDのページは本文が読み取れなかったため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
