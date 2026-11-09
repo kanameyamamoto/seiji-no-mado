@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2343,
-  "参議院": 1875
+  "参議院": 1876
  },
  "count_by_status": {
   "答弁あり": 4114,
-  "答弁待ち": 104,
+  "答弁待ち": 105,
   "撤回": 0
  },
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "items": [
   {
    "id": "shu-222-1",
@@ -541,6 +541,7 @@
    "forwarded": "2026-10-26",
    "answered": "2026-10-30",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222010.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222010.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222010.htm"
   },
   {
@@ -556,6 +557,7 @@
    "forwarded": "2026-10-26",
    "answered": "2026-10-30",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222011.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222011.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222011.htm"
   },
   {
@@ -655,6 +657,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-02",
+   "forwarded": "2026-11-09",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222018.htm"
   },
@@ -668,6 +671,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-02",
+   "forwarded": "2026-11-09",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222019.htm"
   },
@@ -748,6 +752,19 @@
    "submitted": "2026-11-06",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222025.htm"
+  },
+  {
+   "id": "san-222-26",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 26,
+   "title": "証券取引に係るシステムへのサイバー攻撃及び安全管理体制に関する質問主意書",
+   "submitter": "石垣 のりこ",
+   "member": "san-7019003",
+   "status": "答弁待ち",
+   "submitted": "2026-11-09",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222026.htm"
   },
   {
    "id": "shu-221-1",
