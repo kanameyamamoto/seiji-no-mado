@@ -1,0 +1,67 @@
+{
+ "unit": "learn:national-review",
+ "title": "最高裁判所裁判官の国民審査",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省「国民審査」",
+   "url": "https://www.soumu.go.jp/senkyo/kokuminshinsa/index.html",
+   "chars": 1135,
+   "error": null
+  },
+  {
+   "label": "最高裁判所「最高裁判所の裁判官」",
+   "url": "https://www.courts.go.jp/saikosai/about/saibankan/index.html",
+   "chars": 238,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第79条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 10398,
+   "error": null
+  },
+  {
+   "label": "最高裁判所裁判官国民審査法 第2条・第4条・第8条・第15条・第32条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000136",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "裁判所法 第50条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000059",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 投票制度」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo05.html",
+   "chars": 5760,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第58条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "見直す理由の公職選挙法の改正は選挙運動用自動車とポスターに関するもので、ページが引く公職選挙法第58条を含め、出典の今の本文（国民審査法第15条・第32条など）とページの文に食い違いは見つかりませんでした（公職選挙法の抜粋には第58条の本文がなく、同条を根拠に直すことはしていません）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
