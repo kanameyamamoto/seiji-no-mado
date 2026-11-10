@@ -1,5 +1,0 @@
-{
- "for": "210-閣法-21",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"事実の誤り\",\n      \"where\": \"facts[2].hs\",\n      \"detail\": \"認可（許可）と書かれているが、元の資料には「許可」という言葉はなく「認可」である。\",\n      \"fix\": \"「認可」に直す\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
