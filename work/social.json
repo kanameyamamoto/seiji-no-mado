@@ -26,6 +26,13 @@
    "key": "05379f2c665d",
    "date": "2026-11-10T21:05:28+09:00",
    "post": "draft"
+  },
+  {
+   "platform": "bluesky",
+   "id": "fact:laws-unanimous",
+   "key": "05379f2c665d",
+   "date": "2026-11-11T04:37:53+09:00",
+   "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3mzy6vhnxap2g"
   }
  ],
  "rule": "ルール D-17。成立から30日以内の「国会で決まったこと」の記事を、すべて同じ形で、成立した日の古い順に投稿する。"
