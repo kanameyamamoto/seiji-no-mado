@@ -1,0 +1,55 @@
+{
+ "unit": "learn:senkyo-kekka-yomikata",
+ "title": "選挙結果の読み方",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省「令和8年2月8日執行 衆議院議員総選挙・最高裁判所裁判官国民審査 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html",
+   "chars": 1680,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  },
+  {
+   "label": "公職選挙法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "参議院「参議院議員選挙制度の変遷」",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/seido.html",
+   "chars": 4361,
+   "error": null
+  },
+  {
+   "label": "公明党「沿革」（比例区全国11ブロック）",
+   "url": "https://www.komei.or.jp/about/history/",
+   "chars": 3959,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法（e-Gov、惜敗率による同一順位者の順位の定め、第86条の3第1項後段の特定枠など）、総務省の衆議院議員総選挙（令和8年2月8日執行）・参議院議員通常選挙（令和7年7月20日執行）速報結果の目次ページ、参議院・公明党のページの今の本文を確かめ、ページの文と食い違うところはありませんでした（得票率・当選者数の数字そのものは抜粋に含まれず、根拠にしていません）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
