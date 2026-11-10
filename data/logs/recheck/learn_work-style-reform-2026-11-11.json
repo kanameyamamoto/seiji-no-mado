@@ -1,0 +1,48 @@
+{
+ "unit": "learn:work-style-reform",
+ "title": "働き方改革関連法",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典「厚生労働省「働き方改革を推進するための関係法律の整備に関する法律について」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "厚生労働省「働き方改革を推進するための関係法律の整備に関する法律について」",
+   "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000148322.html",
+   "chars": 4449,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「働き方改革を推進するための関係法律の整備に関する法律（平成30年法律第71号）の概要」",
+   "url": "https://www.mhlw.go.jp/content/000332869.pdf",
+   "chars": 7750,
+   "error": null
+  },
+  {
+   "label": "労働基準法 第36条・第37条・第39条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "短時間労働者及び有期雇用労働者の雇用管理の改善等に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/405AC0000000076",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "厚生労働省「働き方改革を推進するための関係法律の整備に関する法律について」（平成30年7月6日公布）と同法の概要、労働基準法、パートタイム・有期雇用労働法の抜粋を確かめ、時間外労働の上限（月45時間・年360時間、年720時間、単月100時間未満、複数月平均80時間）、年5日の時季指定、割増賃金率50％以上、施行期日などページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
