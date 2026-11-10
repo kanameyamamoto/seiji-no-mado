@@ -204,6 +204,32 @@ def fact_post(f, site):
             "image": img, "alt": alt[:900], "head": f["text"][:40]}
 
 
+def draft_x():
+    """X の鍵がない間：次に出すデータのポストの文と画像を out/social/draft-x.png に作り、持ち主が手で出す下書きにする。
+    出す順番を進めるため、記録（work/social.json）に post="draft" で残す。"""
+    import shutil
+    import social_facts as SF
+    site = json.load(open(os.path.join(DATA, "config.json"), encoding="utf-8")).get("site_url", "https://seijinomado.com/")
+    log = json.load(open(LOG, encoding="utf-8")) if os.path.exists(LOG) else {"posts": []}
+    f = SF.pick(log["posts"], "x")
+    if not f:
+        print("[social] 出せるデータのポストがありません")
+        return
+    c = fact_post(f, site)
+    out = os.path.join(ROOT, "out", "social", "draft-x.png")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    shutil.copy(c["image"], out)
+    log["posts"].append({"platform": "x", "id": f["id"], "key": f["key"], "date": datetime.datetime.now(JST).isoformat(timespec="seconds"), "post": "draft"})
+    os.makedirs(os.path.dirname(LOG), exist_ok=True)
+    json.dump(log, open(LOG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("=== 文 ===")
+    print(X.text(c))
+    print("=== 画像 ===")
+    print(out)
+    print("=== 画像の説明（代わりの文） ===")
+    print(c["alt"])
+
+
 def main_facts(dry=False):
     import social_facts as SF
     site = json.load(open(os.path.join(DATA, "config.json"), encoding="utf-8")).get("site_url", "https://seijinomado.com/")
@@ -290,7 +316,9 @@ def main(dry=False):
 
 
 if __name__ == "__main__":
-    if "--facts" in sys.argv:
+    if "--draft-x" in sys.argv:
+        draft_x()
+    elif "--facts" in sys.argv:
         main_facts("--dry-run" in sys.argv)
     else:
         main("--dry-run" in sys.argv)

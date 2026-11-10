@@ -290,6 +290,11 @@ def chart_png(f, path):
         if any(name in x.name for x in font_manager.fontManager.ttflist):
             plt.rcParams["font.family"] = name
             break
+    else:
+        try:  # 日本語の字がない環境（pip install japanize-matplotlib で入る）
+            import japanize_matplotlib  # noqa: F401
+        except ImportError:
+            print("[facts] 日本語の字が見つかりません。グラフの字が化けます")
     c = f["chart"]
     fig = plt.figure(figsize=(12, 6.75), dpi=100)
     fig.patch.set_facecolor("white")
