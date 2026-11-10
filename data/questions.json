@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2343,
-  "参議院": 1876
+  "参議院": 1878
  },
  "count_by_status": {
-  "答弁あり": 4114,
-  "答弁待ち": 105,
+  "答弁あり": 4117,
+  "答弁待ち": 104,
   "撤回": 0
  },
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "items": [
   {
    "id": "shu-222-1",
@@ -573,7 +573,7 @@
    "submitted": "2026-10-23",
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222012.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222012.htm"
   },
   {
@@ -588,7 +588,7 @@
    "submitted": "2026-10-23",
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222013.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222013.htm"
   },
   {
@@ -603,7 +603,7 @@
    "submitted": "2026-10-27",
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222014.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222014.htm"
   },
   {
@@ -614,9 +614,10 @@
    "title": "我が国のがん検診における組織型検診への転換及びデータ一元管理に関する質問主意書",
    "submitter": "塩村 あやか",
    "member": "san-7019020",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-10-28",
    "forwarded": "2026-11-04",
+   "answered": "2026-11-10",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222015.htm"
   },
@@ -628,9 +629,10 @@
    "title": "妊娠初期の女性の保護と母性健康管理指導事項連絡カードの早期周知等に関する質問主意書",
    "submitter": "塩村 あやか",
    "member": "san-7019020",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-10-28",
    "forwarded": "2026-11-04",
+   "answered": "2026-11-10",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222016.htm"
   },
@@ -642,9 +644,10 @@
    "title": "妊娠初期の流産で産後休業を取得することができない問題等の改善に関する質問主意書",
    "submitter": "塩村 あやか",
    "member": "san-7019020",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-10-28",
    "forwarded": "2026-11-04",
+   "answered": "2026-11-10",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222017.htm"
   },
@@ -766,6 +769,32 @@
    "submitted": "2026-11-09",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222026.htm"
+  },
+  {
+   "id": "san-222-27",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 27,
+   "title": "国民からの公助の要望に関する質問主意書",
+   "submitter": "奥田 ふみよ",
+   "member": "san-7025012",
+   "status": "答弁待ち",
+   "submitted": "2026-11-10",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222027.htm"
+  },
+  {
+   "id": "san-222-28",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 28,
+   "title": "日本放送協会の受信料未納者及び未契約者への戸別訪問業務の再開に関する質問主意書",
+   "submitter": "齊藤 健一郎",
+   "member": "san-7023002",
+   "status": "答弁待ち",
+   "submitted": "2026-11-10",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222028.htm"
   },
   {
    "id": "shu-221-1",
