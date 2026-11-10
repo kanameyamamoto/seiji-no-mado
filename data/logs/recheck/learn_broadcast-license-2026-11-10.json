@@ -1,0 +1,50 @@
+{
+ "unit": "learn:broadcast-license",
+ "title": "放送免許と総務省",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「放送法」を改正する法律が成立した（放送法の改正、2024-05-17）",
+  "出典の「放送法」を改正する法律が成立した（放送法及び電波法の改正、2023-05-26）",
+  "出典の「電波法」を改正する法律が成立した（放送法及び電波法の改正、2023-05-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "電波法 第4条・第13条・第76条・第99条の2・第99条の11（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000131",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "電波法施行規則 第7条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325M50080000014",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "放送法 第93条・第96条・第174条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000132",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省 北海道総合通信局「「電波のルール」を守りましょう！」",
+   "url": "https://www.soumu.go.jp/soutsu/hokkaido/K/giteki.html",
+   "chars": 1800,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "e-Gov法令検索の電波法・電波法施行規則・放送法の今の本文（抜粋）で確かめられる範囲（放送法第96条の認定の更新期間、第174条の3月以内の業務停止、第93条第1項第5号が基幹放送による表現の自由享有基準にあたることなど）に、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
