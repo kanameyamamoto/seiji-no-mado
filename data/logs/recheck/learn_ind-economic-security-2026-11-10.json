@@ -1,0 +1,60 @@
+{
+ "unit": "learn:ind-economic-security",
+ "title": "経済安全保障（経済安全保障推進法）",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「経済施策を一体的に講ずることによる安全保障の確保の推進に関する法律」を改正する法律が成立した（経済安全保障推進法の改正、2024-05-10）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "内閣府 経済安全保障推進法",
+   "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/suishinhou.html",
+   "chars": 2108,
+   "error": null
+  },
+  {
+   "label": "内閣府「経済安全保障推進法及び株式会社国際協力銀行法の一部を改正する法律案の概要」",
+   "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/doc/houangaiyo.pdf",
+   "chars": 6529,
+   "error": null
+  },
+  {
+   "label": "経済施策を一体的に講ずることによる安全保障の確保の推進に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/504AC0000000043",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "重要経済安保情報の保護及び活用に関する法律（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/506AC0000000027",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「第221回国会 議案の一覧」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/kaiji221.htm",
+   "chars": 9020,
+   "error": null
+  },
+  {
+   "label": "内閣府「サプライチェーン強靱化の取組（重要物資の安定的な供給の確保に関する制度）」",
+   "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/supply_chain/supply_chain.html",
+   "chars": 6057,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "内閣府「経済安全保障推進法」・改正法律案の概要・サプライチェーン強靱化の取組の今の本文（令和8年6月10日成立・同月17日公布、OESA創設、医療分野の追加、施行は公布から1月後～1年6月以内で段階的、令和8年10月の体外式膜型人工肺の追加など）を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

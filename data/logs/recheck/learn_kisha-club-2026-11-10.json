@@ -1,0 +1,42 @@
+{
+ "unit": "learn:kisha-club",
+ "title": "記者クラブ制度",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典「首相官邸「内閣官房長官記者会見」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "首相官邸「内閣官房長官記者会見」",
+   "url": "https://www.kantei.go.jp/jp/tyoukanpress/index.html",
+   "chars": 936,
+   "error": null
+  },
+  {
+   "label": "日本新聞協会「記者クラブに関する日本新聞協会編集委員会の見解」",
+   "url": "https://www.pressnet.or.jp/statement/report/060309_15.html",
+   "chars": 9105,
+   "error": null
+  },
+  {
+   "label": "RSF「Japan」",
+   "url": "https://rsf.org/en/country/japan",
+   "chars": 6483,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "首相官邸「内閣官房長官記者会見」の今の本文（定例記者会見は原則月曜日から金曜日、午前と午後の二回）と日本新聞協会の見解を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
