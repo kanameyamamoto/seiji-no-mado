@@ -1,0 +1,73 @@
+{
+ "unit": "learn:biz-business-federations",
+ "title": "経済団体と政策提言",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典「全国中小企業団体中央会」の内容が変わった",
+  "出典「日本商工会議所」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "全国中小企業団体中央会",
+   "url": "https://www.chuokai.or.jp/",
+   "chars": 1877,
+   "error": null
+  },
+  {
+   "label": "日本商工会議所",
+   "url": "https://www.jcci.or.jp/",
+   "chars": 2102,
+   "error": null
+  },
+  {
+   "label": "経済同友会",
+   "url": "https://www.doyukai.or.jp/",
+   "chars": 768,
+   "error": null
+  },
+  {
+   "label": "全国商工会連合会",
+   "url": "https://www.shokokai.or.jp/",
+   "chars": 675,
+   "error": null
+  },
+  {
+   "label": "日本経済団体連合会",
+   "url": "https://www.keidanren.or.jp/",
+   "chars": 1164,
+   "error": null
+  },
+  {
+   "label": "経団連「経団連とは」",
+   "url": "https://www.keidanren.or.jp/profile/pro001.html",
+   "chars": 2224,
+   "error": null
+  },
+  {
+   "label": "日本商工会議所「組織概要」",
+   "url": "https://www.jcci.or.jp/about/profile/",
+   "chars": 599,
+   "error": null
+  },
+  {
+   "label": "日本商工会議所「日本商工会議所とは」",
+   "url": "https://www.jcci.or.jp/about/jcci/",
+   "chars": 1876,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "全国中小企業団体中央会と日本商工会議所の公式サイトの今の本文（日商の会員数516商工会議所、会頭 小林健、設立1922年6月29日、事業内容の政策提言活動・答申など）を確かめ、ページとの食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

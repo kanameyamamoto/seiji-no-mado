@@ -1,0 +1,73 @@
+{
+ "unit": "elections",
+ "title": "選挙の結果",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典「nippon.com「2025年参院選」」の内容が変わった",
+  "出典「nippon.com「衆院選2026」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "nippon.com「衆院選2026」",
+   "url": "https://www.nippon.com/ja/japan-data/h02703/",
+   "chars": 1805,
+   "error": null
+  },
+  {
+   "label": "nippon.com「2025年参院選」",
+   "url": "https://www.nippon.com/ja/japan-data/h02485/",
+   "chars": 1753,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年2月8日執行 衆議院議員総選挙・最高裁判所裁判官国民審査 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html",
+   "chars": 1680,
+   "error": null
+  },
+  {
+   "label": "総務省「国政選挙における投票率の推移」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/news/sonota/ritu/index.html",
+   "chars": 1011,
+   "error": null
+  },
+  {
+   "label": "総務省「令和7年7月20日執行 参議院議員通常選挙 速報結果」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html",
+   "chars": 1772,
+   "error": null
+  },
+  {
+   "label": "総務省「国政選挙における投票率の推移」（グラフPDF：第22回〜第51回衆院選、第1回〜第27回参院選）",
+   "url": "https://www.soumu.go.jp/main_content/000255919.pdf",
+   "chars": 5238,
+   "error": null
+  },
+  {
+   "label": "参議院「参議院議員選挙制度の変遷」（定数）",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/seido.html",
+   "chars": 4361,
+   "error": null
+  },
+  {
+   "label": "Wikipedia日本語版「衆議院議員総選挙」（一覧表）",
+   "url": "https://ja.wikipedia.org/wiki/%E8%A1%86%E8%AD%B0%E9%99%A2%E8%AD%B0%E5%93%A1%E7%B7%8F%E9%81%B8%E6%8C%99",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "nippon.com「衆院選2026」「2025年参院選」の今の本文の各党の獲得議席（自民党316〈追加公認1人を含む〉ほか、自民39・立憲民主22ほか計125）と総務省の投票率（56.26％・58.51％）を確かめ、ページとの食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

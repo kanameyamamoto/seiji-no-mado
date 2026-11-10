@@ -133,26 +133,6 @@
  ],
  "alerts": [],
  "due": {
-  "elections": [
-   {
-    "date": "2026-11-08",
-    "reason": "出典「nippon.com「2025年参院選」」の内容が変わった"
-   },
-   {
-    "date": "2026-11-08",
-    "reason": "出典「nippon.com「衆院選2026」」の内容が変わった"
-   }
-  ],
-  "learn:biz-business-federations": [
-   {
-    "date": "2026-11-08",
-    "reason": "出典「全国中小企業団体中央会」の内容が変わった"
-   },
-   {
-    "date": "2026-11-08",
-    "reason": "出典「日本商工会議所」の内容が変わった"
-   }
-  ],
   "learn:biz-labor-unions": [
    {
     "date": "2026-11-08",
