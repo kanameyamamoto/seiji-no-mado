@@ -1,0 +1,43 @@
+{
+ "unit": "learn:cross-ownership",
+ "title": "新聞とテレビの系列関係（クロスオーナーシップ）",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「放送法」を改正する法律が成立した（放送法の改正、2024-05-17）",
+  "出典の「放送法」を改正する法律が成立した（放送法及び電波法の改正、2023-05-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "放送法 第91条・第93条・第158条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000132",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "基幹放送の業務に係る特定役員及び支配関係の定義並びに表現の自由享有基準の特例に関する省令 第8条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/427M60000008026",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「マスメディア集中排除原則の概要」を含む資料（PDF）",
+   "url": "https://www.soumu.go.jp/main_content/000981755.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "放送法（第93条第1項第5号・第158条以下）と表現の自由享有基準の特例に関する省令第8条第5号、総務省資料の今の本文を確かめ、放送法の改正後もページに書かれた集中排除原則・三事業支配の制限・認定放送持株会社制度の記載と食い違う点はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

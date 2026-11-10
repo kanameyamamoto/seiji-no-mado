@@ -1,0 +1,61 @@
+{
+ "unit": "learn:decentralization",
+ "title": "地方分権と道州制の議論",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2024-06-19）",
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2023-04-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "全国町村長大会「特別決議」（埼玉県町村会資料に収録）",
+   "url": "https://www.pref.saitama.lg.jp/documents/18220/h25tyousonnkai.pdf",
+   "chars": 721,
+   "error": null
+  },
+  {
+   "label": "日本維新の会「日本維新の会について」",
+   "url": "https://o-ishin.jp/about/",
+   "chars": 1239,
+   "error": null
+  },
+  {
+   "label": "内閣府「地方分権改革」",
+   "url": "https://www.cao.go.jp/bunken-suishin/",
+   "chars": 807,
+   "error": null
+  },
+  {
+   "label": "日本維新の会「道州制導入等の統治機構抜本改革法案」概要",
+   "url": "https://o-ishin.jp/news/bill/pdf/030_1.pdf",
+   "chars": 743,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第1条の2",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府「地方分権改革・提案募集方式 取組・成果事例集（令和２年２月）」",
+   "url": "https://www.cao.go.jp/bunken-suishin/jirei/jirei_r2.html",
+   "chars": 3768,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典1〜6（全国町村長大会特別決議、日本維新の会、内閣府「地方分権改革」、維新の法案概要、地方自治法第1条の2、内閣府事例集）の今の本文を確かめ、地方自治法の改正後も第1条の2の趣旨や令和7年12月23日閣議決定の対応方針などページの記載と食い違う点はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
