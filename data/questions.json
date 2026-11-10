@@ -349,8 +349,9 @@
    "member": "shu-36a76e13",
    "kaiha": "中道",
    "status": "答弁待ち",
-   "status_text": "質問受理",
+   "status_text": "内閣転送",
    "submitted": "2026-10-30",
+   "forwarded": "2026-11-09",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222019.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222019.htm"
   },

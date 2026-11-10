@@ -1,0 +1,62 @@
+{
+ "unit": "learn:pm-selection",
+ "title": "内閣総理大臣の選ばれ方",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）",
+  "出典の「国会法」を改正する法律が成立した（国会法などの改正、2025-05-09）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "首相官邸「歴代内閣」",
+   "url": "https://www.kantei.go.jp/jp/rekidainaikaku/index.html",
+   "chars": 6096,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第6条・第7条・第67条・第68条・第70条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 11553,
+   "error": null
+  },
+  {
+   "label": "国会法 第65条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「議院内閣制」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_giinnaikakusei.htm",
+   "chars": 408,
+   "error": null
+  },
+  {
+   "label": "衆議院「衆議院議員総選挙一覧表」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/senkyolist.htm",
+   "chars": 2117,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第21条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法第6条・第7条・第67条・第68条・第70条・第71条、国会法第65条第2項・第84条、衆議院「衆議院議員総選挙一覧表」（第51回総選挙 令和8年2月8日、第221回特別会 令和8年2月18日召集）、首相官邸「歴代内閣」の今の本文を確かめ、ページの文と食い違うところはありませんでした（公職選挙法第9条の該当部分は抜粋に含まれず、根拠にしていません）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
