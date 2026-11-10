@@ -1,0 +1,72 @@
+{
+ "unit": "learn:budget-process",
+ "title": "予算の決まり方（概算要求から成立まで）",
+ "date": "2026-11-10",
+ "reasons": [
+  "出典の「学校教育法」を改正する法律が成立した（学校教育法の改正、2024-06-07）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "財務省「令和８年度予算の概算要求について（閣議了解）」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/sy250808a.pdf",
+   "chars": 1639,
+   "error": null
+  },
+  {
+   "label": "予算決算及び会計令 第8条",
+   "url": "https://laws.e-gov.go.jp/law/322IO0000000165",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第60条・第83条〜第87条・第90条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 10518,
+   "error": null
+  },
+  {
+   "label": "財政法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000034",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "参議院 議案情報「令和八年度一般会計予算」（第221回国会）",
+   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/221/meisai/m221150221001.htm",
+   "chars": 412,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度暫定予算について」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/R8zantei_01.pdf",
+   "chars": 792,
+   "error": null
+  },
+  {
+   "label": "参議院 議案情報「令和八年度一般会計補正予算（第１号）」",
+   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/221/meisai/m221150221007.htm",
+   "chars": 423,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省の概算要求の閣議了解・暫定予算資料、予算決算及び会計令第8条、参議院の議案情報（令和八年度一般会計予算・補正予算（第１号））の今の本文を確かめ、ページの日付・金額との食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
