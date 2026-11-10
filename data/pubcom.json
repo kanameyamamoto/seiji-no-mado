@@ -12,12 +12,82 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 23,
+  "意見募集中": 30,
   "結果待ち": 0,
-  "結果公示": 25
+  "結果公示": 26
  },
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "items": [
+  {
+   "id": "550004445",
+   "title": "魚類の鮮度（K値）試験方法 －高速液体クロマトグラフ法の日本農林規格の確認案についての意見・情報の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=550004445&Mode=0",
+   "published": "2026-11-10",
+   "deadline": "2026-12-09",
+   "category": "国民生活の安全・安心の確保",
+   "office": "農林水産省大臣官房新事業・食品産業部食品製造課基準認証室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "595320046",
+   "title": "産業技術力強化法施行令及び経済施策を一体的に講ずることによる安全保障の確保の推進に関する法律施行令の一部を改正する政令案等に対する意見募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=595320046&Mode=0",
+   "published": "2026-11-09",
+   "deadline": "2026-12-08",
+   "category": "産業一般",
+   "office": "経済産業省イノベーション・環境局研究開発課、大学連携推進室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260250",
+   "title": "医療法施行規則の一部を改正する省令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260250&Mode=0",
+   "published": "2026-11-09",
+   "deadline": "2026-12-08",
+   "category": "厚生",
+   "office": "厚生労働省医政局研究開発政策課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "300080359",
+   "title": "「特定個人情報保護評価書（全項目評価書）（案）」に関する意見公募",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=300080359&Mode=0",
+   "published": "2026-11-09",
+   "deadline": "2026-12-08",
+   "category": "民事",
+   "office": "法務省民事局民事第一課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "225026068",
+   "title": "「経済価値ベースのソルベンシー規制に関する告示の一部改正（案）」の公表について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=225026068&Mode=0",
+   "published": "2026-11-09",
+   "deadline": "2026-12-09",
+   "category": "金融、保険",
+   "office": "金融庁",
+   "status": "意見募集中"
+  },
+  {
+   "id": "155260820",
+   "title": "京成電鉄株式会社の鉄道事業の旅客運賃の上限変更認可申請に関する意見募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155260820&Mode=0",
+   "published": "2026-11-09",
+   "deadline": "2026-11-24",
+   "category": "陸運",
+   "office": "国土交通省鉄道局鉄道事業課旅客輸送業務監理室 意見募集担当",
+   "status": "意見募集中"
+  },
+  {
+   "id": "141000247",
+   "title": "学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律施行規則の一部を改正する内閣府令（案）に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=141000247&Mode=0",
+   "published": "2026-11-09",
+   "deadline": "2026-11-18",
+   "category": "社会福祉",
+   "office": "こども家庭庁支援局参事官（こども性暴力防止担当）付",
+   "status": "意見募集中"
+  },
   {
    "id": "860202606",
    "title": "危険物の規制に関する規則の一部を改正する省令（案）等に対する意見公募について",
@@ -315,6 +385,20 @@
    "office": "防災庁統括官（総合政策担当）付参事官（政策調整担当）付",
    "opinions": 0,
    "promulgated": "2026-11-02",
+   "status": "結果公示"
+  },
+  {
+   "id": "495260182",
+   "title": "医薬品、医療機器等の品質、有効性及び安全性の確保等に関する法律第六十八条の二第一項の規定に基づき厚生労働大臣の指定する医薬品（案）",
+   "result_title": "医薬品、医療機器等の品質、有効性及び安全性の確保等に関する法律第六十八条の二第一項の規定に基づき厚生労働大臣の指定する医薬品（案）に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=495260182&Mode=1",
+   "result_date": "2026-11-09",
+   "published": "2026-09-11",
+   "deadline": "2026-10-10",
+   "category": "厚生",
+   "office": "医薬局医薬安全対策課",
+   "opinions": 1,
+   "promulgated": "2026-11-09",
    "status": "結果公示"
   },
   {
