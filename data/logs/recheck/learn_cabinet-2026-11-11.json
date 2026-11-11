@@ -1,0 +1,72 @@
+{
+ "unit": "learn:cabinet",
+ "title": "内閣とは",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典の「内閣法」を改正する法律が成立した（新型インフルエンザ等対策特別措置法などの改正、2023-04-21）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第3条・第6条・第7条・第65条・第66条・第68条〜第73条・第79条・第80条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣法 第2条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000005",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣官房「国の行政機関の組織図」内閣（令和8年8月1日時点）",
+   "url": "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/kikouzu_202610/401.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "文部科学省「学校給食費の抜本的な負担軽減」",
+   "url": "https://www.mext.go.jp/a_menu/sports/syokuiku/kyu-lighten.html",
+   "chars": 2045,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高校生等への修学支援」",
+   "url": "https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm",
+   "chars": 5237,
+   "error": null
+  },
+  {
+   "label": "こども家庭庁「児童手当」",
+   "url": "https://www.cfa.go.jp/policies/kokoseido/jidouteate",
+   "chars": 322,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高等教育の修学支援新制度」",
+   "url": "https://www.mext.go.jp/a_menu/koutou/hutankeigen/index.htm",
+   "chars": 2421,
+   "error": null
+  },
+  {
+   "label": "和歌山県「児童手当」",
+   "url": "https://www.pref.wakayama.lg.jp/prefg/040200/jidoteate.html",
+   "chars": 1822,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "内閣法の今の本文（第2条第2項の十四人以内・十七人以内、附則の十六人・十九人の読み替え）と内閣官房の組織図（令和8年8月1日時点）を確かめ、ページの記載との食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
