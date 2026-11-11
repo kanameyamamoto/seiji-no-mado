@@ -1,0 +1,55 @@
+{
+ "unit": "learn:constitution-amendment",
+ "title": "憲法改正の手続き",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第96条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本国憲法の改正手続に関する法律 第2条・第3条・第126条",
+   "url": "https://laws.e-gov.go.jp/law/419AC1000000051",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国会法 第68条の2・第102条の6",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「国会の構成」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_kousei.htm",
+   "chars": 585,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第21条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法第21条（引き続き三箇月以上住民基本台帳に記録）と日本国憲法第96条・国民投票法第22条（登録基準日は期日前五十日）・国会法などを確かめ、ページとの食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
