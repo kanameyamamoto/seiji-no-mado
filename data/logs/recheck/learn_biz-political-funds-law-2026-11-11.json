@@ -1,0 +1,60 @@
+{
+ "unit": "learn:biz-political-funds-law",
+ "title": "政治資金のしくみ（政治資金規正法）",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "政治資金規正法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/323AC1000000194",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "青森県選挙管理委員会「改正政治資金規正法等の概要（令和6年6月及び12月改正）」令和8年4月一部改訂",
+   "url": "https://www.pref.aomori.lg.jp/soshiki/senkan/files2/kisei_gaiyo202604.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「政治資金収支報告書及び政党交付金使途等報告書」",
+   "url": "https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/",
+   "chars": 2787,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "民法 第4条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/129AC0000000089",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.1260 政党等寄附金特別控除制度」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1260.htm",
+   "chars": 2397,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法の抜粋には第9条（選挙権の年齢）の本文が含まれず、ページの記載と食い違う箇所は確かめられなかったため、直す点はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
