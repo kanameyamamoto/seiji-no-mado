@@ -20,7 +20,7 @@
   "答弁待ち": 100,
   "撤回": 0
  },
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "items": [
   {
    "id": "shu-222-1",
@@ -626,7 +626,7 @@
    "submitted": "2026-10-28",
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222015.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222015.htm"
   },
   {
@@ -641,7 +641,7 @@
    "submitted": "2026-10-28",
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222016.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222016.htm"
   },
   {
@@ -656,7 +656,7 @@
    "submitted": "2026-10-28",
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222017.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222017.htm"
   },
   {
@@ -697,6 +697,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-05",
+   "forwarded": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222020.htm"
   },
@@ -710,6 +711,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-05",
+   "forwarded": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222021.htm"
   },
@@ -723,6 +725,7 @@
    "member": "san-7025012",
    "status": "答弁待ち",
    "submitted": "2026-11-06",
+   "forwarded": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222022.htm"
   },
@@ -736,6 +739,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-06",
+   "forwarded": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222023.htm"
   },
@@ -749,6 +753,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-06",
+   "forwarded": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222024.htm"
   },
@@ -762,6 +767,7 @@
    "member": "san-7019003",
    "status": "答弁待ち",
    "submitted": "2026-11-06",
+   "forwarded": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222025.htm"
   },
