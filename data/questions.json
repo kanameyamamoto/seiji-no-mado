@@ -290,6 +290,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222015.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222015.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222015.htm"
   },
   {
@@ -307,6 +308,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222016.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222016.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222016.htm"
   },
   {
@@ -324,6 +326,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222017.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222017.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222017.htm"
   },
   {
@@ -341,6 +344,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222018.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222018.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222018.htm"
   },
   {
@@ -371,7 +375,7 @@
    "status": "答弁待ち",
    "status_text": "質問受理",
    "submitted": "2026-11-05",
-   "question_url": "",
+   "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222020.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222020.htm"
   },
   {
@@ -386,7 +390,7 @@
    "status": "答弁待ち",
    "status_text": "質問受理",
    "submitted": "2026-11-05",
-   "question_url": "",
+   "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222021.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222021.htm"
   },
   {
