@@ -1,0 +1,72 @@
+{
+ "unit": "links:defense-spending",
+ "title": "防衛費",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典の「防衛省設置法」を改正する法律が成立した（防衛省設置法の改正、2023-04-14）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "しんぶん赤旗（日本共産党）主張「安保３文書の改定／膨大な負担増強いる自民提言」（2026年6月18日）",
+   "url": "https://www.jcp.or.jp/akahata/aik26/2026-06-18/2026061802_01_0.php",
+   "chars": 1325,
+   "error": null
+  },
+  {
+   "label": "自由民主党 メールマガジン Vol.1222（2026年6月26日）「安全保障調査会が『新たな国家安全保障戦略等の策定に向けた提言』を申し入れ」",
+   "url": "https://www.jimin.jp/involved/mailmagazine/backnumber/213651.html",
+   "chars": 3000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度 防衛関係予算のポイント」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/19.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度 防衛関係予算のポイント（概要）」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/20.pdf",
+   "chars": 1948,
+   "error": null
+  },
+  {
+   "label": "国家安全保障戦略（令和4年12月16日 国家安全保障会議決定・閣議決定）",
+   "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-j.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "首相官邸「第219回国会における高市内閣総理大臣所信表明演説」（令和7年10月24日）",
+   "url": "https://www.kantei.go.jp/jp/104/statement/2025/1024shoshinhyomei.html",
+   "chars": 8251,
+   "error": null
+  },
+  {
+   "label": "防衛省設置法 第3条",
+   "url": "https://laws.e-gov.go.jp/law/329AC0000000164",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度税制改正の大綱（６/９）」（防衛特別所得税・復興特別所得税）",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_06.htm",
+   "chars": 585,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省「令和８年度 防衛関係予算のポイント」（9兆353億円・+3.8％、防衛省所管8兆9,843億円、43兆円程度）、国家安全保障戦略、第219回国会所信表明演説、令和8年度税制改正の大綱、各党の出典の今の本文を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
