@@ -8,7 +8,7 @@
   "撤回": 3,
   "審議未了": 20
  },
- "checked": "2026-11-09",
+ "checked": "2026-11-11",
  "source": {
   "label": "衆議院 議案の一覧・議案審議経過情報",
   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm"
@@ -422,14 +422,30 @@
    "category": "閣法",
    "number": "閣法第11号",
    "title": "原油等の安定的な輸送の確保のための指定水路の利用の合理化に関する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-13",
    "shugiin": {
-    "committee": "経済産業"
+    "committee": "経済産業",
+    "result": "可決",
+    "date": "2026-11-10"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "志士の会"
+    ],
+    "against": [
+     "日本共産党"
+    ]
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第11号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE34F6.htm"
@@ -447,14 +463,30 @@
    "category": "閣法",
    "number": "閣法第12号",
    "title": "特定貨物保険契約及び特定船舶保険契約の履行の確保に関する特別措置法案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-13",
    "shugiin": {
-    "committee": "経済産業"
+    "committee": "経済産業",
+    "result": "可決",
+    "date": "2026-11-10"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "志士の会"
+    ],
+    "against": [
+     "日本共産党"
+    ]
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第12号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE350A.htm"
@@ -535,12 +567,30 @@
    "category": "閣法",
    "number": "閣法第15号",
    "title": "警察官職務執行法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-16",
-   "shugiin": {},
+   "shugiin": {
+    "committee": "内閣",
+    "result": "可決",
+    "date": "2026-11-10"
+   },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "志士の会"
+    ],
+    "against": [
+     "日本共産党"
+    ]
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第15号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3626.htm"
@@ -707,19 +757,34 @@
    "category": "閣法",
    "number": "閣法第21号",
    "title": "商法及び国際海上物品運送法の一部を改正する法律案",
-   "status": "衆議院で審議中",
+   "status": "参議院で審議中",
    "submitter": "内閣",
    "groups": [],
    "submitted": "2026-10-23",
    "shugiin": {
-    "committee": "法務"
+    "committee": "法務",
+    "result": "可決",
+    "date": "2026-11-10"
    },
    "sangiin": {},
+   "votes": {
+    "for": [
+     "自由民主党・無所属の会",
+     "中道",
+     "日本維新の会",
+     "国民民主党・無所属クラブ",
+     "参政党",
+     "チームみらい",
+     "日本共産党",
+     "志士の会"
+    ],
+    "against": []
+   },
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 閣法第21号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3706.htm"
    },
-   "outline": "",
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209021.htm",
    "_keika_ok": true,
    "result": "審議中",
    "listed": [
