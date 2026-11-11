@@ -1,0 +1,56 @@
+{
+ "unit": "learn:civil-servants",
+ "title": "官僚と公務員",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）",
+  "出典の「教育公務員特例法」を改正する法律が成立した（教育公務員特例法及び教育職員免許法の改正、2022-05-11）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第15条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 11665,
+   "error": null
+  },
+  {
+   "label": "国家公務員法 第2条・第96条・第102条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣人事局「公務員の種類と数」",
+   "url": "https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/files/r08_komuin_shuruikazu.pdf",
+   "chars": 1380,
+   "error": null
+  },
+  {
+   "label": "教育公務員特例法 第2条",
+   "url": "https://laws.e-gov.go.jp/law/324AC0000000001",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第21条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法第15条、国家公務員法（第3条ほか）、内閣人事局「公務員の種類と数」（令和8年度末予算定員・令和7年地方公共団体定員管理調査）、教育公務員特例法第2条、公職選挙法（第21条の年齢満18年以上）の今の本文を確かめ、ページの人数・区分・条文の内容との食い違いはなかった（国家公務員法第2条・第48条・第96条・第102条と公職選挙法第9条は抜粋に本文がなく、変更の根拠も見当たらない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
