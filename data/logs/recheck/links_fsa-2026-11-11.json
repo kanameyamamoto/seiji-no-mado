@@ -1,0 +1,72 @@
+{
+ "unit": "links:fsa",
+ "title": "金融庁",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典の「金融商品取引法」を改正する法律が成立した（金融商品取引法・投資信託法の改正、2024-05-15）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "金融商品取引法",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000025",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "金融庁",
+   "url": "https://www.fsa.go.jp/",
+   "chars": 1964,
+   "error": null
+  },
+  {
+   "label": "金融庁設置法",
+   "url": "https://laws.e-gov.go.jp/law/410AC1000000130",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "公認会計士法",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000103",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "銀行法",
+   "url": "https://laws.e-gov.go.jp/law/356AC0000000059",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "金融商品取引法・金融庁設置法第3条・行政機関職員定員令（金融庁1,664人）・令和8年度予算の各出典の今の本文を確かめ、ページの文（所管法の名称、任務、定員、予算額）と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

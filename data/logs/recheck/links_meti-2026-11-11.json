@@ -1,0 +1,72 @@
+{
+ "unit": "links:meti",
+ "title": "経済産業省",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典の「特別会計に関する法律」を改正する法律が成立した（地方交付税法・特別会計法の改正、2023-11-29）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "経済産業省",
+   "url": "https://www.meti.go.jp/",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "経済産業省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000099",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "外国為替及び外国貿易法",
+   "url": "https://laws.e-gov.go.jp/law/324AC0000000228",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "特許法",
+   "url": "https://laws.e-gov.go.jp/law/334AC0000000121",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "経済産業省設置法第3条・行政機関職員定員令（経済産業省8,068人）・財務省の所管別内訳（8,694億円）・外国為替及び外国貿易法・特許法の今の本文を確かめ、ページの文と食い違いはなかった（公式サイトは開けなかったため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
