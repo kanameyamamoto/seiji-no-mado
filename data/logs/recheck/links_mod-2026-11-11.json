@@ -1,0 +1,72 @@
+{
+ "unit": "links:mod",
+ "title": "防衛省",
+ "date": "2026-11-11",
+ "reasons": [
+  "出典の「防衛省設置法」を改正する法律が成立した（防衛省設置法の改正、2023-04-14）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "防衛省",
+   "url": "https://www.mod.go.jp/",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "防衛省設置法",
+   "url": "https://laws.e-gov.go.jp/law/329AC0000000164",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "自衛隊法",
+   "url": "https://laws.e-gov.go.jp/law/329AC0000000165",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度税制改正の大綱（６/９）」（防衛特別所得税・復興特別所得税）",
+   "url": "https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_06.htm",
+   "chars": 585,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "防衛省設置法（第3条の任務、第6条の自衛官の定数総計247,154人と陸上149,403人・海上45,462人・航空47,131人）、令和８年度概算の防衛省89,843億円、行政機関職員定員令の防衛省21,418人（うち特別職21,393人、附則で令和8年12月31日まで21,437人）、税制改正の大綱の防衛特別所得税1％を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
