@@ -1,0 +1,43 @@
+{
+ "unit": "learn:election-basics",
+ "title": "選挙のしくみ（小選挙区・比例代表・選挙区）",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第14条・第15条・第44条・第47条・第93条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 10640,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第4条・第12条〜第14条・第95条の2・第95条の3",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 選挙の種類」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo03.html",
+   "chars": 2961,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法・総務省「選挙の種類」と公職選挙法の抜粋を確かめ、ページとの食い違いはなく、選挙区数などの規定（第4条・第12条〜第14条・別表・第95条の2・第95条の3）は渡された抜粋に含まれていないため、それを根拠に直すことはしない。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
