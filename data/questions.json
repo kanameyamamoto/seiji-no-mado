@@ -12,12 +12,12 @@
   }
  ],
  "count": {
-  "衆議院": 2343,
+  "衆議院": 2344,
   "参議院": 1878
  },
  "count_by_status": {
   "答弁あり": 4121,
-  "答弁待ち": 100,
+  "答弁待ち": 101,
   "撤回": 0
  },
  "checked": "2026-11-12",
@@ -373,8 +373,9 @@
    "member": "shu-584250a0",
    "kaiha": "中道",
    "status": "答弁待ち",
-   "status_text": "質問受理",
+   "status_text": "内閣転送",
    "submitted": "2026-11-05",
+   "forwarded": "2026-11-11",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222020.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222020.htm"
   },
@@ -388,10 +389,26 @@
    "member": "shu-babc0620",
    "kaiha": "無所属",
    "status": "答弁待ち",
-   "status_text": "質問受理",
+   "status_text": "内閣転送",
    "submitted": "2026-11-05",
+   "forwarded": "2026-11-11",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222021.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222021.htm"
+  },
+  {
+   "id": "shu-222-22",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 22,
+   "title": "再任用教員の処遇に関する質問主意書",
+   "submitter": "日野紗里亜",
+   "member": "shu-bf07e600",
+   "kaiha": "国民民主党・無所属クラブ",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-11",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222022.htm"
   },
   {
    "id": "san-222-1",
