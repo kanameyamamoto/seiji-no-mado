@@ -1,0 +1,72 @@
+{
+ "unit": "links:env",
+ "title": "環境省",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「地球温暖化対策の推進に関する法律」を改正する法律が成立した（地球温暖化対策推進法の改正、2022-05-25）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "地球温暖化対策の推進に関する法律",
+   "url": "https://laws.e-gov.go.jp/law/410AC0000000117",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "環境省",
+   "url": "https://www.env.go.jp/",
+   "chars": 1006,
+   "error": null
+  },
+  {
+   "label": "環境省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000101",
+   "chars": 10222,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "大気汚染防止法",
+   "url": "https://laws.e-gov.go.jp/law/343AC0000000097",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "地球温暖化対策の推進に関する法律の今の本文では法律名が変わっておらず、ページは同法を環境省の所管法として名前を挙げているだけなので食い違いはなく、財務省の概算（環境省3,155億円）とも一致しました。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

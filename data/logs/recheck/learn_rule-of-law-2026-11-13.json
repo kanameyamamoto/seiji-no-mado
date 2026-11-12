@@ -1,0 +1,73 @@
+{
+ "unit": "learn:rule-of-law",
+ "title": "法の支配と法の種類（憲法・法律・政令・条例）",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2022-12-10）",
+  "出典の「道路交通法」を改正する法律が成立した（道路交通法の改正、2022-04-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "e-Gov法令検索（デジタル庁）",
+   "url": "https://laws.e-gov.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "国会会議録検索システム（国立国会図書館）",
+   "url": "https://kokkai.ndl.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第31条・第41条・第59条・第73条・第81条・第94条・第96条・第98条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 第12条",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000089",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第14条・第15条・第96条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣法制局「法律ができるまで」",
+   "url": "https://www.clb.go.jp/recent-laws/process/",
+   "chars": 1793,
+   "error": null
+  },
+  {
+   "label": "廃棄物の処理及び清掃に関する法律 第6条・第6条の2",
+   "url": "https://laws.e-gov.go.jp/law/345AC0000000137",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "渡された地方自治法の抜粋は附則・第245条の4などで第14条・第15条・第96条の本文を含まず、道路交通法の本文は抜粋に含まれていないため、これらの出典を根拠とする食い違いは確かめられず、ほかの抜粋（日本国憲法・国家行政組織法など）にもページの文との食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
