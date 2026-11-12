@@ -1,0 +1,55 @@
+{
+ "unit": "learn:lower-house-election",
+ "title": "衆議院の選挙制度",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "公職選挙法 第4条・第13条・第46条・第86条の2・第93条・第95条の2・別表第一・別表第二",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院議員選挙区画定審議会設置法 第3条",
+   "url": "https://laws.e-gov.go.jp/law/406AC0000000003",
+   "chars": 10710,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 選挙の種類」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo03.html",
+   "chars": 2961,
+   "error": null
+  },
+  {
+   "label": "衆議院「衆議院議員の選挙制度改革及び定数削減に関する法律案」本文",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/houan/g22105028.htm",
+   "chars": 2120,
+   "error": null
+  },
+  {
+   "label": "衆議院 議案審議経過情報（衆第28号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE2D42.htm",
+   "chars": 1183,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法・衆議院議員選挙区画定審議会設置法の抜粋、衆議院の法律案本文（衆第28号：第4条第1項の「四百六十五人」を「四百二十人」に、「百七十六人」を「百三十一人」に改める規定、別表第二の北海道8人・東北12人・北関東19人・南関東23人の記載）と議案審議経過情報（令和8年10月5日 政治改革に関する特別委員会に付託、審査終了の記載なし）を確かめ、ページの文と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

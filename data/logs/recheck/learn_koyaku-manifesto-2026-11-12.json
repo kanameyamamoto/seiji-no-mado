@@ -1,0 +1,73 @@
+{
+ "unit": "learn:koyaku-manifesto",
+ "title": "公約とマニフェスト",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "自由民主党",
+   "url": "https://www.jimin.jp/policy/",
+   "chars": 241,
+   "error": null
+  },
+  {
+   "label": "中道改革連合",
+   "url": "https://craj.jp/party/policies/",
+   "chars": 2386,
+   "error": null
+  },
+  {
+   "label": "日本維新の会",
+   "url": "https://o-ishin.jp/policy/",
+   "chars": 2058,
+   "error": null
+  },
+  {
+   "label": "国民民主党",
+   "url": "https://new-kokumin.jp/policies",
+   "chars": 3652,
+   "error": null
+  },
+  {
+   "label": "参政党",
+   "url": "https://sanseito.jp/political_measures",
+   "chars": 526,
+   "error": null
+  },
+  {
+   "label": "チームみらい",
+   "url": "https://policy.team-mir.ai",
+   "chars": 2740,
+   "error": null
+  },
+  {
+   "label": "日本共産党",
+   "url": "https://www.jcp.or.jp/web_policy/",
+   "chars": 2358,
+   "error": null
+  },
+  {
+   "label": "いのちの党",
+   "url": "https://inochinoto.jp/policy/",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "渡された出典の抜粋は各党の政策ページのみで、公職選挙法（e-Gov法令検索）第142条の2の本文は含まれておらず、各党の政策ページの内容とページの文・リンク一覧の間に食い違いは確かめられなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
