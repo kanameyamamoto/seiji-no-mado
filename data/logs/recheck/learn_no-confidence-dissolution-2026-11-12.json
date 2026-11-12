@@ -1,0 +1,67 @@
+{
+ "unit": "learn:no-confidence-dissolution",
+ "title": "内閣不信任と衆議院の解散",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第7条・第54条・第67条・第69条・第70条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 11575,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第31条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "参議院「国会の地位と権能」",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/kiso_1.html",
+   "chars": 1726,
+   "error": null
+  },
+  {
+   "label": "衆議院「衆議院議員総選挙一覧表」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/senkyolist.htm",
+   "chars": 2117,
+   "error": null
+  },
+  {
+   "label": "衆議院「国会会期一覧」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiki.htm",
+   "chars": 10002,
+   "error": null
+  },
+  {
+   "label": "労働基準法 第7条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 投票制度」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo05.html",
+   "chars": 5760,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法第7条・第54条・第69条・第70条、公職選挙法、衆議院「衆議院議員総選挙一覧表」（第220回国会（常会）令和8年1月23日解散、令和8年2月8日総選挙、第221回国会（特別会）令和8年2月18日召集）と「国会会期一覧」の今の本文を確かめ、ページの文と食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
