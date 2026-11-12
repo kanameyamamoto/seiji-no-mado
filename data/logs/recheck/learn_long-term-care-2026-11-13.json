@@ -1,0 +1,73 @@
+{
+ "unit": "learn:long-term-care",
+ "title": "介護保険のしくみ",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律」を改正する法律が成立した（地方公務員の育児休業等に関する法律等の改正、2022-04-22）",
+  "出典の「育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律」を改正する法律が成立した（国家公務員の育児休業等に関する法律等の改正、2022-04-06）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "介護保険法 第9条・第49条の2",
+   "url": "https://laws.e-gov.go.jp/law/409AC0000000123",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「第９期介護保険事業計画期間における介護保険の第１号保険料及びサービス見込み量等について」",
+   "url": "https://www.mhlw.go.jp/stf/newpage_40211.html",
+   "chars": 602,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度 社会保障関係予算のポイント」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/13.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律 第15条",
+   "url": "https://laws.e-gov.go.jp/law/403AC0000000076",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "世田谷区「令和8年度より国民健康保険料に子ども・子育て支援金分が加算されます」",
+   "url": "https://www.city.setagaya.lg.jp/02060/32027.html",
+   "chars": 1117,
+   "error": null
+  },
+  {
+   "label": "ハローワークインターネットサービス「雇用継続給付」",
+   "url": "https://www.hellowork.mhlw.go.jp/insurance/insurance_continue.html",
+   "chars": 5464,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「地域包括支援センターについて」",
+   "url": "https://www.mhlw.go.jp/content/12300000/001671185.pdf",
+   "chars": 7393,
+   "error": null
+  },
+  {
+   "label": "千葉市「年金受給者ですが、介護保険料の特別徴収とは何か教えてください。」",
+   "url": "https://www.city.chiba.jp/faq/hokenfukushi/koreishogai/kaigohokenkanri/535.html",
+   "chars": 1784,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "育児・介護休業法第15条（介護休業は対象家族1人につき93日から介護休業日数を差し引いた日数まで）をはじめ、介護保険の第1号保険料の全国加重平均6,225円（第8期6,014円）、令和8年度の介護給付費37,806億円、介護休業給付（67％・93日・3回）、地域包括支援センター5,487か所、年金額年18万円以上の特別徴収、世田谷区の国民健康保険料の区分を出典の今の本文と照らし合わせ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

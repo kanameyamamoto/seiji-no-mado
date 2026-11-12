@@ -1,0 +1,48 @@
+{
+ "unit": "learn:media-types",
+ "title": "メディアの種類と特徴",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「放送法」を改正する法律が成立した（電波法及び放送法の改正、2022-06-03）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "放送法 第2条・第4条・第5条・第6条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000132",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本新聞協会「新聞倫理綱領」",
+   "url": "https://www.pressnet.or.jp/outline/ethics/",
+   "chars": 1869,
+   "error": null
+  },
+  {
+   "label": "日本新聞協会「新聞の発行部数と世帯数の推移」",
+   "url": "https://www.pressnet.or.jp/data/circulation/circulation01.php",
+   "chars": 6222,
+   "error": null
+  },
+  {
+   "label": "日本新聞協会「記者クラブに関する日本新聞協会編集委員会の見解」（倫理綱領の順守義務の記載）",
+   "url": "https://www.pressnet.or.jp/statement/report/060309_15.html",
+   "chars": 9105,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "放送法（e-Gov法令検索）の第2条・第5条、日本新聞協会の新聞倫理綱領、発行部数と世帯数の推移（2025年24,868,122部、一般紙23,373,706部、スポーツ紙1,494,416部、2024年26,616,578部、1世帯当たり0.42部、世帯数58,955,700）、記者クラブに関する見解を確かめ、ページの記述との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
