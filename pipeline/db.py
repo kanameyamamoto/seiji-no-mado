@@ -259,13 +259,34 @@ CREATE TABLE {p}meta (key TEXT PRIMARY KEY, value TEXT);"""
 TABLES = ["entities", "edges", "fts", "meta"]
 
 
+MAX_DATA = 60000  # D1 は1つの命令が約100KBまで。data の JSON がこれを超えたら、長い一覧を前から切る
+
+
+def fit(data):
+    """data の JSON が MAX_DATA バイトを超えないように、いちばん長い一覧を前から切る。切った一覧は _cut に元の数を書く。"""
+    j = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    if len(j.encode()) <= MAX_DATA:
+        return j
+    data = dict(data)
+    cut = {}
+    while len(j.encode()) > MAX_DATA:
+        k = max((k for k, v in data.items() if isinstance(v, list) and len(v) > 1), key=lambda k: len(json.dumps(data[k], ensure_ascii=False)), default=None)
+        if k is None:
+            break
+        cut.setdefault(k, len(data[k]))
+        data[k] = data[k][: max(1, len(data[k]) * 2 // 3)]
+        data["_cut"] = {kk: {"all": n, "shown": len(data[kk])} for kk, n in cut.items()}
+        j = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    return j
+
+
 def to_sql(B, digest, today):
     out = [f"DROP TABLE IF EXISTS new_{t};" for t in TABLES] + [f"DROP INDEX IF EXISTS edges_{k}_{digest};" for k in ("src", "dst")]
     # 索引の名前は版ごとに変える（表の名前を入れ替えても、索引の名前は変わらないため）
     out += SCHEMA.format(p="new_", v=digest).split("\n")
     for i, e in enumerate(B.ent):
         out.append("INSERT INTO new_entities VALUES (" + ",".join(q(x) for x in (e["type"], e["id"], e["name"], e["kana"], e["summary"], e["body"], e["url"], e["api"], e["checked"],
-                                                                                 json.dumps(e["data"], ensure_ascii=False, separators=(",", ":")), i)) + ");")
+                                                                                 fit(e["data"]), i)) + ");")
         out.append("INSERT INTO new_fts (type, id, name, kana, summary, body) VALUES (" + ",".join(q(x) for x in (e["type"], e["id"], e["name"], e["kana"], e["summary"], e["body"])) + ");")
     for ed in B.edges:
         out.append("INSERT INTO new_edges VALUES (" + ",".join(q(x) for x in ed) + ");")
