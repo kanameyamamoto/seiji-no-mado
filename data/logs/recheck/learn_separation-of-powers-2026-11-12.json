@@ -1,0 +1,74 @@
+{
+ "unit": "learn:separation-of-powers",
+ "title": "三権分立",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「最高裁判所裁判官国民審査法」を改正する法律が成立した（最高裁判所裁判官国民審査法の改正、2022-11-11）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第6条・第7条・第15条・第41条・第64条〜第69条・第76条・第79条〜第81条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「三権分立」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_sankenbunritsu.htm",
+   "chars": 342,
+   "error": null
+  },
+  {
+   "label": "衆議院「議院内閣制」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_giinnaikakusei.htm",
+   "chars": 408,
+   "error": null
+  },
+  {
+   "label": "参議院「国会の地位と権能」",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/kiso_1.html",
+   "chars": 1726,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第21条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "最高裁判所裁判官国民審査法 第4条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000136",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "名古屋地方裁判所「なごや出張裁判所について」",
+   "url": "https://www.courts.go.jp/nagoya/about/koho/18saibanin/index.html",
+   "chars": 1389,
+   "error": null
+  },
+  {
+   "label": "行政手続法 第39条",
+   "url": "https://laws.e-gov.go.jp/law/405AC0000000088",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法・衆議院「三権分立」「議院内閣制」・公職選挙法・最高裁判所裁判官国民審査法（在外投票の規定を含む）などの今の本文（抜粋）を確かめ、挙げられた2022年の改正を含めてページの文と食い違う箇所はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

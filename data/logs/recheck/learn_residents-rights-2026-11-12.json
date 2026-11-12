@@ -1,0 +1,56 @@
+{
+ "unit": "learn:residents-rights",
+ "title": "住民の権利（直接請求・住民投票）",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）",
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2022-12-10）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第93条・第95条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第12条・第13条・第74条〜第88条・第115条・第124条・第242条・第242条の2・第261条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「請願」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_seigan.htm",
+   "chars": 441,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第21条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「個人住民税」",
+   "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/150790_06.html",
+   "chars": 3467,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "地方自治法（第74条〜第88条・第242条など）・公職選挙法・日本国憲法・総務省「個人住民税」の今の本文（抜粋）を確かめ、挙げられた2022年の改正を含めてページの文と食い違う箇所はなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
