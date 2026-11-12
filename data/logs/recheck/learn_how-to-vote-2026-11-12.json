@@ -1,0 +1,49 @@
+{
+ "unit": "learn:how-to-vote",
+ "title": "投票のしかた（期日前投票・不在者投票・在外投票）",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省「なるほど！選挙 投票制度」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo05.html",
+   "chars": 5760,
+   "error": null
+  },
+  {
+   "label": "総務省「なるほど！選挙 選挙人名簿」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/naruhodo/naruhodo07.html",
+   "chars": 2307,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第21条・第30条の2・第40条・第44条・第46条・第48条の2・第49条・第49条の2",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "住民基本台帳法 第22条",
+   "url": "https://laws.e-gov.go.jp/law/342AC0000000081",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "総務省「なるほど！選挙 投票制度」「選挙人名簿」と公職選挙法・住民基本台帳法の抜粋を確かめ、期日前投票の時間（午前8時30分から午後8時まで）、郵便等による不在者投票の対象（要介護5など）、在外選挙人名簿の出国時申請（平成30年6月1日開始）・在外公館申請（引き続き3か月以上）、選挙人名簿の登録要件（満18年以上・引き続き3か月以上）などに食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

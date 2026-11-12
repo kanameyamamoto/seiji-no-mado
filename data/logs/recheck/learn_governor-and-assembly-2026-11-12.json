@@ -1,0 +1,44 @@
+{
+ "unit": "learn:governor-and-assembly",
+ "title": "知事・市区町村長と議会（二元代表制）",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）",
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2022-12-10）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第93条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 11473,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第93条・第96条・第140条・第149条・第176条・第178条・第179条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第10条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法第93条、地方自治法第176条・第179条など、公職選挙法第9条の抜粋を確かめ、再議（10日以内・送付を受けた日）、専決処分の要件、選挙権（年齢満18年以上・引き続き3箇月以上）について、ページの文との食い違いはなかった（抜粋に含まれない条文は根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
