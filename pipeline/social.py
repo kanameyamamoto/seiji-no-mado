@@ -230,6 +230,19 @@ def draft_x():
     print(c["alt"])
 
 
+def recent_fact(posts, platform, hours):
+    """同じSNSに、決めた時間の中でデータのポストを出していれば True（二重に出さないため）。"""
+    now = datetime.datetime.now(JST)
+    for p in posts:
+        if p.get("platform") == platform and str(p.get("id", "")).startswith("fact:") and p.get("post") != "draft":
+            try:
+                if now - datetime.datetime.fromisoformat(p["date"]) < datetime.timedelta(hours=hours):
+                    return True
+            except (KeyError, ValueError):
+                pass
+    return False
+
+
 def main_facts(dry=False):
     import social_facts as SF
     site = json.load(open(os.path.join(DATA, "config.json"), encoding="utf-8")).get("site_url", "https://seijinomado.com/")
@@ -247,6 +260,9 @@ def main_facts(dry=False):
         return
     changed = False
     for name, make in cl:
+        if recent_fact(log["posts"], name, hours=6):
+            print(f"[social] {name}：6時間以内にデータのポストを出したので、今回は出しません")
+            continue
         f = SF.pick(log["posts"], name)
         if not f:
             print(f"[social] {name}：出せるデータのポストがありません")

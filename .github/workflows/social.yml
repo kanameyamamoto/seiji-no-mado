@@ -8,8 +8,8 @@ on:
     types: [completed]
   schedule:
     - cron: "17 3 * * *"   # 毎日 日本時間 12:17（公開のあとに出しそびれたものを拾う）
-    - cron: "3 3 * * *"    # 毎日 日本時間 12:03 データの数字のポスト（pipeline/social_facts.py）
-    - cron: "3 12 * * *"   # 毎日 日本時間 21:03 データの数字のポスト
+  # データの数字のポストは、GitHub の時間指定が何時間も遅れるので、ここでは時間を決めない。
+  # 毎日 12:03・21:03（日本時間）に、Claude の定例タスク（X の下書きを作るもの）が facts=true で動かす。
   workflow_dispatch:
     inputs:
       facts:
@@ -45,7 +45,7 @@ jobs:
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
         run: |
-          if [ "${{ github.event.schedule }}" = "3 3 * * *" ] || [ "${{ github.event.schedule }}" = "3 12 * * *" ] || [ "${{ inputs.facts }}" = "true" ]; then
+          if [ "${{ inputs.facts }}" = "true" ]; then
             sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
             pip install -q matplotlib
             python pipeline/social.py --facts
