@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2344,
-  "参議院": 1878
+  "参議院": 1880
  },
  "count_by_status": {
   "答弁あり": 4121,
-  "答弁待ち": 101,
+  "答弁待ち": 103,
   "撤回": 0
  },
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "items": [
   {
    "id": "shu-222-1",
@@ -826,6 +826,32 @@
    "submitted": "2026-11-10",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222028.htm"
+  },
+  {
+   "id": "san-222-29",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 29,
+   "title": "独立行政法人地域医療機能推進機構による船橋中央病院の移転用地取得における審議に関する質問主意書",
+   "submitter": "仁比 聡平",
+   "member": "san-7004045",
+   "status": "答弁待ち",
+   "submitted": "2026-11-12",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222029.htm"
+  },
+  {
+   "id": "san-222-30",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 30,
+   "title": "日本とペルーとの間の社会保障協定の締結に関する質問主意書",
+   "submitter": "塩村 あやか",
+   "member": "san-7019020",
+   "status": "答弁待ち",
+   "submitted": "2026-11-12",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222030.htm"
   },
   {
    "id": "shu-221-1",
