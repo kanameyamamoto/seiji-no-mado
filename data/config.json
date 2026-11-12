@@ -1,44 +1,45 @@
 {
- "sessions": [
-  222
- ],
- "note": "毎日確かめる国会の回次。新しい国会が召集されると mechanical.py が自動で足し、閉会から60日たつと外す。",
- "recheck": {
-  "note": "公開中のページの見直し（pipeline/recheck.py）。max_age_days＝確認日からこの日数がたったら、出典に変化がなくても見直す。daily_limit＝1日に見直すページ数の上限（費用の上限にもなる）。",
-  "daily_limit": 3,
-  "max_age_days": {
-   "party": 60,
-   "elections": 180,
-   "links": 180,
-   "learn": 365,
-   "media": 365
-  }
- },
- "site_url": "https://seijinomado.com/",
- "more": {
-  "note": "公開中の法律の記事に「なぜ出されたか・だれに関係するか・国会での議論」を足す（pipeline/enrich.py）。daily_limit＝1回に扱う記事の数。",
-  "daily_limit": 60
- },
- "questions": {
-  "from_session": 201,
-  "detail_limit": 400
- },
- "history": {
-  "note": "さかのぼって載せる国会（update_laws.backfill）。新しい国会から順に、1日に per_day 件まで「国会で決まったこと」の下書きを作る。",
-  "from_session": 201,
-  "to_session": 219,
-  "per_day": 60
- },
- "rs": {
-  "note": "国の予算事業と支出先（pipeline/rs.py）。year＝使う行政事業レビューの年度（新しい年度のCSVが出たら変える）。",
-  "year": 2025
- },
- "steps": {
-  "note": "パブリックコメントと閣議の案件（pipeline/steps.py）。kakugi_from_year＝閣議をさかのぼる年。kakugi_limit＝1回に読む閣議のページの数。",
-  "kakugi_from_year": 2025,
-  "kakugi_limit": 250
- },
- "easy": {
-  "daily_limit": 30
- }
+  "sessions": [
+    222
+  ],
+  "note": "毎日確かめる国会の回次。新しい国会が召集されると mechanical.py が自動で足し、閉会から60日たつと外す。",
+  "recheck": {
+    "note": "公開中のページの見直し（pipeline/recheck.py）。max_age_days＝確認日からこの日数がたったら、出典に変化がなくても見直す。daily_limit＝1日に見直すページ数の上限（費用の上限にもなる）。",
+    "daily_limit": 3,
+    "max_age_days": {
+      "party": 60,
+      "elections": 180,
+      "links": 180,
+      "learn": 365,
+      "media": 365
+    }
+  },
+  "site_url": "https://seijinomado.com/",
+  "more": {
+    "note": "公開中の法律の記事に「なぜ出されたか・だれに関係するか・国会での議論」を足す（pipeline/enrich.py）。daily_limit＝1回に扱う記事の数。",
+    "daily_limit": 60
+  },
+  "questions": {
+    "from_session": 201,
+    "detail_limit": 400
+  },
+  "history": {
+    "note": "さかのぼって載せる国会（update_laws.backfill）。新しい国会から順に、1日に per_day 件まで「国会で決まったこと」の下書きを作る。",
+    "from_session": 201,
+    "to_session": 219,
+    "per_day": 60
+  },
+  "rs": {
+    "note": "国の予算事業と支出先（pipeline/rs.py）。year＝使う行政事業レビューの年度（新しい年度のCSVが出たら変える）。",
+    "year": 2025
+  },
+  "steps": {
+    "note": "パブリックコメントと閣議の案件（pipeline/steps.py）。kakugi_from_year＝閣議をさかのぼる年。kakugi_limit＝1回に読む閣議のページの数。",
+    "kakugi_from_year": 2025,
+    "kakugi_limit": 250
+  },
+  "easy": {
+    "daily_limit": 30
+  },
+  "api_live": true
 }
