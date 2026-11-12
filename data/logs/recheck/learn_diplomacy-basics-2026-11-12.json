@@ -1,0 +1,72 @@
+{
+ "unit": "learn:diplomacy-basics",
+ "title": "日本の外交の基本方針（外交青書）",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「旅券法」を改正する法律が成立した（旅券法の改正、2022-04-20）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "外交青書2026（目次）",
+   "url": "https://www.mofa.go.jp/mofaj/gaiko/bluebook/2026/html/index.html",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "外交青書（バックナンバー）",
+   "url": "https://www.mofa.go.jp/mofaj/gaiko/bluebook/index.html",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "外務省「外交青書2026」第1章 2 日本外交の展望",
+   "url": "https://www.mofa.go.jp/mofaj/gaiko/bluebook/2026/html/chapter1_00_02.html",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "外務省「令和8年版外交青書（外交青書2026）の公表」（令和8年4月10日）",
+   "url": "https://www.mofa.go.jp/mofaj/press/release/pressit_000001_03606.html",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "外務省設置法 第3条",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000094",
+   "chars": 6450,
+   "error": null
+  },
+  {
+   "label": "外務省「たびレジ・在留届共通 トップページ」",
+   "url": "https://www.ezairyu.mofa.go.jp/index.html",
+   "chars": 498,
+   "error": null
+  },
+  {
+   "label": "旅券法 第16条",
+   "url": "https://laws.e-gov.go.jp/law/326AC0000000267",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "外務省「たびレジ FAQ」",
+   "url": "https://www.ezairyu.mofa.go.jp/tabireg/faq.html",
+   "chars": 11515,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "旅券法第16条（外国に住所又は居所を定めて三月以上滞在する旅券の名義人は領事官に届け出る）、外務省設置法第3条、たびレジ・在留届のページの今の本文を確かめ、ページの記述との食い違いはなかった（外交青書2026の各ページは開けなかったため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
