@@ -1,0 +1,67 @@
+{
+ "unit": "learn:voting-age-18",
+ "title": "18歳選挙権",
+ "date": "2026-11-12",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）",
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省「選挙権年齢の引下げについて」",
+   "url": "https://www.soumu.go.jp/senkyo/senkyo_s/news/senkyo/senkyo_nenrei/index.html",
+   "chars": 1222,
+   "error": null
+  },
+  {
+   "label": "衆議院 制定法律「公職選挙法等の一部を改正する法律」（平成27年）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/housei/18920150619043.htm",
+   "chars": 3993,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第10条・第137条の2",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本国憲法の改正手続に関する法律 第3条",
+   "url": "https://laws.e-gov.go.jp/law/419AC1000000051",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "法務省「民法の一部を改正する法律（成年年齢関係）について」",
+   "url": "https://www.moj.go.jp/MINJI/minji07_00218.html",
+   "chars": 2085,
+   "error": null
+  },
+  {
+   "label": "名古屋地方裁判所「なごや出張裁判所について」",
+   "url": "https://www.courts.go.jp/nagoya/about/koho/18saibanin/index.html",
+   "chars": 1389,
+   "error": null
+  },
+  {
+   "label": "法務省「少年法が変わります！」",
+   "url": "https://www.moj.go.jp/keiji1/keiji14_00015.html",
+   "chars": 5264,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法の今の本文の抜粋（第21条の選挙人名簿の登録は年齢満十八年以上・引き続き三箇月以上、平成27年改正で第9条・第137条の2の「満二十年」を「満十八年」に改めたこと）と日本国憲法の改正手続に関する法律（投票人は年齢満十八年以上）を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
