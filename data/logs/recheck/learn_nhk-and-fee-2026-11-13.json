@@ -1,0 +1,66 @@
+{
+ "unit": "learn:nhk-and-fee",
+ "title": "NHKのしくみと受信料",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「放送法」を改正する法律が成立した（電波法及び放送法の改正、2022-06-03）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "放送法 第15条・第28条・第29条・第31条・第64条・第70条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000132",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "NHK受信料の窓口「受信料」",
+   "url": "https://www.nhk-cs.jp/jushinryo/",
+   "chars": 5229,
+   "error": null
+  },
+  {
+   "label": "日本放送協会受信規約",
+   "url": "https://www.nhk-cs.jp/regulations/jushin-kiyaku/index.html",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "NHK BS放送",
+   "url": "https://www.nhk.or.jp/bs/",
+   "chars": 648,
+   "error": null
+  },
+  {
+   "label": "NHK報道資料「NHKラジオ 音声波再編について」（2026年2月12日）",
+   "url": "https://www.nhk.or.jp/info/otherpress/pdf/2025/20260212_1.pdf",
+   "chars": 2014,
+   "error": null
+  },
+  {
+   "label": "NHK受信料の窓口「NHK受信料の学生免除」",
+   "url": "https://www.nhk-cs.jp/contract/exemption/student-branch/gakusei-menjo/",
+   "chars": 1431,
+   "error": null
+  },
+  {
+   "label": "NHK受信料の窓口「割引の制度」",
+   "url": "https://www.nhk-cs.jp/contract/waribiki/",
+   "chars": 1477,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "放送法（e-Gov）の第15条・第31条・第70条、日本放送協会受信規約（令和7年10月1日施行）、NHKラジオ音声波再編の報道資料、BS放送・学生免除・割引制度のページを照らし合わせ、ページの文との食い違いはなかった（受信料の窓口の料金表は金額が本文から読み取れないため、その出典では確かめていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

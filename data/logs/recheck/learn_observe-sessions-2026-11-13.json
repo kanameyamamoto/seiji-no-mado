@@ -1,0 +1,73 @@
+{
+ "unit": "learn:observe-sessions",
+ "title": "議会の傍聴",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2022-12-10）",
+  "出典の「国会法」を改正する法律が成立した（国会法及び国会議員の歳費、旅費及び手当等に関する法律の改正、2022-04-15）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "衆議院「傍聴の案内」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/tetuzuki/bouchou.htm",
+   "chars": 1319,
+   "error": null
+  },
+  {
+   "label": "参議院「傍聴」",
+   "url": "https://www.sangiin.go.jp/jpn/bouchou/bouchou.html",
+   "chars": 706,
+   "error": null
+  },
+  {
+   "label": "衆議院インターネット審議中継",
+   "url": "https://www.shugiintv.go.jp/index.php",
+   "chars": 108,
+   "error": null
+  },
+  {
+   "label": "参議院インターネット審議中継",
+   "url": "https://www.webtv.sangiin.go.jp/webtv/index.php",
+   "chars": 150,
+   "error": null
+  },
+  {
+   "label": "国会会議録検索システム",
+   "url": "https://kokkai.ndl.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第57条・第82条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 11152,
+   "error": null
+  },
+  {
+   "label": "国会法 第52条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第115条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "出典の地方自治法第115条・第130条、日本国憲法第57条・第82条、衆議院「傍聴の案内」、参議院「傍聴」の今の本文を確かめ、ページの文との食い違いはなかった（国会法第52条の条文本体と衆議院「参観手続」は抜粋に含まれず、確かめられなかった）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
