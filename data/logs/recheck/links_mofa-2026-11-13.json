@@ -1,0 +1,72 @@
+{
+ "unit": "links:mofa",
+ "title": "外務省",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「旅券法」を改正する法律が成立した（旅券法の改正、2022-04-20）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "旅券法",
+   "url": "https://laws.e-gov.go.jp/law/326AC0000000267",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "外務省",
+   "url": "https://www.mofa.go.jp/mofaj/",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "外務省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000094",
+   "chars": 6450,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "外務公務員法",
+   "url": "https://laws.e-gov.go.jp/law/327AC0000000041",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度 内閣、デジタル、復興、外務・経済協力係関係予算のポイント」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/05.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "旅券法（第16条の三月以上滞在者の届出を含む）・外務省設置法・財務省の概算（外務省7,763億円）・財務省「予算のポイント」（予算総額8,170億円）の今の本文を確かめ、ページと食い違う記述は見つからなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
