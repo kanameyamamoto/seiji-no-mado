@@ -1047,7 +1047,7 @@ br.pc { display: none; }
 <main><div class="wrap" id="app"></div></main>
 <footer class="site-foot"><div class="wrap">
   <button class="api-card" data-go="api"><span class="grow"><b>このサイトのデータは、だれでも無料で使えます</b><span>国会で決まったこと・政党・国会議員・知事など。登録なしで使える公開API（CC BY 4.0）</span></span><span class="go">データを使う</span></button>
-  <nav class="foot-links" aria-label="サイトについて"><button data-go="about">このサイトについて・書き方のルール</button><button data-go="api">公開API</button><a href="https://github.com/kanameyamamoto/seiji-no-mado/issues/new/choose" target="_blank" rel="noopener">間違いを知らせる</a><a href="https://github.com/kanameyamamoto/seiji-no-mado" target="_blank" rel="noopener">GitHub</a></nav>
+  <nav class="foot-links" aria-label="サイトについて"><button data-go="about">このサイトについて・書き方のルール</button><button data-go="api">公開API</button><button data-go="support">運営を支える（募金）</button><a href="https://github.com/kanameyamamoto/seiji-no-mado/issues/new/choose" target="_blank" rel="noopener">間違いを知らせる</a><a href="https://github.com/kanameyamamoto/seiji-no-mado" target="_blank" rel="noopener">GitHub</a></nav>
 </div></footer>
 
 <nav class="tabs" aria-label="メインメニュー"><div class="row" id="navTabs"></div></nav>
@@ -1057,7 +1057,7 @@ br.pc { display: none; }
   'use strict';
   // ---- 住所（URL）とページの対応。例：学ぶの「政治とは」＝ learn/what-is-politics/ ----
   var BASE = new URL('.', document.baseURI).pathname;
-  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'members', 'governors', 'laws', 'match', 'bills', 'questions', 'accounts', 'budget', 'pubcom', 'kakugi', 'councils', 'diary', 'elections', 'about', 'search', 'terms', 'api'];
+  var TAB_ROUTES = ['learn', 'links', 'media', 'parties', 'members', 'governors', 'laws', 'match', 'bills', 'questions', 'accounts', 'budget', 'pubcom', 'kakugi', 'councils', 'diary', 'elections', 'about', 'search', 'terms', 'api', 'support'];
   function routeToPath(r) {
     if (!r || r === 'home') return '';
     if (TAB_ROUTES.indexOf(r) >= 0) return r + '/';
@@ -1624,7 +1624,7 @@ br.pc { display: none; }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
     if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r === 'pubcom') return 'パブリックコメント（意見募集）'; if (r === 'diary') return '国会と政府のうごき'; if (r === 'kakugi') return '閣議の案件'; if (r === 'councils') return '国の審議会'; if (r.indexOf('org-') === 0) { var og = accFind(function (x) { return x.id === r.slice(4) && !x.party; }); return og ? og.name : '組織'; } if (r.indexOf('cn-') === 0) { var cn = cnItem(r.slice(3)); return cn ? cn.name : '審議会'; } if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '都道府県知事';
-    if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'about') return 'このサイトについて';
+    if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'support') return '運営を支える（募金）'; if (r === 'about') return 'このサイトについて';
     if (TAB_TITLE[r]) return TAB_TITLE[r];
     if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
     if (r.indexOf('p-') === 0) { var id = r.slice(2); var p = /^o\d+$/.test(id) ? D.parties.others[Number(id.slice(1))] : D.parties.national.filter(function (x) { return x.id === id; })[0]; return p ? p.name : '政党'; }
@@ -2737,6 +2737,31 @@ br.pc { display: none; }
       '<section class="sec"><h2>例</h2><pre class="code">fetch(\'' + esc(base) + 'laws.json\')\n  .then(r =&gt; r.json())\n  .then(j =&gt; console.log(j.data[0].title));</pre></section>' +
       src([{ label: 'AI 向けの案内（llms.txt）', url: new URL('llms.txt', document.baseURI).href }, { label: 'GitHub（プログラムとデータ）', url: 'https://github.com/kanameyamamoto/seiji-no-mado' }]) + '</div>';
   }
+  /* ---------- 運営を支える（募金。ルール S-4：お金で中身を変えない） ---------- */
+  function vSupport() {
+    needFile('support', 'data/support.json');
+    var S = D.support || { methods: [], uses: [], ledger: [] };
+    var R4 = ((D.rules.groups.filter(function (g) { return g.id === 'S'; })[0] || { rules: [] }).rules.filter(function (r) { return r.id === 'S-4'; })[0] || {});
+    var h = '<div class="view">' + backBtn('about', 'このサイトについて') + '<div class="page-head"><h1>運営を支える（募金）</h1><div class="meta">' + ruleChips(['S-4']) + (S.updated ? checked(S.updated) : '') + '</div></div>';
+    h += '<section class="sec learn-body"><p>せいじのまどは、広告をのせず、登録もいらず、だれでも無料で使えるようにしています。AI から使う入口（MCP）や公開API も無料です。</p><p>サーバーや AI の利用料などの運営のお金は、募金で支えています。1回だけでも、毎月でも、金額は自由です。</p></section>';
+    h += '<section class="sec"><h2>募金する</h2>' + (S.methods && S.methods.length ?
+      '<div class="list">' + S.methods.map(function (m) { return '<a class="row-item" href="' + esc(m.url) + '" target="_blank" rel="noopener"><span class="grow"><span class="t">' + esc(m.name) + '</span>' + (m.text ? '<span class="s">' + esc(m.text) + '</span>' : '') + '</span>' + ICON.ext + '</a>'; }).join('') + '</div>' :
+      '<p class="muted small">受け付けの方法をととのえています。決まりしだい、ここに載せます。</p>') + '</section>';
+    h += '<section class="sec"><h2>お金の使い道</h2><div class="list">' + (S.uses || []).map(function (u) { return '<div class="row-item"><span class="grow"><span class="t">' + esc(u.name) + '</span><span class="s">' + esc(u.text) + '</span></span></div>'; }).join('') + '</div></section>';
+    h += '<section class="sec learn-body"><h2>約束</h2><ul>' +
+      '<li>募金した人や団体が、記事の中身・並び順・載せるかどうかに関わることはありません。お礼として名前や広告を載せることもしません。</li>' +
+      '<li>政党・政治団体・候補者からの募金は受け取りません。</li>' +
+      '<li>収入と支出は、種類ごとにまとめて公開します（募金した人の名前は出しません）。</li>' +
+      '<li>募金をしてもしなくても、使えるものは同じです。</li></ul>' +
+      (R4.text ? '<p class="meta"><span>ルール S-4「' + esc(R4.title) + '」：' + esc(R4.text) + '</span></p>' : '') + '</section>';
+    h += '<section class="sec"><h2>収入と支出</h2>' + (S.ledger && S.ledger.length ?
+      '<div class="table-wrap"><table><thead><tr><th>月</th><th>種類</th><th class="num">金額</th></tr></thead><tbody>' + S.ledger.map(function (l) { return '<tr><td>' + esc(l.month) + '</td><td>' + esc(l.kind) + '</td><td class="num">' + esc(l.amount) + '</td></tr>'; }).join('') + '</tbody></table></div>' :
+      '<p class="muted small">募金の受け付けを始めたら、月ごとにここで公開します。</p>') + '</section>';
+    h += '<section class="sec"><h2>お金のほかにできること</h2><div class="list">' +
+      '<a class="row-item" href="https://github.com/kanameyamamoto/seiji-no-mado/issues/new/choose" target="_blank" rel="noopener"><span class="grow"><span class="t">間違いを知らせる</span><span class="s">出典とちがうところや、読みにくいところを教えてください</span></span>' + ICON.ext + '</a>' +
+      '<button class="row-item" data-go="api"><span class="grow"><span class="t">データや MCP を使う</span><span class="s">研究・授業・記事・アプリなどに、自由に使えます</span></span>' + ICON.chev + '</button></div></section>';
+    return h + '</div>';
+  }
   function vAbout() {
     var R = D.rules;
     return '<div class="view">' + backBtn('home', 'ホーム') + '<div class="page-head"><h1>このサイトについて</h1></div>' +
@@ -2744,6 +2769,7 @@ br.pc { display: none; }
       '<p>載せる話題は人が選ばず、決めた範囲をすべて載せます。読むレベルは「かんたん・やさしい・ふつう・くわしく」の4つから選べます。</p>' +
       '<p>読むレベルや支持政党の設定は、この端末の中だけに保存し、外には送りません。</p></section>' +
       '<button class="row-item" data-tour-open><span class="grow"><span class="t">使い方をもう一度見る</span></span>' + ICON.chev + '</button>' +
+      '<button class="row-item" data-go="support"><span class="grow"><span class="t">運営を支える（募金）</span><span class="s">広告なし・無料のまま続けるために</span></span>' + ICON.chev + '</button>' +
       '<button class="row-item" data-go="api"><span class="grow"><span class="t">データを使う（公開API）</span><span class="s">このサイトのデータを、登録なし・無料で使えます。AI（MCP）からも</span></span>' + ICON.chev + '</button>' +
       '<section class="sec learn-body"><h2>ホームの並べ方</h2><p>「今日のトピック」は、日本時間の日付と分類名（国会で決まったこと・学ぶ・政党・つながり）をつなげた文字列から、FNV-1aハッシュで番号を計算し、その分類の中から1つずつ選びます。同じ日なら、だれが見ても同じものが出ます。</p><p>「フィード」は、全コンテンツを、開くたびにブラウザの乱数でランダムに並べます。閲覧履歴や支持政党の設定は使いません。</p></section>' +
       '<section class="sec"><h2>書き方のルール v' + esc(R.version) + '</h2><div class="meta"><span>更新日 ' + date(R.updated) + '</span>' + ruleChips(['T-1']) + '</div>' +
@@ -2825,6 +2851,7 @@ br.pc { display: none; }
     else if (h === 'learn' || h === 'media' || h === 'links') html = vTab(h);
     else if (h === 'about') html = vAbout();
     else if (h === 'api') html = vApi();
+    else if (h === 'support') html = vSupport();
     else if (h === 'match') html = vMatch();
     else if (h === 'bills') html = vBills();
     else if (h === 'accounts') html = vAccounts();

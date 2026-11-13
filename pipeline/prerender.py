@@ -134,7 +134,7 @@ class Site:
 
     SECTION = {"a": "国会で決まったこと", "laws": "国会で決まったこと", "learn": "学ぶ", "links": "つながり", "party": "政党・選挙", "parties": "政党・選挙",
                "member": "国会議員", "members": "国会議員", "governors": "知事", "elections": "選挙の結果", "media": "メディア",
-               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "councils": "国の審議会", "org": "公式サイト・SNSの一覧", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）"}
+               "about": "このサイトについて", "terms": "ことばの一覧", "match": "投票記録とくらべる", "bills": "審議中・採決されなかった法律案", "accounts": "公式サイト・SNSの一覧", "questions": "質問主意書と答弁書", "budget": "国の予算事業と支出先", "pubcom": "パブリックコメント（意見募集）", "kakugi": "閣議の案件", "councils": "国の審議会", "org": "公式サイト・SNSの一覧", "diary": "国会と政府のうごき", "search": "検索", "api": "データを使う（公開API）", "support": "運営を支える（募金）"}
     SECTION_PATH = {"a": "laws/", "party": "parties/", "member": "members/", "org": "accounts/"}
 
     def ld(self, path, title, desc, lastmod, extra):
@@ -398,6 +398,8 @@ def main():
     tabs.append(("search/", "検索", "せいじのまどの中を検索する。", "<h1>検索</h1>", "search", ""))
     tabs.append(("api/", "データを使う（公開API）", "せいじのまどのデータ（国会で成立した法律・政党・国会議員・知事・政治のしくみの解説）を、登録なし・無料で使える公開API（JSON）。CC BY 4.0。",
                  "<h1>データを使う（公開API）</h1><p>このサイトのデータは、登録やキーなしで、無料で使えます。一覧は <a href=\"api/v1/index.json\">api/v1/index.json</a>。ライセンスは CC BY 4.0。</p>", "api", ""))
+    tabs.append(("support/", "運営を支える（募金）", "せいじのまどは広告なし・登録なし・無料。運営のお金は募金で支えている。募金した人が中身に関わることはなく、政党・政治団体・候補者からは受け取らない（ルール S-4）。",
+                 "<h1>運営を支える（募金）</h1><p>せいじのまどは、広告をのせず、だれでも無料で使えるようにしています。運営のお金は募金で支えています。募金した人や団体が中身・並び順に関わることはなく、政党・政治団体・候補者からは受け取りません。</p>", "support", ""))
     body = "<h1>国会議員</h1>" + "".join(
         f"<h2>{hs}（{sum(1 for m in M['members'] if m['house'] == hs)}人）</h2>" +
         lst([(f"member/{m['id']}/", f"{m['name']}（{m['kaiha']}・{m['district']}）") for m in M["members"] if m["house"] == hs]) for hs in ("衆議院", "参議院"))
