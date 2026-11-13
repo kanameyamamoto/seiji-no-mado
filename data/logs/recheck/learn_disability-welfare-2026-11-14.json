@@ -1,0 +1,72 @@
+{
+ "unit": "learn:disability-welfare",
+ "title": "障害者福祉",
+ "date": "2026-11-14",
+ "reasons": [
+  "出典の「障害を理由とする差別の解消の推進に関する法律」を改正する法律が成立した（障害者差別解消法の改正、2021-05-28）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "障害者基本法 第13条",
+   "url": "https://laws.e-gov.go.jp/law/345AC1000000084",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "障害者の日常生活及び社会生活を総合的に支援するための法律 第1条",
+   "url": "https://laws.e-gov.go.jp/law/417AC0000000123",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府「令和８年版障害者白書」参考資料",
+   "url": "https://www8.cao.go.jp/shougai/whitepaper/r08hakusho/zenbun/pdf/material.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府「障害者白書」",
+   "url": "https://www8.cao.go.jp/shougai/whitepaper/index-w.html",
+   "chars": 1877,
+   "error": null
+  },
+  {
+   "label": "障害を理由とする差別の解消の推進に関する法律 第8条",
+   "url": "https://laws.e-gov.go.jp/law/425AC0000000065",
+   "chars": 11383,
+   "error": null
+  },
+  {
+   "label": "大分労働局「令和8年7月より障害者の法定雇用率が2.7％に引き上げられます」",
+   "url": "https://jsite.mhlw.go.jp/oita-roudoukyoku/hourei_seido_tetsuzuki/kourei_shougai_gaikoku/shougaisha_houteikoyouritsu_202607.html",
+   "chars": 904,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.1160 障害者控除」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1160.htm",
+   "chars": 2142,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「19歳以上23歳未満の方の被扶養者認定における年間収入要件が変わります」",
+   "url": "https://www.nenkin.go.jp/oshirase/taisetu/2025/202508/0819.html",
+   "chars": 1496,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "障害を理由とする差別の解消の推進に関する法律第8条第2項（事業者の合理的配慮の義務）の今の本文をはじめ、障害者基本法第13条、障害者総合支援法第1条、令和８年版障害者白書参考資料（障害者総数約1,165万人等）、大分労働局・国税庁・日本年金機構の各ページを確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
