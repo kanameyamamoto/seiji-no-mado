@@ -787,10 +787,8 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
 .hq-box { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 8px 0 18px; border-radius: 999px; background: #fff; color: var(--muted); }
 .hq-box svg { width: 20px; height: 20px; flex: none; }
 .hq-box input { flex: 1; min-width: 0; height: 100%; border: 0; padding: 0; background: transparent; font-size: 16px; color: var(--fg); outline: none; }
-.hq-box .soon-pill { flex: none; }
 .hero-q:focus-within .hq-box { box-shadow: 0 0 0 3px var(--nav-muted); }
-.hero-ai-note { margin: -4px 0 0; font-size: 12px; color: var(--nav-muted); }
-@media (max-width: 600px) { .hq-box { height: 44px; padding: 0 6px 0 14px; gap: 8px; } .hq-box input { font-size: 15px; } .hq-box .soon-pill { font-size: 10.5px; padding: 1px 7px; } .hero-ai-note { display: none; } }
+@media (max-width: 600px) { .hq-box { height: 44px; padding: 0 6px 0 14px; gap: 8px; } .hq-box input { font-size: 15px; } }
 .hero-ex .chip { background: var(--nav-weak); color: #fff; border: 0; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn-p, .btn-s { height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-size: 15px; }
@@ -805,26 +803,40 @@ input.search.sm { height: 44px; font-size: 15px; margin: 4px 0 6px; }
 .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (min-width: 720px) { .entry-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1000px) { .entry-grid { grid-template-columns: repeat(4, 1fr); } }
-.entry { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-height: 84px; }
-.entry:hover { border-color: var(--accent); }
-.entry .et { font-weight: 700; color: var(--fg); }
-.entry .es { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.home-ai { background: var(--surface); border: 2px solid var(--accent); border-radius: 18px; padding: 22px 24px; }
-.home-ai p { line-height: 1.8; }
-.ha-ex { margin: 6px 0 10px; padding-left: 1.2em; line-height: 1.9; color: var(--fg); }
-.home-ai code { word-break: break-all; background: var(--accent-weak); padding: 2px 8px; border-radius: 6px; }
-.home-ai .btn-p { background: var(--accent); color: #fff; }
-.trust { display: grid; grid-template-columns: 1fr; gap: 10px; }
-@media (min-width: 720px) { .trust { grid-template-columns: 1fr 1fr; } }
-.tr { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
-.tr b { display: block; margin-bottom: 4px; color: var(--accent); }
-.tr p { margin: 0; font-size: 14px; line-height: 1.75; color: var(--fg); }
+.entry { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; grid-template-columns: 44px 1fr; column-gap: 12px; row-gap: 2px; align-items: center; min-height: 84px; transition: border-color .15s, box-shadow .15s; }
+.entry:hover { border-color: var(--accent); box-shadow: 0 4px 14px rgba(19,33,58,.08); }
+.entry .ei { grid-row: 1 / span 2; width: 44px; height: 44px; border-radius: 12px; background: var(--accent-weak); color: var(--accent); display: grid; place-items: center; }
+.entry .ei svg { width: 24px; height: 24px; }
+.entry .et { font-weight: 700; color: var(--fg); align-self: end; }
+.entry .es { font-size: 12.5px; color: var(--muted); line-height: 1.55; align-self: start; }
+.diary-card { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+.diary-card .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-weak); color: var(--accent); display: grid; place-items: center; }
+.diary-card .ic svg { width: 24px; height: 24px; }
+.diary-card .go { margin-top: auto; display: inline-flex; align-items: center; gap: 2px; color: var(--accent); font-weight: 700; font-size: 14px; }
+.diary-card .go svg { width: 16px; height: 16px; }
+.home-ai { background: var(--nav-bg); color: #fff; border: 0; border-radius: 18px; padding: 28px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 900px) { .home-ai { grid-template-columns: 1.4fr 1fr; align-items: center; padding: 36px; gap: 32px; } }
+.home-ai h2 { color: #fff; margin: 4px 0 8px; font-size: 26px; line-height: 1.4; }
+.home-ai p { margin: 0; line-height: 1.8; color: #DCE4F2; }
+.ha-k { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--nav-muted); }
+.ha-k svg { width: 16px; height: 16px; }
+.ha-ex { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.ha-q { background: var(--nav-weak); color: #fff; border-radius: 999px; padding: 6px 14px; font-size: 13.5px; line-height: 1.5; }
+.ha-q::before { content: "「"; } .ha-q::after { content: "」"; }
+.ha-side { background: var(--surface); color: var(--fg); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.ha-l { font-size: 12px; font-weight: 700; color: var(--muted); }
+.ha-addr { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; background: var(--accent-weak); border-radius: 10px; padding: 10px 12px; }
+.ha-addr code { flex: 1; min-width: 0; font-size: 13px; white-space: nowrap; overflow-x: auto; scrollbar-width: none; background: none; padding: 0; color: var(--fg); }
+.ha-c { flex: none; font-size: 12px; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 2px 10px; }
+.ha-steps { margin: 2px 0 4px; padding-left: 1.3em; font-size: 14px; line-height: 1.9; }
+.home-ai .btn-p { background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+.home-ai .btn-p svg { width: 16px; height: 16px; }
 .more-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; color: var(--accent); font-weight: 700; }
 .more-link svg { width: 16px; height: 16px; }
 .h2like { font-size: 22px; }
 br.pc { display: none; }
 @media (min-width: 720px) { br.pc { display: inline; } }
-@media (max-width: 480px) { .hero { padding: 24px 18px 20px; border-radius: 14px; } .hero-h { font-size: 26px; } .hero-s { font-size: 15px; } .hero-nums { grid-template-columns: 1fr 1fr; } .hn-v { font-size: 22px; } .hero-q input { font-size: 15px; padding: 0 16px; } .hero-q button { padding: 0 16px; } }
+@media (max-width: 480px) { .hero { padding: 24px 18px 20px; border-radius: 14px; } .hero-h { font-size: 26px; } .hero-s { font-size: 15px; } .hero-nums { grid-template-columns: 1fr 1fr; } .hn-v { font-size: 22px; } .hero-q .hq-box input { font-size: 15px; padding: 0; } .hero-q button { padding: 0 16px; } }
 
 /* スマホ：1つのものが画面を占めないように、つめて、横にすべらせる */
 .sp-only { display: none; }
@@ -863,19 +875,22 @@ br.pc { display: none; }
   .cards:not(.today-cards) > .card:has(> .card-il) > * { grid-column: 1; }
   .cards:not(.today-cards) > .card > .card-il { grid-column: 2; grid-row: 1 / span 3; width: 72px; height: 72px; aspect-ratio: auto; margin: 0; object-position: center; }
   .cards { gap: 10px; }
-  /* 入口：名前だけの小さなタイル */
-  .entry-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .entry { min-height: 0; padding: 10px 8px; border-radius: 10px; justify-content: center; text-align: center; }
-  .entry .et { font-size: 12.5px; line-height: 1.4; }
+  /* 入口：絵と名前だけの小さなタイル */
+  .entry-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .entry { min-height: 0; padding: 9px 8px; border-radius: 12px; grid-template-columns: 30px 1fr; column-gap: 8px; }
+  .entry .ei { grid-row: auto; width: 30px; height: 30px; border-radius: 8px; }
+  .entry .ei svg { width: 17px; height: 17px; }
+  .entry .et { font-size: 12.5px; line-height: 1.35; align-self: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .entry .es { display: none; }
-  .home-ai { padding: 14px; border-radius: 14px; }
+  .today-cards > .diary-card { flex: 0 0 62%; }
+  .home-ai { padding: 18px 16px; border-radius: 14px; gap: 14px; }
+  .home-ai h2 { font-size: 19px; }
   .home-ai p { font-size: 13.5px; line-height: 1.7; }
-  .home-ai .meta { flex-wrap: wrap; }
-  /* データの確かさ：横にすべらせる */
-  .trust { display: flex; overflow-x: auto; gap: 8px; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
-  .trust::-webkit-scrollbar { display: none; }
-  .tr { flex: 0 0 72%; padding: 12px; }
-  .tr p { font-size: 12.5px; line-height: 1.65; }
+  .ha-ex { margin-top: 12px; gap: 6px; }
+  .ha-q { font-size: 12.5px; padding: 5px 12px; }
+  .ha-side { padding: 14px; }
+  .ha-addr { padding: 10px 12px; flex-wrap: wrap; justify-content: flex-end; }
+  .ha-addr code { flex: 0 0 100%; font-size: 13px; }
   /* ルールの印は、記事の中ではスマホでは出さない（ページの上と「このサイトについて」には出す） */
   .foot .rule, .fact .rule, .cards .rule { display: none; }
   .tool { padding: 10px 12px; gap: 10px; }
@@ -1492,7 +1507,7 @@ br.pc { display: none; }
   }
   function routeLabel(r) {
     if (r === 'terms') return 'ことばの一覧';
-    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r === 'pubcom') return 'パブリックコメント（意見募集）'; if (r === 'diary') return '国会と政府のうごき'; if (r === 'kakugi') return '閣議の案件'; if (r === 'councils') return '国の審議会'; if (r.indexOf('org-') === 0) { var og = accFind(function (x) { return x.id === r.slice(4) && !x.party; }); return og ? og.name : '組織'; } if (r.indexOf('cn-') === 0) { var cn = cnItem(r.slice(3)); return cn ? cn.name : '審議会'; } if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '知事';
+    if (r === 'home') return 'ホーム'; if (r === 'laws') return '国会で決まったこと'; if (r === 'match') return '投票記録とくらべる'; if (r === 'bills') return '審議中・採決されなかった法律案'; if (r === 'accounts') return '公式サイト・SNSの一覧'; if (r === 'questions') return '質問主意書と答弁書'; if (r === 'budget') return '国の予算事業と支出先'; if (r === 'pubcom') return 'パブリックコメント（意見募集）'; if (r === 'diary') return '国会と政府のうごき'; if (r === 'kakugi') return '閣議の案件'; if (r === 'councils') return '国の審議会'; if (r.indexOf('org-') === 0) { var og = accFind(function (x) { return x.id === r.slice(4) && !x.party; }); return og ? og.name : '組織'; } if (r.indexOf('cn-') === 0) { var cn = cnItem(r.slice(3)); return cn ? cn.name : '審議会'; } if (r.indexOf('rs-') === 0) { var pj = rsProject(r.slice(3)); return pj ? pj.name : '予算事業'; } if (r.indexOf('corp-') === 0) { var cp = D.rsCorps && D.rsCorps.items[r.slice(5)]; return cp ? cp.n : '支出先'; } if (r === 'members') return '国会議員'; if (r === 'governors') return '都道府県知事';
     if (r.indexOf('m-') === 0) { var mm = memberById(r.slice(2)); return mm ? mm.name : '議員'; } if (r === 'search') return '検索'; if (r === 'api') return 'データを使う（公開API）'; if (r === 'about') return 'このサイトについて';
     if (TAB_TITLE[r]) return TAB_TITLE[r];
     if (r.indexOf('a-') === 0) { var it = feedItems().filter(function (x) { return x.id === r.slice(2); })[0]; return it ? it.title : '前のページ'; }
@@ -1586,7 +1601,7 @@ br.pc { display: none; }
     for (var j = n - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)); var tmp = a[j]; a[j] = a[r]; a[r] = tmp; }
     state.order = a; return a;
   }
-  // トップの入口（@edinetdb のトップと同じ組み立て：ひとこと → 検索 → 数 → 入口 → AIから使う → データの確かさ）
+  // トップの入口（@edinetdb のトップと同じ組み立て：ひとこと → 検索 → 数 → 入口 → AIから使う）
   function nf(n) { return (n || 0).toLocaleString('ja-JP'); }
   function homeHero() {
     var S = D.stats || {};
@@ -1602,13 +1617,29 @@ br.pc { display: none; }
       '<h1 class="hero-h"><span class="nw">日本の政治の</span><span class="nw">公開データを、</span><br class="pc"><span class="nw">人にも、AIにも。</span></h1>' +
       '<p class="hero-s pc-only"><span class="nw">法律・質問主意書・議員の投票・審議会・予算事業などを、</span><span class="nw">毎日自動で集めて出典つきで整理。</span><br><span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
       '<p class="hero-s sp-only"><span class="nw">国会・政府の公開データを、</span><span class="nw">出典つきで。</span><span class="nw">無料のAPI・MCPで</span><span class="nw">AIからも使えます。</span></p>' +
-      '<form class="hero-q" id="heroq" role="search"><label class="hq-box">' + ICON.spark + '<input id="hq" type="search" placeholder="AIに質問する" autocomplete="off" aria-label="AIに質問する（いまは、ことばでさがします）"><span class="soon-pill">準備中</span></label><button type="submit">さがす</button></form>' +
-      '<p class="hero-ai-note">AIの答えは準備中です。いまは、入れたことばで記事やデータをさがします。</p>' +
+      '<form class="hero-q" id="heroq" role="search"><label class="hq-box">' + ICON.search + '<input id="hq" type="search" placeholder="ことば・法律名でさがす" autocomplete="off" aria-label="サイトの中をさがす"></label><button type="submit">さがす</button></form>' +
       '<div class="hero-ex">' + ex.map(function (w) { return '<button class="chip" data-hq="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') + '</div>' +
       '<div class="hero-cta"><button class="btn-p" data-go="api">AIから使う（MCP・API）</button><button class="btn-s" data-go="laws">国会で決まったことを見る</button></div>' +
       '<div class="hero-nums">' + nums.map(function (n) { return '<button class="hn" data-go="' + n[3] + '"><span class="hn-v">' + n[0] + '<small>' + n[1] + '</small></span><span class="hn-l">' + esc(n[2]) + '</span></button>'; }).join('') + '</div></section>';
     return h;
   }
+  var EIC = (function () {
+    function sv(d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>'; }
+    return {
+      laws: sv('<path d="M7 4h8l3 3v13H7z"/><path d="M15 4v3h3M10 12l1.8 1.8L15 10M10 17h5"/>'),
+      bills: sv('<path d="M6 4h9l3 3v13H6z"/><path d="M9 11h6M9 14h6M9 17h3"/>'),
+      questions: sv('<path d="M4 5h16v11H9l-5 4z"/><path d="M10 9a2 2 0 1 1 2.5 1.9c-.4.1-.5.4-.5.8v.3M12 13.8v.1"/>'),
+      members: sv('<circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/>'),
+      budget: sv('<circle cx="12" cy="12" r="8"/><path d="M9 8l3 4 3-4M12 12v5M9.5 13h5M9.5 15.5h5"/>'),
+      councils: sv('<circle cx="8" cy="9" r="2.5"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 18c.6-2.6 2.3-4 4.5-4s3.9 1.4 4.5 4M11.5 18c.6-2.6 2.3-4 4.5-4s3.9 1.4 4.5 4"/>'),
+      pubcom: sv('<path d="M5 5h14v10H10l-4 4v-4H5z"/><path d="M9 9h6M9 12h4"/>'),
+      kakugi: sv('<rect x="4" y="9" width="16" height="9" rx="2"/><path d="M8 9V6h8v3M12 12v3"/>'),
+      diary: sv('<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h3M8 17h6"/>'),
+      parties: sv('<path d="M4 11h16v9H4zM9 11V5.5h6V11M10.5 8h3"/>'),
+      learn: sv('<path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5M12 6.5C14 5 17 4.5 20 5v13c-3-.5-6 0-8 1.5M12 6.5v13"/>'),
+      api: sv('<path d="M12 4l1.8 4.6L18.5 10l-4.7 1.6L12 16l-1.8-4.4L5.5 10l4.7-1.4z"/><path d="M18 16l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>')
+    };
+  })();
   function homeRest() {
     var S = D.stats || {}, h = '';
     var mem = S.members || (D.members && D.members.members || []).length;
@@ -1616,20 +1647,14 @@ br.pc { display: none; }
       ['members', '国会議員', '711人の会派・選挙区・投票'], ['budget', '予算と支出先', '国の予算事業と、お金を受け取った先'], ['councils', '審議会', '役所が専門家の意見を聞く会議'],
       ['pubcom', 'パブリックコメント', 'だれでも意見を出せる募集'], ['kakugi', '閣議', '大臣全員の会議で決まったこと'], ['diary', '国会と政府のうごき', '日付ごとにまとめて見る'],
       ['parties', '政党', '各党の公式の主張と、国会での投票'], ['learn', '政治のしくみを学ぶ', '国会・選挙・税金などの基本'], ['api', 'AIから使う', 'Claude などにつなぐ・無料API']];
-    h += '<section class="sec"><h2>さがす・見る</h2><div class="entry-grid">' + ent.map(function (e) { return '<button class="entry" data-go="' + e[0] + '"><span class="et">' + e[1] + '</span><span class="es">' + e[2].replace('711人', nf(mem) + '人') + '</span></button>'; }).join('') + '</div></section>';
-    var live = homeApiLive();
-    h += '<section class="sec home-ai"><div class="ha-text"><h2>AIから、そのまま使う</h2>' +
-      '<p>MCP（AIにデータをつなぐしくみ）に対応しています。Claude などに「せいじのまど」をつなぐと、AIがこのサイトのデータと出典をもとに答えます。登録もログインもいりません。</p>' +
-      '<ul class="ha-ex pc-only"><li>「いまの国会で話し合っている法律の案は？」</li><li>「この1年で国会で決まった、子育ての法律を教えて」</li><li>「厚生労働省の予算事業で、一番大きいものは？」</li></ul>' +
-      '<p class="meta"><span>MCP の住所</span><code>' + esc(API_HOST + 'mcp') + '</code>' + (live === null ? '' : live ? '<span class="b-res">使えます</span>' : '<span class="b-res wait">準備中（まもなく公開）</span>') + '</p>' +
-      '<div class="hero-cta"><button class="btn-p" data-go="api">つなぎ方を見る</button></div></div></section>';
-    h += '<section class="sec"><h2>データの確かさ</h2><div class="trust">' +
-      [['数字は機械で取る', '日付・番号・賛成と反対・金額は、国会や役所のページからプログラムで取ります。AIは数字をつくりません。'],
-       ['AIが書き、別のAIが確かめる', '文は Claude が書き、別の会社の AI（Gemini）とプログラムが、出典との食いちがいや意見の混じりを確かめます。'],
-       ['すべてに出典', '法律の文・会議の記録・官報など、もとの資料へのリンクをつけています。'],
-       ['ルールも記録も公開', '書き方のルール' + (S.rules ? '（' + S.rules + '項目）' : '') + 'と、記事ごとの作成と更新の記録を公開しています。']]
-        .map(function (t) { return '<div class="tr"><b>' + t[0] + '</b><p>' + t[1] + '</p></div>'; }).join('') +
-      '</div><button class="more-link" data-go="about">このサイトのルールを見る' + ICON.chev + '</button></section>';
+    h += '<section class="sec"><h2>さがす・見る</h2><div class="entry-grid">' + ent.map(function (e) { return '<button class="entry" data-go="' + e[0] + '"><span class="ei" aria-hidden="true">' + (EIC[e[0]] || '') + '</span><span class="et">' + e[1] + '</span><span class="es">' + e[2].replace('711人', nf(mem) + '人') + '</span></button>'; }).join('') + '</div></section>';
+    var mcp = API_HOST + 'mcp';
+    h += '<section class="sec home-ai"><div class="ha-main"><span class="ha-k">' + ICON.spark + 'AI から使う（MCP）</span><h2><span class="nw">Claude や ChatGPT から、</span><span class="nw">このサイトの</span><span class="nw">データを引ける</span></h2>' +
+      '<p>AI に「せいじのまど」をつなぐと、AI がこのサイトのデータと出典のページをもとに答えます。無料で、登録もログインもいりません。</p>' +
+      '<div class="ha-ex"><span class="ha-q">防衛省設置法の改正に、どの会派が賛成した？</span><span class="ha-q">物価高についての質問主意書と、政府の答えは？</span><span class="ha-q">いまの国会で審議中の法律案は？</span></div></div>' +
+      '<div class="ha-side"><span class="ha-l">MCP の住所</span><button class="ha-addr" data-copy="' + esc(mcp) + '"><code>' + esc(mcp) + '</code><span class="ha-c">コピー</span></button>' +
+      '<ol class="ha-steps"><li>AI の設定で「コネクタ」を開く</li><li>この住所を入れて追加する</li><li>「せいじのまどで調べて」と聞く</li></ol>' +
+      '<button class="btn-p" data-go="api">くわしいつなぎ方' + ICON.chev + '</button></div></section>';
     return h;
   }
   function homeApiLive() {
@@ -1650,8 +1675,8 @@ br.pc { display: none; }
       if (pid) h += '<button class="row-item shortcut" data-go="p-' + pid + '"><span class="grow"><span class="s">設定した政党</span><span class="t">' + esc(state.party) + '</span></span>' + ICON.chev + '</button>';
     }
     h += '<div class="cards today-cards">' + picks.map(function (x, i) { return poolCard(x, i === 0); }).join('') +
-      '<button class="card term-card" data-term="' + esc(term) + '"><div class="head"><span class="chip accent">今日のことば</span></div><h3>' + esc(term) + '</h3><p class="lead">' + esc(String(D.glossary[term]).slice(0, 80)) + (String(D.glossary[term]).length > 80 ? '…' : '') + '</p></button></div>';
-    h += '<div class="law-tools"><button class="tool" data-go="diary"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h3M8 17h6"/></svg></span><span class="grow"><span class="t">国会と政府のうごき</span><span class="s">法律・閣議・質問主意書・パブコメを<span class="nw">日付ごとに</span></span></span>' + ICON.chev + '</button></div>';
+      '<button class="card term-card" data-term="' + esc(term) + '"><div class="head"><span class="chip accent">今日のことば</span></div><h3>' + esc(term) + '</h3><p class="lead">' + esc(String(D.glossary[term]).slice(0, 80)) + (String(D.glossary[term]).length > 80 ? '…' : '') + '</p></button>' +
+      '<button class="card diary-card" data-go="diary"><span class="ic" aria-hidden="true">' + EIC.diary + '</span><h3>国会と政府のうごき</h3><p class="lead">法律・閣議・質問主意書・パブコメを、日付ごとにまとめて見る</p><span class="go">ひらく' + ICON.chev + '</span></button></div>';
     h += homeRest();
     var order = randomOrder(), shown = order.slice(0, state.homeShown);
     h += '<section class="sec"><div class="feed-head"><h2>フィード</h2><button class="shuffle" data-shuffle>並べ直す</button></div>' +
@@ -2266,7 +2291,7 @@ br.pc { display: none; }
     var M = D.members || {}, G = D.governors || {};
     var gov = state.partiesSeg === 'governors', house = state.mHouse || '衆議院';
     var all = (M.members || []).filter(function (m) { return m.house === house; });
-    var tb = '<div class="seg" role="group" aria-label="衆議院・参議院・知事"><button data-mhouse="衆議院" aria-pressed="' + (!gov && house === '衆議院') + '">衆議院</button><button data-mhouse="参議院" aria-pressed="' + (!gov && house === '参議院') + '">参議院</button><button data-mhouse="知事" aria-pressed="' + gov + '">知事</button></div>';
+    var tb = '<div class="seg" role="group" aria-label="衆議院・参議院・都道府県知事"><button data-mhouse="衆議院" aria-pressed="' + (!gov && house === '衆議院') + '">衆議院</button><button data-mhouse="参議院" aria-pressed="' + (!gov && house === '参議院') + '">参議院</button><button data-mhouse="知事" aria-pressed="' + gov + '">都道府県知事</button></div>';
     if (gov) {
       tb += '<select id="garea" class="pill-select" aria-label="地方"><option value="">地方：すべて</option>' + AREAS.map(function (a) { return '<option value="' + a[0] + '"' + (state.gArea === a[0] ? ' selected' : '') + '>' + a[0] + '</option>'; }).join('') + '</select>';
       EXPLAIN.mlist = { t: 'この一覧について', x: '全国知事会「現職知事一覧」（' + date(G.as_of) + '現在）から、毎日自動で更新しています（ルールC-6）。並び順は都道府県の順。全員を同じ項目で載せ、写真や評価は載せません（ルールD-8）。', go: 'about', gl: 'ルールを見る' };
@@ -2727,6 +2752,13 @@ br.pc { display: none; }
   function go(v) { closeSheet(); if (curR() === v) { render(); } else { nav(v); } window.scrollTo(0, 0); }
 
   document.addEventListener('click', function (e) {
+    var cp = e.target.closest && e.target.closest('[data-copy]');
+    if (cp) {
+      var txt = cp.getAttribute('data-copy'), lab = cp.querySelector('.ha-c');
+      var done = function () { if (lab) { lab.textContent = 'コピーしました'; setTimeout(function () { lab.textContent = 'コピー'; }, 1800); } };
+      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function () {}); else done();
+      return;
+    }
     var ir = e.target.closest('.intro:not(.open)');
     if (ir && !e.target.closest('a, button')) { ir.classList.add('open'); return; }
     var t = e.target.closest('button, a');
