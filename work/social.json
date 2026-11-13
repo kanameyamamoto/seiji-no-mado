@@ -82,6 +82,13 @@
    "key": "73b809ca3486",
    "date": "2026-11-12T21:04:59+09:00",
    "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n24gjibden24"
+  },
+  {
+   "platform": "x",
+   "id": "fact:questions-topic-エネルギー",
+   "key": "fe1617a0a3bc",
+   "date": "2026-11-13T12:03:56+09:00",
+   "post": "draft"
   }
  ],
  "rule": "ルール D-17。成立から30日以内の「国会で決まったこと」の記事を、すべて同じ形で、成立した日の古い順に投稿する。"
