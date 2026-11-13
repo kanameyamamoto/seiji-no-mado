@@ -1,0 +1,72 @@
+{
+ "unit": "learn:consumption-tax",
+ "title": "消費税のしくみと使い道",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「地方交付税法」を改正する法律が成立した（地方交付税法及び特別会計に関する法律の改正、2021-12-20）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "消費税法 第1条・第29条",
+   "url": "https://laws.e-gov.go.jp/law/363AC0000000108",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「消費税の使途に関する資料」",
+   "url": "https://www.mof.go.jp/tax_policy/summary/consumption/d05.htm",
+   "chars": 1331,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度租税及び印紙収入概算」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/24.pdf",
+   "chars": 2248,
+   "error": null
+  },
+  {
+   "label": "地方交付税法 第6条",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000211",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "地方税法 第72条の116",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000226",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「第222回国会 議案の一覧」（閣法第1号）",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm",
+   "chars": 4114,
+   "error": null
+  },
+  {
+   "label": "共同通信（熊本日日新聞掲載）「食品消費税1％法案を閣議決定」（2026年10月9日）※報道",
+   "url": "https://kumanichi.com/articles/2044798",
+   "chars": 2901,
+   "error": null
+  },
+  {
+   "label": "財務省「消費税の軽減税率制度」（資料）",
+   "url": "https://www.mof.go.jp/tax_policy/summary/consumption/keigen_00.pdf",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "消費税法第1条第2項、財務省「消費税の使途に関する資料」・「消費税の軽減税率制度」（標準10％：国7.8％・地方2.2％、軽減8％：国6.24％・地方1.76％）、財務省「令和８年度租税及び印紙収入概算」（消費税266,880億円）、地方税法第72条の116の今の本文を確かめ、ページと食い違う記述は見つからなかった（地方交付税法第6条は抜粋に該当箇所がなく、根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

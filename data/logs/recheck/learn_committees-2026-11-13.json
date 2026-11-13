@@ -1,0 +1,72 @@
+{
+ "unit": "learn:committees",
+ "title": "委員会と本会議",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「国会法」を改正する法律が成立した（国会法及び国会議員の歳費、旅費及び手当等に関する法律の改正、2022-04-15）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第56条・第57条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国会法 第40条〜第54条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "衆議院「委員会の構成」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_iinkaikousei.htm",
+   "chars": 1033,
+   "error": null
+  },
+  {
+   "label": "衆議院「議案の審査」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_gian.htm",
+   "chars": 835,
+   "error": null
+  },
+  {
+   "label": "衆議院「各常任委員会の名称、委員数、所管事項等」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_iinkai.nsf/html/iinkai/iinkai_jounin.htm",
+   "chars": 1345,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高校生等への修学支援」",
+   "url": "https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm",
+   "chars": 5237,
+   "error": null
+  },
+  {
+   "label": "衆議院インターネット審議中継",
+   "url": "https://www.shugiintv.go.jp/index.php",
+   "chars": 108,
+   "error": null
+  },
+  {
+   "label": "文部科学省「高等教育の修学支援新制度」",
+   "url": "https://www.mext.go.jp/a_menu/koutou/hutankeigen/index.htm",
+   "chars": 2421,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "日本国憲法第56条、国会法第40条・第45条・第46条・第54条の3、衆議院「委員会の構成」（常任委員会17種類、憲法審査会50人／45人、情報監視審査会8人／8人、政治倫理審査会25人／15人）・「議案の審査」（委員の半数以上の出席、出席委員の過半数）の今の本文を確かめ、ページと食い違う記述は見つからなかった（国会法第41条の条文は抜粋に本文がなく、根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
