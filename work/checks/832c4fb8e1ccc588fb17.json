@@ -1,0 +1,5 @@
+{
+ "for": "more:r3-law-028",
+ "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"もれ\",\n      \"where\": \"views\",\n      \"detail\": \"参議院の本会議や委員会の資料によると、日本維新の会を代表して東徹理事が討論で賛成の意見を述べている（committee には書かれているが views に会派の意見が入っていない）。\",\n      \"fix\": \"committee にある日本維新の会の賛成討論を views にも追加する。\"\n    }\n  ]\n}",
+ "model": "gemini-3.5-flash-lite"
+}
