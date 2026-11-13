@@ -891,6 +891,28 @@ br.pc { display: none; }
   .ha-side { padding: 14px; }
   .ha-addr { padding: 10px 12px; flex-wrap: wrap; justify-content: flex-end; }
   .ha-addr code { flex: 0 0 100%; font-size: 13px; }
+  /* 棒グラフ：名前を上、棒と数字を下に */
+  .bars:not(.compact) .bar { grid-template-columns: 1fr auto; row-gap: 4px; column-gap: 10px; font-size: 13px; }
+  .bars:not(.compact) .bar .label { grid-column: 1 / -1; font-size: 12.5px; color: var(--fg); }
+  .bars:not(.compact) .bar .track { height: 10px; }
+  .bars.compact .bar { grid-template-columns: 7.5em 1fr 2.6em; gap: 8px; font-size: 12.5px; }
+  /* 表：まず折り返して画面に入れる。それでもはみ出す表はカードにする（stackTables） */
+  th, td { white-space: normal; padding: 10px 12px; font-size: 14px; }
+  .table-wrap.stack { background: none; border: 0; border-radius: 0; overflow: visible; }
+  .table-wrap.stack table, .table-wrap.stack tbody { display: block; }
+  .table-wrap.stack thead { display: none; }
+  .table-wrap.stack tr { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 6px 0; margin-bottom: 8px; }
+  .table-wrap.stack th, .table-wrap.stack td { display: grid; grid-template-columns: 7.5em 1fr; gap: 8px; border: 0; padding: 6px 14px; background: none; text-align: left; }
+  .table-wrap.stack tr > :first-child { display: block; font-weight: 700; font-size: 15px; padding-top: 8px; }
+  .table-wrap.stack tr > :first-child::before { display: none; }
+  .table-wrap.stack th::before, .table-wrap.stack td::before { content: attr(data-label); color: var(--muted); font-size: 12px; font-weight: 400; }
+  /* 絞りこみの行：横にはみ出さず、折り返す */
+  .toolbar { flex-wrap: wrap; overflow: visible; margin: 0; padding: 0; gap: 8px; }
+  .toolbar .seg { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .toolbar .seg::-webkit-scrollbar { display: none; }
+  /* 事実の下の出典：小さく、うすく */
+  .fact .foot { font-size: 11.5px; gap: 4px 8px; }
+  .fact .foot a { color: var(--muted); text-decoration-color: var(--line); }
   /* ルールの印は、記事の中ではスマホでは出さない（ページの上と「このサイトについて」には出す） */
   .foot .rule, .fact .rule, .cards .rule { display: none; }
   .tool { padding: 10px 12px; gap: 10px; }
@@ -904,9 +926,7 @@ br.pc { display: none; }
   .intro:not(.open) > p:first-child { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .intro:not(.open) > p + p, .intro:not(.open) > :not(p) { display: none; }
   .intro:not(.open)::after { content: "続きを読む"; color: var(--accent); font-size: 13px; font-weight: 700; cursor: pointer; }
-  .toolbar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
-  .toolbar::-webkit-scrollbar { display: none; }
-  .toolbar > * { flex: 0 0 auto; }
+  .toolbar > * { flex: 0 1 auto; }
   .hero-il { aspect-ratio: 4 / 1; margin: 0 0 8px; border-radius: 10px; }
   .fact p { font-size: 15px; line-height: 1.8; }
 }
@@ -2423,7 +2443,7 @@ br.pc { display: none; }
     var E = D.parties.elections || {};
     var h = (E.recent || []).map(function (e) {
       var max = e.results[0].seats;
-      var bars = '<div class="bars">' + e.results.map(function (r) {
+      var bars = '<div class="bars compact">' + e.results.map(function (r) {
         return '<div class="bar"><span class="label">' + esc(r.party) + '</span><span class="track"><span class="fill" style="display:block;width:' + (r.seats / max * 100).toFixed(1) + '%"></span></span><span class="v">' + r.seats + '</span></div>';
       }).join('') + '</div>';
       return '<section class="box"><div class="page-head"><h3>' + esc(e.name) + '</h3><div class="meta"><span>' + date(e.date) + '</span><span>' + esc(e.seats_label || '') + ' ' + esc(e.seats_total) + '</span>' +
@@ -2671,6 +2691,25 @@ br.pc { display: none; }
 
 
   /* ---------- router ---------- */
+  // スマホ：はみ出す表は、1行ずつのカードにする（見出しを各セルの前に出す）
+  function stackTables(root) {
+    if (window.innerWidth > 600) return;
+    root.querySelectorAll('.table-wrap').forEach(function (w) {
+      if (w.classList.contains('tall')) return;
+      var t = w.querySelector('table');
+      if (!t || t.querySelector('[colspan],[rowspan]')) return;
+      var head = t.tHead && t.tHead.rows.length === 1 ? Array.prototype.map.call(t.tHead.rows[0].cells, function (c) { return c.textContent.trim(); }) : null;
+      if (!head || head.length < 3 || t.scrollWidth <= w.clientWidth + 2) return;
+      var nrows = 0; Array.prototype.forEach.call(t.tBodies, function (tb) { nrows += tb.rows.length; });
+      if (nrows > 12) return; // 長い表は、カードにすると長くなりすぎるので横にすべらせる
+      Array.prototype.forEach.call(t.tBodies, function (tb) {
+        Array.prototype.forEach.call(tb.rows, function (tr) {
+          Array.prototype.forEach.call(tr.cells, function (c, i) { if (head[i]) c.setAttribute('data-label', head[i]); });
+        });
+      });
+      w.classList.add('stack');
+    });
+  }
   function render() {
     var h = curR();
     var html;
@@ -2708,6 +2747,7 @@ br.pc { display: none; }
     else html = vHome();
     app.innerHTML = html;
     applyRuby(app);
+    stackTables(app);
     tocSetup();
     navs();
     if (state.afterJump) { var aj = document.getElementById(state.afterJump); state.afterJump = ''; if (aj) setTimeout(function () { aj.scrollIntoView({ block: 'start' }); }, 30); }
