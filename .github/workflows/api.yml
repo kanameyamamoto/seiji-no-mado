@@ -5,6 +5,10 @@
 name: 検索APIとMCPの公開
 
 on:
+  # 「毎日の更新」「公開」は GITHUB_TOKEN で push するため、push では動かない。終わったあとに動かす。
+  workflow_run:
+    workflows: ["毎日の更新", "公開"]
+    types: [completed]
   push:
     branches: [main]
     paths: ["data/*.json", "pipeline/db.py", "worker/**", ".github/workflows/api.yml"]
@@ -19,6 +23,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
