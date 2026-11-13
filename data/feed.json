@@ -150640,7 +150640,8 @@
     }
    ],
    "checked": "2026-11-14",
-   "ai_log": "data/logs/204-衆法-14.json"
+   "ai_log": "data/logs/204-衆法-14.json",
+   "more_wait_until": "2026-11-28"
   },
   {
    "id": "r3-law-023",

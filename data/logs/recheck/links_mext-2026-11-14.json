@@ -1,0 +1,72 @@
+{
+ "unit": "links:mext",
+ "title": "文部科学省",
+ "date": "2026-11-14",
+ "reasons": [
+  "出典の「著作権法」を改正する法律が成立した（著作権法の改正、2021-05-26）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "著作権法",
+   "url": "https://laws.e-gov.go.jp/law/345AC0000000048",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "文部科学省",
+   "url": "https://www.mext.go.jp/",
+   "chars": 636,
+   "error": null
+  },
+  {
+   "label": "文部科学省設置法",
+   "url": "https://laws.e-gov.go.jp/law/411AC0000000096",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "国家行政組織法 別表第一",
+   "url": "https://laws.e-gov.go.jp/law/323AC0000000120",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "学校教育法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000026",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "著作権法・文部科学省設置法（e-Gov）、財務省の令和8年度一般会計概算（文部科学省5兆8,809億円）などの今の本文を確かめ、所管法の一覧や外局を含めページの内容との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

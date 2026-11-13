@@ -1,5 +1,0 @@
-{
- "for": "more:r3-law-028",
- "text": "{\n  \"pass\": false,\n  \"problems\": [\n    {\n      \"type\": \"事実の誤り\",\n      \"where\": \"no_debate\",\n      \"detail\": \"参議院の委員長報告に「日本維新の会を代表して東徹理事より賛成の旨の意見が述べられました」と討論の記載があるため、no_debateをtrueにしているのは誤りです。\",\n      \"fix\": \"no_debateをfalseに変更してください。\"\n    }\n  ]\n}",
- "model": "gemini-3.5-flash-lite"
-}
