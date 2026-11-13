@@ -930,6 +930,99 @@ br.pc { display: none; }
   .hero-il { aspect-ratio: 4 / 1; margin: 0 0 8px; border-radius: 10px; }
   .fact p { font-size: 15px; line-height: 1.8; }
 }
+
+/* ===== スマホの一覧：作り直し（まとまりごとに1つの白い箱。中は線で区切った低い行。見出しは上に残る） ===== */
+@media (max-width: 600px) {
+  /* 見出しのまとまり（パネル）は枠をなくし、ページの地にのせる */
+  .panel { background: none; border: 0; border-radius: 0; padding: 0; gap: 10px; }
+  .panel-head { border-bottom: 0; padding: 0 2px; gap: 8px; }
+  .panel-head h2, .sec > h2, .sub-h2 { font-size: 18px; line-height: 1.4; }
+  .panel > .muted.small, .panel > p.muted { font-size: 13px; line-height: 1.7; padding: 0 2px; }
+  .panels { gap: 28px; }
+  .sub-h { font-size: 13px; color: var(--muted); padding: 0 2px; margin-top: 2px; }
+
+  /* 一覧の箱 */
+  .tiles, .list, .law-tools, .steps-list, .course-grid, .cards:not(.today-cards) {
+    display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; gap: 0; padding: 0;
+  }
+  .list { border-top: 1px solid var(--line); }
+
+  /* 箱の中の行（共通） */
+  .tiles > .tile, .list > .b-row, .list > .row-item, .law-tools > .tool, .steps-list > .step-btn, .course-grid > .course-card, .cards:not(.today-cards) > .card {
+    border: 0; border-radius: 0; background: none; box-shadow: none; margin: 0; width: 100%;
+    border-bottom: 1px solid var(--line);
+  }
+  .tiles > :last-child, .list > :last-child, .law-tools > :last-child, .steps-list > :last-child, .course-grid > :last-child, .cards:not(.today-cards) > :last-child { border-bottom: 0; }
+  .tiles > .tile:active, .list > .row-item:active, .law-tools > .tool:active, .steps-list > .step-btn:active, .course-grid > .course-card:active, .cards:not(.today-cards) > .card:active { background: var(--bg); }
+
+  /* 項目（学ぶ・つながり・メディアのページ） */
+  .tiles > .tile { padding: 12px 38px 12px 14px; min-height: 0; gap: 2px; }
+  .tile .tt { font-size: 15px; line-height: 1.45; }
+  .tile .ts { font-size: 12.5px; line-height: 1.55; -webkit-line-clamp: 1; }
+  .tile .ti { right: 10px; }
+  .tile .ti svg, .tile .ti .chev { width: 18px; height: 18px; color: var(--muted); }
+  .tiles.party > .tile { padding: 14px 38px 14px 14px; }
+  .tiles.party .tt { font-size: 16px; }
+  .tile .stepno { font-size: 11px; }
+  .tile .done-mark { top: 12px; right: 34px; }
+
+  /* 入口の行（アイコンつき） */
+  .law-tools > .tool { padding: 10px 12px; gap: 12px; }
+  .tool .ic { width: 34px; height: 34px; border-radius: 9px; }
+  .tool .ic svg { width: 19px; height: 19px; }
+  .tool .t { font-size: 15px; }
+  .tool .s { font-size: 12px; }
+  .tool .chev { width: 18px; height: 18px; color: var(--muted); }
+
+  /* コースの行 */
+  .steps-list > .step-btn { padding: 10px 12px; }
+  .steps-list > .step-btn.next { background: var(--accent-weak); }
+  .step-btn .no { width: 24px; height: 24px; font-size: 12px; }
+  .step-btn .nm { font-size: 14px; font-weight: 500; }
+  .course-grid > .course-card { padding: 12px 14px; }
+  .course-grid > .course-card.cur { background: var(--accent-weak); }
+  .course-card .cn { width: 30px; height: 30px; border-radius: 8px; font-size: 14px; }
+  .course-card b { font-size: 15px; }
+  .panel.course { background: none; }
+
+  /* 一覧の行（パブコメ・閣議・法律案・質問主意書など） */
+  .list > .b-row { padding: 12px 14px; gap: 4px; }
+  .b-row .t { font-size: 14.5px; line-height: 1.5; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .b-row .s { font-size: 12px; gap: 2px 10px; }
+  .b-row .s:empty { display: none; }
+  .b-row a, .b-row button.lk { font-size: 12px; font-weight: 700; text-decoration: none; }
+  .b-res { height: 20px; font-size: 11px; padding: 0 7px; }
+
+  /* 一覧の行（議員・審議会・予算事業など） */
+  .list > .row-item { padding: 11px 14px; gap: 10px; }
+  .row-item .t { font-size: 15px; line-height: 1.45; }
+  .row-item .s { font-size: 12.5px; line-height: 1.5; }
+  .row-item .chev { width: 18px; height: 18px; color: var(--muted); flex: none; }
+
+  /* カードの一覧（フィード・国会で決まったこと）：小さな絵を右に、文を左に */
+  .cards:not(.today-cards) > .card { padding: 12px 14px; gap: 4px; }
+  .cards:not(.today-cards) > .card:has(> .card-il) { grid-template-columns: 1fr 60px; column-gap: 12px; row-gap: 4px; }
+  .cards:not(.today-cards) > .card > .card-il { width: 60px; height: 60px; border-radius: 10px; }
+  .cards:not(.today-cards) > .card .head { gap: 4px; }
+  .cards:not(.today-cards) > .card .head .chip { height: auto; padding: 0; background: none; border: 0; font-size: 11.5px; font-weight: 700; color: var(--accent); }
+  .cards:not(.today-cards) > .card .head .chip + .chip { color: var(--muted); font-weight: 400; }
+  .cards:not(.today-cards) > .card .head .chip + .chip::before { content: "／"; margin-right: 4px; color: var(--line); }
+  .cards:not(.today-cards) > .card .cq { display: none; }
+  .cards:not(.today-cards) > .card h3 { font-size: 15px; line-height: 1.45; text-wrap: pretty; }
+  .list > .row-item .t small { font-size: 11.5px; font-weight: 400; margin-left: 4px; }
+  #mlist > p.muted { padding: 16px; }
+  .cards:not(.today-cards) > .card .lead { font-size: 12.5px; line-height: 1.55; -webkit-line-clamp: 2; }
+  .cards:not(.today-cards) > .card .meta { font-size: 11.5px; }
+
+  /* 長い一覧の見出し（日付・国会の回など）は、上に残す */
+  .sec:has(> .list) > h2, .sec:has(> .cards) > .feed-head {
+    position: sticky; top: var(--header-h); z-index: 5; background: var(--bg);
+    margin: 0 -16px; padding: 10px 18px 8px; font-size: 15px;
+    box-shadow: 0 1px 0 var(--line);
+  }
+  .sec:has(> .list) { gap: 8px; }
+  .more { width: 100%; height: 44px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-weight: 700; color: var(--accent); }
+}
 </style>
 </head>
 <body>
@@ -2330,7 +2423,7 @@ br.pc { display: none; }
     var info = gov ? G : (house === '衆議院' ? M.shu : M.san) || {};
     return '<div class="toolbar">' + tb + '</div>' +
       '<input class="search sm" id="mq" type="search" placeholder="' + (gov ? '名前・都道府県で探す' : '名前・よみで探す') + '" value="' + esc(state.mq) + '" aria-label="名前で探す">' +
-      '<div id="mlist">' + membersList() + '</div>' + src(info.source ? [info.source] : []);
+      '<div id="mlist" class="list">' + membersList() + '</div>' + src(info.source ? [info.source] : []);
   }
   function vMember(id) {
     var m = memberById(id);
