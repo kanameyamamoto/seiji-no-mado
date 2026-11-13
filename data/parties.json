@@ -25,9 +25,9 @@
    },
    "members": {
     "shu": 315,
-    "san": 101,
+    "san": 100,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "自由民主党・無所属の会",
     "kaiha_san": "自由民主党・無所属の会",
     "source": {
@@ -35,7 +35,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -526,7 +526,7 @@
     "shu": 36,
     "san": 19,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "日本維新の会",
     "kaiha_san": "日本維新の会",
     "source": {
@@ -534,7 +534,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -778,7 +778,7 @@
     "shu": 28,
     "san": 25,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "国民民主党・無所属クラブ",
     "kaiha_san": "国民民主党・新緑風会",
     "source": {
@@ -786,7 +786,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -982,7 +982,7 @@
     "shu": 15,
     "san": 15,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "参政党",
     "kaiha_san": "参政党",
     "source": {
@@ -990,7 +990,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -1208,7 +1208,7 @@
     "shu": 11,
     "san": 2,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "チームみらい",
     "kaiha_san": "チームみらい・無所属の会",
     "source": {
@@ -1216,7 +1216,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -1412,7 +1412,7 @@
     "shu": 4,
     "san": 7,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "日本共産党",
     "kaiha_san": "日本共産党",
     "source": {
@@ -1420,7 +1420,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -1637,7 +1637,7 @@
     "shu": 1,
     "san": 5,
     "as_of": "2026-11-01",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "—（会派なし。衆議院の会派一覧では無所属に含まれる）",
     "kaiha_san": "いのちの党",
     "source": {
@@ -1645,7 +1645,7 @@
      "url": "https://inochinoto.jp/member/"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -2027,7 +2027,7 @@
     "shu": 28,
     "san": 21,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "中道（統一会派）",
     "kaiha_san": "公明党",
     "source": {
@@ -2035,7 +2035,7 @@
      "url": "https://www.komei.or.jp/member/"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     },
     "note": "衆議院では、民主改革の会・中道改革連合などと統一会派「中道」（47人）を組む。"
@@ -2288,7 +2288,7 @@
     "shu": 0,
     "san": 2,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "—",
     "kaiha_san": "社会民主党",
     "source": {
@@ -2296,7 +2296,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -2545,7 +2545,7 @@
     "shu": 0,
     "san": 2,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "—",
     "kaiha_san": "日本保守党",
     "source": {
@@ -2553,7 +2553,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },
@@ -2961,7 +2961,7 @@
     "shu": 0,
     "san": 39,
     "as_of": "2026-09-28",
-    "as_of_san": "2026-11-12",
+    "as_of_san": "2026-11-13",
     "kaiha_shu": "—（衆議院に立憲民主党の会派はない）",
     "kaiha_san": "立憲民主・無所属",
     "source": {
@@ -2969,7 +2969,7 @@
      "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
     },
     "source_san": {
-     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月12日現在）",
+     "label": "参議院「会派別所属議員数一覧」第222回国会（令和8年11月13日現在）",
      "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
     }
    },

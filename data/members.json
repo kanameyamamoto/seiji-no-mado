@@ -1,6 +1,6 @@
 {
  "note": "国会議員の一覧（全員を同じ項目で）。衆議院・参議院の公式の議員一覧から機械で作る（pipeline/people.py）。評価は書かない。",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "shu": {
   "as_of": "2026-09-28",
   "count": 464,
@@ -10,8 +10,8 @@
   }
  },
  "san": {
-  "as_of": "2026-11-12",
-  "count": 247,
+  "as_of": "2026-11-13",
+  "count": 246,
   "source": {
    "label": "参議院「議員一覧」第222回国会",
    "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giin.htm"
@@ -9988,21 +9988,6 @@
    "elected_by": "選挙区",
    "term_end": "2031-07-28",
    "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/profile/7025059.htm"
-  },
-  {
-   "id": "san-5992051",
-   "house": "参議院",
-   "name": "山崎 正昭",
-   "yomi": "やまざき まさあき",
-   "kaiha": "自由民主党・無所属の会",
-   "kaiha_abbr": "自民",
-   "parties": [
-    "ldp"
-   ],
-   "district": "福井選挙区",
-   "elected_by": "選挙区",
-   "term_end": "2028-07-25",
-   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/profile/5992051.htm"
   },
   {
    "id": "san-7013060",

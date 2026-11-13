@@ -16,11 +16,11 @@
   "参議院": 1880
  },
  "count_by_status": {
-  "答弁あり": 4121,
-  "答弁待ち": 105,
+  "答弁あり": 4123,
+  "答弁待ち": 103,
   "撤回": 0
  },
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "items": [
   {
    "id": "shu-222-1",
@@ -629,6 +629,7 @@
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222012.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222012.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222012.htm"
   },
   {
@@ -644,6 +645,7 @@
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222013.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222013.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222013.htm"
   },
   {
@@ -659,6 +661,7 @@
    "forwarded": "2026-11-02",
    "answered": "2026-11-06",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222014.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222014.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222014.htm"
   },
   {
@@ -714,9 +717,10 @@
    "title": "デジタル商品券等を利用した地方自治体の給付事業におけるサイバーセキュリティ対策に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-02",
    "forwarded": "2026-11-09",
+   "answered": "2026-11-13",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222018.htm"
   },
@@ -728,9 +732,10 @@
    "title": "公的給付におけるデジタル手段の利用要件と公平性に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-02",
    "forwarded": "2026-11-09",
+   "answered": "2026-11-13",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222019.htm"
   },
