@@ -1,10 +1,10 @@
 {
  "note": "都道府県知事の一覧。全国知事会「現職知事一覧」から機械で作る（pipeline/people.py）。",
- "checked": "2026-11-01",
- "as_of": "2026-09-30",
+ "checked": "2026-11-13",
+ "as_of": "2026-11-12",
  "source": {
   "label": "全国知事会「現職知事一覧」",
-  "url": "https://www.nga.gr.jp/outline/item/cfff8bd44793661c59c081d2215503f8.pdf"
+  "url": "https://www.nga.gr.jp/outline/item/gensyokuchijiichiran%28R8.11.12genzai%29%20.pdf"
  },
  "governors": [
   {
@@ -65,9 +65,9 @@
    "pref": "福島県",
    "name": "内堀 雅雄",
    "yomi": "うちぼり まさお",
-   "terms": 3,
-   "election": "2022-10-30",
-   "term_end": "2026-11-11",
+   "terms": 4,
+   "election": "2026-10-25",
+   "term_end": "2030-11-11",
    "first_took_office": "2014-11-12"
   },
   {
