@@ -12,12 +12,12 @@
   }
  ],
  "count": {
-  "衆議院": 2344,
+  "衆議院": 2346,
   "参議院": 1880
  },
  "count_by_status": {
   "答弁あり": 4121,
-  "答弁待ち": 103,
+  "答弁待ち": 105,
   "撤回": 0
  },
  "checked": "2026-11-13",
@@ -409,6 +409,36 @@
    "submitted": "2026-11-11",
    "question_url": "",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222022.htm"
+  },
+  {
+   "id": "shu-222-23",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 23,
+   "title": "叙位叙勲及び褒章の発表時期並びに官民の公平な評価に関する質問主意書",
+   "submitter": "小川淳也",
+   "member": "shu-36a76e13",
+   "kaiha": "中道",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-12",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222023.htm"
+  },
+  {
+   "id": "shu-222-24",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 24,
+   "title": "裸麦の生産費上昇を踏まえた交付金の見直しに関する質問主意書",
+   "submitter": "小川淳也",
+   "member": "shu-36a76e13",
+   "kaiha": "中道",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-12",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222024.htm"
   },
   {
    "id": "san-222-1",
