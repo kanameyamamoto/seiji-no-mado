@@ -1,0 +1,66 @@
+{
+ "unit": "learn:local-finance",
+ "title": "地方の財源",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「地方交付税法」を改正する法律が成立した（地方交付税法及び特別会計に関する法律の改正、2021-12-20）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "地方交付税法",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000211",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年版 地方財政白書」第1部2 地方財政の概況",
+   "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/chihou/r08data/2026data/r08czb01-02.html",
+   "chars": 8528,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年版 地方財政白書」第1部3 地方財源の状況",
+   "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/chihou/r08data/2026data/r08czb01-03.html",
+   "chars": 5058,
+   "error": null
+  },
+  {
+   "label": "国税庁「No.6303 消費税および地方消費税の税率」",
+   "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6303.htm",
+   "chars": 1432,
+   "error": null
+  },
+  {
+   "label": "総務省「個人住民税」",
+   "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/150790_06.html",
+   "chars": 3467,
+   "error": null
+  },
+  {
+   "label": "財務省「令和8年度税制改正について」（広報誌「ファイナンス」2026年4月号）",
+   "url": "https://www.mof.go.jp/public_relations/finance/202604/202604c.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "文部科学省「学校給食費の抜本的な負担軽減」",
+   "url": "https://www.mext.go.jp/a_menu/sports/syokuiku/kyu-lighten.html",
+   "chars": 2045,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "総務省「令和8年版 地方財政白書」第1部2・第1部3、総務省「個人住民税」、国税庁No.6303、文部科学省のページの今の本文と照らし、歳入純計120兆2,491億円・地方税46兆2,691億円・国庫支出金20兆1,862億円・地方交付税19兆9,346億円（普通交付税18兆6,000億円・特別交付税1兆2,597億円）・地方債8兆8,506億円・地方譲与税3兆962億円・地方特例交付金等1兆1,332億円・その他の収入20兆7,792億円・地方債依存度7.4％・租税の配分割合・所得割の税率10％に食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

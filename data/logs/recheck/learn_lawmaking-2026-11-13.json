@@ -1,0 +1,73 @@
+{
+ "unit": "learn:lawmaking",
+ "title": "法律ができるまで",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「国会法」を改正する法律が成立した（国会法及び国会議員の歳費、旅費及び手当等に関する法律の改正、2022-04-15）",
+  "出典の「道路交通法」を改正する法律が成立した（道路交通法の改正、2022-04-19）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "衆議院 議案情報",
+   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm",
+   "chars": 4114,
+   "error": null
+  },
+  {
+   "label": "e-Gov法令検索",
+   "url": "https://laws.e-gov.go.jp/",
+   "chars": 0,
+   "error": null
+  },
+  {
+   "label": "日本国憲法 第7条・第56条・第59条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国会法 第56条・第65条",
+   "url": "https://laws.e-gov.go.jp/law/322AC1000000079",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣法 第5条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000005",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣法制局「法律ができるまで」",
+   "url": "https://www.clb.go.jp/recent-laws/process/",
+   "chars": 1793,
+   "error": null
+  },
+  {
+   "label": "衆議院「議案の審査」",
+   "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/kokkai/kokkai_gian.htm",
+   "chars": 835,
+   "error": null
+  },
+  {
+   "label": "参議院「法律ができるまで」",
+   "url": "https://www.sangiin.go.jp/jpn/shiryo/kiso/kiso_5.html",
+   "chars": 601,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "Claude Opus 5.5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "国会法（第56条・第56条の2・第65条）と日本国憲法（第7条・第56条・第59条）の今の本文と照らし、議員発議の賛成者要件（衆20人・参10人、予算を伴うものは衆50人・参20人）、委員会付託、本会議の過半数議決、再可決・みなし否決、議長からの奏上の記述に食い違いはなく、道路交通法などの出典は抜粋に本文がないため根拠にしていません。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
