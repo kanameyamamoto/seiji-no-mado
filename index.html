@@ -2746,7 +2746,7 @@ br.pc { display: none; }
     h += '<section class="sec learn-body"><p>せいじのまどは、広告をのせず、登録もいらず、だれでも無料で使えるようにしています。AI から使う入口（MCP）や公開API も無料です。</p><p>サーバーや AI の利用料などの運営のお金は、募金で支えています。1回だけでも、毎月でも、金額は自由です。</p></section>';
     h += '<section class="sec"><h2>募金する</h2>' + (S.methods && S.methods.length ?
       '<div class="list">' + S.methods.map(function (m) { return '<a class="row-item" href="' + esc(m.url) + '" target="_blank" rel="noopener"><span class="grow"><span class="t">' + esc(m.name) + '</span>' + (m.text ? '<span class="s">' + esc(m.text) + '</span>' : '') + '</span>' + ICON.ext + '</a>'; }).join('') + '</div>' :
-      '<p class="muted small">受け付けの方法をととのえています。決まりしだい、ここに載せます。</p>') + '</section>';
+      '<p class="muted small">受け付けの方法をととのえています。</p>') + '</section>';
     h += '<section class="sec"><h2>お金の使い道</h2><div class="list">' + (S.uses || []).map(function (u) { return '<div class="row-item"><span class="grow"><span class="t">' + esc(u.name) + '</span><span class="s">' + esc(u.text) + '</span></span></div>'; }).join('') + '</div></section>';
     h += '<section class="sec learn-body"><h2>約束</h2><ul>' +
       '<li>募金した人や団体が、記事の中身・並び順・載せるかどうかに関わることはありません。お礼として名前や広告を載せることもしません。</li>' +

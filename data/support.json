@@ -1,12 +1,30 @@
 {
  "note": "運営のための募金（ルール S-4）。methods に受け付け先を入れると、ページにボタンが出る。ledger には月ごとの収入と支出を、種類ごとにまとめて入れる（人の名前は入れない）。",
  "updated": "2026-11-13",
- "methods": [],
+ "methods": [
+  {
+   "name": "OFUSE で募金する",
+   "text": "クレジットカードなどで、1回から。金額は自由です",
+   "url": "https://ofuse.me/77f5b386"
+  }
+ ],
  "uses": [
-  { "name": "サーバー", "text": "検索API と AI からの入口（MCP）を動かす Cloudflare の利用料" },
-  { "name": "AI の利用料", "text": "記事を確かめる別の会社の AI（Gemini）の利用料" },
-  { "name": "ドメイン", "text": "seijinomado.com の更新料" },
-  { "name": "データ", "text": "公開データの取得・保管にかかる費用" }
+  {
+   "name": "サーバー",
+   "text": "検索API と AI からの入口（MCP）を動かす Cloudflare の利用料"
+  },
+  {
+   "name": "AI の利用料",
+   "text": "記事を確かめる別の会社の AI（Gemini）の利用料"
+  },
+  {
+   "name": "ドメイン",
+   "text": "seijinomado.com の更新料"
+  },
+  {
+   "name": "データ",
+   "text": "公開データの取得・保管にかかる費用"
+  }
  ],
  "ledger": []
 }
