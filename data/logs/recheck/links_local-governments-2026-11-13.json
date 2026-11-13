@@ -1,0 +1,73 @@
+{
+ "unit": "links:local-governments",
+ "title": "都道府県と市町村の数",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）",
+  "出典の「地方自治法」を改正する法律が成立した（地方自治法の改正、2022-12-10）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "総務省「市町村合併」（本日の市町村数）",
+   "url": "https://www.soumu.go.jp/kouiki/kouiki.html",
+   "chars": 1474,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年版 地方財政白書」第1部 2 地方財政の概況",
+   "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/chihou/r08data/2026data/r08czb01-02.html",
+   "chars": 8528,
+   "error": null
+  },
+  {
+   "label": "総務省「令和8年版 地方財政白書」第1部 1 地方財政の役割",
+   "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/chihou/r08data/2026data/r08czb01-01.html",
+   "chars": 2230,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第1条の2・第1条の3",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "学校教育法 第38条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000026",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "住民基本台帳法 第22条",
+   "url": "https://laws.e-gov.go.jp/law/342AC0000000081",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第48条の2・第49条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "和歌山県「児童手当」",
+   "url": "https://www.pref.wakayama.lg.jp/prefg/040200/jidoteate.html",
+   "chars": 1822,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "総務省「市町村合併」（1,718市町村、市792・町743・村183、北方領土の6村を含めると1,724）、令和8年版地方財政白書（歳出純計額203兆6,506億円、国88兆5,413億円・43.5％、地方115兆1,093億円・56.5％、23特別区）、地方自治法第1条の2を確かめ、ページの文との食い違いはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
