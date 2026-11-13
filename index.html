@@ -1636,7 +1636,7 @@ br.pc { display: none; }
     if (state.apiLive === undefined) {
       state.apiLive = null;
       fetch(API_HOST + 'v1/types').then(function (r) { return r.ok; }).catch(function () { return false; })
-        .then(function (ok) { state.apiLive = !!ok; if (curR() === 'home' || curR() === 'api') render(); });
+        .then(function (ok) { state.apiLive = !!ok; if (!ok) setTimeout(function () { state.apiLive = undefined; }, 30000); if (curR() === 'home' || curR() === 'api') render(); });
     }
     return state.apiLive;
   }
@@ -2551,7 +2551,7 @@ br.pc { display: none; }
       var ctl = window.AbortController ? new AbortController() : null;
       if (ctl) setTimeout(function () { ctl.abort(); }, 6000);
       fetch(API_HOST + 'v1/types', ctl ? { signal: ctl.signal } : {}).then(function (r) { return r.ok; }).catch(function () { return false; })
-        .then(function (ok) { state.apiLive = !!ok; if (curR() === 'api') render(); });
+        .then(function (ok) { state.apiLive = !!ok; if (!ok) setTimeout(function () { state.apiLive = undefined; }, 30000); if (curR() === 'api') render(); });
     }
     var st = state.apiLive === null ? '<span>たしかめ中</span>' : (state.apiLive ? '<span class="b-res">使えます</span>' : '<span class="b-res wait">準備中（まもなく公開）</span>');
     var mcp = API_HOST + 'mcp';
