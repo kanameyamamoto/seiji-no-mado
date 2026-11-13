@@ -1,0 +1,55 @@
+{
+ "unit": "links:special-accounts",
+ "title": "特別会計",
+ "date": "2026-11-13",
+ "reasons": [
+  "出典の「特別会計に関する法律」を改正する法律が成立した（自動車損害賠償保障法等の改正、2022-06-09）",
+  "出典の「特別会計に関する法律」を改正する法律が成立した（地方交付税法及び特別会計に関する法律の改正、2021-12-20）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "財務省「特別会計について（令和８年度予算）」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/26.pdf",
+   "chars": 5720,
+   "error": null
+  },
+  {
+   "label": "特別会計に関する法律 第2条",
+   "url": "https://laws.e-gov.go.jp/law/419AC0000000023",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「令和８（2026）年度 雇用保険料率のご案内」",
+   "url": "https://www.mhlw.go.jp/content/001692566.pdf",
+   "chars": 1493,
+   "error": null
+  },
+  {
+   "label": "厚生年金保険法 第81条",
+   "url": "https://laws.e-gov.go.jp/law/329AC0000000115",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html",
+   "chars": 2423,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "財務省「特別会計について（令和８年度予算）」（歳出総額441.7兆円・純計額216.2兆円・一般会計からの繰入額69.7兆円など）、特別会計に関する法律（第96条・第108条ほか）、厚生労働省の雇用保険料率の案内、日本年金機構「国民年金保険料」（月額17,920円）の今の本文を確かめ、ページと食い違う記述は見つからなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
