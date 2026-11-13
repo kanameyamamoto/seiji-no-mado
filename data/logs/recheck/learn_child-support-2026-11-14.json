@@ -1,0 +1,73 @@
+{
+ "unit": "learn:child-support",
+ "title": "子ども・子育て支援（児童手当など）",
+ "date": "2026-11-14",
+ "reasons": [
+  "出典の「子ども・子育て支援法」を改正する法律が成立した（子ども・子育て支援法と児童手当法の改正、2021-05-21）",
+  "出典の「児童手当法」を改正する法律が成立した（子ども・子育て支援法と児童手当法の改正、2021-05-21）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "子ども・子育て支援法",
+   "url": "https://laws.e-gov.go.jp/law/424AC0000000065",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "児童手当法 第5条・第6条・第8条",
+   "url": "https://laws.e-gov.go.jp/law/346AC0000000073",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "こども家庭庁「児童手当」",
+   "url": "https://www.cfa.go.jp/policies/kokoseido/jidouteate/",
+   "chars": 322,
+   "error": null
+  },
+  {
+   "label": "特別会計に関する法律 第2条",
+   "url": "https://laws.e-gov.go.jp/law/419AC0000000023",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度 社会保障関係予算のポイント」",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/13.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "世田谷区「令和8年度より国民健康保険料に子ども・子育て支援金分が加算されます」",
+   "url": "https://www.city.setagaya.lg.jp/02060/32027.html",
+   "chars": 1117,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「育児期間の国民年金保険料免除制度」",
+   "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000143356_00038.html",
+   "chars": 1065,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "子ども・子育て支援法、児童手当法、こども家庭庁「児童手当」、特別会計に関する法律、財務省の令和8年度予算資料2点、世田谷区、厚生労働省の各出典の今の本文（抜粋）を確かめ、支給対象（0歳から18歳に達する日以後の最初の3月31日まで）、こども家庭庁予算4兆2,795億円、少子化対策費35,335億円、国民健康保険への支援金分の加算（令和8年4月分から）、国民年金の育児期間免除（令和8年10月1日から・1歳未満）などページの記述と食い違うところはなかった。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

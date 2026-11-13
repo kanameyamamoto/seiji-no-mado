@@ -1,0 +1,73 @@
+{
+ "unit": "links:cfa",
+ "title": "こども家庭庁",
+ "date": "2026-11-14",
+ "reasons": [
+  "出典の「子ども・子育て支援法」を改正する法律が成立した（子ども・子育て支援法と児童手当法の改正、2021-05-21）",
+  "出典の「児童手当法」を改正する法律が成立した（子ども・子育て支援法と児童手当法の改正、2021-05-21）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "児童手当法",
+   "url": "https://laws.e-gov.go.jp/law/346AC0000000073",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "子ども・子育て支援法",
+   "url": "https://laws.e-gov.go.jp/law/424AC0000000065",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "こども家庭庁",
+   "url": "https://www.cfa.go.jp/",
+   "chars": 408,
+   "error": null
+  },
+  {
+   "label": "こども家庭庁設置法",
+   "url": "https://laws.e-gov.go.jp/law/504AC0000000075",
+   "chars": 9268,
+   "error": null
+  },
+  {
+   "label": "財務省「令和８年度一般会計歳入歳出概算」（所管別内訳・主要経費別内訳、令和7年12月26日閣議決定）",
+   "url": "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/seifuan2026/03.pdf",
+   "chars": 7103,
+   "error": null
+  },
+  {
+   "label": "財務省 予算書・決算書データベース「令和8年度 一般会計 当初予算（歳出予定経費要求書・科目別内訳）」",
+   "url": "https://www.bb.mof.go.jp/server/2026/excel/DL202611001.xlsx",
+   "chars": 0,
+   "error": "開けない（HTTPError）"
+  },
+  {
+   "label": "行政機関職員定員令（令和8年政令第241号による改正後）",
+   "url": "https://laws.e-gov.go.jp/law/344CO0000000121",
+   "chars": 11095,
+   "error": null
+  },
+  {
+   "label": "児童福祉法",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000164",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "児童手当法・子ども・子育て支援法・こども家庭庁設置法・財務省「令和８年度一般会計歳入歳出概算」・行政機関職員定員令の今の本文を確かめ、ページの任務、所管法、予算額（4兆2,795億円）、定員（548人）、外局の記述と食い違うところはなかった（財務省の予算書データベースは開けなかったため根拠にしていない）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
