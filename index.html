@@ -847,14 +847,17 @@ br.pc { display: none; }
   .sec { gap: 10px; }
   .sec > h2, .h2like { font-size: 18px; }
   .page-head h1 { font-size: 22px; }
-  .hero { padding: 18px 16px 16px; gap: 10px; margin: 0; }
+  .hero { padding: 20px 16px 18px; gap: 12px; margin: 0; }
+  .hero-cta { margin-top: 0; }
+  .hero-q button { display: none; }
+  .hero-cta .btn-p { width: 100%; height: 42px; background: transparent; color: #fff; border: 1.5px solid var(--nav-muted); font-size: 14px; }
   .hero-k, .hero-ex, .hero-cta .btn-s { display: none; }
   .hero-h { font-size: 21px; line-height: 1.4; }
   .hero-s { font-size: 13.5px; line-height: 1.7; }
   .hero-q { margin-top: 2px; }
   .hero-q button { height: 44px; }
   .hero-cta .btn-p { height: 40px; font-size: 14px; padding: 0 16px; }
-  .hero-nums { display: flex; overflow-x: auto; gap: 8px; margin: 2px -16px 0; padding: 0 16px 2px; scrollbar-width: none; }
+  .hero-nums { display: none; }
   .hero-nums::-webkit-scrollbar { display: none; }
   .hn { flex: 0 0 auto; min-width: 104px; padding: 8px 10px; }
   .hn-v { font-size: 18px; }
@@ -1730,7 +1733,7 @@ br.pc { display: none; }
       '<h1 class="hero-h"><span class="nw">日本の政治の</span><span class="nw">公開データを、</span><br class="pc"><span class="nw">人にも、AIにも。</span></h1>' +
       '<p class="hero-s pc-only"><span class="nw">法律・質問主意書・議員の投票・審議会・予算事業などを、</span><span class="nw">毎日自動で集めて出典つきで整理。</span><br><span class="nw">4つのむずかしさで読めて、</span><span class="nw">無料のAPI・MCPでAIからも使えます。</span></p>' +
       '<p class="hero-s sp-only"><span class="nw">国会・政府の公開データを、</span><span class="nw">出典つきで。</span><span class="nw">無料のAPI・MCPで</span><span class="nw">AIからも使えます。</span></p>' +
-      '<form class="hero-q" id="heroq" role="search"><label class="hq-box">' + ICON.search + '<input id="hq" type="search" placeholder="ことば・法律名でさがす" autocomplete="off" aria-label="サイトの中をさがす"></label><button type="submit">さがす</button></form>' +
+      '<form class="hero-q" id="heroq" role="search"><label class="hq-box">' + ICON.search + '<input id="hq" type="search" enterkeyhint="search" placeholder="ことば・法律名でさがす" autocomplete="off" aria-label="サイトの中をさがす"></label><button type="submit">さがす</button></form>' +
       '<div class="hero-ex">' + ex.map(function (w) { return '<button class="chip" data-hq="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') + '</div>' +
       '<div class="hero-cta"><button class="btn-p" data-go="api">AIから使う（MCP・API）</button><button class="btn-s" data-go="laws">国会で決まったことを見る</button></div>' +
       '<div class="hero-nums">' + nums.map(function (n) { return '<button class="hn" data-go="' + n[3] + '"><span class="hn-v">' + n[0] + '<small>' + n[1] + '</small></span><span class="hn-l">' + esc(n[2]) + '</span></button>'; }).join('') + '</div></section>';
