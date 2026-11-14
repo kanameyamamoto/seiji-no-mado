@@ -138,28 +138,6 @@
  ],
  "alerts": [],
  "due": {
-  "learn:biz-funds-reports": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「総務省 政治資金収支報告書」の内容が変わった"
-   }
-  ],
-  "learn:biz-industry-associations": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「総務省 政治資金収支報告書」の内容が変わった"
-   }
-  ],
-  "learn:biz-labor-unions": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「連合」の内容が変わった"
-   },
-   {
-    "date": "2026-11-15",
-    "reason": "出典「全労連」の内容が変わった"
-   }
-  ],
   "learn:biz-political-funds-law": [
    {
     "date": "2026-11-15",
