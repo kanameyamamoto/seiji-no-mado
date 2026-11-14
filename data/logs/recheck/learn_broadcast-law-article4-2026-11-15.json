@@ -1,0 +1,66 @@
+{
+ "unit": "learn:broadcast-law-article4",
+ "title": "放送法と政治的公平（第4条）",
+ "date": "2026-11-15",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2021-05-25）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "衆議院 答弁第133号（平成28年2月26日）",
+   "url": "https://www.shugiin.go.jp/Internet/itdb_shitsumon.nsf/html/shitsumon/b190133.htm",
+   "chars": 995,
+   "error": null
+  },
+  {
+   "label": "BPO 放送倫理検証委員会 決定第23号",
+   "url": "https://www.bpo.gr.jp/?p=8322",
+   "chars": 1101,
+   "error": null
+  },
+  {
+   "label": "放送法 第1条・第3条・第4条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000132",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "電波法 第76条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC0000000131",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "参議院 答弁書 内閣参質196第95号（2018年5月11日）",
+   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/196/touh/t196095.htm",
+   "chars": 915,
+   "error": null
+  },
+  {
+   "label": "BPO 放送倫理検証委員会 決定第23号（PDF）",
+   "url": "https://www.bpo.gr.jp/wordpress/wp-content/themes/codex/pdf/kensyo/determination/2015/23/dec/0.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第9条・第150条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "見直す理由の公職選挙法について、出典7（e-Gov 公職選挙法）の今の本文で第150条（衆議院小選挙区・参議院選挙区の選挙で、候補者届出政党・候補者が選挙運動の期間中に日本放送協会と基幹放送事業者の放送設備により政見を無料で放送できる）を確かめ、ページの記述と食い違いはなく、ほかの出典（放送法、衆議院答弁第133号、参議院答弁書第95号、BPO決定第23号）とも食い違いはなかった（公職選挙法第9条は抜粋に含まれず確かめられなかった）。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
