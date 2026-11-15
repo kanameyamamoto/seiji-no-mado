@@ -138,24 +138,6 @@
  ],
  "alerts": [],
  "due": {
-  "learn:budget": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「財務省「令和８年度予算」」の内容が変わった"
-   }
-  ],
-  "learn:cabinet-meeting": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「首相官邸「閣議」」の内容が変わった"
-   }
-  ],
-  "learn:campaign-rules": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2021-05-25）"
-   }
-  ],
   "learn:child-support": [
    {
     "date": "2026-11-15",
