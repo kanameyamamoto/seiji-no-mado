@@ -4,6 +4,8 @@
  * ルール S-1：公開しているデータ（data/*.json と同じもの。pipeline/db.py が D1 に入れる）を読んで返すだけ。書き込み・ログインはない。
  * ルール S-2：使う人ごとの記録はとらない。検索のことばも保存しない（このプログラムはログを出さない）。
  *            使いすぎを防ぐため、接続元ごとの回数を1分だけ数える（Cloudflare の rate limiting。保存はしない）。
+ *            全体の利用回数だけは、日ごと・道具ごと・呼び出し元の種類ごと（Claude・ChatGPT・ブラウザ・プログラム・見回りの機械）の
+ *            合計の数として D1 の usage に足す。接続元・検索のことば・見た項目は保存しない。合計は GET /v1/usage で公開する。
  * ルール S-3：申し込みなしで、だれでも同じ条件。上限は LIMIT_PER_MIN（公開）。
  *
  *   GET  /                      … 使い方（JSON）
@@ -11,6 +13,7 @@
  *   GET  /v1/types              … 種類と件数
  *   GET  /v1/{type}             … 一覧（limit・offset）
  *   GET  /v1/{type}/{id}        … 1件と、そのつながり
+ *   GET  /v1/usage              … 日ごとの利用回数の合計（道具ごと・呼び出し元の種類ごと）
  *   POST /mcp                   … AI からの入口（Model Context Protocol。Streamable HTTP・状態を持たない）
  */
 const VERSION = '1.0.0';
@@ -33,6 +36,35 @@ const ABOUT = {
   rules_page: SITE + 'about/',
   license: LICENSE,
 };
+
+/* ---------- 利用回数の合計（S-2：人ごとには数えない） ---------- */
+function clientKind(req) {
+  const ua = req.headers.get('user-agent') || '';
+  if (/Claude/i.test(ua)) return 'claude';
+  if (/ChatGPT|OpenAI/i.test(ua)) return 'chatgpt';
+  if (/bot|probe|prober|crawl|spider|monitor|uptime|check/i.test(ua)) return 'bot';
+  if (/^Mozilla\//.test(ua)) return 'browser';
+  return 'program';
+}
+function jstDay() { return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); }
+function countUse(env, ctx, channel, tool, client) {
+  if (!env.DB || !ctx) return;
+  ctx.waitUntil(env.DB.prepare('INSERT INTO usage (day, channel, tool, client, n) VALUES (?1, ?2, ?3, ?4, 1) ON CONFLICT (day, channel, tool, client) DO UPDATE SET n = n + 1')
+    .bind(jstDay(), channel, tool, client).run().catch(() => {}));
+}
+async function usage(env, days) {
+  const since = new Date(Date.now() + 9 * 3600 * 1000 - (days - 1) * 86400000).toISOString().slice(0, 10);
+  const { results } = await env.DB.prepare('SELECT day, channel, tool, client, n FROM usage WHERE day >= ?1 ORDER BY day DESC, channel, tool, client').bind(since).all();
+  const byDay = {};
+  for (const r of results) {
+    const d = byDay[r.day] || (byDay[r.day] = { day: r.day, total: 0, mcp: {}, rest: {}, clients: {} });
+    d.total += r.n; d[r.channel][r.tool] = (d[r.channel][r.tool] || 0) + r.n; d.clients[r.client] = (d.clients[r.client] || 0) + r.n;
+  }
+  return {
+    note: '日本時間の日ごとの合計。mcp は AI からの道具の呼び出し（search・get・list・about）、rest は検索API（search・list・get・types）。clients は呼び出し元の種類（claude・chatgpt・browser・program・bot。User-Agent で機械的に分けたもの）。接続元・検索のことば・見た項目は保存していない（ルール S-2）。上限をこえて断った呼び出しは数えない。',
+    days: Object.values(byDay),
+  };
+}
 
 const J = (obj, status = 200, extra = {}) => new Response(JSON.stringify(obj), {
   status,
@@ -143,7 +175,7 @@ async function callTool(env, name, args = {}) {
   return null;
 }
 
-async function rpc(env, msg) {
+async function rpc(env, msg, use) {
   const ok = (result) => ({ jsonrpc: '2.0', id: msg.id, result });
   const err = (code, message) => ({ jsonrpc: '2.0', id: msg.id ?? null, error: { code, message } });
   if (!msg || msg.jsonrpc !== '2.0' || typeof msg.method !== 'string') return err(-32600, 'Invalid Request');
@@ -159,6 +191,7 @@ async function rpc(env, msg) {
     case 'tools/call': {
       const r = await callTool(env, p.name, p.arguments || {});
       if (r === null) return err(-32602, 'Unknown tool: ' + p.name);
+      if (use) use(p.name);
       return ok({ content: [{ type: 'text', text: JSON.stringify(r) }], structuredContent: r, isError: !!r.error });
     }
     default:
@@ -166,13 +199,13 @@ async function rpc(env, msg) {
   }
 }
 
-async function mcp(req, env) {
+async function mcp(req, env, ctx) {
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type, accept, mcp-protocol-version, mcp-session-id' } });
   if (req.method !== 'POST') return new Response('POST only (Streamable HTTP, stateless)', { status: 405, headers: { allow: 'POST, OPTIONS' } });
   let body;
   try { body = await req.json(); } catch { return J({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'Parse error' } }, 400); }
   const many = Array.isArray(body);
-  const replies = (await Promise.all((many ? body : [body]).slice(0, 20).map((m) => rpc(env, m)))).filter(Boolean);
+  const replies = (await Promise.all((many ? body : [body]).slice(0, 20).map((m) => rpc(env, m, (tool) => countUse(env, ctx, 'mcp', tool, clientKind(req)))))).filter(Boolean);
   const h = { 'content-type': 'application/json', 'access-control-allow-origin': '*', 'cache-control': 'no-store' };
   if (!replies.length) return new Response(null, { status: 202, headers: h });
   return new Response(JSON.stringify(many ? replies : replies[0]), { status: 200, headers: h });
@@ -187,9 +220,16 @@ export default {
       const { success } = await env.LIMITER.limit({ key: req.headers.get('cf-connecting-ip') || 'unknown' });
       if (!success) return J({ error: '1分あたりの回数の上限（' + LIMIT_PER_MIN + '回）をこえました。少し待ってから、もう一度ためしてください。' }, 429, { 'retry-after': '60' });
     }
-    if (url.pathname === '/mcp') return mcp(req, env);
+    if (url.pathname === '/mcp') return mcp(req, env, ctx);
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'GET, OPTIONS' } });
     if (req.method !== 'GET' && req.method !== 'HEAD') return J({ error: 'GET だけです（MCP は POST /mcp）。' }, 405);
+
+    const seg = url.pathname.split('/').filter(Boolean);
+    if (seg[0] === 'v1' && seg[1] === 'usage') {
+      try { return J(await usage(env, clampInt(url.searchParams.get('days'), 30, 1, 366)), 200, { 'cache-control': 'public, max-age=300' }); }
+      catch (e) { return J({ error: 'まだ数えていません。' }, 503); }
+    }
+    if (seg[0] === 'v1' && seg[1]) countUse(env, ctx, 'rest', seg[1] === 'search' || seg[1] === 'types' ? seg[1] : seg.length === 2 ? 'list' : 'get', clientKind(req));
 
     const cache = caches.default;
     const hit = await cache.match(req);
@@ -213,7 +253,7 @@ async function route(url, env) {
     const base = url.origin + '/';
     return J({
       ...ABOUT, ...(await meta(env)), endpoints: {
-        search: base + 'v1/search?q=防衛', types: base + 'v1/types', list: base + 'v1/law', get: base + 'v1/{type}/{id}', mcp: base + 'mcp（POST・Model Context Protocol）',
+        search: base + 'v1/search?q=防衛', types: base + 'v1/types', usage: base + 'v1/usage', list: base + 'v1/law', get: base + 'v1/{type}/{id}', mcp: base + 'mcp（POST・Model Context Protocol）',
         static_api: SITE + 'api/v1/index.json',
       },
     });

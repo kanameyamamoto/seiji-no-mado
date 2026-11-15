@@ -78,6 +78,10 @@ jobs:
           if [ "$OLD" != "$NEW" ]; then
             $WRANGLER d1 execute seijinomado --remote --file ../build/d1.sql --yes
           fi
+      - name: 利用回数の合計を入れる表を用意する（S-2：日ごと・道具ごとの合計だけ）
+        if: steps.ready.outputs.ok == 'true'
+        working-directory: worker
+        run: $WRANGLER d1 execute seijinomado --remote --yes --command "CREATE TABLE IF NOT EXISTS usage (day TEXT NOT NULL, channel TEXT NOT NULL, tool TEXT NOT NULL, client TEXT NOT NULL, n INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (day, channel, tool, client))"
       - name: Worker を公開する
         if: steps.ready.outputs.ok == 'true'
         working-directory: worker
