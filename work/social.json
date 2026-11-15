@@ -152,6 +152,13 @@
    "key": "aba13a5384a6",
    "date": "2026-11-15T12:04:32+09:00",
    "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n2czptvzjb2z"
+  },
+  {
+   "platform": "x",
+   "id": "fact:questions-topic-医療",
+   "key": "e30fee3aa912",
+   "date": "2026-11-15T21:04:01+09:00",
+   "post": "draft"
   }
  ],
  "rule": "ルール D-17。成立から30日以内の「国会で決まったこと」の記事を、すべて同じ形で、成立した日の古い順に投稿する。"
