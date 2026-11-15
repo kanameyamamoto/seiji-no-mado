@@ -1,0 +1,57 @@
+{
+ "unit": "learn:biz-regulatory-reform",
+ "title": "規制と規制改革",
+ "date": "2026-11-15",
+ "reasons": [
+  "出典「規制改革推進会議令（e-Gov法令検索）」の法令が改正された：規制改革推進会議令の一部を改正する政令（令和八年政令第三百四十三号、施行 2026-11-05）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "規制改革推進会議令（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/428CO0000000303",
+   "chars": 2054,
+   "error": null
+  },
+  {
+   "label": "内閣府 規制改革実施計画",
+   "url": "https://www8.cao.go.jp/kisei-kaikaku/kisei/publication/p_plan.html",
+   "chars": 1105,
+   "error": null
+  },
+  {
+   "label": "規制改革実施計画（令和８年７月21日閣議決定）概要",
+   "url": "https://www8.cao.go.jp/kisei-kaikaku/kisei/publication/program/260721/02_point.pdf",
+   "chars": 7493,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "update",
+    "summary": "規制改革推進会議令の改正（令和8年政令第343号）を受け、委員の任期の書き方を「任期2年」から政令第3条第1項の表記（任命の日の属する年の翌々年の7月31日まで）に直しました。",
+    "changes": [
+     {
+      "path": "summary.univ",
+      "before": "{{規制改革推進会議}}は規制改革推進会議令（平成28年政令第303号）に基づき内閣府に置かれ、委員20人以内（非常勤、任期2年、内閣総理大臣任命）で組織される。答申を踏まえた{{規制改革実施計画}}が毎年閣議決定され、令和8年版は令和8年7月21日決定（答申事項55項目、{{国家戦略特区}}事項2項目）。",
+      "after": "{{規制改革推進会議}}は規制改革推進会議令（平成28年政令第303号）に基づき内閣府に置かれ、委員20人以内（非常勤、任期は任命の日の属する年の翌々年の7月31日まで、内閣総理大臣任命）で組織される。答申を踏まえた{{規制改革実施計画}}が毎年閣議決定され、令和8年版は令和8年7月21日決定（答申事項55項目、{{国家戦略特区}}事項2項目）。",
+      "source": "https://laws.e-gov.go.jp/law/428CO0000000303",
+      "why": "政令第3条第1項は「委員の任期は、任命の日の属する年の翌々年の七月三十一日までとする」となっており、「任期2年」と食い違う。"
+     }
+    ]
+   },
+   "numcheck": [],
+   "checker_model": "gemini-3.5-flash-lite",
+   "check": {
+    "pass": true,
+    "problems": []
+   },
+   "result": "合格"
+  }
+ ],
+ "final": "直して公開"
+}

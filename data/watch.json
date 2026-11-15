@@ -138,24 +138,6 @@
  ],
  "alerts": [],
  "due": {
-  "learn:biz-political-funds-law": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「総務省 政治資金収支報告書」の内容が変わった"
-   }
-  ],
-  "learn:biz-public-procurement": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「調達ポータル（政府の入札情報）」の内容が変わった"
-   }
-  ],
-  "learn:biz-regulatory-reform": [
-   {
-    "date": "2026-11-15",
-    "reason": "出典「規制改革推進会議令（e-Gov法令検索）」の法令が改正された：規制改革推進会議令の一部を改正する政令（令和八年政令第三百四十三号、施行 2026-11-05）"
-   }
-  ],
   "learn:budget": [
    {
     "date": "2026-11-15",
