@@ -21,6 +21,7 @@ import ai  # noqa: E402
 import numcheck  # noqa: E402
 import furigana  # noqa: E402
 import sangiin as S  # noqa: E402
+import sources as SRC  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -99,7 +100,12 @@ def skeleton(raw, feed):
     elif cat == "条約":
         formal = re.sub(r"の締結について承認を求めるの件$", "", formal)
     ministries = [m for m in (r.get("その他の/所管官庁", "") or "").split("、") if m]
-    topic = "外務省（条約）" if cat == "条約" else (ministries[0] if ministries else ("内閣" if cat == "閣法" else "国会（議員立法）"))
+    if cat == "条約":
+        topic = "外務省（条約）"
+    elif cat == "予算":
+        topic = "財務省"
+    else:
+        topic = ministries[0] if ministries else ("内閣" if cat == "閣法" else "国会（議員立法）")
     item = {
         "id": lid, "src_key": raw["src_key"], "kind": raw["kind"], "date": raw["date"],
         "session": session_label(feed, ses), "title": "", "formal": formal, "bill": raw["formal"],
@@ -142,8 +148,84 @@ def source_text(raw):
     if raw.get("kind") == "法律案が否決":
         where = "衆議院" if r.get("衆議院本会議経過/議決") == "否決" else "参議院"
         head = f"【結果】この法律案は{where}の本会議で否決され、成立していない。\n"
-    name = "議案要綱" if raw.get("yoshi_source") else "議案要旨"
+    if raw.get("yoshi_sources"):
+        name = "財務省の資料（議案要旨のかわり）"
+    else:
+        name = "議案要綱" if raw.get("yoshi_source") else "議案要旨"
     return head + "\n".join(lines) + f"\n\n【{name}】\n" + (raw.get("yoshi") or "（なし）")
+
+
+BUDGET_SRC_LIMIT = 9000  # 資料1件あたりの文字数の上限
+KANSUJI = {c: i for i, c in enumerate("〇一二三四五六七八九")}
+
+
+def is_mof(url):
+    """財務省のサイト（www.mof.go.jp・予算書の bb.mof.go.jp など）か。"""
+    m = re.match(r"https://([^/]+)/", url)
+    return bool(m) and (m.group(1) == "mof.go.jp" or m.group(1).endswith(".mof.go.jp"))
+
+
+def fiscal_year(formal):
+    """「令和二年度一般会計補正予算」→「令和2年度」。読めなければ空。"""
+    m = re.search(r"令和([〇一二三四五六七八九十元]+)年度", formal)
+    if not m:
+        return ""
+    t = m.group(1)
+    if t == "元":
+        n = 1
+    elif "十" in t:
+        a, _, b = t.partition("十")
+        n = (KANSUJI.get(a, 1) if a else 1) * 10 + (KANSUJI.get(b, 0) if b else 0)
+    else:
+        n = KANSUJI.get(t, 0)
+    return f"令和{n}年度" if n else ""
+
+
+def mentions_year(body, fy):
+    """資料の本文に、その年度（令和2年度・令和２年度・令和 2 年度）が出てくるか。"""
+    if not fy:
+        return True
+    norm = body.translate(str.maketrans("０１２３４５６７８９", "0123456789")).replace(" ", "").replace("\u3000", "")
+    return fy in norm or (fy == "令和1年度" and "令和元年度" in norm)
+
+
+def budget_sources(raw):
+    """議案要旨のない予算：財務省の資料を、書く担当にウェブ検索で探してもらい、本文を取り出す。
+    見つかれば raw に yoshi（本文）と yoshi_sources（出典）を入れて True。見つからなければ False。"""
+    r = raw["bill"]
+    user = (f"【予算の正式名称】{raw['formal']}\n【国会】第{raw['session']}回国会\n"
+            f"【国会に出された日】{r.get('議案審議一覧/提出日', '')}\n【成立した日】{raw.get('date', '')}\n"
+            f"【参議院の議案情報】{raw['source']['url']}")
+    text, wmodel = ai.write_with_search(prompt_body("find_budget_source.md"), user)
+    raw.setdefault("source_search", []).append({"date": today(), "writer_model": wmodel})
+    try:
+        ans = ai.extract_json(text)
+    except Exception as e:  # noqa: BLE001
+        raw["source_search"][-1]["result"] = f"JSONとして読めない: {e}"
+        return False
+    got, parts = [], []
+    for s in (ans.get("sources") or [])[:3] if ans.get("found") else []:
+        url = str(s.get("url", ""))
+        if not is_mof(url):
+            continue
+        try:
+            _, body = SRC.fetch_text(url)
+        except Exception as e:  # noqa: BLE001
+            print(f"[warn] {raw['key']}：財務省の資料が開けない {url}: {e}")
+            continue
+        body = SRC.excerpt(body, [raw["formal"], "歳出", "歳入", "総額", "億円"], BUDGET_SRC_LIMIT).strip()
+        if len(body) < 200 or not mentions_year(body, fiscal_year(raw["formal"])):
+            print(f"[warn] {raw['key']}：財務省の資料に、その年度の中身が見当たらない {url}")
+            continue
+        label = s.get("label") or "財務省の資料"
+        got.append({"label": label, "url": url})
+        parts.append(f"＜{label}＞\n{body}")
+    raw["source_search"][-1]["result"] = f"{len(got)}件" if got else ("見つからない：" + str(ans.get("why", "")))
+    if not got:
+        return False
+    raw["yoshi"] = "\n\n".join(parts)
+    raw["yoshi_sources"] = got
+    return True
 
 
 def texts_of(draft):
@@ -178,6 +260,16 @@ def run_one(path, feed):
     raw = json.load(open(path, encoding="utf-8"))
     log = {"key": raw["key"], "date": today(), "rules": ["C-1", "C-2", "C-3", "C-4"],
            "writer_prompt": "prompts/write_law.md", "checker_prompt": "prompts/check_law.md", "rounds": []}
+    if not raw.get("yoshi") and raw.get("category") == "予算":
+        if not budget_sources(raw):
+            raw["status"] = "held"
+            raw["held_reason"] = "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。"
+            json.dump(raw, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+            print(f"[held] {raw['key']}: 議案要旨・財務省の資料なし")
+            return
+        raw.pop("held_reason", None)
+        raw["status"] = "fetched"
+        json.dump(raw, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     if not raw.get("yoshi"):
         raw["status"] = "held"
         raw["held_reason"] = "議案要旨がまだ出ていないため、書かずに待つ（F-1）。"
@@ -237,7 +329,8 @@ def run_one(path, feed):
     item["title"] = draft["title"]
     item["lead"] = {l: draft["lead"][l] for l in LEVELS}
     yoshi_src = raw.get("yoshi_source") or {"label": re.sub(r"）$", "・議案要旨）", raw["source"]["label"]), "url": raw["source"]["url"]}
-    item["facts"] = [{"text": {l: f[l] for l in LEVELS}, "rules": ["F-1", "F-3", "F-4"], "sources": [yoshi_src]}
+    fact_srcs = raw.get("yoshi_sources") or [yoshi_src]
+    item["facts"] = [{"text": {l: f[l] for l in LEVELS}, "rules": ["F-1", "F-3", "F-4"], "sources": fact_srcs}
                      for f in draft["facts"]]
     item["checked"] = today()
     item["ai_log"] = f"data/logs/{raw['key']}.json"
@@ -264,7 +357,10 @@ def main():
             continue
         p = os.path.join(PENDING, fn)
         raw = json.load(open(p, encoding="utf-8"))
-        if raw.get("status") == "fetched":
+        # 議案要旨を待っていた予算は、財務省の資料でもう一度（2026-11-15 山本さんの判断）
+        retry = (raw.get("status") == "held" and raw.get("category") == "予算"
+                 and raw.get("held_reason", "").startswith("議案要旨がまだ出ていない"))
+        if raw.get("status") == "fetched" or retry:
             ai.set_item(raw["key"])
             try:
                 run_one(p, feed)
