@@ -1,0 +1,48 @@
+{
+ "unit": "learn:fact-check-organizations",
+ "title": "ファクトチェック団体",
+ "date": "2026-11-16",
+ "reasons": [
+  "出典「InFact」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "InFact",
+   "url": "https://infact.press/about/",
+   "chars": 2393,
+   "error": null
+  },
+  {
+   "label": "日本ファクトチェックセンター（JFC）",
+   "url": "https://www.factcheckcenter.jp/about/",
+   "chars": 3040,
+   "error": null
+  },
+  {
+   "label": "ファクトチェック・イニシアティブ（FIJ）",
+   "url": "https://fij.info/about",
+   "chars": 1406,
+   "error": null
+  },
+  {
+   "label": "リトマス",
+   "url": "https://litmus-factcheck.jp/about/",
+   "chars": 2958,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "InFactの「インファクトとは」（https://infact.press/about/）の今の本文で、調査報道とファクトチェックを行うこと、読者の寄付で支えられサイトに広告がないこと、認定されたNPOであることを確かめ、ページの記載との食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}

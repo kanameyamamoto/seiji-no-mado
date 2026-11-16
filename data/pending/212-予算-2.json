@@ -47,6 +47,13 @@
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/212/meisai/m212150212002.htm"
  },
  "status": "held",
- "held_reason": "議案要旨がまだ出ていないため、書かずに待つ（F-1）。",
- "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/36"
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/36",
+ "source_search": [
+  {
+   "date": "2026-11-16",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：財務省の予算書・決算書データベースにある「令和5年度特別会計補正予算（特第1号）（令和5年度特別会計補正予算参照書添付）第212回国会（臨時会）提出」で、予算総則補正と各特別会計の歳入歳出予算補正が載っている。"
+  }
+ ]
 }

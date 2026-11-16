@@ -47,6 +47,13 @@
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/216/meisai/m216150216002.htm"
  },
  "status": "held",
- "held_reason": "議案要旨がまだ出ていないため、書かずに待つ（F-1）。",
- "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/24"
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/24",
+ "source_search": [
+  {
+   "date": "2026-11-16",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：予算書・決算書データベースの令和6年度アーカイブで「補正予算第１号［第216回(臨時会)］特別会計」として掲載されたPDFを取得し、表紙が「令和6年度特別会計補正予算(特第1号)」であることを確かめた。財務省「令和6年度補正予算の説明」の特別会計の章（yosetu04.pdf）は中身を確かめられなかったため、入れていない。"
+  }
+ ]
 }

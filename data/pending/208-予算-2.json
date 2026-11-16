@@ -54,6 +54,13 @@
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/208/meisai/m208150208002.htm"
  },
  "status": "held",
- "held_reason": "議案要旨がまだ出ていないため、書かずに待つ（F-1）。",
- "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/52"
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/52",
+ "source_search": [
+  {
+   "date": "2026-11-16",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：財務省の予算書・決算書データベースにある「令和4年度特別会計予算（令和4年度特別会計予算参照書添付）第208回国会（常会）提出」で、予算総則と各特別会計の歳入歳出予算が載っている。"
+  }
+ ]
 }

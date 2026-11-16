@@ -119,6 +119,13 @@
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/213/meisai/m213150213003.htm"
  },
  "status": "held",
- "held_reason": "議案要旨がまだ出ていないため、書かずに待つ（F-1）。",
- "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/39"
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/39",
+ "source_search": [
+  {
+   "date": "2026-11-16",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：財務省の「令和６年度予算及び財政投融資計画の説明」の「第4 政府関係機関」の章で、沖縄振興開発金融公庫など各政府関係機関の令和6年度予算の中身が書かれている。"
+  }
+ ]
 }

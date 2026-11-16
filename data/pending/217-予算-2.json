@@ -119,6 +119,13 @@
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/217/meisai/m217150217002.htm"
  },
  "status": "held",
- "held_reason": "議案要旨がまだ出ていないため、書かずに待つ（F-1）。",
- "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/18"
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/18",
+ "source_search": [
+  {
+   "date": "2026-11-16",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：令和7年度予算は国会で修正されて成立したため、財務省の「令和７年度予算及び財政投融資計画の説明（予算修正後）」（第217回国会、令和7年4月）の「第3 特別会計」の章を選んだ。14の特別会計それぞれの予算の中身が書かれている。"
+  }
+ ]
 }

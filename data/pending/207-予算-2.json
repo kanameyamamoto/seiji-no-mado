@@ -47,6 +47,13 @@
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/207/meisai/m207150207002.htm"
  },
  "status": "held",
- "held_reason": "議案要旨がまだ出ていないため、書かずに待つ（F-1）。",
- "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/50"
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/50",
+ "source_search": [
+  {
+   "date": "2026-11-16",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：予算書・決算書データベースの令和3年度アーカイブで「補正予算第１号［第207回(臨時会)］特別会計」として掲載されたPDFを取得し、表紙が「令和3年度特別会計補正予算(特第1号)」で、歳入歳出予算補正などの内容を含むことを確かめた。この補正の特別会計だけを扱う財務省の概要資料は見つけられなかった。"
+  }
+ ]
 }
