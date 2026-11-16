@@ -1,0 +1,43 @@
+{
+ "unit": "learn:governor-and-assembly",
+ "title": "知事・市区町村長と議会（二元代表制）",
+ "date": "2026-11-16",
+ "reasons": [
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2021-05-25）",
+  "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2020-06-08）"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "日本国憲法 第93条",
+   "url": "https://laws.e-gov.go.jp/law/321CONSTITUTION",
+   "chars": 11473,
+   "error": null
+  },
+  {
+   "label": "地方自治法 第93条・第96条・第140条・第149条・第176条・第178条・第179条",
+   "url": "https://laws.e-gov.go.jp/law/322AC0000000067",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "公職選挙法 第10条",
+   "url": "https://laws.e-gov.go.jp/law/325AC1000000100",
+   "chars": 12000,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "公職選挙法（https://laws.e-gov.go.jp/law/325AC1000000100）の今の本文の第9条第2項（年齢満十八年以上で引き続き三箇月以上市町村の区域内に住所を有する者が地方の選挙権を有する）はページの記載と食い違いがなく、第10条の被選挙権の年齢の本文は渡された抜粋に含まれていないため、それを根拠にした変更はしていません。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
