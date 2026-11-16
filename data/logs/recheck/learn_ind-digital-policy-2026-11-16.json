@@ -1,0 +1,66 @@
+{
+ "unit": "learn:ind-digital-policy",
+ "title": "デジタル政策（デジタル庁）",
+ "date": "2026-11-16",
+ "reasons": [
+  "出典「デジタル庁「デジタル庁について」」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "デジタル庁「デジタル庁について」",
+   "url": "https://www.digital.go.jp/about",
+   "chars": 1479,
+   "error": null
+  },
+  {
+   "label": "デジタル庁設置法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/503AC0000000036",
+   "chars": 11274,
+   "error": null
+  },
+  {
+   "label": "デジタル社会形成基本法（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/503AC0000000035",
+   "chars": 11935,
+   "error": null
+  },
+  {
+   "label": "内閣官房「日本成長戦略」",
+   "url": "https://www.cas.go.jp/jp/seisaku/nipponseichosenryaku/pdf/jgs2026.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "内閣府「規制改革実施計画（令和８年７月21日閣議決定）概要」",
+   "url": "https://www8.cao.go.jp/kisei-kaikaku/kisei/publication/program/260721/02_point.pdf",
+   "chars": 7493,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「マイナンバーカードの健康保険証利用（マイナ保険証）について」",
+   "url": "https://www.mhlw.go.jp/stf/newpage_08277.html",
+   "chars": 5389,
+   "error": null
+  },
+  {
+   "label": "厚生労働省「資格確認書について（マイナ保険証を使わない場合の受診方法）」",
+   "url": "https://www.mhlw.go.jp/stf/newpage_45470.html",
+   "chars": 1060,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "デジタル庁「デジタル庁について」（2026年9月18日更新）の所管法人（地方公共団体情報システム機構、独立行政法人国立印刷局、独立行政法人情報処理推進機構）をはじめ、デジタル庁設置法、デジタル社会形成基本法、日本成長戦略、規制改革実施計画概要、厚生労働省のマイナ保険証・資格確認書のページの今の本文を確かめ、ページの記載と食い違いはありませんでした。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
