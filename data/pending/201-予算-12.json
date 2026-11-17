@@ -46,5 +46,14 @@
   "label": "参議院 議案情報（第201回国会 予算第12号）",
   "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/gian/201/meisai/m201150201012.htm"
  },
- "status": "fetched"
+ "status": "held",
+ "source_search": [
+  {
+   "date": "2026-11-18",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "result": "見つからない：財務省サイトの令和2年度補正予算（第2号）の説明ページは削除済みのため、予算書・決算書データベースの令和2年度政府関係機関補正予算（機第2号）予算書PDFと、第二次補正予算の大要（一般会計約31兆9,100億円の歳出追加、特別会計予算等の補正）を述べた令和2年6月8日の財務大臣財政演説を選んだ。"
+  }
+ ],
+ "held_reason": "議案要旨がなく、財務省の資料も見つからなかったため、書かずに待つ（F-1）。",
+ "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/65"
 }
