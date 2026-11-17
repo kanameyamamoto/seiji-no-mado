@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2347,
-  "参議院": 1882
+  "参議院": 1883
  },
  "count_by_status": {
-  "答弁あり": 4124,
-  "答弁待ち": 105,
+  "答弁あり": 4130,
+  "答弁待ち": 100,
   "撤回": 0
  },
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "items": [
   {
    "id": "shu-222-1",
@@ -695,6 +695,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222015.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222015.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222015.htm"
   },
   {
@@ -710,6 +711,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222016.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222016.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222016.htm"
   },
   {
@@ -725,6 +727,7 @@
    "forwarded": "2026-11-04",
    "answered": "2026-11-10",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222017.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222017.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222017.htm"
   },
   {
@@ -765,9 +768,10 @@
    "title": "公的給付におけるステーブルコイン等の活用等に係る問題点に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-05",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222020.htm"
   },
@@ -779,9 +783,10 @@
    "title": "個人ＢＳＤ報告書に係る調査についての小泉防衛大臣の発言及び公益通報への対応に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-05",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222021.htm"
   },
@@ -793,9 +798,10 @@
    "title": "奨学金債務免除の必要性に関する質問主意書",
    "submitter": "奥田 ふみよ",
    "member": "san-7025012",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-06",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222022.htm"
   },
@@ -807,9 +813,10 @@
    "title": "サイバー攻撃による不正売買が証券市場全体に及ぼす影響と投資家保護に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-06",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222023.htm"
   },
@@ -821,9 +828,10 @@
    "title": "証券取引所が定める約定取消し制度の法的根拠及びサイバー攻撃による不正注文への同制度の適用に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-06",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222024.htm"
   },
@@ -835,9 +843,10 @@
    "title": "サイバー攻撃による不正売買に伴う連鎖的な取引及び信用取引の損失処理及び被害者救済に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-06",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222025.htm"
   },
@@ -934,6 +943,19 @@
    "submitted": "2026-11-16",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222032.htm"
+  },
+  {
+   "id": "san-222-33",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 33,
+   "title": "学校徴収金の管理及び校長等による私費での補填に関する質問主意書",
+   "submitter": "石垣 のりこ",
+   "member": "san-7019003",
+   "status": "答弁待ち",
+   "submitted": "2026-11-17",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222033.htm"
   },
   {
    "id": "shu-221-1",
