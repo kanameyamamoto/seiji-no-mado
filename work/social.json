@@ -180,6 +180,13 @@
    "key": "e30fee3aa912",
    "date": "2026-11-16T12:04:46+09:00",
    "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n2fk76rxyi24"
+  },
+  {
+   "platform": "x",
+   "id": "fact:questions-topic-外国人",
+   "key": "75e5e27351ac",
+   "date": "2026-11-17T21:04:23+09:00",
+   "post": "draft"
   }
  ],
  "rule": "ルール D-17。成立から30日以内の「国会で決まったこと」の記事を、すべて同じ形で、成立した日の古い順に投稿する。"
