@@ -12,12 +12,82 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 53,
+  "意見募集中": 60,
   "結果待ち": 0,
-  "結果公示": 42
+  "結果公示": 44
  },
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "items": [
+  {
+   "id": "495260265",
+   "title": "職業能力開発促進法施行規則の一部を改正する省令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260265&Mode=0",
+   "published": "2026-11-17",
+   "deadline": "2026-12-17",
+   "category": "労働",
+   "office": "厚生労働省人材開発統括官付能力評価担当参事官室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "195260083",
+   "title": "「水道水中における従属栄養細菌の目標値見直し（案）」に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=195260083&Mode=0",
+   "published": "2026-11-17",
+   "deadline": "2026-12-17",
+   "category": "厚生",
+   "office": "環境省水・大気環境局環境管理課水道水質・衛生管理室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260268",
+   "title": "医療法施行令等の一部を改正する政令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260268&Mode=0",
+   "published": "2026-11-16",
+   "deadline": "2026-12-16",
+   "category": "厚生",
+   "office": "厚生労働省医政局地域医療計画課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260267",
+   "title": "歯科技工士法施行規則等の一部を改正する省令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260267&Mode=0",
+   "published": "2026-11-16",
+   "deadline": "2026-12-15",
+   "category": "厚生",
+   "office": "医政局医事課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260266",
+   "title": "高齢者の医療の確保に関する法律施行令の一部を改正する政令案に関する意見募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260266&Mode=0",
+   "published": "2026-11-16",
+   "deadline": "2026-12-16",
+   "category": "社会保険",
+   "office": "厚生労働省保険局高齢者医療課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "291260010",
+   "title": "東日本大震災に対処するための特別の財政援助及び助成に関する法律の厚生労働省関係規定の施行等に関する政令の一部を改正する政令案に関する御意見募集（パブリックコメント）について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=291260010&Mode=0",
+   "published": "2026-11-16",
+   "deadline": "2026-12-16",
+   "category": "国民生活の安全・安心の確保",
+   "office": "防災庁統括官（総合政策担当）付参事官（被災者生活再建担当）付",
+   "status": "意見募集中"
+  },
+  {
+   "id": "155261242",
+   "title": "航空法施行規則の一部改正（案）に関する意見募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155261242&Mode=0",
+   "published": "2026-11-16",
+   "deadline": "2026-12-15",
+   "category": "航空",
+   "office": "国土交通省航空局安全部無人航空機安全課 意見募集担当",
+   "status": "意見募集中"
+  },
   {
    "id": "550004446",
    "title": "外国人漁業の規制に関する法律施行規則及び排他的経済水域における漁業等に関する主権的権利の行使等に関する法律施行規則の一部改正案及び外国人漁業の規制に関する法律第2条第7項の農林水産大臣の指定する船舶を定める件の制定案についての意見・情報の募集について",
@@ -933,6 +1003,34 @@
    "office": "農林水産省農村振興局農村政策部地域振興課",
    "opinions": 0,
    "promulgated": "2026-11-02",
+   "status": "結果公示"
+  },
+  {
+   "id": "495260261",
+   "title": "「厚生労働大臣が指定する生物由来製品及び特定生物由来製品の一部を改正する件（令和８年厚生労働省告示第393号）」について",
+   "result_title": "「厚生労働大臣が指定する生物由来製品及び特定生物由来製品の一部を改正する件（令和８年厚生労働省告示第393号）」について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=495260261&Mode=1",
+   "result_date": "2026-11-16",
+   "published": "",
+   "deadline": "",
+   "category": "厚生",
+   "office": "厚生労働省医薬局医薬品審査管理課",
+   "opinions": 0,
+   "promulgated": "2026-11-16",
+   "status": "結果公示"
+  },
+  {
+   "id": "495260260",
+   "title": "「医薬品、医療機器等の品質、有効性及び安全性の確保等に関する法律施行規則の一部を改正する省令（令和８年厚生労働省令第156号）」について",
+   "result_title": "「医薬品、医療機器等の品質、有効性及び安全性の確保等に関する法律施行規則の一部を改正する省令（令和８年厚生労働省令第156号）」について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=495260260&Mode=1",
+   "result_date": "2026-11-16",
+   "published": "",
+   "deadline": "",
+   "category": "厚生",
+   "office": "厚生労働省医薬局医薬品審査管理課",
+   "opinions": 0,
+   "promulgated": "2026-11-16",
    "status": "結果公示"
   },
   {
