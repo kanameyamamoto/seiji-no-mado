@@ -12,12 +12,32 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 60,
+  "意見募集中": 62,
   "結果待ち": 0,
-  "結果公示": 44
+  "結果公示": 48
  },
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "items": [
+  {
+   "id": "155261241",
+   "title": "「バーティポート整備指針」及び「地方航空局における場外離着陸許可の事務処理基準」等の一部改正（案）に関する意見公募について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155261241&Mode=0",
+   "published": "2026-11-18",
+   "deadline": "2026-12-18",
+   "category": "航空",
+   "office": "国土交通省 航空局 安全部　無人航空機安全課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "155261036",
+   "title": "船舶安全法施行規則の一部を改正する省令案に関する意見募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155261036&Mode=0",
+   "published": "2026-11-18",
+   "deadline": "2026-12-17",
+   "category": "海運",
+   "office": "国土交通省海事局内航課",
+   "status": "意見募集中"
+  },
   {
    "id": "495260265",
    "title": "職業能力開発促進法施行規則の一部を改正する省令案に関する御意見の募集について",
@@ -673,6 +693,19 @@
    "status": "結果公示"
   },
   {
+   "id": "185001508",
+   "title": "中央教育審議会初等中等教育分科会教員養成部会「多様な専門性を有する質の高い教職員集団の形成を加速するための方策について（審議のまとめ）」",
+   "result_title": "中央教育審議会初等中等教育分科会教員養成部会「多様な専門性を有する質の高い教職員集団の形成を加速するための方策について（審議のまとめ）」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=185001508&Mode=1",
+   "result_date": "2026-11-17",
+   "published": "2026-09-17",
+   "deadline": "2026-10-19",
+   "category": "教育",
+   "office": "文部科学省初等中等教育局教育職員政策課",
+   "opinions": 600,
+   "status": "結果公示"
+  },
+  {
    "id": "550004406",
    "title": "「農地法施行規則の一部を改正する省令案についての意見・情報の募集」の結果について",
    "result_title": "「農地法施行規則の一部を改正する省令案についての意見・情報の募集」の結果について",
@@ -684,6 +717,20 @@
    "office": "農林水産省経営局農地政策課",
    "opinions": 20,
    "promulgated": "2026-11-09",
+   "status": "結果公示"
+  },
+  {
+   "id": "495260188",
+   "title": "建築物における衛生的環境の確保に関する法律施行規則の一部を改正する省令案",
+   "result_title": "建築物における衛生的環境の確保に関する法律施行規則の一部を改正する省令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=495260188&Mode=1",
+   "result_date": "2026-11-17",
+   "published": "2026-09-16",
+   "deadline": "2026-10-16",
+   "category": "厚生",
+   "office": "厚生労働省健康・生活衛生局生活衛生課",
+   "opinions": 8,
+   "promulgated": "2026-11-17",
    "status": "結果公示"
   },
   {
@@ -740,6 +787,20 @@
    "office": "国土交通省　住宅局住宅総合整備課",
    "opinions": 9,
    "promulgated": "2026-11-11",
+   "status": "結果公示"
+  },
+  {
+   "id": "550004403",
+   "title": "「「「飼料添加物の動物試験の実施に関する基準について」、「飼料添加物の動物試験の実施に関する基準に基づく査察実施要領の制定について」及び「飼料添加物の評価基準の制定について」の一部改正案」についての意見・情報の募集」の結果について",
+   "result_title": "「「「飼料添加物の動物試験の実施に関する基準について」、「飼料添加物の動物試験の実施に関する基準に基づく査察実施要領の制定について」及び「飼料添加物の評価基準の制定について」の一部改正案」についての意見・情報の募集」の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=550004403&Mode=1",
+   "result_date": "2026-11-18",
+   "published": "2026-09-09",
+   "deadline": "2026-10-08",
+   "category": "農業",
+   "office": "農林水産省消費・安全局畜水産安全管理課",
+   "opinions": 2,
+   "promulgated": "2026-11-18",
    "status": "結果公示"
   },
   {
@@ -947,6 +1008,19 @@
    "office": "金融庁",
    "opinions": 9,
    "promulgated": "2026-11-06",
+   "status": "結果公示"
+  },
+  {
+   "id": "495260097",
+   "title": "医療機器に係る日本産業規格の改正案に関する御意見の募集の結果について",
+   "result_title": "医療機器に係る日本産業規格の改正案に関する御意見の募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=495260097&Mode=1",
+   "result_date": "2026-11-17",
+   "published": "2026-06-29",
+   "deadline": "2026-08-28",
+   "category": "厚生",
+   "office": "厚生労働省医薬局医療機器審査管理課",
+   "opinions": 1,
    "status": "結果公示"
   },
   {
