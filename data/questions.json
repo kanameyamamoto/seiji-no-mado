@@ -12,12 +12,12 @@
   }
  ],
  "count": {
-  "衆議院": 2347,
+  "衆議院": 2348,
   "参議院": 1883
  },
  "count_by_status": {
-  "答弁あり": 4130,
-  "答弁待ち": 100,
+  "答弁あり": 4132,
+  "答弁待ち": 99,
   "撤回": 0
  },
  "checked": "2026-11-18",
@@ -374,10 +374,11 @@
    "submitter": "西村智奈美",
    "member": "shu-584250a0",
    "kaiha": "中道",
-   "status": "答弁待ち",
-   "status_text": "内閣転送",
+   "status": "答弁あり",
+   "status_text": "答弁受理",
    "submitted": "2026-11-05",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222020.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222020.htm"
   },
@@ -390,10 +391,11 @@
    "submitter": "山本ジョージ",
    "member": "shu-babc0620",
    "kaiha": "無所属",
-   "status": "答弁待ち",
-   "status_text": "内閣転送",
+   "status": "答弁あり",
+   "status_text": "答弁受理",
    "submitted": "2026-11-05",
    "forwarded": "2026-11-11",
+   "answered": "2026-11-17",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222021.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222021.htm"
   },
@@ -457,6 +459,21 @@
    "submitted": "2026-11-13",
    "question_url": "",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222025.htm"
+  },
+  {
+   "id": "shu-222-26",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 26,
+   "title": "財政法第四条及び地方財政法第五条に関する質問主意書",
+   "submitter": "河村たかし",
+   "member": "shu-766114b0",
+   "kaiha": "無所属",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-17",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222026.htm"
   },
   {
    "id": "san-222-1",

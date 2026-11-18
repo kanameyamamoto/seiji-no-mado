@@ -2,13 +2,13 @@
  "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、審議中・継続審査・審議未了・撤回のものを、すべて載せる。成立したもの・否決されたものは「国会で決まったこと」に載せる。",
  "status_rule": "結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める：衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、国会が開いている間のそのほかの状況→「審議中」。",
  "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
- "count": 57,
+ "count": 58,
  "count_by_result": {
   "審議中": 34,
-  "撤回": 3,
+  "撤回": 4,
   "審議未了": 20
  },
- "checked": "2026-11-16",
+ "checked": "2026-11-18",
  "source": {
   "label": "衆議院 議案の一覧・議案審議経過情報",
   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm"
@@ -491,6 +491,30 @@
    ]
   },
   {
+   "id": "222-sanho-4",
+   "session": "第222回国会",
+   "category": "参法",
+   "number": "参法第4号",
+   "title": "公職にある者の街頭演説に対する妨害の防止に関する法律案",
+   "status": "参議院で審議中",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外三名",
+   "groups": [],
+   "submitted": "2026-11-13",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 参法第4号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE37A2.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
    "id": "221-shuho-1",
    "session": "第221回国会",
    "category": "衆法",
@@ -838,7 +862,7 @@
    "category": "衆法",
    "number": "衆法第28号",
    "title": "衆議院議員の選挙制度改革及び定数削減に関する法律案",
-   "status": "衆議院で審議中",
+   "status": "撤回",
    "submitter": "衆議院議員",
    "proposer": "加藤勝信君外十名",
    "groups": [
@@ -855,7 +879,7 @@
    },
    "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22105028.htm",
    "_keika_ok": true,
-   "result": "審議中",
+   "result": "撤回",
    "listed": [
     "第221回国会",
     "第222回国会"
