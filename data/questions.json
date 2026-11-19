@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2348,
-  "参議院": 1883
+  "参議院": 1885
  },
  "count_by_status": {
   "答弁あり": 4132,
-  "答弁待ち": 99,
+  "答弁待ち": 101,
   "撤回": 0
  },
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "items": [
   {
    "id": "shu-222-1",
@@ -979,6 +979,32 @@
    "submitted": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222033.htm"
+  },
+  {
+   "id": "san-222-34",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 34,
+   "title": "日本国内から海外の予測市場を利用する行為と賭博罪の成否に関する質問主意書",
+   "submitter": "小西 洋之",
+   "member": "san-7010024",
+   "status": "答弁待ち",
+   "submitted": "2026-11-19",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222034.htm"
+  },
+  {
+   "id": "san-222-35",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 35,
+   "title": "旅館業施設の管理及び行政機関の連携に関する質問主意書",
+   "submitter": "小西 洋之",
+   "member": "san-7010024",
+   "status": "答弁待ち",
+   "submitted": "2026-11-19",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222035.htm"
   },
   {
    "id": "shu-221-1",

@@ -1484,7 +1484,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-閣法-2.json"
+   "ai_log": "data/logs/222-閣法-2.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第79号"
   },
   {
    "id": "r8-law-222-閣法-3",
@@ -1758,7 +1760,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-閣法-3.json"
+   "ai_log": "data/logs/222-閣法-3.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第80号"
   },
   {
    "id": "r8-law-222-閣法-4",
@@ -2012,7 +2016,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-閣法-4.json"
+   "ai_log": "data/logs/222-閣法-4.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第82号"
   },
   {
    "id": "r8-law-222-閣法-6",
@@ -2229,7 +2235,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-閣法-6.json"
+   "ai_log": "data/logs/222-閣法-6.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第84号"
   },
   {
    "id": "r8-law-222-閣法-7",
@@ -2446,7 +2454,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-閣法-7.json"
+   "ai_log": "data/logs/222-閣法-7.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第85号"
   },
   {
    "id": "r8-law-222-閣法-16",
@@ -2678,7 +2688,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-閣法-16.json"
+   "ai_log": "data/logs/222-閣法-16.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第83号"
   },
   {
    "id": "r8-law-222-衆法-2",
@@ -2929,7 +2941,9 @@
     }
    ],
    "checked": "2026-11-12",
-   "ai_log": "data/logs/222-衆法-2.json"
+   "ai_log": "data/logs/222-衆法-2.json",
+   "promulgated": "2026-11-18",
+   "law_no": "令和8年法律第81号"
   },
   {
    "id": "r8-rej-222-shuho-1",
