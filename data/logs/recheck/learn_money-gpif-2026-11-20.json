@@ -1,0 +1,112 @@
+{
+ "unit": "learn:money-gpif",
+ "title": "GPIF（年金積立金の運用）",
+ "date": "2026-11-20",
+ "reasons": [
+  "出典「GPIF（年金積立金管理運用独立行政法人）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "GPIF（年金積立金管理運用独立行政法人）",
+   "url": "https://www.gpif.go.jp/",
+   "chars": 2060,
+   "error": null
+  },
+  {
+   "label": "GPIF「基本ポートフォリオの考え方」",
+   "url": "https://www.gpif.go.jp/gpif/portfolio.html",
+   "chars": 4212,
+   "error": null
+  },
+  {
+   "label": "GPIF「2026年度第1四半期運用状況（速報）」",
+   "url": "https://www.gpif.go.jp/operation/38371785gpif/2026_1Q_0807_jp.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "年金積立金管理運用独立行政法人法 第3条・第18条・第20条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/416AC0000000105",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "国民年金法 第7条（e-Gov法令検索）",
+   "url": "https://laws.e-gov.go.jp/law/334AC0000000141",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html",
+   "chars": 2423,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「国民年金保険料の学生納付特例制度」",
+   "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html",
+   "chars": 5267,
+   "error": null
+  },
+  {
+   "label": "日本年金機構「厚生年金保険料額表」",
+   "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/index.html",
+   "chars": 883,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "needs_human",
+    "note": "GPIFのトップページの今の本文は、市場運用開始以来の平均収益率を「年率+4.83％」、累積収益額を「+215.8兆円」としており（2026年11月6日に2026年度第2四半期運用状況（速報）を掲載）、ページの stats・near（es・std・senior）にある時点表示のない「年率4.95％」「221兆201億円」（2026年度第1四半期速報の値）と食い違う。運用資産額・四半期収益額もふくめて2026年度第2四半期速報（PDF）の値と出典にそろえる必要があるが、その本文は渡された資料になく、トップページの値は丸められているため、第2四半期速報を出典として人が直す必要がある。"
+   },
+   "result": "形を変える直しが必要"
+  },
+  {
+   "round": 1,
+   "mode": "形を変える直し",
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "changes": [
+    {
+     "path": "blocks[1].items[2].label",
+     "before": "市場運用開始（2001年度）以降の累積収益額",
+     "after": "市場運用開始（2001年度）以降の累積収益額（2026年度第1四半期末）"
+    },
+    {
+     "path": "blocks[1].items[3].label",
+     "before": "市場運用開始以降の収益率（年率）",
+     "after": "市場運用開始以降の収益率（年率、2026年度第1四半期末）"
+    },
+    {
+     "path": "blocks[6].text.es",
+     "before": "年金のためのお金は、日本と外国の株と債券に4分の1ずつ（25％ずつ）分けて持つことを基本にしています。2001年度に運用を始めてからの収益の合計は221兆201億円です。",
+     "after": "年金のためのお金は、日本と外国の株と債券に4分の1ずつ（25％ずつ）分けて持つことを基本にしています。2001年度に運用を始めてからの収益の合計は、2026年度第1四半期の終わりまでで221兆201億円です。"
+    },
+    {
+     "path": "blocks[6].text.senior",
+     "before": "年金は年6回、偶数月の15日に前月までの2か月分が支払われる（日本年金機構）。GPIFの市場運用開始（2001年度）以降の累積収益額は221兆201億円（本文）。",
+     "after": "年金は年6回、偶数月の15日に前月までの2か月分が支払われる（日本年金機構）。GPIFの市場運用開始（2001年度）以降の累積収益額は221兆201億円（2026年度第1四半期末、本文）。"
+    },
+    {
+     "path": "blocks[6].text.std",
+     "before": "厚生年金保険料率は18.3％で固定されている（日本年金機構）。年金積立金は厚生労働大臣から寄託を受けたGPIFが運用し、市場運用開始（2001年度）以降の収益率は年率4.95％。",
+     "after": "厚生年金保険料率は18.3％で固定されている（日本年金機構）。年金積立金は厚生労働大臣から寄託を受けたGPIFが運用し、市場運用開始（2001年度）以降の収益率は年率4.95％（2026年度第1四半期末）。"
+    }
+   ],
+   "numcheck": [],
+   "checker_model": "gemini-3.5-flash-lite",
+   "check": {
+    "pass": true,
+    "problems": []
+   },
+   "result": "合格（提案にする）"
+  }
+ ],
+ "final": "直した版をプルリクエストで提案",
+ "path": "data/logs/recheck/learn_money-gpif-2026-11-20.json"
+}
