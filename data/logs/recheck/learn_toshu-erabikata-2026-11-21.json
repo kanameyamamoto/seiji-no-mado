@@ -1,0 +1,72 @@
+{
+ "unit": "learn:toshu-erabikata",
+ "title": "党首の選ばれ方",
+ "date": "2026-11-21",
+ "reasons": [
+  "出典「熊本日日新聞（共同通信配信）「公明党大会、体制刷新で再出発」（2026年10月3日の党大会）」の内容が変わった"
+ ],
+ "writer_prompt": "prompts/recheck.md",
+ "checker_prompt": "prompts/recheck_check.md",
+ "sources": [
+  {
+   "label": "自由民主党「党則」（総裁公選規程を含む）",
+   "url": "https://storage.jimin.jp/pdf/aboutus/organization.pdf",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "中道改革連合「規約」",
+   "url": "https://craj.jp/party/rules/",
+   "chars": 10139,
+   "error": null
+  },
+  {
+   "label": "日本維新の会「党規約」",
+   "url": "https://o-ishin.jp/about/agreement/",
+   "chars": 7957,
+   "error": null
+  },
+  {
+   "label": "国民民主党「規約・規則」",
+   "url": "https://new-kokumin.jp/about/protocol1",
+   "chars": 12000,
+   "error": null
+  },
+  {
+   "label": "参政党「規約」",
+   "url": "https://sanseito.jp/about/",
+   "chars": 5709,
+   "error": null
+  },
+  {
+   "label": "チームみらい「党規約」",
+   "url": "https://team-mir.ai/policies/rules",
+   "chars": 8041,
+   "error": null
+  },
+  {
+   "label": "日本共産党「規約」",
+   "url": "https://www.jcp.or.jp/web_jcp/html/Kiyaku/",
+   "chars": 10154,
+   "error": null
+  },
+  {
+   "label": "いのちの党「綱領・規約」",
+   "url": "https://inochinoto.jp/determination/",
+   "chars": 5444,
+   "error": null
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "writer_model": "claude-opus-5-5（Claude スケジュール）",
+   "answer": {
+    "status": "ok",
+    "note": "自由民主党・中道改革連合・日本維新の会・国民民主党・参政党・チームみらい・日本共産党・いのちの党の規約の今の本文を確かめ、ページの表の記述と食い違いはなかった。見直す理由の熊本日日新聞の記事は抜粋に本文がなく、これを根拠には直していない。"
+   },
+   "result": "食い違いなし"
+  }
+ ],
+ "final": "直すところなし（確認日を更新）"
+}
