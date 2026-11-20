@@ -13,14 +13,14 @@
  ],
  "count": {
   "衆議院": 2348,
-  "参議院": 1885
+  "参議院": 1887
  },
  "count_by_status": {
-  "答弁あり": 4132,
-  "答弁待ち": 101,
+  "答弁あり": 4135,
+  "答弁待ち": 100,
   "撤回": 0
  },
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "items": [
   {
    "id": "shu-222-1",
@@ -764,6 +764,7 @@
    "forwarded": "2026-11-09",
    "answered": "2026-11-13",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222018.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222018.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222018.htm"
   },
   {
@@ -779,6 +780,7 @@
    "forwarded": "2026-11-09",
    "answered": "2026-11-13",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222019.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222019.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222019.htm"
   },
   {
@@ -879,9 +881,10 @@
    "title": "証券取引に係るシステムへのサイバー攻撃及び安全管理体制に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-09",
    "forwarded": "2026-11-16",
+   "answered": "2026-11-20",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222026.htm"
   },
@@ -893,9 +896,10 @@
    "title": "国民からの公助の要望に関する質問主意書",
    "submitter": "奥田 ふみよ",
    "member": "san-7025012",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-10",
    "forwarded": "2026-11-16",
+   "answered": "2026-11-20",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222027.htm"
   },
@@ -907,9 +911,10 @@
    "title": "日本放送協会の受信料未納者及び未契約者への戸別訪問業務の再開に関する質問主意書",
    "submitter": "齊藤 健一郎",
    "member": "san-7023002",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-10",
    "forwarded": "2026-11-16",
+   "answered": "2026-11-20",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222028.htm"
   },
@@ -1005,6 +1010,32 @@
    "submitted": "2026-11-19",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222035.htm"
+  },
+  {
+   "id": "san-222-36",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 36,
+   "title": "松山空港の進入管制業務の日本への移管及び民間航空の安全で円滑な運航の確保に関する質問主意書",
+   "submitter": "ながえ 孝子",
+   "member": "san-7019031",
+   "status": "答弁待ち",
+   "submitted": "2026-11-20",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222036.htm"
+  },
+  {
+   "id": "san-222-37",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 37,
+   "title": "学校部活動等における生徒への人権侵害の防止及び改善に関する質問主意書",
+   "submitter": "奥田 ふみよ",
+   "member": "san-7025012",
+   "status": "答弁待ち",
+   "submitted": "2026-11-20",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222037.htm"
   },
   {
    "id": "shu-221-1",
