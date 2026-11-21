@@ -12,12 +12,32 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 73,
+  "意見募集中": 79,
   "結果待ち": 2,
-  "結果公示": 68
+  "結果公示": 74
  },
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "items": [
+  {
+   "id": "860202608",
+   "title": "危険物の規制に関する政令及び消防法施行令の一部を改正する政令（案）に対する意見公募について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=860202608&Mode=0",
+   "published": "2026-11-21",
+   "deadline": "2026-12-21",
+   "category": "消防",
+   "office": "総務省消防庁予防課・危険物保安室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "145210800",
+   "title": "無線局（基幹放送局を除く。）の開設の根本的基準等の一部を改正する省令案等に係る意見募集 － 自律型海上無線機器（AMRD）の導入等のための制度整備 －",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=145210800&Mode=0",
+   "published": "2026-11-21",
+   "deadline": "2026-12-21",
+   "category": "電気通信",
+   "office": "【周波数割当計画の変更案以外について】",
+   "status": "意見募集中"
+  },
   {
    "id": "620340104",
    "title": "特定放射性廃棄物の最終処分に関する法律第十一条第三項の単位数量当たりの第一種最終処分業務に必要な金額及び同法第十一条の二第三項の単位数量当たりの第二種最終処分業務に必要な金額を定める省令の一部を改正する省令（案）に対する意見募集について",
@@ -29,6 +49,26 @@
    "status": "意見募集中"
   },
   {
+   "id": "595320123",
+   "title": "特定デジタルプラットフォームの透明性及び公正性の向上に関する法律に基づく特定デジタルプラットフォームに対する経済産業大臣による評価（案）に対する意見公募について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=595320123&Mode=0",
+   "published": "2026-11-20",
+   "deadline": "2026-12-20",
+   "category": "IT社会化推進",
+   "office": "経済産業省商務情報政策局情報経済課デジタル取引環境整備室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "495260271",
+   "title": "労働安全衛生法及び作業環境測定法の一部を改正する法律の一部の施行に伴う関係省令の整備等に関する省令の一部を改正する省令案に関する御意見の募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=495260271&Mode=0",
+   "published": "2026-11-20",
+   "deadline": "2026-12-19",
+   "category": "労働",
+   "office": "厚生労働省労働基準局安全衛生部計画課法規係",
+   "status": "意見募集中"
+  },
+  {
    "id": "195260084",
    "title": "「水質汚濁防止法施行規則等の一部を改正する省令の一部を改正する省令案」に関する意見募集（パブリック・コメント）について",
    "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=195260084&Mode=0",
@@ -36,6 +76,26 @@
    "deadline": "2026-12-20",
    "category": "環境保全",
    "office": "環境省水・大気環境局環境管理課環境汚染対策室",
+   "status": "意見募集中"
+  },
+  {
+   "id": "155260941",
+   "title": "「宅配便の多様な受取方法の普及に向けたガイドライン（案）」に関する意見募集",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155260941&Mode=0",
+   "published": "2026-11-20",
+   "deadline": "2026-12-11",
+   "category": "貨物運送",
+   "office": "国土交通省物流・自動車局物流政策課　パブリックコメント担当",
+   "status": "意見募集中"
+  },
+  {
+   "id": "155260937",
+   "title": "標準宅配便運送約款の一部を改正する告示案に関する意見募集について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155260937&Mode=0",
+   "published": "2026-11-20",
+   "deadline": "2026-12-11",
+   "category": "貨物運送",
+   "office": "国土交通省物流・自動車局貨物流通事業課　意見募集担当",
    "status": "意見募集中"
   },
   {
@@ -769,6 +829,34 @@
    "status": "結果待ち"
   },
   {
+   "id": "620340014",
+   "title": "「電気事業法の一部を改正する法律の施行に伴う関係政令の整備に関する政令（案）」等に対する意見公募手続の結果について",
+   "result_title": "「電気事業法の一部を改正する法律の施行に伴う関係政令の整備に関する政令（案）」等に対する意見公募手続の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=620340014&Mode=1",
+   "result_date": "2026-11-20",
+   "published": "2026-10-09",
+   "deadline": "2026-11-07",
+   "category": "工業",
+   "office": "資源エネルギー庁　電力・ガス事業部政策課",
+   "opinions": 0,
+   "promulgated": "2026-11-27",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260410",
+   "title": "都市再生特別措置法等の一部を改正する法律の施行に伴う関係政令の整備に関する政令案",
+   "result_title": "都市再生特別措置法等の一部を改正する法律の施行に伴う関係政令の整備に関する政令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260410&Mode=1",
+   "result_date": "2026-11-20",
+   "published": "2026-10-06",
+   "deadline": "2026-11-05",
+   "category": "都市計画",
+   "office": "国土交通省都市局都市計画課",
+   "opinions": 17,
+   "promulgated": "2026-11-20",
+   "status": "結果公示"
+  },
+  {
    "id": "145210781",
    "title": "電話に関するユニバーサルサービス制度に基づく交付金の額及び交付方法の認可並びに負担金の額及び徴収方法の認可に対する意見募集の結果",
    "result_title": "電話に関するユニバーサルサービス制度に基づく交付金の額及び交付方法の認可並びに負担金の額及び徴収方法の認可に対する意見募集の結果",
@@ -1044,6 +1132,20 @@
    "status": "結果公示"
   },
   {
+   "id": "595320026",
+   "title": "生活維持物品役務需要減等事業適応の実施に関する指針（案）に関する意見公募手続の結果について",
+   "result_title": "生活維持物品役務需要減等事業適応の実施に関する指針（案）に関する意見公募手続の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=595320026&Mode=1",
+   "result_date": "2026-11-20",
+   "published": "2026-09-09",
+   "deadline": "2026-10-08",
+   "category": "経済財政政策",
+   "office": "経済産業省経済産業政策局生活維持物品役務需要減等対策室",
+   "opinions": 22,
+   "promulgated": "2026-11-20",
+   "status": "結果公示"
+  },
+  {
    "id": "550004403",
    "title": "「「「飼料添加物の動物試験の実施に関する基準について」、「飼料添加物の動物試験の実施に関する基準に基づく査察実施要領の制定について」及び「飼料添加物の評価基準の制定について」の一部改正案」についての意見・情報の募集」の結果について",
    "result_title": "「「「飼料添加物の動物試験の実施に関する基準について」、「飼料添加物の動物試験の実施に関する基準に基づく査察実施要領の制定について」及び「飼料添加物の評価基準の制定について」の一部改正案」についての意見・情報の募集」の結果について",
@@ -1055,6 +1157,20 @@
    "office": "農林水産省消費・安全局畜水産安全管理課",
    "opinions": 2,
    "promulgated": "2026-11-18",
+   "status": "結果公示"
+  },
+  {
+   "id": "595320025",
+   "title": "産業競争力強化法第百四十条の二十八第一項に規定する生活維持物品役務需要減等事業適応支援業務を行う者の認定等に関する省令（案）に対する意見募集に関する意見公募手続の結果について",
+   "result_title": "産業競争力強化法第百四十条の二十八第一項に規定する生活維持物品役務需要減等事業適応支援業務を行う者の認定等に関する省令（案）に対する意見募集に関する意見公募手続の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=595320025&Mode=1",
+   "result_date": "2026-11-20",
+   "published": "2026-09-08",
+   "deadline": "2026-10-07",
+   "category": "経済財政政策",
+   "office": "経済産業省経済産業政策局生活維持物品役務需要減等対策室",
+   "opinions": 11,
+   "promulgated": "2026-11-20",
    "status": "結果公示"
   },
   {
@@ -1082,6 +1198,20 @@
    "category": "経済財政政策",
    "office": "経済産業省経済産業政策局産業創造課",
    "opinions": 5,
+   "promulgated": "2026-11-20",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260720",
+   "title": "建築基準法施行規則及び建築基準法に基づく指定建築基準適合判定資格者検定機関等に関する省令の一部を改正する省令案",
+   "result_title": "建築基準法施行規則及び建築基準法に基づく指定建築基準適合判定資格者検定機関等に関する省令の一部を改正する省令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260720&Mode=1",
+   "result_date": "2026-11-20",
+   "published": "2026-09-08",
+   "deadline": "2026-10-08",
+   "category": "建築、住宅",
+   "office": "国土交通省住宅局建築指導課",
+   "opinions": 268,
    "promulgated": "2026-11-20",
    "status": "結果公示"
   },
@@ -1237,6 +1367,19 @@
    "office": "厚生労働省障害保健福祉部障害福祉課",
    "opinions": 13,
    "promulgated": "2026-11-10",
+   "status": "結果公示"
+  },
+  {
+   "id": "145210763",
+   "title": "「消費者保護ルール実施状況のモニタリング2026年度調査計画」(案)に対する意見募集の結果及び「消費者保護ルール実施状況のモニタリング2026年度調査計画」の公表",
+   "result_title": "「消費者保護ルール実施状況のモニタリング2026年度調査計画」(案)に対する意見募集の結果及び「消費者保護ルール実施状況のモニタリング2026年度調査計画」の公表",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=145210763&Mode=1",
+   "result_date": "2026-11-20",
+   "published": "2026-08-25",
+   "deadline": "2026-09-25",
+   "category": "電気通信",
+   "office": "総務省総合通信基盤局電気通信事業部料金サービス課消費者契約適正化推進室",
+   "opinions": 22,
    "status": "結果公示"
   },
   {
