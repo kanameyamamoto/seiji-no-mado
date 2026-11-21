@@ -88,7 +88,7 @@
       "https://www.kantei.go.jp/jp/pages/sns_policy.html",
       "https://www.kantei.go.jp/jp/headline/kantei_sns.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "cas",
@@ -305,7 +305,7 @@
       "https://www.cas.go.jp/",
       "https://www.cas.go.jp/socialmedia/index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "clb",
@@ -316,7 +316,7 @@
      "sources": [
       "https://www.clb.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jinji",
@@ -408,7 +408,7 @@
       "https://www.jinji.go.jp/kouho_houdo/sns/twittericiran.html",
       "https://www.jinji.go.jp/kouho_houdo/sns/dougaiciran.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "cabinet-office",
@@ -568,7 +568,7 @@
       "https://www.cao.go.jp/",
       "https://www.cao.go.jp/about/list.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "kunaicho",
@@ -606,7 +606,7 @@
       "https://www.kunaicho.go.jp/kunaicho/socialmedia/socialmedia.html",
       "https://www.kunaicho.go.jp/info/heads-up-r7.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jftc",
@@ -619,7 +619,7 @@
      "sources": [
       "https://www.jftc.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "npsc",
@@ -637,7 +637,7 @@
      "sources": [
       "https://www.npsc.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "npa",
@@ -659,7 +659,7 @@
      "sources": [
       "https://www.npa.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "ppc",
@@ -695,7 +695,7 @@
      "sources": [
       "https://www.ppc.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jcrc",
@@ -708,7 +708,7 @@
      "sources": [
       "https://www.jcrc.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "fsa",
@@ -738,7 +738,7 @@
       "https://www.fsa.go.jp/",
       "https://www.fsa.go.jp/receipt/toushisagi_koukoku/shuhou.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "caa",
@@ -803,7 +803,7 @@
       "https://www.caa.go.jp/socialmedia_guideline/twitter/",
       "https://www.caa.go.jp/socialmedia_guideline/facebook/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "cfa",
@@ -816,7 +816,7 @@
      "sources": [
       "https://www.cfa.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "digital-agency",
@@ -878,7 +878,7 @@
       "https://www.digital.go.jp/",
       "https://www.digital.go.jp/social-media-policy"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "reconstruction-agency",
@@ -918,7 +918,7 @@
       "https://www.reconstruction.go.jp/",
       "https://www.reconstruction.go.jp/sns/20161101_SNS-Management-Policy.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "disaster-management-agency",
@@ -993,7 +993,7 @@
       "https://www.bousai.go.jp/",
       "https://www.bousai.go.jp/kouhou/sns/sns.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mic",
@@ -1284,7 +1284,7 @@
       "https://www.soumu.go.jp/",
       "https://www.soumu.go.jp/sns/index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "kouchoi",
@@ -1305,7 +1305,7 @@
      "sources": [
       "https://www.soumu.go.jp/kouchoi/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "fdma",
@@ -1340,7 +1340,7 @@
      "sources": [
       "https://www.fdma.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "moj",
@@ -1385,7 +1385,7 @@
       "https://www.moj.go.jp/",
       "https://www.moj.go.jp/hisho/kouhou/hisho06_00189.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "isa",
@@ -1427,7 +1427,7 @@
      "sources": [
       "https://www.moj.go.jp/isa/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "kouanshin",
@@ -1439,7 +1439,7 @@
      "sources": [
       "https://www.moj.go.jp/kouanshin/kouanshinsa_index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "psia",
@@ -1460,7 +1460,7 @@
      "sources": [
       "https://www.moj.go.jp/psia/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mofa",
@@ -1472,7 +1472,7 @@
      "sources": [
       "https://www.mofa.go.jp/mofaj/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mof",
@@ -1582,7 +1582,7 @@
       "https://www.mof.go.jp/",
       "https://www.mof.go.jp/about_mof/social_media_account/index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "nta",
@@ -1610,7 +1610,7 @@
      "sources": [
       "https://www.nta.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mext",
@@ -1815,7 +1815,7 @@
       "https://www.mext.go.jp/",
       "https://www.mext.go.jp/social/index.htm"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "sports",
@@ -1850,7 +1850,7 @@
      "sources": [
       "https://www.mext.go.jp/sports/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "bunka",
@@ -1998,7 +1998,7 @@
       "https://www.bunka.go.jp/social_account/index.html",
       "https://www.bunka.go.jp/socialmedia_unyo/index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mhlw",
@@ -2764,7 +2764,7 @@
       "https://www.mhlw.go.jp/",
       "https://www.mhlw.go.jp/stf/SNSpage.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "churoi",
@@ -2776,7 +2776,7 @@
      "sources": [
       "https://www.mhlw.go.jp/churoi/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "maff",
@@ -2994,7 +2994,7 @@
       "https://www.maff.go.jp/",
       "https://www.maff.go.jp/j/pr/social_media/index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "rinya",
@@ -3022,7 +3022,7 @@
      "sources": [
       "https://www.rinya.maff.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jfa",
@@ -3050,7 +3050,7 @@
      "sources": [
       "https://www.jfa.maff.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "meti",
@@ -3060,6 +3060,7 @@
      "counts": {
       "X": 53,
       "YouTube": 1,
+      "Instagram": 25,
       "Facebook": 29
      },
      "sns": {
@@ -3271,6 +3272,108 @@
         "url": "https://www.youtube.com/user/metichannel"
        }
       ],
+      "Instagram": [
+       {
+        "id": "meti_japan",
+        "url": "https://www.instagram.com/meti_japan"
+       },
+       {
+        "id": "meti_recruit",
+        "url": "https://www.instagram.com/meti_recruit"
+       },
+       {
+        "id": "fukushimameti_japan",
+        "url": "https://www.instagram.com/fukushimameti_japan"
+       },
+       {
+        "id": "japan_beauty_week",
+        "url": "https://www.instagram.com/japan_beauty_week"
+       },
+       {
+        "id": "ps_award_seihinanzen",
+        "url": "https://www.instagram.com/ps_award_seihinanzen"
+       },
+       {
+        "id": "expo2025_japanpavilion",
+        "url": "https://www.instagram.com/expo2025_japanpavilion"
+       },
+       {
+        "id": "giraffes_japan_hokkaido",
+        "url": "https://www.instagram.com/giraffes_japan_hokkaido"
+       },
+       {
+        "id": "giraffes_japan_tohoku",
+        "url": "https://www.instagram.com/giraffes_japan_tohoku"
+       },
+       {
+        "id": "giraffesjapan_kanto",
+        "url": "https://www.instagram.com/giraffesjapan_kanto"
+       },
+       {
+        "id": "giraffes_japan_shikoku",
+        "url": "https://www.instagram.com/giraffes_japan_shikoku"
+       },
+       {
+        "id": "giraffes_japan_kinki",
+        "url": "https://www.instagram.com/giraffes_japan_kinki"
+       },
+       {
+        "id": "giraffesjapan_chubu",
+        "url": "https://www.instagram.com/giraffesjapan_chubu"
+       },
+       {
+        "id": "giraffes_japan_chugoku",
+        "url": "https://www.instagram.com/giraffes_japan_chugoku"
+       },
+       {
+        "id": "giraffes_japan_kyushu",
+        "url": "https://www.instagram.com/giraffes_japan_kyushu"
+       },
+       {
+        "id": "cop_meti",
+        "url": "https://www.instagram.com/cop_meti"
+       },
+       {
+        "id": "enecho_saiene",
+        "url": "https://www.instagram.com/enecho_saiene"
+       },
+       {
+        "id": "atotsugikoshien",
+        "url": "https://www.instagram.com/atotsugikoshien"
+       },
+       {
+        "id": "chiikidantaishohyo_official",
+        "url": "https://www.instagram.com/chiikidantaishohyo_official"
+       },
+       {
+        "id": "kyushu_brand_competition",
+        "url": "https://www.instagram.com/kyushu_brand_competition"
+       },
+       {
+        "id": "meti_tohoku",
+        "url": "https://www.instagram.com/meti_tohoku"
+       },
+       {
+        "id": "meti_chubu_recruit",
+        "url": "https://www.instagram.com/meti_chubu_recruit"
+       },
+       {
+        "id": "shitetsu_sai",
+        "url": "https://www.instagram.com/shitetsu_sai"
+       },
+       {
+        "id": "u30_kansai",
+        "url": "https://www.instagram.com/u30_kansai"
+       },
+       {
+        "id": "kansai_unique_experiences",
+        "url": "https://www.instagram.com/kansai_unique_experiences"
+       },
+       {
+        "id": "kinki_12brand",
+        "url": "https://www.instagram.com/kinki_12brand"
+       }
+      ],
       "Facebook": [
        {
         "id": "meti4students",
@@ -3396,7 +3499,7 @@
       "https://www.meti.go.jp/sns/sns_twitter.html",
       "https://www.meti.go.jp/sns/sns_facebook.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "enecho",
@@ -3408,7 +3511,7 @@
      "sources": [
       "https://www.enecho.meti.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jpo",
@@ -3507,7 +3610,7 @@
       "https://www.jpo.go.jp/",
       "https://www.jpo.go.jp/toppage/sns/index.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "chusho",
@@ -3528,7 +3631,7 @@
      "sources": [
       "https://www.chusho.meti.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mlit",
@@ -3556,7 +3659,7 @@
      "sources": [
       "https://www.mlit.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "kankocho",
@@ -3608,7 +3711,7 @@
       "https://www.mlit.go.jp/kankocho/",
       "https://www.mlit.go.jp/kankocho/socialmedia.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jma",
@@ -3644,7 +3747,7 @@
      "sources": [
       "https://www.jma.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jtsb",
@@ -3665,7 +3768,7 @@
      "sources": [
       "https://jtsb.mlit.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "kaiho",
@@ -3700,7 +3803,7 @@
      "sources": [
       "https://www.kaiho.mlit.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "env",
@@ -3709,9 +3812,9 @@
      "page": "env",
      "counts": {
       "X": 11,
-      "YouTube": 17,
-      "Instagram": 24,
-      "Facebook": 19,
+      "YouTube": 16,
+      "Instagram": 25,
+      "Facebook": 20,
       "LINE": 1,
       "note": 2
      },
@@ -3826,10 +3929,6 @@
        {
         "id": "channel/UCOHcOjDvZ52rxRa016i_SxA",
         "url": "https://www.youtube.com/channel/UCOHcOjDvZ52rxRa016i_SxA"
-       },
-       {
-        "id": "channel/UCF7DCtq4vHjw-xdHR07BRaQ",
-        "url": "https://www.youtube.com/channel/UCF7DCtq4vHjw-xdHR07BRaQ"
        }
       ],
       "Instagram": [
@@ -3928,6 +4027,10 @@
        {
         "id": "moe_chubu",
         "url": "https://www.instagram.com/moe_chubu"
+       },
+       {
+        "id": "unzennationalpark",
+        "url": "https://www.instagram.com/unzennationalpark"
        }
       ],
       "Facebook": [
@@ -4006,6 +4109,10 @@
        {
         "id": "tsushimatwcc",
         "url": "https://www.facebook.com/tsushimatwcc"
+       },
+       {
+        "id": "UnzenNationalPark",
+        "url": "https://www.facebook.com/UnzenNationalPark"
        }
       ],
       "LINE": [
@@ -4031,7 +4138,7 @@
       "https://www.env.go.jp/info/sns/facebook.html",
       "https://www.env.go.jp/info/sns/twitter.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "nra",
@@ -4063,7 +4170,7 @@
      "sources": [
       "https://www.nra.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mod",
@@ -4118,7 +4225,7 @@
       "https://www.mod.go.jp/",
       "https://www.mod.go.jp/j/info/sns.html"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "atla",
@@ -4160,7 +4267,7 @@
      "sources": [
       "https://www.mod.go.jp/atla/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     }
    ]
   },
@@ -4193,7 +4300,7 @@
      "sources": [
       "https://www.shugiin.go.jp/internet/index.nsf/html/index.htm"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "sangiin",
@@ -4213,7 +4320,7 @@
      "sources": [
       "https://www.sangiin.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "ndl",
@@ -4287,7 +4394,7 @@
       "https://www.ndl.go.jp/",
       "https://www.ndl.go.jp/service/rssemag"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     }
    ]
   },
@@ -4334,7 +4441,7 @@
      "sources": [
       "https://www.courts.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     }
    ]
   },
@@ -4380,7 +4487,7 @@
      "sources": [
       "https://www.jbaudit.go.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "boj",
@@ -4426,7 +4533,7 @@
       "https://www.boj.or.jp/snspolicy.htm",
       "https://www.boj.or.jp/about/organization/notice/index.htm"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     }
    ]
   },
@@ -4444,7 +4551,8 @@
       "YouTube": 1,
       "Instagram": 1,
       "TikTok": 1,
-      "Facebook": 3
+      "Facebook": 3,
+      "note": 1
      },
      "sns": {
       "X": [
@@ -4500,13 +4608,19 @@
         "id": "seinenkyoku",
         "url": "https://www.facebook.com/seinenkyoku"
        }
+      ],
+      "note": [
+       {
+        "id": "jimin_official",
+        "url": "https://note.com/jimin_official"
+       }
       ]
      },
      "sources": [
       "https://www.jimin.jp/",
       "https://www.jimin.jp/involved/sns/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "chudo",
@@ -4573,7 +4687,7 @@
      "sources": [
       "https://craj.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "ishin",
@@ -4619,7 +4733,7 @@
      "sources": [
       "https://o-ishin.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "dpfp",
@@ -4687,7 +4801,7 @@
       "https://new-kokumin.jp/",
       "https://new-kokumin.jp/support/sns"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "sanseito",
@@ -4764,7 +4878,7 @@
       "https://sanseito.jp/",
       "https://sanseito.jp/news/n3509/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "mirai",
@@ -5066,7 +5180,7 @@
      "sources": [
       "https://team-mir.ai/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "jcp",
@@ -5326,7 +5440,7 @@
      "sources": [
       "https://www.jcp.or.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "inochi",
@@ -5413,7 +5527,7 @@
      "sources": [
       "https://inochinoto.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "genzei",
@@ -5479,7 +5593,7 @@
       "https://www.komei.or.jp/content/team-rice/",
       "https://www.komei.or.jp/review/social/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "sdp",
@@ -5542,7 +5656,7 @@
      "sources": [
       "https://sdp.or.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "hoshu",
@@ -5577,7 +5691,7 @@
      "sources": [
       "https://hoshuto.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "drp",
@@ -5602,7 +5716,7 @@
      "sources": [
       "https://note.com/drp_japan2026"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "cdp",
@@ -5686,7 +5800,7 @@
       "https://cdp-japan.jp/about/sns-guideline",
       "https://cdp-japan.jp/info/sns"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "o0",
@@ -5707,7 +5821,7 @@
      "sources": [
       "https://honshitsu.org/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "o1",
@@ -5719,7 +5833,7 @@
       "https://www.syoha.jp/"
      ],
      "checked": "",
-     "unreachable": "2026-11-15"
+     "unreachable": "2026-11-22"
     },
     {
      "id": "o2",
@@ -5747,7 +5861,7 @@
      "sources": [
       "https://saiseinomichi-official.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "o3",
@@ -5782,7 +5896,7 @@
      "sources": [
       "https://www.nihonkaikaku.com/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "o4",
@@ -5794,7 +5908,7 @@
      "sources": [
       "https://nipponseishinkai.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "o5",
@@ -5840,7 +5954,7 @@
      "sources": [
       "https://mushozoku.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     },
     {
      "id": "o6",
@@ -5875,7 +5989,7 @@
      "sources": [
       "https://tomin1st.jp/"
      ],
-     "checked": "2026-11-15"
+     "checked": "2026-11-22"
     }
    ]
   }
