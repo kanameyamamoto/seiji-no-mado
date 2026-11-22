@@ -134,6 +134,16 @@
    "date": "2026-11-13",
    "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/56",
    "title": "要確認：為替と政府（為替介入）（learn:money-fx-intervention）"
+  },
+  {
+   "date": "2026-11-23",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/70",
+   "title": "要確認：衆議院と参議院の違い（learn:two-houses）"
+  },
+  {
+   "date": "2026-11-23",
+   "issue": "https://github.com/kanameyamamoto/seiji-no-mado/issues/71",
+   "title": "要確認：戦後の主な政党の流れ（learn:sengo-seito）"
   }
  ],
  "alerts": [],
@@ -632,44 +642,6 @@
    {
     "date": "2026-11-15",
     "reason": "出典「参議院「会派別所属議員数一覧」（令和8年10月31日現在）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-16",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2020-06-08）"
-   }
-  ],
-  "learn:seito-yoken": [
-   {
-    "date": "2026-11-06",
-    "reason": "出典「参議院「会派別所属議員数一覧」（令和8年10月31日現在）」の内容が変わった"
-   },
-   {
-    "date": "2026-11-07",
-    "reason": "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-12-24）"
-   },
-   {
-    "date": "2026-11-07",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（選挙運動用自動車とポスターの規格）、2025-03-26）"
-   },
-   {
-    "date": "2026-11-07",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正（ポスターの記載）、2025-03-26）"
-   },
-   {
-    "date": "2026-11-09",
-    "reason": "出典の「政治資金規正法」を改正する法律が成立した（政治資金規正法の改正、2024-06-19）"
-   },
-   {
-    "date": "2026-11-11",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2022-11-18）"
-   },
-   {
-    "date": "2026-11-12",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（国会議員の選挙等の執行経費の基準に関する法律等の改正、2022-03-31）"
-   },
-   {
-    "date": "2026-11-15",
-    "reason": "出典の「公職選挙法」を改正する法律が成立した（公職選挙法の改正、2021-05-25）"
    },
    {
     "date": "2026-11-16",
@@ -1355,18 +1327,18 @@
    "reason": "直した版をプルリクエストで提案中"
   },
   "learn:seito-yoken": {
-   "date": "2026-11-08",
-   "log": "data/logs/recheck/learn_seito-yoken-2026-11-08.json",
-   "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
+   "date": "2026-11-23",
+   "log": "data/logs/recheck/learn_seito-yoken-2026-11-23.json",
+   "reason": "直した版をプルリクエストで提案中"
   },
   "learn:sengo-seito": {
-   "date": "2026-11-08",
-   "log": "data/logs/recheck/learn_sengo-seito-2026-11-08.json",
+   "date": "2026-11-23",
+   "log": "data/logs/recheck/learn_sengo-seito-2026-11-23.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   },
   "learn:two-houses": {
-   "date": "2026-11-08",
-   "log": "data/logs/recheck/learn_two-houses-2026-11-08.json",
+   "date": "2026-11-23",
+   "log": "data/logs/recheck/learn_two-houses-2026-11-23.json",
    "reason": "会派の組み替え・人数の変化に合わせて、members（kaiha_shu・kaiha_san・note）と関係する文を直す。"
   },
   "learn:upper-house-election": {

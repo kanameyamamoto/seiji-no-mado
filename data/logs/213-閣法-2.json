@@ -1,6 +1,6 @@
 {
  "key": "213-閣法-2",
- "date": "2026-11-22",
+ "date": "2026-11-23",
  "rules": [
   "C-1",
   "C-2",
@@ -55,7 +55,7 @@
     ]
    },
    "numcheck": [],
-   "checker_model": "gemini-3.8-flash",
+   "checker_model": "gemini-3.5-flash-lite",
    "check": {
     "pass": true,
     "problems": []
