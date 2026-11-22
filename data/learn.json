@@ -8809,7 +8809,7 @@
        "rows": [
         [
          "自由民主党",
-         "315／101",
+         "315／100",
          "36.72%",
          "49.09%",
          "21.64%",
@@ -8963,11 +8963,10 @@
        "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
       },
       {
-       "label": "参議院「会派別所属議員数一覧」（令和8年10月31日現在）",
+       "label": "参議院「会派別所属議員数一覧」（令和8年11月21日現在）",
        "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
       }
      ],
-     "checked": "2026-11-01",
      "easy": {
       "rule": "L-5",
       "date": "2026-11-07",
@@ -8975,11 +8974,17 @@
      },
      "updates": [
       {
+       "date": "2026-11-23",
+       "text": "参議院「会派別所属議員数一覧」（令和8年11月21日現在）に合わせて、表の自由民主党の参議院議員数を101から100に直し、出典の日付を直しました。",
+       "log": "data/logs/recheck/learn_seito-yoken-2026-11-23.json"
+      },
+      {
        "date": "2026-11-07",
        "text": "「かんたん」を小学生向け、「やさしい」を中学生向けに書き直し、ふりがなをつけました（AIが書き、別の会社のAIとプログラムで確かめました。中身は「ふつう」と同じです）。",
        "log": "data/logs/easy/learn-seito-yoken.json"
       }
-     ]
+     ],
+     "checked": "2026-11-23"
     },
     {
      "id": "seito-kofukin",
