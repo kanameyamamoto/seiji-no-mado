@@ -49,7 +49,7 @@
     ]
    },
    "numcheck": [],
-   "checker_model": "gemini-3.5-flash-lite",
+   "checker_model": "gemini-3.8-flash",
    "check": {
     "pass": true,
     "problems": []
