@@ -257,6 +257,13 @@
    "key": "1e52b5d98c7e",
    "date": "2026-11-22T21:04:18+09:00",
    "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n2vl5h75yl2x"
+  },
+  {
+   "platform": "bluesky",
+   "id": "fact:budget-top-環境省",
+   "key": "20d883089aa2",
+   "date": "2026-11-23T12:04:13+09:00",
+   "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n2x5gmp2fm23"
   }
  ],
  "rule": "ルール D-17。成立から30日以内の「国会で決まったこと」の記事を、すべて同じ形で、成立した日の古い順に投稿する。"
