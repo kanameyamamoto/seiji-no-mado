@@ -278,6 +278,13 @@
    "key": "fd5db070e550",
    "date": "2026-11-24T12:09:11+09:00",
    "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n2zo6gazrx22"
+  },
+  {
+   "platform": "bluesky",
+   "id": "fact:questions-topic-農業",
+   "key": "4dd0ef23dda6",
+   "date": "2026-11-24T21:04:18+09:00",
+   "post": "https://bsky.app/profile/did:plc:zfi2yrjdxulz2e375vzneeoo/post/3n32m3cvv662x"
   }
  ],
  "rule": "ルール D-17。成立から30日以内の「国会で決まったこと」の記事を、すべて同じ形で、成立した日の古い順に投稿する。"
