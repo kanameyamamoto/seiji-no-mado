@@ -12,15 +12,15 @@
   }
  ],
  "count": {
-  "衆議院": 2348,
+  "衆議院": 2349,
   "参議院": 1887
  },
  "count_by_status": {
-  "答弁あり": 4135,
+  "答弁あり": 4136,
   "答弁待ち": 100,
   "撤回": 0
  },
- "checked": "2026-11-21",
+ "checked": "2026-11-24",
  "items": [
   {
    "id": "shu-222-1",
@@ -410,10 +410,11 @@
    "submitter": "日野紗里亜",
    "member": "shu-bf07e600",
    "kaiha": "国民民主党・無所属クラブ",
-   "status": "答弁待ち",
-   "status_text": "内閣転送",
+   "status": "答弁あり",
+   "status_text": "答弁受理",
    "submitted": "2026-11-11",
    "forwarded": "2026-11-16",
+   "answered": "2026-11-20",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222022.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222022.htm"
   },
@@ -478,6 +479,21 @@
    "submitted": "2026-11-17",
    "question_url": "",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222026.htm"
+  },
+  {
+   "id": "shu-222-27",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 27,
+   "title": "ＴＨＥ ＰＡＲＬＩＡＭＥＮＴＡＲＹ ＣＯＮＦＥＲＥＮＣＥ〝ＰＡＲＬＩＡＭＥＮＴＡＲＩＡＮＳ ＦＯＲ ＴＨＥ ＴＰＮＷ〟に関する質問主意書",
+   "submitter": "山本ジョージ",
+   "member": "shu-babc0620",
+   "kaiha": "無所属",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-20",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222027.htm"
   },
   {
    "id": "san-222-1",
