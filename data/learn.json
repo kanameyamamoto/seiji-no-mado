@@ -8709,11 +8709,10 @@
        "url": "https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/kaiha_m.htm"
       },
       {
-       "label": "参議院「会派別所属議員数一覧」（令和8年10月31日現在）",
+       "label": "参議院「会派別所属議員数一覧」（令和8年11月23日現在）",
        "url": "https://www.sangiin.go.jp/japanese/joho1/kousei/giin/222/giinsu.htm"
       }
      ],
-     "checked": "2026-11-01",
      "easy": {
       "rule": "L-5",
       "date": "2026-11-07",
@@ -8721,11 +8720,17 @@
      },
      "updates": [
       {
+       "date": "2026-11-25",
+       "text": "このページには会派別の議員数（members）や人数を書いた文はないため、本文は変えず、出典の参議院「会派別所属議員数一覧」の時点を、今の本文の表記（令和8年11月23日現在）に合わせた。",
+       "log": "data/logs/recheck/learn_seito-towa-2026-11-25.json"
+      },
+      {
        "date": "2026-11-07",
        "text": "「かんたん」を小学生向け、「やさしい」を中学生向けに書き直し、ふりがなをつけました（AIが書き、別の会社のAIとプログラムで確かめました。中身は「ふつう」と同じです）。",
        "log": "data/logs/easy/learn-seito-towa.json"
       }
-     ]
+     ],
+     "checked": "2026-11-25"
     },
     {
      "id": "seito-yoken",
