@@ -61,7 +61,7 @@
     ]
    },
    "numcheck": [],
-   "checker_model": "gemini-3.8-flash",
+   "checker_model": "gemini-3.5-flash-lite",
    "check": {
     "pass": true,
     "problems": []
