@@ -12,12 +12,52 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 78,
+  "意見募集中": 82,
   "結果待ち": 3,
-  "結果公示": 74
+  "結果公示": 87
  },
  "checked": "2026-11-25",
  "items": [
+  {
+   "id": "155260940",
+   "title": "「自動車特定整備事業者が事業場以外の場所において特定整備を行う場合の実施規程」の一部を改正する告示案・通達案について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=155260940&Mode=0",
+   "published": "2026-11-25",
+   "deadline": "2026-12-25",
+   "category": "陸運",
+   "office": "国土交通省　物流・自動車局　自動車整備課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "145210798",
+   "title": "「高周波利用設備の条件の特例を定める件」の一部改正案に対する意見募集－走行中無線給電の公道実証実験に対応するための告示改正－",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=145210798&Mode=0",
+   "published": "2026-11-25",
+   "deadline": "2026-12-24",
+   "category": "電気通信",
+   "office": "総務省総合通信基盤局電波部電波環境課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "145210793",
+   "title": "経済構造実態調査規則の一部を改正する省令案に関する意見募集",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=145210793&Mode=0",
+   "published": "2026-11-25",
+   "deadline": "2026-12-24",
+   "category": "統計",
+   "office": "総務省統計局統計調査部経済統計課",
+   "status": "意見募集中"
+  },
+  {
+   "id": "620340106",
+   "title": "次世代電力・ガス事業基盤構築小委員会 電力安定供給ワーキンググループ 長期脱炭素電源オークションの第４回募集に向けて（改定案） 長期脱炭素電源オークションガイドライン（改定案）についての意見公募",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=620340106&Mode=0",
+   "published": "2026-11-24",
+   "deadline": "2026-12-23",
+   "category": "工業",
+   "office": "資源エネルギー庁　電力・ガス事業部　電力基盤整備課",
+   "status": "意見募集中"
+  },
   {
    "id": "860202608",
    "title": "危険物の規制に関する政令及び消防法施行令の一部を改正する政令（案）に対する意見公募について",
@@ -829,6 +869,60 @@
    "status": "結果待ち"
   },
   {
+   "id": "155260416",
+   "title": "都市再生特別措置法等の一部を改正する法律の施行に伴う国土交通省関係省令の整備等に関する省令案",
+   "result_title": "都市再生特別措置法等の一部を改正する法律の施行に伴う国土交通省関係省令の整備等に関する省令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260416&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-16",
+   "deadline": "2026-11-14",
+   "category": "都市計画",
+   "office": "国土交通省都市局都市計画課",
+   "opinions": 7,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260415",
+   "title": "「地域における歴史的風致の維持及び向上に関する法律運用指針の一部改正（案）」",
+   "result_title": "「地域における歴史的風致の維持及び向上に関する法律運用指針の一部改正（案）」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260415&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-16",
+   "deadline": "2026-11-14",
+   "category": "都市計画",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 34,
+   "status": "結果公示"
+  },
+  {
+   "id": "155260414",
+   "title": "「景観法運用指針の一部改正（案）」",
+   "result_title": "「景観法運用指針の一部改正（案）」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260414&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-16",
+   "deadline": "2026-11-14",
+   "category": "都市計画",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 25,
+   "status": "結果公示"
+  },
+  {
+   "id": "155260413",
+   "title": "「関係行政機関が所管する法令に係る情報通信技術を活用した行政の推進等に関する法律施行規則の一部を改正する命令案」",
+   "result_title": "「関係行政機関が所管する法令に係る情報通信技術を活用した行政の推進等に関する法律施行規則の一部を改正する命令案」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260413&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-13",
+   "deadline": "2026-11-11",
+   "category": "IT社会化推進",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 9,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
    "id": "620340014",
    "title": "「電気事業法の一部を改正する法律の施行に伴う関係政令の整備に関する政令（案）」等に対する意見公募手続の結果について",
    "result_title": "「電気事業法の一部を改正する法律の施行に伴う関係政令の整備に関する政令（案）」等に対する意見公募手続の結果について",
@@ -843,6 +937,48 @@
    "status": "結果公示"
   },
   {
+   "id": "155260724",
+   "title": "都市計画区域外の景観重要樹木及び景観協定に関する省令及び畜舎等の建築等及び利用の特例に関する法律施行規則の一部を改正する省令案",
+   "result_title": "都市計画区域外の景観重要樹木及び景観協定に関する省令及び畜舎等の建築等及び利用の特例に関する法律施行規則の一部を改正する省令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260724&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-09",
+   "deadline": "2026-11-08",
+   "category": "建築、住宅",
+   "office": "国土交通省住宅局建築指導課",
+   "opinions": 17,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260412",
+   "title": "「文部科学省・農林水産省・国土交通省関係地域における歴史的風致の維持及び向上に関する法律施行規則の一部を改正する省令案」",
+   "result_title": "「文部科学省・農林水産省・国土交通省関係地域における歴史的風致の維持及び向上に関する法律施行規則の一部を改正する省令案」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260412&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-09",
+   "deadline": "2026-11-08",
+   "category": "都市計画",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 19,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260411",
+   "title": "「景観行政団体及び景観計画に関する省令の一部を改正する省令案」",
+   "result_title": "「景観行政団体及び景観計画に関する省令の一部を改正する省令案」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260411&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-09",
+   "deadline": "2026-11-08",
+   "category": "都市計画",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 40,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
    "id": "155260410",
    "title": "都市再生特別措置法等の一部を改正する法律の施行に伴う関係政令の整備に関する政令案",
    "result_title": "都市再生特別措置法等の一部を改正する法律の施行に伴う関係政令の整備に関する政令案に関する意見募集の結果について",
@@ -854,6 +990,20 @@
    "office": "国土交通省都市局都市計画課",
    "opinions": 17,
    "promulgated": "2026-11-20",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260407",
+   "title": "「地方税法施行規則附則第６条第30項に基づく国土交通大臣の証明について」及び「申請書兼証明書」の案",
+   "result_title": "「地方税法施行規則附則第６条第30項に基づく国土交通大臣の証明について」及び「申請書兼証明書」の案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260407&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-10-01",
+   "deadline": "2026-10-30",
+   "category": "都市計画",
+   "office": "国土交通省　都市局　まちづくり推進課",
+   "opinions": 4,
+   "promulgated": "2026-11-24",
    "status": "結果公示"
   },
   {
@@ -881,6 +1031,34 @@
    "office": "総務省総合通信基盤局電気通信事業部事業政策課",
    "opinions": 16,
    "promulgated": "2026-11-18",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260409",
+   "title": "「地域における歴史的風致の維持及び向上に関する基本的な方針の一部改正（案）について」",
+   "result_title": "「地域における歴史的風致の維持及び向上に関する基本的な方針の一部改正（案）について」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260409&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-09-29",
+   "deadline": "2026-10-28",
+   "category": "都市計画",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 21,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260408",
+   "title": "「景観再生事業指針（案）の制定について」",
+   "result_title": "「景観再生事業指針（案）の制定について」に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260408&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-09-28",
+   "deadline": "2026-10-27",
+   "category": "都市計画",
+   "office": "国土交通省都市局公園緑地・景観課",
+   "opinions": 35,
+   "promulgated": "2026-11-24",
    "status": "結果公示"
   },
   {
@@ -1383,6 +1561,20 @@
    "status": "結果公示"
   },
   {
+   "id": "495260154",
+   "title": "労働安全衛生規則の一部を改正する省令案",
+   "result_title": "労働安全衛生規則の一部を改正する省令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=495260154&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "2026-08-24",
+   "deadline": "2026-09-23",
+   "category": "労働",
+   "office": "厚生労働省労働基準局安全衛生部化学物質対策課",
+   "opinions": 74,
+   "promulgated": "2026-11-24",
+   "status": "結果公示"
+  },
+  {
    "id": "595320008",
    "title": "「地域における地域経済牽引事業の促進に関する基本的な方針の一部を改正する告示（案）」等",
    "result_title": "「地域における地域経済牽引事業の促進に関する基本的な方針の一部を改正する告示（案）」等に対する意見募集の結果について",
@@ -1475,6 +1667,20 @@
    "office": "金融庁",
    "opinions": 9,
    "promulgated": "2026-11-06",
+   "status": "結果公示"
+  },
+  {
+   "id": "155260002",
+   "title": "国土交通省の所管する法令に係る情報通信技術を利用する方法による国の歳入等の納付に関する法律施行規則の一部を改正する省令案",
+   "result_title": "国土交通省の所管する法令に係る情報通信技術を利用する方法による国の歳入等の納付に関する法律施行規則の一部を改正する省令案に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=155260002&Mode=1",
+   "result_date": "2026-11-25",
+   "published": "2026-07-01",
+   "deadline": "2026-08-01",
+   "category": "IT社会化推進",
+   "office": "国土交通省大臣官房会計課",
+   "opinions": 1,
+   "promulgated": "2026-11-25",
    "status": "結果公示"
   },
   {
@@ -1768,6 +1974,20 @@
    "office": "個人情報保護委員会事務局（",
    "opinions": 0,
    "promulgated": "2026-11-02",
+   "status": "結果公示"
+  },
+  {
+   "id": "225026071",
+   "title": "「金融商品取引業者等向けの総合的な監督指針」の改正及び公表について",
+   "result_title": "「金融商品取引業者等向けの総合的な監督指針」の改正及び公表について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=225026071&Mode=1",
+   "result_date": "2026-11-24",
+   "published": "",
+   "deadline": "",
+   "category": "金融、保険",
+   "office": "金融庁",
+   "opinions": 0,
+   "promulgated": "2026-11-24",
    "status": "結果公示"
   },
   {
