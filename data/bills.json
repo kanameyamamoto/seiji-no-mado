@@ -2,13 +2,13 @@
  "criteria": "第220回国会（2026年1月召集）から後の国会に出された法律案のうち、審議中・継続審査・審議未了・撤回のものを、すべて載せる。成立したもの・否決されたものは「国会で決まったこと」に載せる。",
  "status_rule": "結果は衆議院「議案の一覧」の審議状況と「議案審議経過情報」から機械的に決める：衆議院または参議院の審議結果が「否決」→「衆議院で否決」「参議院で否決」、「閉会中審査」→「継続審査」（次の国会に持ち越し）、「未了」→「審議未了」（採決されないまま国会が終わった）、「撤回」→「撤回」、国会が開いている間のそのほかの状況→「審議中」。",
  "order": "国会（提出された回）の新しい順。同じ国会の中は 閣法→衆法→参法、提出番号の小さい順。",
- "count": 59,
+ "count": 62,
  "count_by_result": {
-  "審議中": 35,
+  "審議中": 38,
   "撤回": 4,
   "審議未了": 20
  },
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "source": {
   "label": "衆議院 議案の一覧・議案審議経過情報",
   "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm"
@@ -423,46 +423,6 @@
    ]
   },
   {
-   "id": "222-kakuho-21",
-   "session": "第222回国会",
-   "category": "閣法",
-   "number": "閣法第21号",
-   "title": "商法及び国際海上物品運送法の一部を改正する法律案",
-   "status": "参議院で審議中",
-   "submitter": "内閣",
-   "groups": [],
-   "submitted": "2026-10-23",
-   "shugiin": {
-    "committee": "法務",
-    "result": "可決",
-    "date": "2026-11-10"
-   },
-   "sangiin": {},
-   "votes": {
-    "for": [
-     "自由民主党・無所属の会",
-     "中道",
-     "日本維新の会",
-     "国民民主党・無所属クラブ",
-     "参政党",
-     "チームみらい",
-     "日本共産党",
-     "志士の会"
-    ],
-    "against": []
-   },
-   "source": {
-    "label": "衆議院 議案審議経過情報（第222回国会 閣法第21号）",
-    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3706.htm"
-   },
-   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22209021.htm",
-   "_keika_ok": true,
-   "result": "審議中",
-   "listed": [
-    "第222回国会"
-   ]
-  },
-  {
    "id": "222-shuho-3",
    "session": "第222回国会",
    "category": "衆法",
@@ -484,6 +444,54 @@
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE378A.htm"
    },
    "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-shuho-4",
+   "session": "第222回国会",
+   "category": "衆法",
+   "number": "衆法第4号",
+   "title": "フュージョンエネルギーの研究開発及び利用の推進に関する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "経済産業委員長",
+   "groups": [],
+   "submitted": "2026-11-25",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 衆法第4号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE3866.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22205004.htm",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-shuho-5",
+   "session": "第222回国会",
+   "category": "衆法",
+   "number": "衆法第5号",
+   "title": "官公庁施設の建設等に関する法律の一部を改正する法律案",
+   "status": "衆議院で審議中",
+   "submitter": "衆議院議員",
+   "proposer": "国土交通委員長",
+   "groups": [],
+   "submitted": "2026-11-25",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 衆法第5号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE386A.htm"
+   },
+   "outline": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/honbun/youkou/g22205005.htm",
    "_keika_ok": true,
    "result": "審議中",
    "listed": [
@@ -602,6 +610,54 @@
    "source": {
     "label": "衆議院 議案審議経過情報（第222回国会 参法第5号）",
     "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE37BA.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-sanho-6",
+   "session": "第222回国会",
+   "category": "参法",
+   "number": "参法第6号",
+   "title": "外国人土地法の定める外国人及び外国法人の土地に関する権利の制限を実施するために講ずべき措置に関する法律案",
+   "status": "参議院で審議中",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外三名",
+   "groups": [],
+   "submitted": "2026-11-20",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 参法第6号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE37D2.htm"
+   },
+   "outline": "",
+   "_keika_ok": true,
+   "result": "審議中",
+   "listed": [
+    "第222回国会"
+   ]
+  },
+  {
+   "id": "222-sanho-7",
+   "session": "第222回国会",
+   "category": "参法",
+   "number": "参法第7号",
+   "title": "公職選挙法の一部を改正する法律案",
+   "status": "参議院で審議中",
+   "submitter": "参議院議員",
+   "proposer": "神谷宗幣君外三名",
+   "groups": [],
+   "submitted": "2026-11-20",
+   "shugiin": {},
+   "sangiin": {},
+   "source": {
+    "label": "衆議院 議案審議経過情報（第222回国会 参法第7号）",
+    "url": "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/keika/1DE37EA.htm"
    },
    "outline": "",
    "_keika_ok": true,

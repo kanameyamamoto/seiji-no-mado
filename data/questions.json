@@ -12,15 +12,15 @@
   }
  ],
  "count": {
-  "衆議院": 2349,
+  "衆議院": 2350,
   "参議院": 1887
  },
  "count_by_status": {
   "答弁あり": 4140,
-  "答弁待ち": 96,
+  "答弁待ち": 97,
   "撤回": 0
  },
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "items": [
   {
    "id": "shu-222-1",
@@ -434,6 +434,7 @@
    "forwarded": "2026-11-18",
    "answered": "2026-11-24",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222023.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222023.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222023.htm"
   },
   {
@@ -451,6 +452,7 @@
    "forwarded": "2026-11-18",
    "answered": "2026-11-24",
    "question_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a222024.htm",
+   "answer_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b222024.htm",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222024.htm"
   },
   {
@@ -499,6 +501,21 @@
    "submitted": "2026-11-20",
    "question_url": "",
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222027.htm"
+  },
+  {
+   "id": "shu-222-28",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 28,
+   "title": "妊娠中の休養に係る所得保障及びこども誰でも通園制度の拡充に関する質問主意書",
+   "submitter": "小川淳也",
+   "member": "shu-36a76e13",
+   "kaiha": "中道",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-25",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222028.htm"
   },
   {
    "id": "san-222-1",
@@ -817,6 +834,7 @@
    "forwarded": "2026-11-11",
    "answered": "2026-11-17",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222020.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222020.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222020.htm"
   },
   {
@@ -832,6 +850,7 @@
    "forwarded": "2026-11-11",
    "answered": "2026-11-17",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222021.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222021.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222021.htm"
   },
   {
@@ -847,6 +866,7 @@
    "forwarded": "2026-11-11",
    "answered": "2026-11-17",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222022.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222022.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222022.htm"
   },
   {
@@ -862,6 +882,7 @@
    "forwarded": "2026-11-11",
    "answered": "2026-11-17",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222023.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222023.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222023.htm"
   },
   {
@@ -877,6 +898,7 @@
    "forwarded": "2026-11-11",
    "answered": "2026-11-17",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222024.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222024.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222024.htm"
   },
   {
@@ -892,6 +914,7 @@
    "forwarded": "2026-11-11",
    "answered": "2026-11-17",
    "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222025.htm",
+   "answer_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/touh/t222025.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222025.htm"
   },
   {
@@ -1021,6 +1044,7 @@
    "member": "san-7010024",
    "status": "答弁待ち",
    "submitted": "2026-11-19",
+   "forwarded": "2026-11-25",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222034.htm"
   },
@@ -1034,6 +1058,7 @@
    "member": "san-7010024",
    "status": "答弁待ち",
    "submitted": "2026-11-19",
+   "forwarded": "2026-11-25",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222035.htm"
   },
