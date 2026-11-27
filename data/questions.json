@@ -12,15 +12,15 @@
   }
  ],
  "count": {
-  "衆議院": 2350,
-  "参議院": 1887
+  "衆議院": 2351,
+  "参議院": 1890
  },
  "count_by_status": {
   "答弁あり": 4140,
-  "答弁待ち": 97,
+  "答弁待ち": 101,
   "撤回": 0
  },
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "items": [
   {
    "id": "shu-222-1",
@@ -518,6 +518,21 @@
    "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222028.htm"
   },
   {
+   "id": "shu-222-29",
+   "house": "衆議院",
+   "session": "第222回国会",
+   "number": 29,
+   "title": "原子力発電所の法的性格に関する質問主意書",
+   "submitter": "河村たかし",
+   "member": "shu-766114b0",
+   "kaiha": "無所属",
+   "status": "答弁待ち",
+   "status_text": "質問受理",
+   "submitted": "2026-11-26",
+   "question_url": "",
+   "detail_url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/222029.htm"
+  },
+  {
    "id": "san-222-1",
    "house": "参議院",
    "session": "第222回国会",
@@ -974,7 +989,7 @@
    "submitted": "2026-11-12",
    "forwarded": "2026-11-18",
    "answered": "2026-11-24",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222029.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222029.htm"
   },
   {
@@ -989,7 +1004,7 @@
    "submitted": "2026-11-12",
    "forwarded": "2026-11-18",
    "answered": "2026-11-24",
-   "question_url": "",
+   "question_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/syuh/s222030.htm",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222030.htm"
   },
   {
@@ -1087,6 +1102,45 @@
    "submitted": "2026-11-20",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222037.htm"
+  },
+  {
+   "id": "san-222-38",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 38,
+   "title": "米軍の航空機騒音規制措置の履行状況及び伊江島における夜間飛行と騒音対策に関する質問主意書",
+   "submitter": "高良 沙哉",
+   "member": "san-7025027",
+   "status": "答弁待ち",
+   "submitted": "2026-11-26",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222038.htm"
+  },
+  {
+   "id": "san-222-39",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 39,
+   "title": "「キーン・ソード二七」における伊江島での演習の実施内容等に関する質問主意書",
+   "submitter": "高良 沙哉",
+   "member": "san-7025027",
+   "status": "答弁待ち",
+   "submitted": "2026-11-26",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222039.htm"
+  },
+  {
+   "id": "san-222-40",
+   "house": "参議院",
+   "session": "第222回国会",
+   "number": 40,
+   "title": "日米地位協定に基づく米軍人等の入国管理及び基地外居住者の把握に関する質問主意書",
+   "submitter": "高良 沙哉",
+   "member": "san-7025027",
+   "status": "答弁待ち",
+   "submitted": "2026-11-26",
+   "question_url": "",
+   "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222040.htm"
   },
   {
    "id": "shu-221-1",
