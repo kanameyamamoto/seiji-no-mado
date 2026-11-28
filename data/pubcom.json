@@ -12,12 +12,32 @@
   }
  ],
  "count_by_status": {
-  "意見募集中": 90,
-  "結果待ち": 3,
-  "結果公示": 93
+  "意見募集中": 92,
+  "結果待ち": 2,
+  "結果公示": 95
  },
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "items": [
+  {
+   "id": "145210803",
+   "title": "無線局の免許等関連手続の電子申請義務化に係る制度改正案に対する意見募集（電波法施行規則の一部を改正する省令案）",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=145210803&Mode=0",
+   "published": "2026-11-28",
+   "deadline": "2026-12-28",
+   "category": "電気通信",
+   "office": "総務省総合通信基盤局",
+   "status": "意見募集中"
+  },
+  {
+   "id": "225026072",
+   "title": "「金融庁関係国家戦略特別区域法第二十六条に規定する政令等規制事業に係る内閣府令の特例に関する措置を定める内閣府令の一部を改正する内閣府令（案）」に対するパブリックコメントの実施について",
+   "url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&id=225026072&Mode=0",
+   "published": "2026-11-27",
+   "deadline": "2026-12-27",
+   "category": "金融、保険",
+   "office": "",
+   "status": "意見募集中"
+  },
   {
    "id": "155261234",
    "title": "無人航空機の登録講習機関及び登録更新講習機関に関する省令の一部改正（案）に関する意見募集について",
@@ -716,7 +736,12 @@
    "deadline": "2026-11-18",
    "category": "社会福祉",
    "office": "こども家庭庁支援局参事官（こども性暴力防止担当）付",
-   "status": "結果待ち"
+   "status": "結果公示",
+   "result_title": "学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律施行規則の一部を改正する内閣府令（案）に関する意見募集の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=141000247&Mode=1",
+   "result_date": "2026-11-27",
+   "opinions": 24,
+   "promulgated": "2026-11-27"
   },
   {
    "id": "860202606",
@@ -1138,6 +1163,20 @@
    "office": "総務省総合通信基盤局電気通信事業部事業政策課",
    "opinions": 16,
    "promulgated": "2026-11-18",
+   "status": "結果公示"
+  },
+  {
+   "id": "060261001",
+   "title": "採用試験の対象官職及び種類並びに採用試験により確保すべき人材に関する政令の一部を改正する政令案の意見公募の結果について",
+   "result_title": "採用試験の対象官職及び種類並びに採用試験により確保すべき人材に関する政令の一部を改正する政令案の意見公募の結果について",
+   "result_url": "https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1040&id=060261001&Mode=1",
+   "result_date": "2026-11-27",
+   "published": "2026-10-01",
+   "deadline": "2026-10-31",
+   "category": "国家公務員",
+   "office": "内閣官房内閣人事局人材確保担当(",
+   "opinions": 5,
+   "promulgated": "2026-11-27",
    "status": "結果公示"
   },
   {

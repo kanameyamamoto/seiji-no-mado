@@ -16,11 +16,11 @@
   "参議院": 1890
  },
  "count_by_status": {
-  "答弁あり": 4140,
-  "答弁待ち": 101,
+  "答弁あり": 4143,
+  "答弁待ち": 98,
   "撤回": 0
  },
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "items": [
   {
    "id": "shu-222-1",
@@ -1015,9 +1015,10 @@
    "title": "ミャンマーに係る金融活動作業部会（ＦＡＴＦ）の「行動要請対象の高リスク国・地域」指定をめぐる政府の対応に関する質問主意書",
    "submitter": "石橋 通宏",
    "member": "san-7010007",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-16",
    "forwarded": "2026-11-24",
+   "answered": "2026-11-27",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222031.htm"
   },
@@ -1029,9 +1030,10 @@
    "title": "帰化及び永住許可等の審査の厳格化及び在留許可手数料の引上げによる外国人の定着及び地域社会への影響に関する質問主意書",
    "submitter": "ながえ 孝子",
    "member": "san-7019031",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-16",
    "forwarded": "2026-11-24",
+   "answered": "2026-11-27",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222032.htm"
   },
@@ -1043,9 +1045,10 @@
    "title": "学校徴収金の管理及び校長等による私費での補填に関する質問主意書",
    "submitter": "石垣 のりこ",
    "member": "san-7019003",
-   "status": "答弁待ち",
+   "status": "答弁あり",
    "submitted": "2026-11-17",
    "forwarded": "2026-11-24",
+   "answered": "2026-11-27",
    "question_url": "",
    "detail_url": "https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/222/meisai/m222033.htm"
   },
